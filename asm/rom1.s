@@ -135,7 +135,7 @@ sub_08000434: @ 0x08000434
 
 	.align 2, 0
 
-	bl 0x0803A320
+	bl sub_0803A320
 	pop {pc}
 
 	.align 2, 0
@@ -321,7 +321,7 @@ sub_08000580: @ 0x08000580
 	ldrh r2, [r1, #58]
 	cmp r2, #0
 	bne _0800059E
-	bl 0x08000358
+	bl sub_08000358
 	cmp r0, #0
 	beq _0800059E
 	add r5, r5, #1
@@ -334,7 +334,7 @@ _0800059E:
 	cmp r2, #0
 	bne _080005B8
 	add r0, r4, #0
-	bl 0x08000358
+	bl sub_08000358
 	cmp r0, #0
 	beq _080005B8
 	add r5, r5, #2
@@ -347,7 +347,7 @@ _080005B8:
 	cmp r2, #0
 	bne _080005D2
 	add r0, r4, #0
-	bl 0x08000358
+	bl sub_08000358
 	cmp r0, #0
 	beq _080005D2
 	add r5, r5, #4
@@ -360,7 +360,7 @@ _080005D2:
 	cmp r2, #0
 	bne _080005EC
 	add r0, r4, #0
-	bl 0x08000358
+	bl sub_08000358
 	cmp r0, #0
 	beq _080005EC
 	add r5, r5, #8

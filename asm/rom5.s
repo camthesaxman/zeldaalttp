@@ -21,22 +21,22 @@ sub_0812D338: @ 0x0812D338
 	ldr r2, _0812D3EC  @ =0x01000080
 	mov r0, sp
 	add r1, r5, #0
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812D3F0  @ =0x03002230
 	ldr r1, _0812D3F4  @ =0x00000CAA
 	add r0, r0, r1
 	strb r4, [r0]
-	bl 0x08130384
+	bl sub_08130384
 	ldr r0, _0812D3F8  @ =0x02000800
 	add r1, r5, #0
 	mov r2, #32
-	bl 0x08135B7C
+	bl CpuSet
 	ldr r5, _0812D3FC  @ =0x083B556C
 	ldr r6, _0812D400  @ =0x02000840
 	mov r4, #127
 _0812D368:
 	ldrh r0, [r5]
-	bl 0x08133468
+	bl sub_08133468
 	strh r0, [r6]
 	add r5, r5, #2
 	add r6, r6, #2
@@ -48,7 +48,7 @@ _0812D368:
 	mov r4, #15
 _0812D380:
 	ldrh r0, [r5]
-	bl 0x08133468
+	bl sub_08133468
 	strh r0, [r6]
 	add r5, r5, #2
 	add r6, r6, #2
@@ -60,7 +60,7 @@ _0812D380:
 	mov r4, #111
 _0812D398:
 	ldrh r0, [r5]
-	bl 0x08133468
+	bl sub_08133468
 	strh r0, [r6]
 	add r5, r5, #2
 	add r6, r6, #2
@@ -146,15 +146,15 @@ sub_0812D430: @ 0x0812D430
 	add r1, r4, r0
 	mov r0, #128
 	strh r0, [r1]
-	bl 0x08130D9C
-	bl 0x0812EED8
+	bl sub_08130D9C
+	bl sub_0812EED8
 	ldr r0, _0812D4A4  @ =0x083B37B4
 	mov r1, #192
 	lsl r1, r1, #19
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	ldr r0, _0812D4A8  @ =0x083B47FC
 	ldr r1, _0812D4AC  @ =0x06003400
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	ldr r1, _0812D4B0  @ =0x0000098E
 	add r0, r4, r1
 	ldrb r0, [r0]
@@ -164,7 +164,7 @@ sub_0812D430: @ 0x0812D430
 	beq _0812D470
 	ldr r0, _0812D4B4  @ =0x083C23D4
 	ldr r1, _0812D4B8  @ =0x06002000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 _0812D470:
 	mov r1, sp
 	mov r0, #127
@@ -172,8 +172,8 @@ _0812D470:
 	ldr r1, _0812D4BC  @ =0x06008000
 	ldr r2, _0812D4C0  @ =0x01001000
 	mov r0, sp
-	bl 0x08135B7C
-	bl 0x0812D338
+	bl CpuSet
+	bl sub_0812D338
 	ldr r0, _0812D4C4  @ =0x000009E8
 	add r1, r4, r0
 	mov r0, #0
@@ -216,7 +216,7 @@ _0812D4C8:
 	THUMB_FUNC_START sub_0812D4CC
 sub_0812D4CC: @ 0x0812D4CC
 	push {r4-r6,lr}
-	bl 0x081295F4
+	bl sub_081295F4
 	ldr r4, _0812D5A8  @ =0x03002230
 	ldr r0, _0812D5AC  @ =0x0000050C
 	add r1, r4, r0
@@ -267,13 +267,13 @@ sub_0812D4CC: @ 0x0812D4CC
 	strh r2, [r0]
 	ldr r0, _0812D5E0  @ =0x083B4920
 	ldr r1, _0812D5E4  @ =0x06011000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	ldr r0, _0812D5E8  @ =0x083B53A0
 	ldr r1, _0812D5EC  @ =0x0600C000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	ldr r0, _0812D5F0  @ =0x083B5144
 	ldr r1, _0812D5F4  @ =0x0600A000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	ldr r2, _0812D5F8  @ =0x0000098E
 	add r0, r4, r2
 	ldrb r0, [r0]
@@ -282,10 +282,10 @@ sub_0812D4CC: @ 0x0812D4CC
 	cmp r0, #0
 	beq _0812D55E
 	ldr r0, _0812D5FC  @ =0x0822B088
-	bl 0x08068E7C
+	bl sub_08068E7C
 _0812D55E:
 	mov r0, #93
-	bl 0x0812FCDC
+	bl sub_0812FCDC
 	ldr r1, _0812D600  @ =0x00000CFE
 	add r0, r4, r1
 	mov r1, #2
@@ -381,8 +381,8 @@ _0812D614:
 	THUMB_FUNC_START sub_0812D618
 sub_0812D618: @ 0x0812D618
 	push {r4-r6,lr}
-	bl 0x08130D9C
-	bl 0x081295F4
+	bl sub_08130D9C
+	bl sub_081295F4
 	ldr r4, _0812D69C  @ =0x03002230
 	mov r0, #162
 	lsl r0, r0, #3
@@ -409,9 +409,9 @@ sub_0812D618: @ 0x0812D618
 	strh r2, [r0]
 	ldr r0, _0812D6B0  @ =0x083B47FC
 	ldr r1, _0812D6B4  @ =0x06003400
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	mov r0, #93
-	bl 0x0812FCDC
+	bl sub_0812FCDC
 	ldr r2, _0812D6B8  @ =0x00000CFE
 	add r0, r4, r2
 	mov r1, #2
@@ -472,7 +472,7 @@ _0812D6C8:
 	THUMB_FUNC_START sub_0812D6CC
 sub_0812D6CC: @ 0x0812D6CC
 	push {r4,lr}
-	bl 0x08126D5C
+	bl sub_08126D5C
 	ldr r4, _0812D708  @ =0x03002230
 	ldr r1, _0812D70C  @ =0x00000996
 	add r0, r4, r1
@@ -481,7 +481,7 @@ sub_0812D6CC: @ 0x0812D6CC
 	and r0, r0, r1
 	cmp r0, #0
 	beq _0812D728
-	bl 0x08133694
+	bl sub_08133694
 	ldr r1, _0812D710  @ =0x00000CF8
 	add r0, r4, r1
 	ldrh r0, [r0]
@@ -496,7 +496,7 @@ sub_0812D6CC: @ 0x0812D6CC
 	ldrb r0, [r1]
 	add r0, r0, #1
 	strb r0, [r1]
-	bl 0x0812E47C
+	bl sub_0812E47C
 	b _0812D728
 _0812D708:
 	.4byte 0x03002230
@@ -530,8 +530,8 @@ _0812D734:
 	THUMB_FUNC_START sub_0812D738
 sub_0812D738: @ 0x0812D738
 	push {r4,lr}
-	bl 0x0812E0A0
-	bl 0x08126D5C
+	bl sub_0812E0A0
+	bl sub_08126D5C
 	ldr r4, _0812D758  @ =0x03002230
 	ldr r0, _0812D75C  @ =0x00000CF8
 	add r1, r4, r0
@@ -609,7 +609,7 @@ _0812D7AC:
 	mov r0, #6
 	strb r0, [r1]
 	ldr r0, _0812D7F4  @ =0x00000191
-	bl 0x080AF4FC
+	bl sub_080AF4FC
 	ldr r3, _0812D7F8  @ =0x000009AC
 	add r1, r4, r3
 	mov r0, #29
@@ -640,7 +640,7 @@ _0812D7FC:
 	beq _0812D844
 	mov r0, #73
 	mov r1, #0
-	bl 0x0812A324
+	bl sub_0812A324
 	ldr r2, _0812D838  @ =0x000009EC
 	add r0, r4, r2
 	mov r1, #0
@@ -708,8 +708,8 @@ _0812D888:
 	THUMB_FUNC_START sub_0812D88C
 sub_0812D88C: @ 0x0812D88C
 	push {r4,r5,lr}
-	bl 0x08126D5C
-	bl 0x0812E0A0
+	bl sub_08126D5C
+	bl sub_0812E0A0
 	ldr r4, _0812D8E4  @ =0x03002230
 	ldr r0, _0812D8E8  @ =0x000009E8
 	add r1, r4, r0
@@ -735,7 +735,7 @@ sub_0812D88C: @ 0x0812D88C
 	beq _0812D914
 	mov r0, #73
 	mov r1, #0
-	bl 0x0812A324
+	bl sub_0812A324
 	ldr r1, _0812D8F4  @ =0x000009EC
 	add r0, r4, r1
 	strb r5, [r0]
@@ -791,9 +791,9 @@ _0812D924:
 	THUMB_FUNC_START sub_0812D928
 sub_0812D928: @ 0x0812D928
 	push {r4-r6,lr}
-	bl 0x08126D5C
-	bl 0x0812E0A0
-	bl 0x08069F08
+	bl sub_08126D5C
+	bl sub_0812E0A0
+	bl sub_08069F08
 	ldr r4, _0812D974  @ =0x03002230
 	ldr r0, _0812D978  @ =0x0000099D
 	add r6, r4, r0
@@ -802,7 +802,7 @@ sub_0812D928: @ 0x0812D928
 	cmp r5, #0
 	bne _0812D96E
 	mov r0, #8
-	bl 0x0812A0A0
+	bl sub_0812A0A0
 	ldr r0, _0812D97C  @ =0x00000A36
 	add r1, r4, r0
 	mov r2, #0
@@ -844,9 +844,9 @@ _0812D98C:
 	THUMB_FUNC_START sub_0812D990
 sub_0812D990: @ 0x0812D990
 	push {r4-r6,lr}
-	bl 0x08126D5C
-	bl 0x0812E0A0
-	bl 0x08069F08
+	bl sub_08126D5C
+	bl sub_0812E0A0
+	bl sub_08069F08
 	ldr r5, _0812D9F0  @ =0x03002230
 	ldr r0, _0812D9F4  @ =0x0000099D
 	add r6, r5, r0
@@ -855,9 +855,9 @@ sub_0812D990: @ 0x0812D990
 	cmp r4, #0
 	bne _0812D9EA
 	mov r0, #8
-	bl 0x0812A0A0
-	bl 0x0806BE2C
-	bl 0x0806BDB8
+	bl sub_0812A0A0
+	bl sub_0806BE2C
+	bl sub_0806BDB8
 	ldr r1, _0812D9F8  @ =0x020023F3
 	mov r0, #1
 	strb r0, [r1]
@@ -942,7 +942,7 @@ sub_0812DA14: @ 0x0812DA14
 	strh r0, [r1]
 	mov r0, #6
 	strb r0, [r3]
-	bl 0x0812E47C
+	bl sub_0812E47C
 	ldr r3, _0812DA90  @ =0x00000514
 	add r1, r4, r3
 	ldr r0, _0812DA94  @ =0x0000F441
@@ -951,9 +951,9 @@ sub_0812DA14: @ 0x0812DA14
 	ldr r1, _0812DA9C  @ =0x02000C00
 	mov r2, #128
 	lsl r2, r2, #2
-	bl 0x08135B7C
-	bl 0x08125FA0
-	bl 0x08126C48
+	bl CpuSet
+	bl sub_08125FA0
+	bl sub_08126C48
 	b _0812DAB0
 	.byte 0x00
 	.byte 0x00
@@ -993,7 +993,7 @@ _0812DAB0:
 	lsl r0, r0, #2
 	add r0, r0, r1
 	ldr r0, [r0]
-	bl 0x08135FE8
+	bl _call_via_r0
 	ldrb r2, [r4]
 	cmp r2, #13
 	bls _0812DACC
@@ -2114,7 +2114,7 @@ _0812E2C8:
 	ldr r2, _0812E360  @ =0x00000504
 	add r1, r0, r2
 	mov r0, #103
-	bl 0x0812A324
+	bl sub_0812A324
 	b _0812E3B4
 _0812E338:
 	.4byte 0x03002230
@@ -2167,7 +2167,7 @@ _0812E364:
 	ldr r0, _0812E3F0  @ =0x02000840
 	ldr r1, _0812E3F4  @ =0x02000C40
 	mov r2, #96
-	bl 0x08135B7C
+	bl CpuSet
 	ldr r1, _0812E3F8  @ =0x0000044B
 	add r1, r1, r9
 	mov r0, #1
@@ -2176,7 +2176,7 @@ _0812E364:
 	ldr r2, _0812E400  @ =0x00000504
 	add r1, r0, r2
 	mov r0, #15
-	bl 0x0812A324
+	bl sub_0812A324
 _0812E3B4:
 	ldr r2, _0812E3FC  @ =0x03002230
 	ldr r3, _0812E404  @ =0x00000A0C
@@ -2193,7 +2193,7 @@ _0812E3C0:
 	lsl r0, r0, #2
 	add r0, r0, r1
 	ldr r0, [r0]
-	bl 0x08135FE8
+	bl _call_via_r0
 	pop {r3-r5}
 	mov r8, r3
 	mov r9, r4
@@ -2230,9 +2230,9 @@ _0812E40C:
 	THUMB_FUNC_START sub_0812E410
 sub_0812E410: @ 0x0812E410
 	push {r4,lr}
-	bl 0x08126D5C
-	bl 0x0812E0A0
-	bl 0x081295CC
+	bl sub_08126D5C
+	bl sub_0812E0A0
+	bl sub_081295CC
 	ldr r2, _0812E44C  @ =0x03002230
 	ldr r0, _0812E450  @ =0x000009AD
 	add r3, r2, r0
@@ -2306,7 +2306,7 @@ sub_0812E47C: @ 0x0812E47C
 	add r1, r4, r0
 	ldr r0, _0812E4C0  @ =0x0000FF80
 	strh r0, [r1]
-	bl 0x0812E0A0
+	bl sub_0812E0A0
 	ldr r1, _0812E4C4  @ =0x00000A3C
 	add r4, r4, r1
 	mov r0, #1
@@ -2331,8 +2331,8 @@ _0812E4C4:
 	THUMB_FUNC_START sub_0812E4C8
 sub_0812E4C8: @ 0x0812E4C8
 	push {r4,r5,lr}
-	bl 0x08126D5C
-	bl 0x0812E0A0
+	bl sub_08126D5C
+	bl sub_0812E0A0
 	ldr r5, _0812E50C  @ =0x03002230
 	ldr r0, _0812E510  @ =0x000009EC
 	add r4, r5, r0
@@ -2341,7 +2341,7 @@ sub_0812E4C8: @ 0x0812E4C8
 	and r0, r0, r1
 	cmp r0, #0
 	bne _0812E4E6
-	bl 0x08069F08
+	bl sub_08069F08
 _0812E4E6:
 	ldrb r0, [r4]
 	add r0, r0, #1
@@ -2353,9 +2353,9 @@ _0812E4E6:
 	asr r0, r0, #24
 	cmp r0, #0
 	bne _0812E504
-	bl 0x080681B0
+	bl sub_080681B0
 	mov r0, #253
-	bl 0x08135B98
+	bl SoftReset
 _0812E504:
 	pop {r4,r5}
 	pop {r0}
@@ -2421,153 +2421,153 @@ sub_0812E554: @ 0x0812E554
 	ldr r0, [r7]
 	ldr r4, _0812E6E8  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812E6EC  @ =0x02008800
 	add r0, r4, #0
 	mov r2, #56
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r5, _0812E6F0  @ =0x02032200
 	ldr r1, _0812E6F4  @ =0x020088E0
 	add r0, r5, #0
 	mov r2, #56
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812E6F8  @ =0x02032160
 	ldr r1, _0812E6FC  @ =0x020089C0
 	mov r2, #40
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812E700  @ =0x02032400
 	mov r10, r0
 	ldr r1, _0812E704  @ =0x02008A60
 	mov r2, #16
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812E708  @ =0x02032360
 	ldr r1, _0812E70C  @ =0x02008AA0
 	mov r2, #40
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812E710  @ =0x02032600
 	mov r9, r1
 	ldr r1, _0812E714  @ =0x02008B40
 	mov r0, r9
 	mov r2, #16
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812E718  @ =0x02032100
 	ldr r1, _0812E71C  @ =0x02008B80
 	mov r2, #24
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812E720  @ =0x02032300
 	ldr r1, _0812E724  @ =0x02008BE0
 	mov r2, #24
-	bl 0x08135B78
+	bl CpuFastSet
 	mov r0, #190
 	lsl r0, r0, #1
 	add r0, r0, r7
 	mov r8, r0
 	ldr r0, [r0]
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r0, _0812E728  @ =0x020324C0
 	ldr r1, _0812E72C  @ =0x02008C40
 	mov r2, #32
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812E730  @ =0x020326C0
 	ldr r1, _0812E734  @ =0x02008CC0
 	mov r2, #32
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812E738  @ =0x02032540
 	ldr r1, _0812E73C  @ =0x02008D40
 	mov r2, #24
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812E740  @ =0x02032740
 	ldr r1, _0812E744  @ =0x02008DA0
 	mov r2, #24
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812E748  @ =0x020325A0
 	ldr r1, _0812E74C  @ =0x02008E00
 	mov r2, #8
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812E750  @ =0x020327A0
 	ldr r1, _0812E754  @ =0x02008E20
 	mov r2, #8
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, [r7]
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r0, _0812E758  @ =0x02032440
 	ldr r1, _0812E75C  @ =0x02008E40
 	mov r2, #32
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812E760  @ =0x02032640
 	ldr r1, _0812E764  @ =0x02008EC0
 	mov r2, #32
-	bl 0x08135B78
+	bl CpuFastSet
 	mov r1, #192
 	lsl r1, r1, #1
 	add r6, r7, r1
 	ldr r0, [r6]
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r0, _0812E768  @ =0x02032060
 	ldr r1, _0812E76C  @ =0x02008F40
 	mov r2, #104
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812E770  @ =0x020090E0
 	mov r0, r10
 	mov r2, #8
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812E774  @ =0x02032260
 	ldr r1, _0812E778  @ =0x02009100
 	mov r2, #104
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812E77C  @ =0x020092A0
 	mov r0, r9
 	mov r2, #8
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812E780  @ =0x02032420
 	ldr r1, _0812E784  @ =0x020092C0
 	mov r2, #56
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812E788  @ =0x02032620
 	ldr r1, _0812E78C  @ =0x020093A0
 	mov r2, #56
-	bl 0x08135B78
+	bl CpuFastSet
 	mov r1, r8
 	ldr r0, [r1]
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r0, _0812E790  @ =0x020325C0
 	ldr r1, _0812E794  @ =0x02009480
 	mov r2, #16
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812E798  @ =0x020327C0
 	ldr r1, _0812E79C  @ =0x020094C0
 	mov r2, #16
-	bl 0x08135B78
+	bl CpuFastSet
 	mov r1, #168
 	lsl r1, r1, #1
 	add r0, r7, r1
 	ldr r0, [r0]
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812E7A0  @ =0x02009800
 	add r0, r4, #0
 	mov r2, #64
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812E7A4  @ =0x02009900
 	add r0, r5, #0
 	mov r2, #64
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, [r6]
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812E7A8  @ =0x0200A600
 	add r0, r4, #0
 	mov r2, #24
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812E7AC  @ =0x0200A660
 	add r0, r5, #0
 	mov r2, #24
-	bl 0x08135B78
-	bl 0x0812FDEC
+	bl CpuFastSet
+	bl sub_0812FDEC
 	pop {r3-r5}
 	mov r8, r3
 	mov r9, r4
@@ -2698,26 +2698,26 @@ sub_0812E7B0: @ 0x0812E7B0
 	ldr r0, [r0]
 	ldr r5, _0812E890  @ =0x02032000
 	add r1, r5, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812E894  @ =0x06011000
 	add r0, r5, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812E898  @ =0x02032200
 	mov r8, r0
 	ldr r1, _0812E89C  @ =0x06011400
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r7, _0812E8A0  @ =0x02032400
 	ldr r1, _0812E8A4  @ =0x06011800
 	add r0, r7, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r6, _0812E8A8  @ =0x02032600
 	ldr r1, _0812E8AC  @ =0x06011C00
 	add r0, r6, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812E8B0  @ =0x000009AC
 	add r4, r4, r1
 	ldrb r0, [r4]
@@ -2726,47 +2726,47 @@ sub_0812E7B0: @ 0x0812E7B0
 	mov r1, r9
 	ldr r0, [r1, #24]
 	add r1, r5, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812E8B4  @ =0x06010200
 	add r0, r5, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812E8B8  @ =0x06010600
 	mov r0, r8
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812E8BC  @ =0x06010A00
 	add r0, r7, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812E8C0  @ =0x06010E00
 	add r0, r6, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	mov r1, r9
 	ldr r0, [r1, #28]
 	add r1, r5, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812E8C4  @ =0x06011200
 	add r0, r5, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812E8C8  @ =0x06011600
 	mov r0, r8
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812E8CC  @ =0x06011A00
 	add r0, r7, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812E8D0  @ =0x06011E00
 	add r0, r6, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 _0812E86E:
 	ldr r0, _0812E8D4  @ =0x0823482C
 	ldr r1, _0812E8D8  @ =0x06014000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	pop {r3,r4}
 	mov r8, r3
 	mov r9, r4
@@ -2824,7 +2824,7 @@ _0812E8D8:
 	THUMB_FUNC_START sub_0812E8DC
 sub_0812E8DC: @ 0x0812E8DC
 	push {r4-r7,lr}
-	bl 0x0812E7B0
+	bl sub_0812E7B0
 	ldr r1, _0812E908  @ =0x0822B624
 	ldr r2, _0812E90C  @ =0x03002230
 	ldr r3, _0812E910  @ =0x00000C9B
@@ -2863,23 +2863,23 @@ _0812E920:
 	ldr r0, [r0]
 	ldr r4, _0812EAA0  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812EAA4  @ =0x06012000
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812EAA8  @ =0x02032200
 	ldr r1, _0812EAAC  @ =0x06012400
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812EAB0  @ =0x02032400
 	ldr r1, _0812EAB4  @ =0x06012800
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812EAB8  @ =0x02032600
 	ldr r1, _0812EABC  @ =0x06012C00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 _0812E956:
 	ldr r6, _0812EAC0  @ =0x0822B624
 	ldr r7, _0812EAC4  @ =0x03002230
@@ -2898,23 +2898,23 @@ _0812E956:
 	ldr r0, [r0]
 	ldr r4, _0812EAA0  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812EACC  @ =0x06012200
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812EAA8  @ =0x02032200
 	ldr r1, _0812EAD0  @ =0x06012600
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812EAB0  @ =0x02032400
 	ldr r1, _0812EAD4  @ =0x06012A00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812EAB8  @ =0x02032600
 	ldr r1, _0812EAD8  @ =0x06012E00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 _0812E9A4:
 	ldrb r0, [r5]
 	lsl r0, r0, #2
@@ -2929,23 +2929,23 @@ _0812E9A4:
 	ldr r0, [r0]
 	ldr r4, _0812EAA0  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812EADC  @ =0x06013000
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812EAA8  @ =0x02032200
 	ldr r1, _0812EAE0  @ =0x06013400
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812EAB0  @ =0x02032400
 	ldr r1, _0812EAE4  @ =0x06013800
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812EAB8  @ =0x02032600
 	ldr r1, _0812EAE8  @ =0x06013C00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 _0812E9EA:
 	ldrb r0, [r5]
 	lsl r0, r0, #2
@@ -2960,23 +2960,23 @@ _0812E9EA:
 	ldr r0, [r0]
 	ldr r4, _0812EAA0  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812EAEC  @ =0x06013200
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812EAA8  @ =0x02032200
 	ldr r1, _0812EAF0  @ =0x06013600
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812EAB0  @ =0x02032400
 	ldr r1, _0812EAF4  @ =0x06013A00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812EAB8  @ =0x02032600
 	ldr r1, _0812EAF8  @ =0x06013E00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 _0812EA30:
 	ldr r5, _0812EAFC  @ =0x0822B150
 	ldr r6, _0812EB00  @ =0x0822B4FC
@@ -2991,7 +2991,7 @@ _0812EA30:
 	ldr r0, [r0]
 	mov r1, #192
 	lsl r1, r1, #19
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	ldrb r0, [r4]
 	lsl r0, r0, #3
 	add r1, r6, #1
@@ -3001,7 +3001,7 @@ _0812EA30:
 	add r0, r0, r5
 	ldr r0, [r0]
 	ldr r1, _0812EB08  @ =0x06000800
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	ldrb r0, [r4]
 	lsl r0, r0, #3
 	add r1, r6, #2
@@ -3011,7 +3011,7 @@ _0812EA30:
 	add r0, r0, r5
 	ldr r0, [r0]
 	ldr r1, _0812EB0C  @ =0x06001000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	ldr r1, _0812EB10  @ =0x0822B864
 	ldr r2, _0812EB14  @ =0x00000C9A
 	add r0, r7, r2
@@ -3025,7 +3025,7 @@ _0812EA30:
 	add r0, r0, r5
 	ldr r0, [r0]
 	ldr r1, _0812EB18  @ =0x06001800
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	b _0812EB32
 	.byte 0x00
 	.byte 0x00
@@ -3103,7 +3103,7 @@ _0812EB1C:
 	add r0, r0, r5
 	ldr r0, [r0]
 	ldr r1, _0812EB60  @ =0x06001800
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 _0812EB32:
 	ldr r1, _0812EB64  @ =0x0822B864
 	ldr r3, _0812EB68  @ =0x03002230
@@ -3156,7 +3156,7 @@ _0812EB78:
 	ldr r0, [r0]
 _0812EB92:
 	ldr r1, _0812EBAC  @ =0x06002000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	b _0812EBCE
 	.byte 0x00
 	.byte 0x00
@@ -3184,7 +3184,7 @@ _0812EBB0:
 	add r0, r0, r2
 	ldr r0, [r0]
 	ldr r1, _0812EC04  @ =0x06002000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 _0812EBCE:
 	ldr r1, _0812EC08  @ =0x0822B864
 	ldr r3, _0812EC0C  @ =0x03002230
@@ -3203,7 +3203,7 @@ _0812EBCE:
 	add r1, r1, r0
 	ldr r0, [r1]
 	ldr r1, _0812EC14  @ =0x06002800
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	b _0812EC36
 	.byte 0x00
 	.byte 0x00
@@ -3237,7 +3237,7 @@ _0812EC18:
 	add r0, r0, r2
 	ldr r0, [r0]
 	ldr r1, _0812EC6C  @ =0x06002800
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 _0812EC36:
 	ldr r1, _0812EC70  @ =0x0822B864
 	ldr r3, _0812EC74  @ =0x03002230
@@ -3256,7 +3256,7 @@ _0812EC36:
 	add r1, r1, r0
 	ldr r0, [r1]
 	ldr r1, _0812EC7C  @ =0x06003000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	b _0812EC9E
 	.byte 0x00
 	.byte 0x00
@@ -3290,7 +3290,7 @@ _0812EC80:
 	add r0, r0, r2
 	ldr r0, [r0]
 	ldr r1, _0812ECD0  @ =0x06003000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 _0812EC9E:
 	ldr r2, _0812ECC4  @ =0x0822B150
 	ldr r1, _0812ECC8  @ =0x0822B4FC
@@ -3306,7 +3306,7 @@ _0812EC9E:
 	add r0, r0, r2
 	ldr r0, [r0]
 	ldr r1, _0812ECD8  @ =0x06003800
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	pop {r4-r7}
 	pop {r0}
 	bx r0
@@ -3341,27 +3341,27 @@ sub_0812ECDC: @ 0x0812ECDC
 	ldr r0, [r0]
 	ldr r4, _0812EE64  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812EE68  @ =0x06014000
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r7, _0812EE6C  @ =0x02032200
 	ldr r1, _0812EE70  @ =0x06014400
 	add r0, r7, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812EE74  @ =0x02032400
 	mov r10, r0
 	ldr r1, _0812EE78  @ =0x06014800
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812EE7C  @ =0x02032600
 	mov r9, r1
 	ldr r1, _0812EE80  @ =0x06014C00
 	mov r0, r9
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812EE84  @ =0x0822B324
 	mov r8, r0
 	ldr r6, _0812EE88  @ =0x0822B624
@@ -3376,23 +3376,23 @@ sub_0812ECDC: @ 0x0812ECDC
 	add r0, r0, r8
 	ldr r0, [r0]
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812EE94  @ =0x06014200
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812EE98  @ =0x06014600
 	add r0, r7, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812EE9C  @ =0x06014A00
 	mov r0, r10
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812EEA0  @ =0x06014E00
 	mov r0, r9
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldrb r0, [r5]
 	lsl r0, r0, #2
 	ldr r1, _0812EEA4  @ =0x0822B626
@@ -3402,23 +3402,23 @@ sub_0812ECDC: @ 0x0812ECDC
 	add r0, r0, r8
 	ldr r0, [r0]
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812EEA8  @ =0x06015000
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812EEAC  @ =0x06015400
 	add r0, r7, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812EEB0  @ =0x06015800
 	mov r0, r10
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812EEB4  @ =0x06015C00
 	mov r0, r9
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldrb r0, [r5]
 	lsl r0, r0, #2
 	add r6, r6, #3
@@ -3428,23 +3428,23 @@ sub_0812ECDC: @ 0x0812ECDC
 	add r0, r0, r8
 	ldr r0, [r0]
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812EEB8  @ =0x06015200
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812EEBC  @ =0x06015600
 	add r0, r7, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812EEC0  @ =0x06015A00
 	mov r0, r10
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812EEC4  @ =0x06015E00
 	mov r0, r9
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812EE5C  @ =0x03002BBE
 	mov r0, #0
 	ldrsb r0, [r1, r0]
@@ -3453,7 +3453,7 @@ sub_0812ECDC: @ 0x0812ECDC
 	add r0, r0, r1
 	ldr r0, [r0]
 	ldr r1, _0812EEC8  @ =0x06008000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	ldrb r0, [r5]
 	lsl r0, r0, #2
 	ldr r1, _0812EE90  @ =0x0822B625
@@ -3463,7 +3463,7 @@ sub_0812ECDC: @ 0x0812ECDC
 	add r0, r0, r8
 	ldr r0, [r0]
 	ldr r1, _0812EECC  @ =0x06008800
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	ldrb r0, [r5]
 	lsl r0, r0, #2
 	ldr r1, _0812EEA4  @ =0x0822B626
@@ -3473,7 +3473,7 @@ sub_0812ECDC: @ 0x0812ECDC
 	add r0, r0, r8
 	ldr r0, [r0]
 	ldr r1, _0812EED0  @ =0x06009000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	ldrb r0, [r5]
 	lsl r0, r0, #2
 	add r0, r0, r6
@@ -3482,8 +3482,8 @@ sub_0812ECDC: @ 0x0812ECDC
 	add r0, r0, r8
 	ldr r0, [r0]
 	ldr r1, _0812EED4  @ =0x06009800
-	bl 0x08135B8C
-	bl 0x0812FB90
+	bl LZ77UnCompVram
+	bl sub_0812FB90
 	pop {r3-r5}
 	mov r8, r3
 	mov r9, r4
@@ -3564,23 +3564,23 @@ sub_0812EED8: @ 0x0812EED8
 	ldr r0, [r0]
 	ldr r4, _0812EF60  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812EF64  @ =0x06010000
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812EF68  @ =0x02032200
 	ldr r1, _0812EF6C  @ =0x06010400
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812EF70  @ =0x02032400
 	ldr r1, _0812EF74  @ =0x06010800
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812EF78  @ =0x02032600
 	ldr r1, _0812EF7C  @ =0x06010C00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r5, _0812EF80  @ =0x0822B9E4
 	ldr r4, _0812EF84  @ =0x03002230
 	ldr r0, _0812EF88  @ =0x0000098E
@@ -3593,7 +3593,7 @@ sub_0812EED8: @ 0x0812EED8
 	add r0, r0, r5
 	ldr r0, [r0]
 	ldr r1, _0812EF8C  @ =0x06004000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	mov r1, #0
 	ldrsb r1, [r4, r1]
 	lsl r0, r1, #1
@@ -3603,7 +3603,7 @@ sub_0812EED8: @ 0x0812EED8
 	add r0, r0, r1
 	ldr r0, [r0]
 	ldr r1, _0812EF90  @ =0x06005000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	mov r1, #0
 	ldrsb r1, [r4, r1]
 	lsl r0, r1, #1
@@ -3613,7 +3613,7 @@ sub_0812EED8: @ 0x0812EED8
 	add r0, r0, r5
 	ldr r0, [r0]
 	ldr r1, _0812EF94  @ =0x06006000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	pop {r4,r5}
 	pop {r0}
 	bx r0
@@ -3690,23 +3690,23 @@ _0812EFD8:
 	ldr r0, [r0]
 	ldr r4, _0812F0F4  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812F0F8  @ =0x06012000
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F0FC  @ =0x02032200
 	ldr r1, _0812F100  @ =0x06012400
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F104  @ =0x02032400
 	ldr r1, _0812F108  @ =0x06012800
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F10C  @ =0x02032600
 	ldr r1, _0812F110  @ =0x06012C00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 _0812F00E:
 	ldr r6, _0812F114  @ =0x0822B624
 	ldr r0, _0812F118  @ =0x03002230
@@ -3725,23 +3725,23 @@ _0812F00E:
 	ldr r0, [r0]
 	ldr r4, _0812F0F4  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812F120  @ =0x06012200
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F0FC  @ =0x02032200
 	ldr r1, _0812F124  @ =0x06012600
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F104  @ =0x02032400
 	ldr r1, _0812F128  @ =0x06012A00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F10C  @ =0x02032600
 	ldr r1, _0812F12C  @ =0x06012E00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 _0812F05C:
 	ldrb r0, [r5]
 	lsl r0, r0, #2
@@ -3756,23 +3756,23 @@ _0812F05C:
 	ldr r0, [r0]
 	ldr r4, _0812F0F4  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812F130  @ =0x06013000
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F0FC  @ =0x02032200
 	ldr r1, _0812F134  @ =0x06013400
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F104  @ =0x02032400
 	ldr r1, _0812F138  @ =0x06013800
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F10C  @ =0x02032600
 	ldr r1, _0812F13C  @ =0x06013C00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 _0812F0A2:
 	ldrb r0, [r5]
 	lsl r0, r0, #2
@@ -3787,23 +3787,23 @@ _0812F0A2:
 	ldr r0, [r0]
 	ldr r4, _0812F0F4  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812F140  @ =0x06013200
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F0FC  @ =0x02032200
 	ldr r1, _0812F144  @ =0x06013600
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F104  @ =0x02032400
 	ldr r1, _0812F148  @ =0x06013A00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F10C  @ =0x02032600
 	ldr r1, _0812F14C  @ =0x06013E00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 _0812F0E8:
 	pop {r4-r6}
 	pop {r0}
@@ -3879,7 +3879,7 @@ sub_0812F150: @ 0x0812F150
 	add r1, r1, r0
 	ldr r0, [r1]
 	ldr r1, _0812F1B4  @ =0x06001800
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 _0812F176:
 	ldrb r0, [r4]
 	lsl r0, r0, #2
@@ -3900,7 +3900,7 @@ _0812F176:
 	bhi _0812F1C4
 	ldr r0, _0812F1BC  @ =0x08270B48
 	ldr r1, _0812F1C0  @ =0x06002000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	b _0812F1E4
 	.byte 0x00
 	.byte 0x00
@@ -3935,7 +3935,7 @@ _0812F1C4:
 	add r0, r0, r2
 	ldr r0, [r0]
 	ldr r1, _0812F244  @ =0x06002000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 _0812F1E4:
 	ldr r5, _0812F238  @ =0x0822B864
 	ldr r0, _0812F23C  @ =0x03002230
@@ -3954,7 +3954,7 @@ _0812F1E4:
 	add r1, r1, r0
 	ldr r0, [r1]
 	ldr r1, _0812F248  @ =0x06002800
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 _0812F20A:
 	ldrb r0, [r4]
 	lsl r0, r0, #2
@@ -3969,9 +3969,9 @@ _0812F20A:
 	add r1, r1, r0
 	ldr r0, [r1]
 	ldr r1, _0812F24C  @ =0x06003000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 _0812F228:
-	bl 0x0812EF98
+	bl sub_0812EF98
 	pop {r4-r6}
 	pop {r0}
 	bx r0
@@ -4010,17 +4010,17 @@ _0812F25E:
 	ldr r0, _0812F294  @ =0x082542E8
 	ldr r5, _0812F298  @ =0x02032000
 	add r1, r5, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	cmp r4, #0
 	bne _0812F2A8
 	ldr r1, _0812F29C  @ =0x02008380
 	add r0, r5, #0
 	mov r2, #96
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F2A0  @ =0x02032200
 	ldr r1, _0812F2A4  @ =0x02008500
 	mov r2, #96
-	bl 0x08135B78
+	bl CpuFastSet
 	b _0812F2D8
 	.byte 0x00
 	.byte 0x00
@@ -4044,21 +4044,21 @@ _0812F2A8:
 	add r0, r4, r1
 	ldr r1, _0812F2E4  @ =0x02008380
 	mov r2, #32
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F2E8  @ =0x02032400
 	ldr r1, _0812F2EC  @ =0x02008400
 	mov r2, #64
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F2F0  @ =0x02032200
 	add r4, r4, r0
 	ldr r1, _0812F2F4  @ =0x02008500
 	add r0, r4, #0
 	mov r2, #32
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F2F8  @ =0x02032600
 	ldr r1, _0812F2FC  @ =0x02008580
 	mov r2, #64
-	bl 0x08135B78
+	bl CpuFastSet
 _0812F2D8:
 	pop {r4,r5}
 	pop {r0}
@@ -4092,37 +4092,37 @@ sub_0812F300: @ 0x0812F300
 	ldrb r0, [r0]
 	cmp r0, #21
 	bne _0812F376
-	bl 0x08076C48
+	bl sub_08076C48
 	ldr r4, _0812F384  @ =0x0822B150
 	mov r1, #180
 	lsl r1, r1, #1
 	add r0, r4, r1
 	ldr r0, [r0]
 	ldr r1, _0812F388  @ =0x02032000
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r0, _0812F388  @ =0x02032000
 	ldr r1, _0812F38C  @ =0x02009A00
 	mov r2, #128
 	lsl r2, r2, #2
-	bl 0x08135B78
+	bl CpuFastSet
 	mov r1, #182
 	lsl r1, r1, #1
 	add r0, r4, r1
 	ldr r0, [r0]
 	ldr r1, _0812F388  @ =0x02032000
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r0, _0812F388  @ =0x02032000
 	ldr r1, _0812F390  @ =0x0200A200
 	mov r2, #128
 	lsl r2, r2, #1
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F394  @ =0x00000A3A
 	add r1, r5, r0
 	mov r4, #0
 	mov r0, #224
 	lsl r0, r0, #6
 	strh r0, [r1]
-	bl 0x080AB73C
+	bl sub_080AB73C
 	ldr r1, _0812F398  @ =0x0000180D
 	add r0, r5, r1
 	strb r4, [r0]
@@ -4180,7 +4180,7 @@ sub_0812F3A8: @ 0x0812F3A8
 	ldr r0, _0812F3E0  @ =0x00007FFF
 	cmp r1, r0
 	bne _0812F3EC
-	bl 0x0812F300
+	bl sub_0812F300
 	ldr r0, _0812F3E4  @ =0x0000050C
 	add r2, r4, r0
 	ldrh r1, [r2]
@@ -4285,7 +4285,7 @@ _0812F46E:
 	ldr r0, [r0]
 _0812F478:
 	ldr r1, _0812F4A8  @ =0x02032000
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812F4AC  @ =0x0822B864
 	ldr r3, _0812F4B0  @ =0x03002230
 	ldr r2, _0812F4B4  @ =0x00000C9A
@@ -4330,7 +4330,7 @@ _0812F4B8:
 _0812F4CE:
 	ldr r0, [r0]
 	ldr r1, _0812F4E8  @ =0x02034000
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	pop {r4}
 	pop {r0}
 	bx r0
@@ -4354,13 +4354,13 @@ sub_0812F4EC: @ 0x0812F4EC
 	mov r6, #0
 	mov r0, #144
 	strb r0, [r1]
-	bl 0x08077064
+	bl sub_08077064
 	ldr r2, _0812F5B4  @ =0x000009AD
 	add r1, r7, r2
 	ldrb r0, [r1]
 	sub r0, r0, #1
 	strb r0, [r1]
-	bl 0x080774C8
+	bl sub_080774C8
 	ldr r3, _0812F5B8  @ =0x000009C6
 	add r5, r7, r3
 	ldrh r1, [r5]
@@ -4370,40 +4370,40 @@ sub_0812F4EC: @ 0x0812F4EC
 	ldr r2, _0812F5C0  @ =0x0814C8E8
 	add r1, r1, r2
 	ldrb r1, [r1]
-	bl 0x0813084C
-	bl 0x08130A24
-	bl 0x08133350
-	bl 0x08130AB4
+	bl sub_0813084C
+	bl sub_08130A24
+	bl sub_08133350
+	bl sub_08130AB4
 	mov r0, sp
 	ldr r3, _0812F5C4  @ =0x00007FFF
 	add r4, r3, #0
 	strh r4, [r0]
 	ldr r1, _0812F5C8  @ =0x02000C40
 	ldr r2, _0812F5CC  @ =0x01000060
-	bl 0x08135B7C
+	bl CpuSet
 	mov r0, sp
 	add r0, r0, #2
 	strh r4, [r0]
 	ldr r1, _0812F5D0  @ =0x02000E00
 	ldr r2, _0812F5D4  @ =0x01000058
-	bl 0x08135B7C
+	bl CpuSet
 	add r0, sp, #4
 	strh r4, [r0]
 	ldr r1, _0812F5D8  @ =0x02000EC0
 	ldr r2, _0812F5DC  @ =0x01000010
-	bl 0x08135B7C
+	bl CpuSet
 	mov r0, sp
 	add r0, r0, #6
 	strh r4, [r0]
 	ldr r1, _0812F5E0  @ =0x02000F00
 	ldr r2, _0812F5E4  @ =0x01000080
-	bl 0x08135B7C
+	bl CpuSet
 	ldr r0, _0812F5E8  @ =0x02000C00
 	strh r6, [r0]
-	bl 0x080CBCD8
-	bl 0x080CBCC8
-	bl 0x080930E8
-	bl 0x0807166C
+	bl sub_080CBCD8
+	bl sub_080CBCC8
+	bl sub_080930E8
+	bl sub_0807166C
 	ldr r0, _0812F5EC  @ =0x00001718
 	add r1, r7, r0
 	mov r0, #20
@@ -4413,7 +4413,7 @@ sub_0812F4EC: @ 0x0812F4EC
 	and r0, r0, r1
 	cmp r0, #0
 	bne _0812F592
-	bl 0x080D56A0
+	bl sub_080D56A0
 _0812F592:
 	ldr r1, _0812F5F0  @ =0x0000050C
 	add r0, r7, r1
@@ -4489,23 +4489,23 @@ _0812F60E:
 	add r0, r4, r1
 	ldr r0, [r0]
 	ldr r1, _0812F660  @ =0x02032000
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r0, _0812F660  @ =0x02032000
 	ldr r1, _0812F664  @ =0x02009A00
 	mov r2, #128
 	lsl r2, r2, #2
-	bl 0x08135B78
+	bl CpuFastSet
 	mov r1, #178
 	lsl r1, r1, #1
 	add r0, r4, r1
 	ldr r0, [r0]
 	ldr r1, _0812F660  @ =0x02032000
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r0, _0812F660  @ =0x02032000
 	ldr r1, _0812F668  @ =0x0200A200
 	mov r2, #128
 	lsl r2, r2, #1
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F654  @ =0x03002230
 	ldr r1, _0812F66C  @ =0x00000A3A
 	add r0, r0, r1
@@ -4536,23 +4536,23 @@ _0812F670:
 	add r0, r4, r1
 	ldr r0, [r0]
 	ldr r1, _0812F6BC  @ =0x02032000
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r0, _0812F6BC  @ =0x02032000
 	ldr r1, _0812F6C0  @ =0x02009A00
 	mov r2, #128
 	lsl r2, r2, #2
-	bl 0x08135B78
+	bl CpuFastSet
 	mov r1, #182
 	lsl r1, r1, #1
 	add r0, r4, r1
 	ldr r0, [r0]
 	ldr r1, _0812F6BC  @ =0x02032000
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r0, _0812F6BC  @ =0x02032000
 	ldr r1, _0812F6C4  @ =0x0200A200
 	mov r2, #128
 	lsl r2, r2, #1
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F6C8  @ =0x00000A3A
 	add r1, r5, r0
 	mov r0, #224
@@ -4635,23 +4635,23 @@ _0812F710:
 	ldr r0, [r0]
 	ldr r4, _0812F780  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812F784  @ =0x06011000
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F788  @ =0x02032200
 	ldr r1, _0812F78C  @ =0x06011400
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F790  @ =0x02032400
 	ldr r1, _0812F794  @ =0x06011800
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F798  @ =0x02032600
 	ldr r1, _0812F79C  @ =0x06011C00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	pop {r4}
 	pop {r0}
 	bx r0
@@ -4702,23 +4702,23 @@ sub_0812F7A0: @ 0x0812F7A0
 	ldr r0, [r0]
 	ldr r4, _0812F84C  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812F850  @ =0x06012000
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F854  @ =0x02032200
 	ldr r1, _0812F858  @ =0x06012400
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F85C  @ =0x02032400
 	ldr r1, _0812F860  @ =0x06012800
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F864  @ =0x02032600
 	ldr r1, _0812F868  @ =0x06012C00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 _0812F7EE:
 	ldrb r0, [r5]
 	lsl r0, r0, #2
@@ -4733,23 +4733,23 @@ _0812F7EE:
 	ldr r0, [r0]
 	ldr r4, _0812F84C  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812F86C  @ =0x06012200
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F854  @ =0x02032200
 	ldr r1, _0812F870  @ =0x06012600
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F85C  @ =0x02032400
 	ldr r1, _0812F874  @ =0x06012A00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F864  @ =0x02032600
 	ldr r1, _0812F878  @ =0x06012E00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 _0812F834:
 	pop {r4-r6}
 	pop {r0}
@@ -4810,23 +4810,23 @@ sub_0812F87C: @ 0x0812F87C
 	ldr r0, [r0]
 	ldr r4, _0812F92C  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812F930  @ =0x06013000
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F934  @ =0x02032200
 	ldr r1, _0812F938  @ =0x06013400
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F93C  @ =0x02032400
 	ldr r1, _0812F940  @ =0x06013800
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F944  @ =0x02032600
 	ldr r1, _0812F948  @ =0x06013C00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 _0812F8CC:
 	ldrb r0, [r5]
 	lsl r0, r0, #2
@@ -4841,25 +4841,25 @@ _0812F8CC:
 	ldr r0, [r0]
 	ldr r4, _0812F92C  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812F94C  @ =0x06013200
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F934  @ =0x02032200
 	ldr r1, _0812F950  @ =0x06013600
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F93C  @ =0x02032400
 	ldr r1, _0812F954  @ =0x06013A00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812F944  @ =0x02032600
 	ldr r1, _0812F958  @ =0x06013E00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 _0812F912:
-	bl 0x08098B9C
+	bl sub_08098B9C
 	pop {r4-r6}
 	pop {r0}
 	bx r0
@@ -4921,7 +4921,7 @@ sub_0812F95C: @ 0x0812F95C
 	lsl r2, r2, #2
 	add r2, r2, r0
 	ldr r0, [r2]
-	bl 0x08135FE8
+	bl _call_via_r0
 	pop {r4,r5}
 	pop {r0}
 	bx r0
@@ -4971,17 +4971,17 @@ _0812F9D4:
 	ldr r0, [r0]
 	ldr r4, _0812FA18  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	add r4, r5, r4
 	ldr r1, _0812FA1C  @ =0x0200ACC0
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812FA20  @ =0x02032200
 	add r0, r5, r1
 	ldr r1, _0812FA24  @ =0x0200AEC0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	pop {r4,r5}
 	pop {r0}
 	bx r0
@@ -5041,7 +5041,7 @@ _0812FA38:
 	add r1, r3, #0
 	add r0, r0, r1
 	strh r0, [r2]
-	bl 0x08133244
+	bl sub_08133244
 	ldr r1, _0812FA88  @ =0x0000099B
 	add r0, r4, r1
 	strb r5, [r0]
@@ -5068,7 +5068,7 @@ _0812FA8C:
 	add r1, r3, #0
 	add r0, r0, r1
 	strh r0, [r2]
-	bl 0x081331F4
+	bl sub_081331F4
 	ldr r0, _0812FB28  @ =0x0000099B
 	add r1, r4, r0
 	mov r0, #1
@@ -5123,18 +5123,18 @@ _0812FAFC:
 	ldr r0, [r0]
 	ldr r4, _0812FB48  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldrh r0, [r5]
 	cmp r0, #68
 	bne _0812FB58
 	ldr r1, _0812FB4C  @ =0x06011000
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812FB50  @ =0x02032200
 	ldr r1, _0812FB54  @ =0x06011400
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	b _0812FB6C
 _0812FB28:
 	.4byte 0x0000099B
@@ -5164,11 +5164,11 @@ _0812FB58:
 	ldr r0, _0812FB74  @ =0x02032400
 	ldr r1, _0812FB78  @ =0x06011800
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812FB7C  @ =0x02032600
 	ldr r1, _0812FB80  @ =0x06011C00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 _0812FB6C:
 	pop {r4-r7}
 	pop {r0}
@@ -5188,7 +5188,7 @@ _0812FB80:
 	THUMB_FUNC_START sub_0812FB84
 sub_0812FB84: @ 0x0812FB84
 	push {lr}
-	bl 0x0812E7B0
+	bl sub_0812E7B0
 	pop {r0}
 	bx r0
 	THUMB_FUNC_END sub_0812FB84
@@ -5209,7 +5209,7 @@ sub_0812FB90: @ 0x0812FB90
 	add r0, r0, r1
 	ldr r0, [r0]
 	ldr r1, _0812FBBC  @ =0x06007000
-	bl 0x08135B8C
+	bl LZ77UnCompVram
 	pop {r0}
 	bx r0
 _0812FBB0:
@@ -5247,18 +5247,18 @@ sub_0812FBC4: @ 0x0812FBC4
 	ldr r0, [r0]
 	ldr r4, _0812FC14  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	add r4, r5, r4
 	ldr r1, _0812FC18  @ =0x0200B0C0
 	add r0, r4, #0
 	mov r2, #16
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812FC1C  @ =0x02032200
 	add r5, r5, r0
 	ldr r1, _0812FC20  @ =0x0200B100
 	add r0, r5, #0
 	mov r2, #16
-	bl 0x08135B78
+	bl CpuFastSet
 	pop {r4,r5}
 	pop {r0}
 	bx r0
@@ -5294,18 +5294,18 @@ sub_0812FC24: @ 0x0812FC24
 	ldr r0, _0812FC6C  @ =0x0825381C
 	ldr r5, _0812FC70  @ =0x02032000
 	add r1, r5, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	add r5, r4, r5
 	ldr r1, _0812FC74  @ =0x0200B0C0
 	add r0, r5, #0
 	mov r2, #16
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812FC78  @ =0x02032200
 	add r4, r4, r0
 	ldr r1, _0812FC7C  @ =0x0200B100
 	add r0, r4, #0
 	mov r2, #16
-	bl 0x08135B78
+	bl CpuFastSet
 	pop {r4,r5}
 	pop {r0}
 	bx r0
@@ -5344,19 +5344,19 @@ sub_0812FC84: @ 0x0812FC84
 	ldr r0, _0812FCC8  @ =0x0825460C
 	ldr r4, _0812FCCC  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	lsl r5, r5, #1
 	add r4, r5, r4
 	ldr r1, _0812FCD0  @ =0x02008680
 	add r0, r4, #0
 	mov r2, #48
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812FCD4  @ =0x02032200
 	add r5, r5, r0
 	ldr r1, _0812FCD8  @ =0x02008740
 	add r0, r5, #0
 	mov r2, #48
-	bl 0x08135B78
+	bl CpuFastSet
 	pop {r4,r5}
 	pop {r0}
 	bx r0
@@ -5389,39 +5389,39 @@ sub_0812FCDC: @ 0x0812FCDC
 	ldr r0, [r0]
 	ldr r5, _0812FD5C  @ =0x02032000
 	add r1, r5, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812FD60  @ =0x02009A00
 	add r0, r5, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812FD64  @ =0x02032200
 	mov r8, r0
 	ldr r1, _0812FD68  @ =0x02009E00
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r6, _0812FD6C  @ =0x02032400
 	ldr r1, _0812FD70  @ =0x0200A200
 	add r0, r6, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	mov r1, #184
 	lsl r1, r1, #1
 	add r4, r4, r1
 	ldr r0, [r4]
 	add r1, r5, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812FD74  @ =0x02009C00
 	add r0, r5, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812FD78  @ =0x0200A000
 	mov r0, r8
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r1, _0812FD7C  @ =0x0200A400
 	add r0, r6, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812FD80  @ =0x03002230
 	ldr r1, _0812FD84  @ =0x00000A3A
 	add r0, r0, r1
@@ -5471,23 +5471,23 @@ sub_0812FD88: @ 0x0812FD88
 	ldr r0, [r0]
 	ldr r5, _0812FDD8  @ =0x02032000
 	add r1, r5, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812FDDC  @ =0x02009A00
 	mov r2, #128
 	lsl r2, r2, #2
 	add r0, r5, #0
-	bl 0x08135B78
+	bl CpuFastSet
 	add r4, r4, #1
 	lsl r4, r4, #2
 	add r4, r4, r6
 	ldr r0, [r4]
 	add r1, r5, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812FDE0  @ =0x0200A200
 	mov r2, #128
 	lsl r2, r2, #1
 	add r0, r5, #0
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812FDE4  @ =0x03002230
 	ldr r1, _0812FDE8  @ =0x00000A3A
 	add r0, r0, r1
@@ -5518,30 +5518,30 @@ sub_0812FDEC: @ 0x0812FDEC
 	ldr r0, [r5, #60]
 	ldr r4, _0812FE3C  @ =0x02032000
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r1, _0812FE40  @ =0x0200A6C0
 	add r0, r4, #0
 	mov r2, #128
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, _0812FE44  @ =0x0822B324
 	mov r1, #176
 	lsl r1, r1, #1
 	add r0, r0, r1
 	ldr r0, [r0]
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	add r0, r4, #0
 	ldr r1, _0812FE48  @ =0x0200A8C0
 	mov r2, #128
 	lsl r2, r2, #1
-	bl 0x08135B78
+	bl CpuFastSet
 	ldr r0, [r5, #20]
 	add r1, r4, #0
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	ldr r0, _0812FE4C  @ =0x02032600
 	ldr r1, _0812FE50  @ =0x0200B140
 	mov r2, #16
-	bl 0x08135B78
+	bl CpuFastSet
 	pop {r4,r5}
 	pop {r0}
 	bx r0
@@ -5571,7 +5571,7 @@ sub_0812FE54: @ 0x0812FE54
 	THUMB_FUNC_START sub_0812FE58
 sub_0812FE58: @ 0x0812FE58
 	push {lr}
-	bl 0x080AB73C
+	bl sub_080AB73C
 	ldr r0, _0812FE84  @ =0x03002230
 	ldr r2, _0812FE88  @ =0x0000180D
 	add r1, r0, r2
@@ -5626,7 +5626,7 @@ sub_0812FE98: @ 0x0812FE98
 	add r0, r0, r6
 	ldr r0, [r0]
 	ldr r1, _0812FEF0  @ =0x02032000
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	add r4, r4, #1
 	add r4, r4, r5
 	ldrb r0, [r4]
@@ -5634,7 +5634,7 @@ sub_0812FE98: @ 0x0812FE98
 	add r0, r0, r6
 	ldr r0, [r0]
 	ldr r1, _0812FEF4  @ =0x02034000
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	pop {r4-r6}
 	pop {r0}
 	bx r0
@@ -5678,7 +5678,7 @@ sub_0812FEF8: @ 0x0812FEF8
 	add r0, r0, r6
 	ldr r0, [r0]
 	ldr r1, _0812FF50  @ =0x02032000
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	add r4, r4, #3
 	add r4, r4, r5
 	ldrb r0, [r4]
@@ -5686,7 +5686,7 @@ sub_0812FEF8: @ 0x0812FEF8
 	add r0, r0, r6
 	ldr r0, [r0]
 	ldr r1, _0812FF54  @ =0x02034000
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	pop {r4-r6}
 	pop {r0}
 	bx r0
@@ -5728,7 +5728,7 @@ sub_0812FF58: @ 0x0812FF58
 	add r0, r0, r6
 	ldr r0, [r0]
 	ldr r1, _0812FFB0  @ =0x02032000
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	add r4, r4, #5
 	add r4, r4, r5
 	ldrb r0, [r4]
@@ -5736,7 +5736,7 @@ sub_0812FF58: @ 0x0812FF58
 	add r0, r0, r6
 	ldr r0, [r0]
 	ldr r1, _0812FFB4  @ =0x02034000
-	bl 0x08135B90
+	bl LZ77UnCompWram
 	pop {r4-r6}
 	pop {r0}
 	bx r0
@@ -5757,7 +5757,7 @@ _0812FFB4:
 	THUMB_FUNC_START sub_0812FFB8
 sub_0812FFB8: @ 0x0812FFB8
 	push {lr}
-	bl 0x08074370
+	bl sub_08074370
 	ldr r2, _0812FFE4  @ =0x03002230
 	ldr r1, _0812FFE8  @ =0x000009AD
 	add r0, r2, r1
@@ -5792,14 +5792,14 @@ _0812FFF0:
 	THUMB_FUNC_START sub_0812FFF4
 sub_0812FFF4: @ 0x0812FFF4
 	push {lr}
-	bl 0x08076FAC
+	bl sub_08076FAC
 	ldr r0, _08130010  @ =0x03002230
 	ldr r1, _08130014  @ =0x000009AD
 	add r0, r0, r1
 	ldrb r0, [r0]
 	cmp r0, #44
 	bne _0813000A
-	bl 0x08077CA0
+	bl sub_08077CA0
 _0813000A:
 	pop {r0}
 	bx r0
@@ -6263,11 +6263,11 @@ _0813030A:
 	lsl r4, r4, #1
 	add r4, r4, r0
 	ldrh r0, [r4]
-	bl 0x08133468
+	bl sub_08133468
 	ldr r1, _08130374  @ =0x020009FA
 	strh r0, [r1]
 	ldrh r0, [r4]
-	bl 0x08133468
+	bl sub_08133468
 	ldr r1, _08130378  @ =0x02000DFA
 	strh r0, [r1]
 _08130344:
@@ -6346,7 +6346,7 @@ _081303AA:
 	mov r4, #127
 _081303C8:
 	ldrh r0, [r5]
-	bl 0x08133468
+	bl sub_08133468
 	strh r0, [r6]
 	add r5, r5, #2
 	add r6, r6, #2
@@ -6358,7 +6358,7 @@ _081303C8:
 	mov r4, #127
 _081303E0:
 	ldrh r0, [r5]
-	bl 0x08133468
+	bl sub_08133468
 	strh r0, [r6]
 	add r5, r5, #2
 	add r6, r6, #2
@@ -6507,10 +6507,10 @@ sub_081304D4: @ 0x081304D4
 	mov r5, #15
 _081304F0:
 	ldrh r0, [r4]
-	bl 0x08133468
+	bl sub_08133468
 	strh r0, [r6]
 	ldrh r0, [r4]
-	bl 0x08133468
+	bl sub_08133468
 	strh r0, [r7]
 	add r4, r4, #2
 	add r7, r7, #2
@@ -6542,10 +6542,10 @@ _08130524:
 	mov r5, #15
 _08130534:
 	ldrh r0, [r4]
-	bl 0x08133468
+	bl sub_08133468
 	strh r0, [r6]
 	ldrh r0, [r4]
-	bl 0x08133468
+	bl sub_08133468
 	strh r0, [r7]
 	add r4, r4, #2
 	add r7, r7, #2
@@ -6571,10 +6571,10 @@ _0813055C:
 	mov r5, #15
 _0813056C:
 	ldrh r0, [r4]
-	bl 0x08133468
+	bl sub_08133468
 	strh r0, [r6]
 	ldrh r0, [r4]
-	bl 0x08133468
+	bl sub_08133468
 	strh r0, [r7]
 	add r4, r4, #2
 	add r7, r7, #2
@@ -6600,10 +6600,10 @@ _08130594:
 	mov r5, #15
 _081305A4:
 	ldrh r0, [r4]
-	bl 0x08133468
+	bl sub_08133468
 	strh r0, [r6]
 	ldrh r0, [r4]
-	bl 0x08133468
+	bl sub_08133468
 	strh r0, [r7]
 	add r4, r4, #2
 	add r7, r7, #2
@@ -7046,8 +7046,8 @@ _081308BA:
 	add r0, r4, r7
 	strb r1, [r0]
 _081308D0:
-	bl 0x0813068C
-	bl 0x0813076C
+	bl sub_0813068C
+	bl sub_0813076C
 	ldr r1, _08130960  @ =0x0822BB64
 	mov r2, #203
 	lsl r2, r2, #4
@@ -7099,7 +7099,7 @@ _0813092C:
 	sub r3, r3, #1
 	cmp r3, #0
 	bge _0813092C
-	bl 0x081300EC
+	bl sub_081300EC
 	pop {r4-r7}
 	pop {r0}
 	bx r0
@@ -7179,7 +7179,7 @@ _081309C0:
 	ldr r1, _08130A10  @ =0x00002A32
 _081309CA:
 	add r0, r1, #0
-	bl 0x08133468
+	bl sub_08133468
 	lsl r0, r0, #16
 	lsr r1, r0, #16
 	ldr r0, _08130A14  @ =0x02000C50
@@ -7272,7 +7272,7 @@ _08130A6C:
 	ldr r2, _08130AA4  @ =0x00002A32
 _08130A76:
 	add r0, r2, #0
-	bl 0x08133468
+	bl sub_08133468
 	lsl r0, r0, #16
 	lsr r2, r0, #16
 	ldr r0, _08130AA8  @ =0x02000850
@@ -7364,7 +7364,7 @@ _08130B12:
 	ldr r3, _08130BB0  @ =0x00002A32
 _08130B20:
 	add r0, r3, #0
-	bl 0x08133468
+	bl sub_08133468
 	lsl r0, r0, #16
 	lsr r3, r0, #16
 	ldr r0, _08130BB8  @ =0x02000C50
@@ -7475,7 +7475,7 @@ _08130BD4:
 	orr r2, r2, r1
 	orr r2, r2, r0
 	add r0, r2, #0
-	bl 0x08133468
+	bl sub_08133468
 	lsl r0, r0, #16
 	lsr r3, r0, #16
 	ldr r0, _08130CCC  @ =0x02000C50
@@ -8062,7 +8062,7 @@ sub_08130FF8: @ 0x08130FF8
 	add r0, r4, r2
 	strh r1, [r0]
 	mov r0, #0
-	bl 0x08130ED4
+	bl sub_08130ED4
 	ldrh r2, [r6]
 	cmp r2, #0
 	bne _081310A4
@@ -8324,7 +8324,7 @@ sub_081311E0: @ 0x081311E0
 	add r0, r4, r2
 	strh r1, [r0]
 	mov r0, #0
-	bl 0x081310E8
+	bl sub_081310E8
 	ldrh r2, [r6]
 	cmp r2, #0
 	bne _0813128C
@@ -9034,7 +9034,7 @@ sub_08131710: @ 0x08131710
 	bne _0813172E
 	mov r0, #48
 	mov r1, #0
-	bl 0x0812A324
+	bl sub_0812A324
 _0813172E:
 	ldr r3, _0813179C  @ =0x0000164E
 	add r6, r4, r3
@@ -9044,23 +9044,23 @@ _0813172E:
 	mov r0, #49
 	mov r1, #56
 	mov r2, #0
-	bl 0x08131524
+	bl sub_08131524
 	mov r0, #57
 	mov r1, #64
 	mov r2, #7
-	bl 0x08131524
+	bl sub_08131524
 	mov r0, #73
 	mov r1, #80
 	mov r2, #14
-	bl 0x08131524
+	bl sub_08131524
 	mov r0, #113
 	mov r1, #120
 	mov r2, #21
-	bl 0x08131524
+	bl sub_08131524
 	mov r0, #121
 	mov r1, #128
 	mov r2, #28
-	bl 0x08131524
+	bl sub_08131524
 	ldr r0, _081317A0  @ =0x0000164D
 	add r3, r4, r0
 	ldrb r0, [r3]
@@ -9099,23 +9099,23 @@ _081317A8:
 	mov r0, #49
 	mov r1, #56
 	mov r2, #0
-	bl 0x08131524
+	bl sub_08131524
 	mov r0, #57
 	mov r1, #64
 	mov r2, #7
-	bl 0x08131524
+	bl sub_08131524
 	mov r0, #73
 	mov r1, #80
 	mov r2, #14
-	bl 0x08131524
+	bl sub_08131524
 	mov r0, #113
 	mov r1, #120
 	mov r2, #21
-	bl 0x08131524
+	bl sub_08131524
 	mov r0, #121
 	mov r1, #128
 	mov r2, #28
-	bl 0x08131524
+	bl sub_08131524
 	ldr r3, _08131810  @ =0x0000164D
 	add r2, r4, r3
 	ldrb r0, [r2]
@@ -9189,7 +9189,7 @@ sub_08131840: @ 0x08131840
 	cmp r0, #71
 	bne _081318D4
 _08131860:
-	bl 0x08131710
+	bl sub_08131710
 	ldr r2, _081318A8  @ =0x03002230
 	ldr r1, _081318B0  @ =0x000009C6
 	add r0, r2, r1
@@ -9222,7 +9222,7 @@ _08131874:
 	add r0, r0, r1
 	ldr r1, _081318C0  @ =0x020008D0
 	mov r2, #7
-	bl 0x08135B7C
+	bl CpuSet
 	b _081318D4
 _081318A8:
 	.4byte 0x03002230
@@ -9239,13 +9239,13 @@ _081318BC:
 _081318C0:
 	.4byte 0x020008D0
 _081318C4:
-	bl 0x081312D0
+	bl sub_081312D0
 	b _081318D4
 _081318CA:
 	ldr r0, _081318D8  @ =0x0200BB90
 	ldr r1, _081318DC  @ =0x02000CD0
 	mov r2, #7
-	bl 0x08135B7C
+	bl CpuSet
 _081318D4:
 	pop {r0}
 	bx r0
@@ -9516,7 +9516,7 @@ _08131A90:
 	ldr r1, _08131AE0  @ =0x02001600
 	ldr r2, _08131AE4  @ =0x01000100
 	mov r0, sp
-	bl 0x08135B7C
+	bl CpuSet
 _08131AC6:
 	ldr r0, _08131AE8  @ =0x03002230
 	ldr r1, _08131AEC  @ =0x0000099B
@@ -9554,25 +9554,25 @@ sub_08131AF0: @ 0x08131AF0
 	bne _08131B40
 	mov r0, #0
 	mov r1, #1
-	bl 0x081318E0
+	bl sub_081318E0
 	mov r0, #33
 	mov r1, #128
-	bl 0x081318E0
+	bl sub_081318E0
 	mov r0, #128
 	lsl r0, r0, #1
 	mov r1, #172
 	lsl r1, r1, #1
-	bl 0x081318E0
+	bl sub_081318E0
 	mov r0, #176
 	lsl r0, r0, #1
 	mov r1, #184
 	lsl r1, r1, #1
-	bl 0x081318E0
+	bl sub_081318E0
 	mov r0, #192
 	lsl r0, r0, #1
 	mov r1, #128
 	lsl r1, r1, #2
-	bl 0x081318E0
+	bl sub_081318E0
 	b _08131B74
 _08131B38:
 	.4byte 0x03002230
@@ -9581,25 +9581,25 @@ _08131B3C:
 _08131B40:
 	mov r0, #0
 	mov r1, #1
-	bl 0x08131998
+	bl sub_08131998
 	mov r0, #33
 	mov r1, #128
-	bl 0x08131998
+	bl sub_08131998
 	mov r0, #128
 	lsl r0, r0, #1
 	mov r1, #172
 	lsl r1, r1, #1
-	bl 0x08131998
+	bl sub_08131998
 	mov r0, #176
 	lsl r0, r0, #1
 	mov r1, #184
 	lsl r1, r1, #1
-	bl 0x08131998
+	bl sub_08131998
 	mov r0, #192
 	lsl r0, r0, #1
 	mov r1, #128
 	lsl r1, r1, #2
-	bl 0x08131998
+	bl sub_08131998
 _08131B74:
 	ldr r1, _08131BBC  @ =0x02000C20
 	ldr r0, _08131BC0  @ =0x02000C00
@@ -9633,7 +9633,7 @@ _08131B74:
 	strh r0, [r1]
 	add r1, r1, #32
 	strh r0, [r1]
-	bl 0x08131A50
+	bl sub_08131A50
 _08131BB8:
 	pop {r0}
 	bx r0
@@ -9654,7 +9654,7 @@ sub_08131BC4: @ 0x08131BC4
 	beq _08131C00
 	mov r0, #32
 	mov r1, #128
-	bl 0x08131998
+	bl sub_08131998
 	ldr r0, _08131C10  @ =0x00000CF8
 	add r1, r4, r0
 	ldrh r0, [r1]
@@ -9835,7 +9835,7 @@ sub_08131D14: @ 0x08131D14
 	lsr r0, r0, #16
 	lsl r1, r1, #16
 	lsr r1, r1, #16
-	bl 0x08131C1C
+	bl sub_08131C1C
 	ldr r2, _08131D60  @ =0x03002230
 	ldr r0, _08131D64  @ =0x00000CF8
 	add r1, r2, r0
@@ -9908,7 +9908,7 @@ sub_08131D74: @ 0x08131D74
 	ldr r0, _08131DC8  @ =0x00000999
 	add r1, r1, r0
 	strb r2, [r1]
-	bl 0x08131DCC
+	bl sub_08131DCC
 	pop {r0}
 	bx r0
 _08131DB0:
@@ -10087,7 +10087,7 @@ _08131EA4:
 	mov r1, #216
 	lsl r1, r1, #1
 	add r2, r4, #0
-	bl 0x08131D14
+	bl sub_08131D14
 	pop {r4,r5}
 	pop {r0}
 	bx r0
@@ -10200,7 +10200,7 @@ _08131FAC:
 	lsl r4, r4, #1
 	add r0, r4, r7
 	ldrh r0, [r0]
-	bl 0x08131F24
+	bl sub_08131F24
 	add r4, r4, r6
 	strh r0, [r4]
 	add r4, r5, #0
@@ -10209,7 +10209,7 @@ _08131FAC:
 	lsl r4, r4, #1
 	add r0, r4, r7
 	ldrh r0, [r0]
-	bl 0x08131F24
+	bl sub_08131F24
 	add r4, r4, r6
 	strh r0, [r4]
 	add r4, r5, #0
@@ -10218,7 +10218,7 @@ _08131FAC:
 	lsl r4, r4, #1
 	add r0, r4, r7
 	ldrh r0, [r0]
-	bl 0x08131F24
+	bl sub_08131F24
 	add r4, r4, r6
 	strh r0, [r4]
 	add r4, r5, #0
@@ -10227,7 +10227,7 @@ _08131FAC:
 	lsl r4, r4, #1
 	add r0, r4, r7
 	ldrh r0, [r0]
-	bl 0x08131F24
+	bl sub_08131F24
 	add r4, r4, r6
 	strh r0, [r4]
 	add r4, r5, #0
@@ -10236,7 +10236,7 @@ _08131FAC:
 	lsl r4, r4, #1
 	add r0, r4, r7
 	ldrh r0, [r0]
-	bl 0x08131F24
+	bl sub_08131F24
 	add r4, r4, r6
 	strh r0, [r4]
 	add r4, r5, #0
@@ -10245,7 +10245,7 @@ _08131FAC:
 	lsl r4, r4, #1
 	add r0, r4, r7
 	ldrh r0, [r0]
-	bl 0x08131F24
+	bl sub_08131F24
 	add r4, r4, r6
 	strh r0, [r4]
 	add r4, r5, #0
@@ -10254,7 +10254,7 @@ _08131FAC:
 	lsl r4, r4, #1
 	add r0, r4, r7
 	ldrh r0, [r0]
-	bl 0x08131F24
+	bl sub_08131F24
 	add r4, r4, r6
 	strh r0, [r4]
 	add r4, r5, #0
@@ -10263,7 +10263,7 @@ _08131FAC:
 	lsl r4, r4, #1
 	add r0, r4, r7
 	ldrh r0, [r0]
-	bl 0x08131F24
+	bl sub_08131F24
 	add r4, r4, r6
 	strh r0, [r4]
 	add r4, r5, #0
@@ -10272,7 +10272,7 @@ _08131FAC:
 	lsl r4, r4, #1
 	add r0, r4, r7
 	ldrh r0, [r0]
-	bl 0x08131F24
+	bl sub_08131F24
 	add r4, r4, r6
 	strh r0, [r4]
 	add r4, r5, #0
@@ -10281,7 +10281,7 @@ _08131FAC:
 	lsl r4, r4, #1
 	add r0, r4, r7
 	ldrh r0, [r0]
-	bl 0x08131F24
+	bl sub_08131F24
 	add r4, r4, r6
 	strh r0, [r4]
 	add r4, r5, #0
@@ -10290,7 +10290,7 @@ _08131FAC:
 	lsl r4, r4, #1
 	add r0, r4, r7
 	ldrh r0, [r0]
-	bl 0x08131F24
+	bl sub_08131F24
 	add r4, r4, r6
 	strh r0, [r4]
 	add r4, r5, #0
@@ -10299,7 +10299,7 @@ _08131FAC:
 	lsl r4, r4, #1
 	add r0, r4, r7
 	ldrh r0, [r0]
-	bl 0x08131F24
+	bl sub_08131F24
 	add r4, r4, r6
 	strh r0, [r4]
 	add r0, r5, #2
@@ -10423,7 +10423,7 @@ _08132162:
 	lsl r4, r4, #1
 	add r4, r4, r6
 	ldrh r0, [r4]
-	bl 0x081320E4
+	bl sub_081320E4
 	strh r0, [r4]
 	add r4, r5, #0
 	add r4, r4, #80
@@ -10431,7 +10431,7 @@ _08132162:
 	lsl r4, r4, #1
 	add r4, r4, r6
 	ldrh r0, [r4]
-	bl 0x081320E4
+	bl sub_081320E4
 	strh r0, [r4]
 	add r4, r5, #0
 	add r4, r4, #96
@@ -10439,7 +10439,7 @@ _08132162:
 	lsl r4, r4, #1
 	add r4, r4, r6
 	ldrh r0, [r4]
-	bl 0x081320E4
+	bl sub_081320E4
 	strh r0, [r4]
 	add r4, r5, #0
 	add r4, r4, #112
@@ -10447,7 +10447,7 @@ _08132162:
 	lsl r4, r4, #1
 	add r4, r4, r6
 	ldrh r0, [r4]
-	bl 0x081320E4
+	bl sub_081320E4
 	strh r0, [r4]
 	add r4, r5, #0
 	add r4, r4, #128
@@ -10455,7 +10455,7 @@ _08132162:
 	lsl r4, r4, #1
 	add r4, r4, r6
 	ldrh r0, [r4]
-	bl 0x081320E4
+	bl sub_081320E4
 	strh r0, [r4]
 	add r4, r5, #0
 	add r4, r4, #144
@@ -10463,7 +10463,7 @@ _08132162:
 	lsl r4, r4, #1
 	add r4, r4, r6
 	ldrh r0, [r4]
-	bl 0x081320E4
+	bl sub_081320E4
 	strh r0, [r4]
 	add r4, r5, #0
 	add r4, r4, #160
@@ -10471,7 +10471,7 @@ _08132162:
 	lsl r4, r4, #1
 	add r4, r4, r6
 	ldrh r0, [r4]
-	bl 0x081320E4
+	bl sub_081320E4
 	strh r0, [r4]
 	add r4, r5, #0
 	add r4, r4, #176
@@ -10479,7 +10479,7 @@ _08132162:
 	lsl r4, r4, #1
 	add r4, r4, r6
 	ldrh r0, [r4]
-	bl 0x081320E4
+	bl sub_081320E4
 	strh r0, [r4]
 	add r4, r5, #0
 	add r4, r4, #192
@@ -10487,7 +10487,7 @@ _08132162:
 	lsl r4, r4, #1
 	add r4, r4, r6
 	ldrh r0, [r4]
-	bl 0x081320E4
+	bl sub_081320E4
 	strh r0, [r4]
 	add r4, r5, #0
 	add r4, r4, #208
@@ -10495,7 +10495,7 @@ _08132162:
 	lsl r4, r4, #1
 	add r4, r4, r6
 	ldrh r0, [r4]
-	bl 0x081320E4
+	bl sub_081320E4
 	strh r0, [r4]
 	add r4, r5, #0
 	add r4, r4, #224
@@ -10503,7 +10503,7 @@ _08132162:
 	lsl r4, r4, #1
 	add r4, r4, r6
 	ldrh r0, [r4]
-	bl 0x081320E4
+	bl sub_081320E4
 	strh r0, [r4]
 	add r4, r5, #0
 	add r4, r4, #240
@@ -10511,7 +10511,7 @@ _08132162:
 	lsl r4, r4, #1
 	add r4, r4, r6
 	ldrh r0, [r4]
-	bl 0x081320E4
+	bl sub_081320E4
 	strh r0, [r4]
 	add r0, r5, #2
 	lsl r0, r0, #24
@@ -10774,7 +10774,7 @@ _0813234C:
 	ldr r0, _0813243C  @ =0x02000C80
 	ldrh r0, [r0]
 	strh r0, [r1]
-	bl 0x08132280
+	bl sub_08132280
 	ldr r0, _08132440  @ =0x03002230
 	ldr r1, _08132444  @ =0x0000099B
 	add r0, r0, r1
@@ -10829,7 +10829,7 @@ _08132452:
 	ldrb r0, [r1]
 	add r0, r0, #1
 	strb r0, [r1]
-	bl 0x08132280
+	bl sub_08132280
 	pop {r4,r5}
 	pop {r0}
 	bx r0
@@ -10993,11 +10993,11 @@ sub_08132574: @ 0x08132574
 	add r2, r2, #4
 	add r1, r4, r2
 	strh r0, [r1]
-	bl 0x081325F0
+	bl sub_081325F0
 	ldrh r0, [r5]
 	cmp r0, #0
 	beq _081325C2
-	bl 0x081325F0
+	bl sub_081325F0
 _081325C2:
 	ldrh r0, [r5]
 	strh r0, [r7]
@@ -11076,7 +11076,7 @@ _08132602:
 	add r1, r3, r2
 	ldrh r1, [r1]
 	add r2, r6, #0
-	bl 0x08131C1C
+	bl sub_08131C1C
 	ldrh r0, [r5]
 	add r0, r0, #1
 	strh r0, [r5]
@@ -11179,7 +11179,7 @@ _08132708:
 _0813270C:
 	.4byte 0x0000099B
 _08132710:
-	bl 0x08132750
+	bl sub_08132750
 	ldr r3, _08132738  @ =0x00000CF8
 	add r0, r4, r3
 	ldrh r1, [r0]
@@ -11206,7 +11206,7 @@ _0813273C:
 _08132740:
 	.4byte 0x0000050C
 _08132744:
-	bl 0x08132750
+	bl sub_08132750
 _08132748:
 	pop {r4-r6}
 	pop {r0}
@@ -11263,7 +11263,7 @@ _08132764:
 	mov r0, #160
 	mov r1, #176
 	add r2, r4, #0
-	bl 0x08131D14
+	bl sub_08131D14
 	pop {r4,r5}
 	pop {r0}
 	bx r0
@@ -11334,7 +11334,7 @@ _0813281A:
 	lsr r4, r0, #24
 	cmp r4, #14
 	bne _08132804
-	bl 0x08132840
+	bl sub_08132840
 _08132830:
 	pop {r4-r7}
 	pop {r0}
@@ -11449,7 +11449,7 @@ _081328E0:
 	lsr r4, r0, #24
 	cmp r4, #14
 	bne _081328B4
-	bl 0x08132840
+	bl sub_08132840
 _081328F6:
 	pop {r4-r7}
 	pop {r0}
@@ -11512,7 +11512,7 @@ _08132950:
 	lsr r4, r0, #24
 	cmp r4, #14
 	bne _0813293A
-	bl 0x08132974
+	bl sub_08132974
 _08132966:
 	pop {r4-r7}
 	pop {r0}
@@ -11627,7 +11627,7 @@ _08132A18:
 	lsr r4, r0, #24
 	cmp r4, #14
 	bne _081329EA
-	bl 0x08132974
+	bl sub_08132974
 _08132A2E:
 	pop {r4-r7}
 	pop {r0}
@@ -11647,7 +11647,7 @@ _08132A44:
 	THUMB_FUNC_START sub_08132A48
 sub_08132A48: @ 0x08132A48
 	push {r4,r5,lr}
-	bl 0x08131AF0
+	bl sub_08131AF0
 	ldr r5, _08132A8C  @ =0x03002230
 	ldr r1, _08132A90  @ =0x00000CFA
 	add r0, r5, r1
@@ -11705,7 +11705,7 @@ _08132AA4:
 	ldr r1, _08132AD4  @ =0x02000800
 	mov r2, #128
 	lsl r2, r2, #2
-	bl 0x08135B7C
+	bl CpuSet
 	ldr r1, _08132AD8  @ =0x000009B5
 	add r0, r5, r1
 	strb r4, [r0]
@@ -11739,7 +11739,7 @@ sub_08132ADC: @ 0x08132ADC
 	ldr r1, _08132B2C  @ =0x02010540
 	mov r2, #128
 	lsl r2, r2, #2
-	bl 0x08135B7C
+	bl CpuSet
 	mov r1, sp
 	ldr r2, _08132B30  @ =0x00007FFF
 	add r0, r2, #0
@@ -11747,7 +11747,7 @@ sub_08132ADC: @ 0x08132ADC
 	mov r0, sp
 	ldr r1, _08132B28  @ =0x02000800
 	ldr r2, _08132B34  @ =0x01000200
-	bl 0x08135B7C
+	bl CpuSet
 	ldr r1, _08132B38  @ =0x00000CF8
 	add r0, r5, r1
 	strh r4, [r0]
@@ -11776,7 +11776,7 @@ _08132B38:
 _08132B3C:
 	.4byte 0x00000CFA
 _08132B40:
-	bl 0x08132A48
+	bl sub_08132A48
 _08132B44:
 	add sp, sp, #4
 	pop {r4-r6}
@@ -11796,12 +11796,12 @@ sub_08132B4C: @ 0x08132B4C
 	bne _08132BB4
 	mov r0, #53
 	mov r1, #0
-	bl 0x0812A324
+	bl sub_0812A324
 	ldr r0, _08132B9C  @ =0x02000800
 	ldr r1, _08132BA0  @ =0x02010540
 	mov r2, #128
 	lsl r2, r2, #2
-	bl 0x08135B7C
+	bl CpuSet
 	mov r1, sp
 	ldr r2, _08132BA4  @ =0x00007FFF
 	add r0, r2, #0
@@ -11809,7 +11809,7 @@ sub_08132B4C: @ 0x08132B4C
 	mov r0, sp
 	ldr r1, _08132B9C  @ =0x02000800
 	ldr r2, _08132BA8  @ =0x01000200
-	bl 0x08135B7C
+	bl CpuSet
 	ldr r1, _08132BAC  @ =0x00000CF8
 	add r0, r5, r1
 	strh r4, [r0]
@@ -11837,7 +11837,7 @@ _08132BAC:
 _08132BB0:
 	.4byte 0x00000CFA
 _08132BB4:
-	bl 0x08131AF0
+	bl sub_08131AF0
 	ldr r1, _08132BD0  @ =0x00000CFA
 	add r0, r5, r1
 	ldrh r4, [r0]
@@ -11867,7 +11867,7 @@ _08132BD8:
 	ldr r1, _08132C20  @ =0x02000800
 	mov r2, #128
 	lsl r2, r2, #2
-	bl 0x08135B7C
+	bl CpuSet
 	ldr r2, _08132C24  @ =0x000009B5
 	add r0, r5, r2
 	strb r4, [r0]
@@ -11881,7 +11881,7 @@ _08132BF8:
 	ldr r0, _08132C2C  @ =0x0200BB90
 	ldr r1, _08132C30  @ =0x020008D0
 	mov r2, #7
-	bl 0x08135B7C
+	bl CpuSet
 _08132C0E:
 	add sp, sp, #4
 	pop {r4-r6}
@@ -11953,7 +11953,7 @@ _08132C48:
 	mov r0, #32
 	mov r1, #48
 	add r2, r4, #0
-	bl 0x08131D14
+	bl sub_08131D14
 	pop {r4,r5}
 	pop {r0}
 	bx r0
@@ -12073,7 +12073,7 @@ _08132D48:
 	add r0, r0, #1
 	strh r0, [r1]
 _08132D66:
-	bl 0x08132CC4
+	bl sub_08132CC4
 _08132D6A:
 	ldr r1, _08132D7C  @ =0x03002230
 	ldr r0, _08132D94  @ =0x0000099B
@@ -12141,7 +12141,7 @@ _08132DD6:
 	lsl r0, r0, #2
 	cmp r3, r0
 	bne _08132DA0
-	bl 0x08132CC4
+	bl sub_08132CC4
 	ldr r1, _08132DF8  @ =0x03002230
 	ldr r0, _08132DFC  @ =0x0000099B
 	add r1, r1, r0
@@ -12820,7 +12820,7 @@ _0813329C:
 _081332A0:
 	.4byte 0x02000AD0
 _081332A4:
-	bl 0x081301B8
+	bl sub_081301B8
 _081332A8:
 	pop {r4}
 	pop {r0}
@@ -12842,11 +12842,11 @@ sub_081332B0: @ 0x081332B0
 	add r0, r0, r1
 	ldrh r4, [r0]
 	add r0, r4, #0
-	bl 0x08133468
+	bl sub_08133468
 	ldr r1, _081332F4  @ =0x020009FA
 	strh r0, [r1]
 	add r0, r4, #0
-	bl 0x08133468
+	bl sub_08133468
 	ldr r1, _081332F8  @ =0x02000DFA
 	strh r0, [r1]
 _081332D8:
@@ -12929,7 +12929,7 @@ sub_08133350: @ 0x08133350
 	mov r4, #127
 _08133358:
 	ldrh r0, [r5]
-	bl 0x08133468
+	bl sub_08133468
 	strh r0, [r6]
 	add r5, r5, #2
 	add r6, r6, #2
@@ -12941,7 +12941,7 @@ _08133358:
 	mov r4, #127
 _08133370:
 	ldrh r0, [r5]
-	bl 0x08133468
+	bl sub_08133468
 	strh r0, [r6]
 	add r5, r5, #2
 	add r6, r6, #2
@@ -13019,10 +13019,10 @@ sub_081333E8: @ 0x081333E8
 	mov r5, #63
 _081333F8:
 	ldrh r0, [r4]
-	bl 0x08133468
+	bl sub_08133468
 	strh r0, [r6]
 	ldrh r0, [r4]
-	bl 0x08133468
+	bl sub_08133468
 	strh r0, [r7]
 	add r4, r4, #2
 	add r7, r7, #2
@@ -13133,7 +13133,7 @@ sub_081334B4: @ 0x081334B4
 	and r0, r0, r1
 	cmp r0, #0
 	beq _081334CA
-	bl 0x08130FF8
+	bl sub_08130FF8
 _081334CA:
 	pop {r0}
 	bx r0
@@ -13164,7 +13164,7 @@ sub_081334D8: @ 0x081334D8
 	cmp r0, #71
 	bne _081334FC
 _081334F8:
-	bl 0x08131710
+	bl sub_08131710
 _081334FC:
 	pop {r0}
 	bx r0
@@ -13181,10 +13181,10 @@ sub_0813350C: @ 0x0813350C
 	push {lr}
 	mov r0, #88
 	mov r1, #96
-	bl 0x081318E0
+	bl sub_081318E0
 	mov r0, #104
 	mov r1, #112
-	bl 0x08131998
+	bl sub_08131998
 	ldr r0, _0813352C  @ =0x03002230
 	ldr r1, _08133530  @ =0x0000099B
 	add r0, r0, r1
@@ -13209,7 +13209,7 @@ sub_08133534: @ 0x08133534
 	ldr r1, _08133578  @ =0x02000800
 	ldr r2, _0813357C  @ =0x01000200
 	mov r0, sp
-	bl 0x08135B7C
+	bl CpuSet
 	ldr r1, _08133580  @ =0x03002230
 	ldr r0, _08133584  @ =0x00000CF8
 	add r2, r1, r0
@@ -13264,7 +13264,7 @@ sub_08133594: @ 0x08133594
 	bne _081335BC
 	mov r0, #2
 	strb r0, [r1]
-	bl 0x08131AF0
+	bl sub_08131AF0
 	b _081335C0
 	.byte 0x00
 	.byte 0x00
@@ -13273,7 +13273,7 @@ _081335B4:
 _081335B8:
 	.4byte 0x00000C85
 _081335BC:
-	bl 0x0812F95C
+	bl sub_0812F95C
 _081335C0:
 	pop {r0}
 	bx r0
@@ -13284,17 +13284,17 @@ sub_081335C4: @ 0x081335C4
 	push {lr}
 	mov r0, #32
 	mov r1, #128
-	bl 0x081318E0
+	bl sub_081318E0
 	mov r0, #128
 	lsl r0, r0, #1
 	mov r1, #192
 	lsl r1, r1, #1
-	bl 0x081318E0
+	bl sub_081318E0
 	ldr r1, _081335EC  @ =0x02000C00
 	ldr r0, _081335F0  @ =0x02000C40
 	ldrh r0, [r0]
 	strh r0, [r1]
-	bl 0x08131A50
+	bl sub_08131A50
 	pop {r0}
 	bx r0
 	.byte 0x00
@@ -13341,7 +13341,7 @@ sub_08133604: @ 0x08133604
 	add r0, r0, r1
 	mov r1, #1
 	strb r1, [r0]
-	bl 0x08131DCC
+	bl sub_08131DCC
 	pop {r0}
 	bx r0
 _08133618:
@@ -13353,14 +13353,14 @@ _0813361C:
 	THUMB_FUNC_START sub_08133620
 sub_08133620: @ 0x08133620
 	push {lr}
-	bl 0x08131E90
+	bl sub_08131E90
 	ldr r0, _0813363C  @ =0x03002230
 	ldr r1, _08133640  @ =0x00000CF8
 	add r0, r0, r1
 	ldrh r0, [r0]
 	cmp r0, #0
 	beq _08133636
-	bl 0x08131E90
+	bl sub_08131E90
 _08133636:
 	pop {r0}
 	bx r0
@@ -13381,7 +13381,7 @@ sub_08133644: @ 0x08133644
 	ldrb r1, [r1]
 	ldr r2, _08133664  @ =0x0200233F
 	ldrb r2, [r2]
-	bl 0x0813249C
+	bl sub_0813249C
 	pop {r0}
 	bx r0
 	.byte 0x00
@@ -13400,7 +13400,7 @@ sub_08133668: @ 0x08133668
 	mov r0, #2
 	mov r1, #2
 	mov r2, #4
-	bl 0x0813249C
+	bl sub_0813249C
 	pop {r0}
 	bx r0
 	THUMB_FUNC_END sub_08133668
@@ -13413,7 +13413,7 @@ sub_08133678: @ 0x08133678
 	ldr r1, _08133690  @ =0x0200233E
 	ldrb r1, [r1]
 	mov r2, #3
-	bl 0x0813249C
+	bl sub_0813249C
 	pop {r0}
 	bx r0
 _0813368C:
@@ -13430,10 +13430,10 @@ sub_08133694: @ 0x08133694
 	mov r1, #184
 	lsl r1, r1, #1
 	add r0, r4, #0
-	bl 0x081318E0
+	bl sub_081318E0
 	mov r0, #96
 	add r1, r4, #0
-	bl 0x081318E0
+	bl sub_081318E0
 	ldr r1, _081336C8  @ =0x03002230
 	ldr r0, _081336CC  @ =0x00000CF8
 	add r2, r1, r0
@@ -13462,10 +13462,10 @@ sub_081336D4: @ 0x081336D4
 	push {lr}
 	mov r0, #32
 	mov r1, #96
-	bl 0x081318E0
+	bl sub_081318E0
 	mov r0, #32
 	mov r1, #96
-	bl 0x081318E0
+	bl sub_081318E0
 	ldr r1, _08133700  @ =0x03002230
 	ldr r0, _08133704  @ =0x00000CF8
 	add r2, r1, r0
@@ -13497,7 +13497,7 @@ sub_0813370C: @ 0x0813370C
 	mov r2, #128
 	lsl r2, r2, #2
 	add r0, r4, #0
-	bl 0x08135B7C
+	bl CpuSet
 	mov r1, sp
 	ldr r2, _0813375C  @ =0x00007FFF
 	add r0, r2, #0
@@ -13505,7 +13505,7 @@ sub_0813370C: @ 0x0813370C
 	ldr r2, _08133760  @ =0x01000200
 	mov r0, sp
 	add r1, r4, #0
-	bl 0x08135B7C
+	bl CpuSet
 	ldr r1, _08133764  @ =0x03002230
 	ldr r0, _08133768  @ =0x00000CF8
 	add r2, r1, r0
@@ -13612,7 +13612,7 @@ sub_081337C8: @ 0x081337C8
 	lsl r0, r2, #24
 	cmp r0, #0
 	bne _08133804
-	bl 0x08132448
+	bl sub_08132448
 	b _08133816
 _081337F8:
 	.4byte 0x03002230
@@ -13628,7 +13628,7 @@ _08133804:
 	and r3, r3, r2
 	cmp r3, #0
 	bne _08133816
-	bl 0x0813215C
+	bl sub_0813215C
 _08133816:
 	pop {r4,r5}
 	pop {r0}
@@ -13640,12 +13640,12 @@ sub_0813381C: @ 0x0813381C
 	push {lr}
 	ldr r0, _0813383C  @ =0x020008F6
 	ldrh r0, [r0]
-	bl 0x08131F24
+	bl sub_08131F24
 	ldr r1, _08133840  @ =0x02000CF6
 	strh r0, [r1]
 	ldr r0, _08133844  @ =0x020008F8
 	ldrh r0, [r0]
-	bl 0x08131F24
+	bl sub_08131F24
 	ldr r1, _08133848  @ =0x02000CF8
 	strh r0, [r1]
 	pop {r0}
@@ -13799,7 +13799,7 @@ _0813393C:
 _08133940:
 	mov r0, #123
 	ldr r1, _0813396C  @ =0x03002734
-	bl 0x0812A324
+	bl sub_0812A324
 _08133948:
 	ldr r1, _08133970  @ =0x0822C824
 	mov r0, #15
@@ -14130,7 +14130,7 @@ _08134484:
 	beq _08134536
 _08134490:
 	add r0, r4, #0
-	bl 0x08134A5C
+	bl sub_08134A5C
 	mov r1, #0
 	str r1, [r4, #48]
 	ldr r3, [r5, #32]
@@ -14146,11 +14146,11 @@ _081344A4:
 	cmp r0, r1
 	beq _081344B6
 	add r1, r5, #0
-	bl 0x08134590
+	bl sub_08134590
 _081344B6:
 	ldr r0, [sp]
 	add r1, r5, #0
-	bl 0x08135028
+	bl sub_08135028
 	ldr r0, [r5, #4]
 	str r0, [r4, #16]
 	ldr r0, [sp, #16]
@@ -14168,7 +14168,7 @@ _081344B6:
 	str r0, [r4, #4]
 	ldrh r0, [r5, #30]
 	strh r0, [r4, #12]
-	bl 0x08134320
+	bl sub_08134320
 	ldrb r1, [r4, #8]
 	mov r0, #8
 	ldrsb r0, [r5, r0]
@@ -14306,11 +14306,11 @@ sub_081345AC: @ 0x081345AC
 	THUMB_FUNC_START sub_081345B8
 sub_081345B8: @ 0x081345B8
 	mov r12, lr
-	bl 0x081345AC
+	bl sub_081345AC
 	strb r3, [r1, #25]
 	cmp r3, #0
 	bne _081345C8
-	bl 0x08134590
+	bl sub_08134590
 _081345C8:
 	bx r12
 	.byte 0x00
@@ -14490,13 +14490,13 @@ sub_08134684: @ 0x08134684
 	and r0, r0, r1
 	ldr r1, _081346DC  @ =0x03006D18
 	ldr r2, _081346E0  @ =0x04000100
-	bl 0x08135B7C
+	bl CpuSet
 	ldr r0, _081346E4  @ =0x02030A80
-	bl 0x08134A84
+	bl sub_08134A84
 	ldr r0, _081346E8  @ =0x02031AC0
-	bl 0x08134940
+	bl sub_08134940
 	ldr r0, _081346EC  @ =0x0093F800
-	bl 0x08134C20
+	bl sub_08134C20
 	ldr r0, _081346F0  @ =0x00000020
 	lsl r0, r0, #16
 	lsr r0, r0, #16
@@ -14509,7 +14509,7 @@ _081346B6:
 	ldr r1, [r5, #4]
 	ldrb r2, [r5, #8]
 	add r0, r4, #0
-	bl 0x08134DC4
+	bl sub_08134DC4
 	ldrh r0, [r5, #10]
 	strb r0, [r4, #11]
 	ldr r0, _081346F8  @ =0x020322C0
@@ -14568,7 +14568,7 @@ sub_08134708: @ 0x08134708
 	ldr r2, [r1]
 	ldr r1, [r0]
 	add r0, r2, #0
-	bl 0x08134E3C
+	bl sub_08134E3C
 	pop {r0}
 	bx r0
 _0813472C:
@@ -14597,7 +14597,7 @@ sub_08134734: @ 0x08134734
 	beq _08134768
 	add r0, r1, #0
 	add r1, r2, #0
-	bl 0x08134E3C
+	bl sub_08134E3C
 	b _0813477C
 	.byte 0x00
 	.byte 0x00
@@ -14615,7 +14615,7 @@ _08134768:
 _08134774:
 	add r0, r1, #0
 	add r1, r3, #0
-	bl 0x08134E3C
+	bl sub_08134E3C
 _0813477C:
 	pop {r0}
 	bx r0
@@ -14641,7 +14641,7 @@ sub_08134780: @ 0x08134780
 	beq _081347B4
 	add r0, r1, #0
 	add r1, r2, #0
-	bl 0x08134E3C
+	bl sub_08134E3C
 	b _081347D0
 	.byte 0x00
 	.byte 0x00
@@ -14656,13 +14656,13 @@ _081347B4:
 	bne _081347C6
 	add r0, r1, #0
 	add r1, r3, #0
-	bl 0x08134E3C
+	bl sub_08134E3C
 	b _081347D0
 _081347C6:
 	cmp r2, #0
 	bge _081347D0
 	add r0, r1, #0
-	bl 0x08134648
+	bl sub_08134648
 _081347D0:
 	pop {r0}
 	bx r0
@@ -14687,7 +14687,7 @@ sub_081347D4: @ 0x081347D4
 	cmp r1, r0
 	bne _081347FA
 	add r0, r2, #0
-	bl 0x08134F20
+	bl sub_08134F20
 _081347FA:
 	pop {r0}
 	bx r0
@@ -14718,7 +14718,7 @@ sub_08134808: @ 0x08134808
 	cmp r1, r0
 	bne _0813482E
 	add r0, r2, #0
-	bl 0x08134648
+	bl sub_08134648
 _0813482E:
 	pop {r0}
 	bx r0
@@ -14742,7 +14742,7 @@ sub_0813483C: @ 0x0813483C
 	add r4, r0, #0
 _0813484C:
 	ldr r0, [r5]
-	bl 0x08134F20
+	bl sub_08134F20
 	add r5, r5, #12
 	sub r4, r4, #1
 	cmp r4, #0
@@ -14760,7 +14760,7 @@ _08134864:
 	THUMB_FUNC_START sub_08134868
 sub_08134868: @ 0x08134868
 	push {lr}
-	bl 0x08134648
+	bl sub_08134648
 	pop {r0}
 	bx r0
 	THUMB_FUNC_END sub_08134868
@@ -14779,7 +14779,7 @@ sub_08134874: @ 0x08134874
 	add r4, r0, #0
 _08134884:
 	ldr r0, [r5]
-	bl 0x08134648
+	bl sub_08134648
 	add r5, r5, #12
 	sub r4, r4, #1
 	cmp r4, #0
@@ -14799,7 +14799,7 @@ sub_081348A0: @ 0x081348A0
 	push {lr}
 	lsl r1, r1, #16
 	lsr r1, r1, #16
-	bl 0x08134664
+	bl sub_08134664
 	pop {r0}
 	bx r0
 	THUMB_FUNC_END sub_081348A0
@@ -14872,7 +14872,7 @@ _08134904:
 	cmp r0, #0
 	beq _08134932
 	add r0, r4, #0
-	bl 0x08134A70
+	bl sub_08134A70
 	strb r7, [r4]
 	mov r0, #2
 	strb r0, [r4, #15]
@@ -14967,7 +14967,7 @@ sub_08134940: @ 0x08134940
 	ldr r2, _08134A54  @ =0x05000040
 	mov r0, sp
 	add r1, r5, #0
-	bl 0x08135B7C
+	bl CpuSet
 	mov r0, #1
 	strb r0, [r5, #1]
 	mov r0, #17
@@ -15049,7 +15049,7 @@ sub_08134A5C: @ 0x08134A5C
 	push {lr}
 	ldr r1, _08134A6C  @ =0x02031AB8
 	ldr r1, [r1]
-	bl 0x08135FEC
+	bl _call_via_r1
 	pop {r0}
 	bx r0
 	.byte 0x00
@@ -15063,7 +15063,7 @@ sub_08134A70: @ 0x08134A70
 	push {lr}
 	ldr r1, _08134A80  @ =0x02031ABC
 	ldr r1, [r1]
-	bl 0x08135FEC
+	bl _call_via_r1
 	pop {r0}
 	bx r0
 	.byte 0x00
@@ -15140,7 +15140,7 @@ _08134AAE:
 	ldr r2, _08134B68  @ =0x050003EC
 	mov r0, sp
 	add r1, r5, #0
-	bl 0x08135B7C
+	bl CpuSet
 	mov r0, #8
 	strb r0, [r5, #6]
 	mov r0, #15
@@ -15158,7 +15158,7 @@ _08134AAE:
 	str r4, [r5, #52]
 	mov r0, #128
 	lsl r0, r0, #11
-	bl 0x08134B7C
+	bl sub_08134B7C
 	ldr r0, _08134B78  @ =0x68736D53
 	str r0, [r5]
 	add sp, sp, #4
@@ -15244,7 +15244,7 @@ sub_08134B7C: @ 0x08134B7C
 	bl __divsi3
 	neg r0, r0
 	strh r0, [r4]
-	bl 0x08134D88
+	bl sub_08134D88
 	ldr r1, _08134C1C  @ =0x04000006
 _08134BE0:
 	ldrb r0, [r1]
@@ -15350,9 +15350,9 @@ _08134C8E:
 	and r4, r4, r3
 	cmp r4, #0
 	beq _08134CA2
-	bl 0x08134D0C
+	bl sub_08134D0C
 	add r0, r4, #0
-	bl 0x08134B7C
+	bl sub_08134B7C
 _08134CA2:
 	ldr r0, _08134CB0  @ =0x68736D53
 	str r0, [r5]
@@ -15398,7 +15398,7 @@ _08134CE6:
 	lsl r0, r5, #24
 	lsr r0, r0, #24
 	ldr r1, [r6, #44]
-	bl 0x08135FEC
+	bl _call_via_r1
 	strb r7, [r4]
 	add r5, r5, #1
 	add r4, r4, #64
@@ -15463,7 +15463,7 @@ _08134D44:
 	add r1, r2, r0
 	ldr r2, _08134D84  @ =0x05000318
 	mov r0, sp
-	bl 0x08135B7C
+	bl CpuSet
 _08134D64:
 	add sp, sp, #4
 	pop {r0}
@@ -15544,7 +15544,7 @@ _08134DD8:
 	add r0, r1, #1
 	str r0, [r5]
 	add r0, r7, #0
-	bl 0x08134A70
+	bl sub_08134A70
 	str r6, [r7, #44]
 	strb r4, [r7, #8]
 	mov r0, #128
@@ -15658,7 +15658,7 @@ _08134E7E:
 _08134EB2:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl 0x081342DC
+	bl sub_081342DC
 	mov r0, #192
 	strb r0, [r4]
 	mov r1, r8
@@ -15686,7 +15686,7 @@ _08134EDE:
 _08134EE8:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl 0x081342DC
+	bl sub_081342DC
 	mov r0, r8
 	strb r0, [r4]
 	add r6, r6, #1
@@ -15701,7 +15701,7 @@ _08134EFE:
 	cmp r0, #0
 	beq _08134F0E
 	ldrb r0, [r7, #3]
-	bl 0x08134C20
+	bl sub_08134C20
 _08134F0E:
 	ldr r0, _08134F1C  @ =0x68736D53
 	str r0, [r5, #52]
@@ -15737,7 +15737,7 @@ sub_08134F20: @ 0x08134F20
 _08134F42:
 	add r0, r6, #0
 	add r1, r5, #0
-	bl 0x081342DC
+	bl sub_081342DC
 	sub r4, r4, #1
 	add r5, r5, #80
 	cmp r4, #0
@@ -15805,7 +15805,7 @@ _08134FA4:
 _08134FBA:
 	add r0, r6, #0
 	add r1, r4, #0
-	bl 0x081342DC
+	bl sub_081342DC
 	mov r0, #1
 	ldrh r7, [r6, #40]
 	and r0, r0, r7
@@ -16318,7 +16318,7 @@ _081352FC:
 	strb r0, [r4, #29]
 	add r0, r4, #0
 	str r3, [sp, #24]
-	bl 0x081351D4
+	bl sub_081351D4
 	ldr r3, [sp, #24]
 	cmp r6, #2
 	beq _08135364
@@ -16446,7 +16446,7 @@ _081353F2:
 _08135416:
 	lsl r0, r6, #24
 	lsr r0, r0, #24
-	bl 0x08135184
+	bl sub_08135184
 	mov r0, #0
 	strb r0, [r4]
 	b _08135668
@@ -16495,7 +16495,7 @@ _08135464:
 	strb r0, [r4, #29]
 _08135476:
 	add r0, r4, #0
-	bl 0x081351D4
+	bl sub_081351D4
 	mov r0, #3
 	ldrb r2, [r4]
 	and r0, r0, r2
@@ -17065,7 +17065,7 @@ _08135844:
 	cmp r1, #0
 	bne _08135866
 	add r0, r4, #0
-	bl 0x081357F4
+	bl sub_081357F4
 _08135866:
 	sub r5, r5, #1
 	add r4, r4, #80
@@ -17131,7 +17131,7 @@ _081358B8:
 	cmp r1, #0
 	bne _081358DA
 	add r0, r4, #0
-	bl 0x081357F4
+	bl sub_081357F4
 _081358DA:
 	sub r5, r5, #1
 	add r4, r4, #80
@@ -17320,7 +17320,7 @@ _08135A34:
 	ldr r2, [r0]
 	add r0, r4, #0
 	add r1, r6, #0
-	bl 0x08135FF0
+	bl _call_via_r2
 	b _08135A4E
 	.byte 0x00
 	.byte 0x00
@@ -17347,7 +17347,7 @@ sub_08135A54: @ 0x08135A54
 	lsl r3, r3, #2
 	add r3, r3, r2
 	ldr r2, [r3]
-	bl 0x08135FF0
+	bl _call_via_r2
 	pop {r0}
 	bx r0
 	.byte 0x00
@@ -17361,7 +17361,7 @@ sub_08135A74: @ 0x08135A74
 	push {lr}
 	ldr r2, _08135A84  @ =0x02031A30
 	ldr r2, [r2]
-	bl 0x08135FF0
+	bl _call_via_r2
 	pop {r0}
 	bx r0
 	.byte 0x00

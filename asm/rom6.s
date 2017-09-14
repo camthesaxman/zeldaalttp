@@ -343,11 +343,11 @@ _08135E0E:
 	add r2, r2, #3
 	mov r0, sp
 	add r1, r4, #0
-	bl 0x08135D44
+	bl sub_08135D44
 	add r0, r4, #0
 	mov r1, sp
 	mov r2, #68
-	bl 0x08135D44
+	bl sub_08135D44
 	add r2, sp, #8
 	add r5, r5, #6
 	mov r4, #0
@@ -465,9 +465,9 @@ _08135EE6:
 	ldrb r2, [r0, #8]
 	add r2, r2, #67
 	mov r0, sp
-	bl 0x08135D44
+	bl sub_08135D44
 	ldr r0, _08135F44  @ =0x084272BC
-	bl 0x08135C78
+	bl sub_08135C78
 	mov r4, #0
 	mov r1, #208
 	lsl r1, r1, #20
@@ -488,7 +488,7 @@ _08135F18:
 	bne _08135F32
 	ldr r4, _08135F4C  @ =0x0000C001
 _08135F32:
-	bl 0x08135D00
+	bl sub_08135D00
 	add r0, r4, #0
 _08135F38:
 	add sp, sp, #164
@@ -529,7 +529,7 @@ _08135F70:
 _08135F74:
 	add r0, r1, #0
 	mov r1, sp
-	bl 0x08135DC4
+	bl sub_08135DC4
 	mov r2, sp
 	mov r3, #0
 	b _08135F8C
@@ -576,14 +576,14 @@ _08135FBA:
 	bhi _08135FDE
 	add r0, r4, #0
 	add r1, r5, #0
-	bl 0x08135E74
+	bl sub_08135E74
 	lsl r0, r0, #16
 	lsr r2, r0, #16
 	cmp r2, #0
 	bne _08135FB4
 	add r0, r4, #0
 	add r1, r5, #0
-	bl 0x08135F50
+	bl sub_08135F50
 	lsl r0, r0, #16
 	lsr r2, r0, #16
 	cmp r2, #0
