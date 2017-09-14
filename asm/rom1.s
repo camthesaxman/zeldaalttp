@@ -620,4 +620,14 @@ _080007BC:
 _080007C0:
 	.4byte 0x02016D50
 
-	.INCBIN "baserom.gba", 0x7C4, 0xB084-0x7C4
+	.GLOBAL gUnknown_080007C4
+gUnknown_080007C4:
+	.INCBIN "baserom.gba", 0x7C4, 0x8A8-0x7C4
+
+	.GLOBAL gUnknown_080008A8
+gUnknown_080008A8:
+	.INCBIN "baserom.gba", 0x8A8, 0x8FA4-0x8A8
+
+	.GLOBAL gUnknown_08008FA4
+gUnknown_08008FA4:
+	.INCBIN "baserom.gba", 0x8FA4, 0xB084-0x8FA4

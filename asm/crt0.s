@@ -20,7 +20,7 @@ init:
     ldr r1, _080000FC  @ =0x03007FFC
     adr r0, interrupt_main
     str r0, [r1]
-    ldr r1, _08000100  @ =main
+    ldr r1, _08000100  @ =AgbMain
     mov lr, pc
     bx r1
     b init
@@ -31,7 +31,7 @@ _080000F8:
 _080000FC:
 	.4byte 0x03007FFC
 _08000100:
-	.4byte main
+	.4byte AgbMain
 
 interrupt_main:
 	mov r3, #0x4000000
@@ -119,7 +119,8 @@ _08000218:
 	.4byte 0x080045FD
 	.4byte 0x0803F6AD
 
-_0800023C:
+	.GLOBAL sub_0800023C
+sub_0800023C:
 	mov r3, lr
 	push {r3-r11}
 	ldr r0, _080002F0  @ =0x03000208

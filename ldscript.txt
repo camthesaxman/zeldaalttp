@@ -29,18 +29,25 @@ SECTIONS
 		asm/rom8.o(.text);
 	} = 0
 
-	.data :
+	. = 0x08000000;
+	.rodata :
 	ALIGN(4)
 	{
-	}
+		INCLUDE "sym_rom.txt"
+	} = 0
+
+	. = 0x02000000;
+	.ewram_data :
+	ALIGN(4)
+	{
+		INCLUDE "sym_ewram.txt"
+	} = 0
 
 	. = 0x03000000;
 	.bss :
 	ALIGN(4)
 	{
-		. = 0x28;
-		tools/agbcc/lib/libgcc.a:dp-bit.o(.bss);
-		tools/agbcc/lib/libgcc.a:fp-bit.o(.bss);
+		INCLUDE "sym_iwram.txt"
 	} = 0
 
     /* Discard everything not specifically mentioned above. */
