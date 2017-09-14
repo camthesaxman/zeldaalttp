@@ -54,7 +54,7 @@ SoftReset: @ 0x08135B98
 	ldr r3, =REG_IME
 	mov r2, #0
 	strb r2, [r3]
-	ldr r1, =0x03007F00
+	ldr r1, =gUnknown_03007F00
 	mov sp, r1
 	swi #1
 	swi #0
