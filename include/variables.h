@@ -1097,6 +1097,8 @@ extern gUnknown_03006D04;
 extern gUnknown_03006D10;
 extern gUnknown_03006D14;
 extern gUnknown_03006D18;
+extern gUnknown_03007F00;
+extern gUnknown_03007FA0;
 extern gUnknown_03007FF0;
 extern gUnknown_03007FF8;
 extern gUnknown_03007FFC;

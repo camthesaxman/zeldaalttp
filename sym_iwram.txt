@@ -280,6 +280,8 @@ tools/agbcc/lib/libgcc.a:fp-bit.o(.bss);
 . = 0x6D10;	gUnknown_03006D10 = .;
 . = 0x6D14;	gUnknown_03006D14 = .;
 . = 0x6D18;	gUnknown_03006D18 = .;
+. = 0x7F00;	gUnknown_03007F00 = .;
+. = 0x7FA0;	gUnknown_03007FA0 = .;
 . = 0x7FF0;	gUnknown_03007FF0 = .;
 . = 0x7FF8;	gUnknown_03007FF8 = .;
 . = 0x7FFC;	gUnknown_03007FFC = .;

@@ -11,19 +11,19 @@ _start:					@ Entry point of the ROM on startup
 
 	.ALIGN 2, 0
 init:
-    mov r0, #18
-    msr cpsr, r0
-    ldr sp, _080000F8  @ =0x03007FA0
-    mov r0, #31
-    msr cpsr, r0
-    ldr sp, _080000F4  @ =0x03007F00
-    ldr r1, _080000FC  @ =0x03007FFC
-    adr r0, interrupt_main
-    str r0, [r1]
-    ldr r1, _08000100  @ =AgbMain
-    mov lr, pc
-    bx r1
-    b init
+	mov r0, #18
+	msr cpsr, r0
+	ldr sp, _080000F8  @ =0x03007FA0
+	mov r0, #31
+	msr cpsr, r0
+	ldr sp, _080000F4  @ =0x03007F00
+	ldr r1, _080000FC  @ =0x03007FFC
+	adr r0, interrupt_main
+	str r0, [r1]
+	ldr r1, _08000100  @ =AgbMain
+	mov lr, pc
+	bx r1
+	b init
 _080000F4:
 	.4byte 0x03007F00
 _080000F8:
