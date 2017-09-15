@@ -33,6 +33,7 @@ _080000FC:
 _08000100:
 	.4byte AgbMain
 
+	ARM_FUNC_START interrupt_main
 interrupt_main:
 	mov r3, #0x4000000
 	add r3, r3, #512

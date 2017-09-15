@@ -15,7 +15,11 @@ void SoftReset(u32 resetFlags);
 
 void RegisterRamReset(u32 resetFlags);
 
+void IntrWait(u32 clear, u16 intrFlags);
+
 void VBlankIntrWait(void);
+
+s32 Div(s32 number, s32 divisor);
 
 u16 Sqrt(u32 num);
 
@@ -44,5 +48,9 @@ void RLUnCompWram(const void *src, void *dest);
 void RLUnCompVram(const void *src, void *dest);
 
 int MultiBoot(struct MultiBootParam *mp);
+
+void SoundBiasReset(void);
+
+void SoundBiasSet(void);
 
 #endif // GUARD_GBA_SYSCALL_H
