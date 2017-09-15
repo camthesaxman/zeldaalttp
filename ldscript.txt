@@ -29,6 +29,7 @@ SECTIONS
 		tools/agbcc/lib/libgcc.a:_negdi2.o(.text);
 		src/newlib-libc/string/memcpy.o(.text);
 		asm/rom8.o(.text);
+		asm/4swords_text.o(.text);
 	} = 0
 
 	. = 0x08000000;

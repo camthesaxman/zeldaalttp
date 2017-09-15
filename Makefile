@@ -31,8 +31,9 @@ SOURCES  := \
 	asm/syscall.s \
 	asm/rom6.s \
 	asm/rom7.s \
+	src/newlib-libc/string/memcpy.c \
 	asm/rom8.s \
-	src/newlib-libc/string/memcpy.c
+	asm/4swords_text.s
 OFILES   := $(addsuffix .o, $(basename $(SOURCES)))
 
 # Special configurations
@@ -61,7 +62,7 @@ $(ELF): $(OFILES) $(LDSCRIPT)
 	$(LD) -T $(LDSCRIPT) -Map $(MAP) $(OFILES) tools/agbcc/lib/libgcc.a -o $@
 
 %.gba: %.elf
-	$(OBJCOPY) -O binary --pad-to 0x8800000 $< $@
+	$(OBJCOPY) -O binary --gap-fill 0xFF --pad-to 0x8800000 $< $@
 
 %.o: %.c
 	$(CPP) $(CPPFLAGS) $< | $(CC1) $(CC1FLAGS) -o $*.s
