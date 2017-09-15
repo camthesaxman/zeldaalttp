@@ -50,24 +50,35 @@ compare: $(ROM)
 	md5sum -c checksum.md5
 
 clean:
-	$(RM) $(ROM) $(ELF) $(MAP) $(OFILES) src/*.s
-
+	$(RM) $(ROM) $(ELF) $(MAP) $(OFILES) src/*.s graphics/*/*.4bpp
 
 #### Recipes ####
 
 # Get rid of the idiotic built-in rules
 .SUFFIXES:
 
+# Link ELF file
 $(ELF): $(OFILES) $(LDSCRIPT)
 	$(LD) -T $(LDSCRIPT) -Map $(MAP) $(OFILES) tools/agbcc/lib/libgcc.a -o $@
 
+# Build GBA ROM
 %.gba: %.elf
 	$(OBJCOPY) -O binary --gap-fill 0xFF --pad-to 0x8800000 $< $@
 
+# C source code
 %.o: %.c
 	$(CPP) $(CPPFLAGS) $< | $(CC1) $(CC1FLAGS) -o $*.s
 	echo '.ALIGN 2, 0' >> $*.s
 	$(AS) $(ASFLAGS) $*.s -o $*.o
 
+# Assembly source code
 %.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
+
+# Graphics files
+%.4bpp: %.png
+	$(GBAGFX) $< $@
+%.gbapal: %.pal
+	$(GBAGFX) $< $@
+
+include gfxdep.mk

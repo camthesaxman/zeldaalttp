@@ -3921,7 +3921,6 @@
 . = 0x22C002;	gUnknown_0822C002 = .;
 . = 0x22C624;	gUnknown_0822C624 = .;
 . = 0x22C824;	gUnknown_0822C824 = .;
-. = 0x22C82C;	gUnknown_0822C82C = .;
 . = 0x23482C;	gUnknown_0823482C = .;
 . = 0x25381C;	gUnknown_0825381C = .;
 . = 0x2542E8;	gUnknown_082542E8 = .;
