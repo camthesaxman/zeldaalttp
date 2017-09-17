@@ -86,9 +86,20 @@ struct UnknownStruct6
     u8 unk3;
 };
 
+struct UnknownStruct8
+{
+    u8 unk0;
+    u8 filler1[1];
+    u16 unk2:9;
+    u8 filler4[1];
+    u8 unk5;
+};
+
 struct UnknownStruct7
 {
-    u8 filler0[0x952];
+    u8 filler0[0x550];
+    struct UnknownStruct8 unk550[2];  // no idea of the length of this array
+    u8 filler560[0x3F2];
     u16 unk952;
     u8 filler954[4];
     u8 unk958;
@@ -98,9 +109,12 @@ struct UnknownStruct7
     u8 filler962[2];
     s16 unk964;
     u8 filler966[2];
-    u16 unk968;
-    u8 filler96A[0x12];
-    u16 unk97C;
+    s16 unk968;
+    u8 filler96A[2];
+    u16 unk96C;
+    u8 filler96E[0xE];
+    u8 unk97C;
+    s8 unk97D;
     u8 unk97E[0x18];
     u8 unk996;
     u8 filler997[0x17];
@@ -155,10 +169,16 @@ struct UnknownStruct7
     u8 unkED2[0x10];
     u8 unkEE2[0xB0];
     u8 unkF92[0x20];
-    u8 unkFB2[0x190];
-    u8 unk1142[0x582];
+    u8 unkFB2[0x110];
+    u8 unk10C2[0x80];
+    u8 unk1142[0x49A];
+    u8 unk15DC;
+    u8 filler15DD[0xE7];
     u16 unk16C4;
-    u8 filler16C6[0x6E];
+    u8 filler16C6[0x5D];
+    u8 unk1723;
+    u8 unk1724;
+    u8 filler1725[0xF];
     u8 unk1734;
     u8 filler1735[0x3B];
     u8 unk1770;
@@ -166,7 +186,8 @@ struct UnknownStruct7
     u16 unk1892;
     u8 filler1894[4];
     u8 unk1898;
-    u8 filler189A[8];
+    u16 unk189A;
+    u8 filler189C[6];
     u16 unk18A2;
     u16 unk18A4;
     u8 filler18A6[4];

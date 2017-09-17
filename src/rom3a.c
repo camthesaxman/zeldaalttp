@@ -1,13 +1,71 @@
 #include "gba/gba.h"
 #include "global.h"
 
+static_assert(offsetof(struct UnknownStruct7, filler560) == 0x560);
+static_assert(offsetof(struct UnknownStruct7, unk952) == 0x952);
+
+/*
+void sub_080A6754(void)
+{
+    u8 *r1 = &gUnknown_0816B308[gUnknown_03002230.unk968];
+    u16 r7 = gUnknown_03003E74 * 4 + *r1;
+    u16 r2;
+    s16 r9;
+    u16 r6;
+    
+    gUnknown_03002230.unk97C = gUnknown_081697A0[gUnknown_03002230.unk964];
+    gUnknown_03002230.unk189A = gUnknown_03002230.unk97C * 2;
+    r2 = gUnknown_03002230.unk97C * 3;
+    
+    r9 = gUnknown_08169180[r2] + gUnknown_03002230.unk961;
+    r9 -= gUnknown_03002230.unk97D;
+    // mov r9, r0
+    
+    r6 = gUnknown_08169180[r2 + 1] + gUnknown_03002230.unk960;
+    gUnknown_03002230.unk96C = gUnknown_08169180[r2 + 2] << 8;
+    
+    r2 = gUnknown_03002230.unk96C & 0xFFFFF000;
+    if (r2 != (240 << 8))
+    {
+        struct UnknownStruct8 *r3;
+        struct UnknownStruct8 *r4;
+        
+        r2 |= gUnknown_03002230.unk1723 + (gUnknown_03002230.unk1724 << 8);
+        r2 |= 0x100;
+        sub_080A452C(r7, r2);
+        r3 = &gUnknown_03002230.unk550[r7 / 4];
+        if (gUnknown_03003E68 == 0)
+        {
+            r3->unk2 = r6;
+            r3->unk0 = r9;
+            if (r6 > 240)
+                r3->unk2 |= 0x100;
+        }
+        //_080A685E
+        r4 = &gUnknown_03002230.unk550[r7 / 4];
+        if (gUnknown_03002230.unk10C2[gUnknown_03002230.unk15DC] != 0)
+        {
+            r4->unk5 &= 0xF;
+            r4->unk5 |= 0x80;
+            r4->unk2 += (gUnknown_03002230.unk10C2[gUnknown_03002230.unk15DC] & 1) << 1;
+        }
+    }
+    //_080A68AC
+    
+    r2 = gUnknown_03002230.unk96C & 0xF00;
+    if (r2 != 0xF00)
+    {
+        r2 = (r2 << 4) |  (gUnknown_03002230.unk1723 + (gUnknown_03002230.unk1724 << 8));
+    }
+    //_080A6996
+}
+*/
+
 void sub_080A69FC(u8 a)
 {
     u16 *r8 = &gUnknown_03003E74;
     u16 r4 = gUnknown_02010990;
     u8 r6 = gUnknown_03002230.unkF92[a];
-    u16 r0;
-    u32 r1;
     
     gUnknown_03002230.unk964 = r6;
     gUnknown_03002230.unk961 = gUnknown_03002230.unkED2[a] + gUnknown_03002230.unk1142[a] - gUnknown_03002230.unk958 - 4;
@@ -463,14 +521,14 @@ void sub_080A7228(void)
     //_080A7468
     if (r0 != 0)  // dunno
     {
-        gUnknown_03002230.unk97C = 0xFFFF;
+        //gUnknown_03002230.unk97C = 0xFFFF;
         sub_080A75FC();
         sub_080A797C();
         gUnknown_03002230.unk9AE++;
     }
     if (r8 != 0)
     {
-        gUnknown_03002230.unk97C = 0xFFFF;
+        //gUnknown_03002230.unk97C = 0xFFFF;
         sub_080A7588();
         gUnknown_03002230.unk9AE++;
     }
