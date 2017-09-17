@@ -10,6 +10,7 @@ SECTIONS
 		src/main.o(.text);
 		src/rom2.o(.text);
 		asm/rom2.o(.text);
+		asm/rom2a.o(.text);
 		asm/rom3.o(.text);
 		src/rom3a.o(.text);
 		asm/rom3a.o(.text);

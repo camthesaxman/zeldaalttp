@@ -25,6 +25,7 @@ SOURCES  := \
 	src/main.c \
 	src/rom2.c \
 	asm/rom2.s \
+	asm/rom2a.s \
 	asm/rom3.s \
 	src/rom3a.c \
 	asm/rom3a.s \
@@ -55,12 +56,15 @@ compare: $(ROM)
 	md5sum -c checksum.md5
 
 clean:
-	$(RM) $(ROM) $(ELF) $(MAP) $(OFILES) src/*.s graphics/*/*.4bpp
+	$(RM) $(ROM) $(ELF) $(MAP) $(OFILES) src/*.s graphics/*/*.4bpp graphics/*/*.lz
 
 #### Recipes ####
 
 # Get rid of the idiotic built-in rules
 .SUFFIXES:
+
+# Stop deleting my files
+.PRECIOUS: %.4bpp
 
 # Link ELF file
 $(ELF): $(OFILES) $(LDSCRIPT)
@@ -84,6 +88,8 @@ $(ELF): $(OFILES) $(LDSCRIPT)
 %.4bpp: %.png
 	$(GBAGFX) $< $@
 %.gbapal: %.pal
+	$(GBAGFX) $< $@
+%.lz: %
 	$(GBAGFX) $< $@
 
 include gfxdep.mk
