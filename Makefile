@@ -26,6 +26,8 @@ SOURCES  := \
 	src/rom2.c \
 	asm/rom2.s \
 	asm/rom3.s \
+	src/rom3a.c \
+	asm/rom3a.s \
 	asm/rom4.s \
 	asm/rom5.s \
 	asm/syscall.s \
@@ -43,6 +45,9 @@ src/newlib-libc/string/memcpy.o: CC1FLAGS := -O2
 
 # main.c might also need the old compiler, too.
 src/rom2.o: CC1 := $(CC1_OLD)
+
+#src/rom3a.o: CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O1 -fhex-asm
+#src/rom3a.o: CC1 := $(CC1_OLD)
 
 #### Main Targets ####
 
