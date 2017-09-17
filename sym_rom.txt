@@ -3946,13 +3946,6 @@
 . = 0x3B556C;	gUnknown_083B556C = .;
 . = 0x3B566C;	gUnknown_083B566C = .;
 . = 0x3B574C;	gUnknown_083B574C = .;
-. = 0x3B5758;	gUnknown_083B5758 = .;
-. = 0x3B6358;	gUnknown_083B6358 = .;
-. = 0x3BA758;	gUnknown_083BA758 = .;
-. = 0x3BB758;	gUnknown_083BB758 = .;
-. = 0x3BBF58;	gUnknown_083BBF58 = .;
-. = 0x3BC758;	gUnknown_083BC758 = .;
-. = 0x3BCF58;	gUnknown_083BCF58 = .;
 . = 0x3BD758;	gUnknown_083BD758 = .;
 . = 0x3BF758;	gUnknown_083BF758 = .;
 . = 0x3BF858;	gUnknown_083BF858 = .;
