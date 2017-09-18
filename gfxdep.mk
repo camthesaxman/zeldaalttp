@@ -2,13 +2,6 @@
 
 asm/rom8.o: \
 	graphics/lttp/link.4bpp \
-	graphics/lttp/hud.4bpp \
-	graphics/lttp/font1.4bpp \
-	graphics/lttp/font2.4bpp \
-	graphics/lttp/font3.4bpp \
-	graphics/lttp/font4.4bpp \
-	graphics/lttp/font5.4bpp \
-	graphics/lttp/font6.4bpp \
 	graphics/lttp/rom_0023482C.4bpp.lz \
 	graphics/lttp/rom_00234D44.4bpp.lz \
 	graphics/lttp/rom_0023511C.4bpp.lz \
@@ -225,4 +218,33 @@ asm/rom8.o: \
 	graphics/lttp/rom_0027907C.4bpp.lz \
 	graphics/lttp/rom_00279684.4bpp.lz \
 	graphics/lttp/rom_00279B88.4bpp.lz \
-	graphics/lttp/rom_0027A228.4bpp.lz
+	graphics/lttp/rom_0027A228.4bpp.lz \
+	graphics/lttp/rom_0027A9FC.4bpp.lz \
+	graphics/lttp/rom_0027CBFC.4bpp.lz \
+	graphics/lttp/rom_0027D030.4bpp.lz \
+	graphics/lttp/rom_0027D658.4bpp.lz \
+	graphics/lttp/rom_0027DE14.4bpp.lz \
+	graphics/lttp/rom_0027F96C.4bpp.lz \
+	graphics/lttp/rom_0027FDAC.4bpp.lz \
+	graphics/lttp/rom_00280430.4bpp.lz \
+	graphics/lttp/rom_00280C08.4bpp.lz \
+	graphics/lttp/rom_0028286C.4bpp.lz \
+	graphics/lttp/rom_00282CF8.4bpp.lz \
+	graphics/lttp/rom_00283398.4bpp.lz \
+	graphics/lttp/rom_00283B80.4bpp.lz \
+	graphics/lttp/rom_002857F4.4bpp.lz \
+	graphics/lttp/rom_00285C34.4bpp.lz \
+	graphics/lttp/rom_00286298.4bpp.lz \
+	graphics/lttp/rom_00286A70.4bpp.lz \
+	graphics/lttp/rom_0028868C.4bpp.lz \
+	graphics/lttp/rom_00288B20.4bpp.lz \
+	graphics/lttp/rom_002891A0.4bpp.lz \
+	graphics/lttp/rom_0028997C.4bpp.lz \
+	graphics/lttp/hud.4bpp \
+	graphics/lttp/font1.4bpp \
+	graphics/lttp/font2.4bpp \
+	graphics/lttp/font3.4bpp \
+	graphics/lttp/font4.4bpp \
+	graphics/lttp/font5.4bpp \
+	graphics/lttp/font6.4bpp
+

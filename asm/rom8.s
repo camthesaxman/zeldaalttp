@@ -1113,7 +1113,122 @@ gUnknown_08279B88:
 gUnknown_0827A228:
 	.INCBIN "graphics/lttp/rom_0027A228.4bpp.lz"
 
-	.INCBIN "baserom.gba", 0x27A9FC, 0x3B5758-0x27A9FC
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_0827A9FC
+gUnknown_0827A9FC:
+	.INCBIN "graphics/lttp/rom_0027A9FC.4bpp.lz"
+
+	.INCBIN "baserom.gba", 0x27B1A0, 0x27CBFC-0x27B1A0
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_0827CBFC
+gUnknown_0827CBFC:
+	.INCBIN "graphics/lttp/rom_0027CBFC.4bpp.lz"
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_0827D030
+gUnknown_0827D030:
+	.INCBIN "graphics/lttp/rom_0027D030.4bpp.lz"
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_0827D658
+gUnknown_0827D658:
+	.INCBIN "graphics/lttp/rom_0027D658.4bpp.lz"
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_0827DE14
+gUnknown_0827DE14:
+	.INCBIN "graphics/lttp/rom_0027DE14.4bpp.lz"
+
+	.INCBIN "baserom.gba", 0x27E418, 0x27F96C-0x27E418
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_0827F96C
+gUnknown_0827F96C:
+	.INCBIN "graphics/lttp/rom_0027F96C.4bpp.lz"
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_0827FDAC
+gUnknown_0827FDAC:
+	.INCBIN "graphics/lttp/rom_0027FDAC.4bpp.lz"
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_08280430
+gUnknown_08280430:
+	.INCBIN "graphics/lttp/rom_00280430.4bpp.lz"
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_08280C08
+gUnknown_08280C08:
+	.INCBIN "graphics/lttp/rom_00280C08.4bpp.lz"
+
+	.INCBIN "baserom.gba", 0x280F94, 0x28286C-0x280F94
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_0828286C
+gUnknown_0828286C:
+	.INCBIN "graphics/lttp/rom_0028286C.4bpp.lz"
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_08282CF8
+gUnknown_08282CF8:
+	.INCBIN "graphics/lttp/rom_00282CF8.4bpp.lz"
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_08283398
+gUnknown_08283398:
+	.INCBIN "graphics/lttp/rom_00283398.4bpp.lz"
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_08283B80
+gUnknown_08283B80:
+	.INCBIN "graphics/lttp/rom_00283B80.4bpp.lz"
+
+	.INCBIN "baserom.gba", 0x283F24, 0x2857F4-0x283F24
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_082857F4
+gUnknown_082857F4:
+	.INCBIN "graphics/lttp/rom_002857F4.4bpp.lz"
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_08285C34
+gUnknown_08285C34:
+	.INCBIN "graphics/lttp/rom_00285C34.4bpp.lz"
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_08286298
+gUnknown_08286298:
+	.INCBIN "graphics/lttp/rom_00286298.4bpp.lz"
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_08286A70
+gUnknown_08286A70:
+	.INCBIN "graphics/lttp/rom_00286A70.4bpp.lz"
+
+	.INCBIN "baserom.gba", 0x286DF4, 0x28868C-0x286DF4
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_0828868C
+gUnknown_0828868C:
+	.INCBIN "graphics/lttp/rom_0028868C.4bpp.lz"
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_08288B20
+gUnknown_08288B20:
+	.INCBIN "graphics/lttp/rom_00288B20.4bpp.lz"
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_082891A0
+gUnknown_082891A0:
+	.INCBIN "graphics/lttp/rom_002891A0.4bpp.lz"
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_0828997C
+gUnknown_0828997C:
+	.INCBIN "graphics/lttp/rom_0028997C.4bpp.lz"
+
+	.INCBIN "baserom.gba", 0x289D1C, 0x3B5758-0x289D1C
 
 	.GLOBAL gUnknown_083B5758
 gUnknown_083B5758:
