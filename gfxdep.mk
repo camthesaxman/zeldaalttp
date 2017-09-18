@@ -236,6 +236,7 @@ asm/rom8.o: \
 	graphics/lttp/rom_00285C34.4bpp.lz \
 	graphics/lttp/rom_00286298.4bpp.lz \
 	graphics/lttp/rom_00286A70.4bpp.lz \
+	graphics/lttp/rom_00288094.4bpp.lz \
 	graphics/lttp/rom_0028868C.4bpp.lz \
 	graphics/lttp/rom_00288B20.4bpp.lz \
 	graphics/lttp/rom_002891A0.4bpp.lz \
@@ -247,4 +248,3 @@ asm/rom8.o: \
 	graphics/lttp/font4.4bpp \
 	graphics/lttp/font5.4bpp \
 	graphics/lttp/font6.4bpp
-

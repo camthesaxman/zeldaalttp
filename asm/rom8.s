@@ -1206,7 +1206,12 @@ gUnknown_08286298:
 gUnknown_08286A70:
 	.INCBIN "graphics/lttp/rom_00286A70.4bpp.lz"
 
-	.INCBIN "baserom.gba", 0x286DF4, 0x28868C-0x286DF4
+	.INCBIN "baserom.gba", 0x286DF4, 0x288094-0x286DF4
+
+	.ALIGN 2, 0
+	.GLOBAL gUnknown_08288094
+gUnknown_08288094:
+	.INCBIN "graphics/lttp/rom_00288094.4bpp.lz"
 
 	.ALIGN 2, 0
 	.GLOBAL gUnknown_0828868C
