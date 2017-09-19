@@ -95,6 +95,7 @@ struct UnknownStruct8
     u8 unk5;
 };
 
+// Some huge struct that's used all over
 struct UnknownStruct7
 {
     u8 filler0[0x550];
@@ -115,9 +116,13 @@ struct UnknownStruct7
     u8 filler96E[0xE];
     u8 unk97C;
     s8 unk97D;
-    u8 unk97E[0x18];
+    u8 unk97E[0x10];
+    s8 unk98E;
+    u8 filler98F[7];
     u8 unk996;
-    u8 filler997[0x17];
+    u8 filler997[0x15];
+    u8 unk9AC;
+    u8 unk9AD;
     u8 unk9AE;
     u8 unk9AF;
     u8 filler9B0[0x8A];
@@ -193,7 +198,26 @@ struct UnknownStruct7
     u8 filler18A6[4];
     u16 unk18AA;
     u16 unk18AC;
-    u8 filler18AE[0x25E];
+    u8 filler18AE[0x21C];
+    u16 unk1ACA;
+    u8 unk1ACC;
+    u8 filler1ACD[3];
+    u8 unk1AD0;
+    u8 filler1AD1[0x12];
+    u8 unk1AE3;
+    u8 filler1AE4[4];
+    u8 unk1AE8;
+    u8 unk1AE9;
+    u8 filler1AEA[6];
+    u16 unk1AF0;
+    u16 unk1AF2;
+    u16 unk1AF4;
+    u16 unk1AF6;
+    const void *unk1AF8;
+    u32 unk1AFC;
+    u32 unk1B00;
+    u8 unk1B04;
+    u8 filler1B05[7];
     u8 unk1B0C;
     u8 filler1B0D[9];
     u8 unk1B16;

@@ -30,6 +30,8 @@ SOURCES  := \
 	src/rom3a.c \
 	asm/rom3a.s \
 	asm/rom4.s \
+	src/interface.c \
+	asm/interface.s \
 	asm/rom5.s \
 	asm/syscall.s \
 	asm/rom6.s \
@@ -49,6 +51,7 @@ src/rom2.o: CC1 := $(CC1_OLD)
 
 #src/rom3a.o: CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O1 -fhex-asm
 #src/rom3a.o: CC1 := $(CC1_OLD)
+src/text.o: CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O2 -fhex-asm
 
 #### Main Targets ####
 
