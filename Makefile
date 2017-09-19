@@ -37,7 +37,6 @@ SOURCES  := \
 	asm/rom5.s \
 	asm/syscall.s \
 	asm/rom6.s \
-	asm/rom7.s \
 	src/newlib-libc/string/memcpy.c \
 	asm/rom8.s \
 	asm/4swords_text.s

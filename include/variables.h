@@ -724,7 +724,8 @@ extern const u16 *gUnknown_0202A4F4;
 extern u8 gUnknown_0202A8C0;
 //extern gUnknown_0202A8C4;
 //extern gUnknown_0202A8CE;
-//extern gUnknown_0202A8D0;
+extern u16 gUnknown_0202A8D0[];
+//#define gUnknown_0202A8D0 ((u16 *)0x0202A8D0)
 //extern gUnknown_0202A8D2;
 //extern gUnknown_0202D0CE;
 //extern gUnknown_0202D0D0;

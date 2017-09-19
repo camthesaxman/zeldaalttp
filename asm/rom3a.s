@@ -24773,7 +24773,7 @@ _080B2D78:
 	add r1, r0, #0
 	add r0, r5, #0
 	bl __subsf3
-	bl sub_081360BC
+	bl __fixunssfsi
 	ldr r2, _080B2E38  @ =gUnknown_03002230
 	ldr r3, _080B2E54  @ =0x0000097C
 	add r1, r2, r3
@@ -24784,7 +24784,7 @@ _080B2D78:
 	bl __floatsisf
 	mov r1, r8
 	bl __mulsf3
-	bl sub_081360BC
+	bl __fixunssfsi
 	ldr r2, _080B2E38  @ =gUnknown_03002230
 	ldr r3, _080B2E58  @ =0x0000097D
 	add r1, r2, r3

@@ -18489,7 +18489,33 @@ gUnknown_08429750:
 
 	.GLOBAL gUnknown_084297F8
 gUnknown_084297F8:
-	.INCBIN "baserom.gba", 0x4297F8, 0x4299B4-0x4297F8
+	.4byte gUnknown_08143A7C
+	.4byte gUnknown_081437F4
+	.4byte gUnknown_08143B84
+	.4byte gUnknown_08143C08
+	.4byte gUnknown_081437C4
+	.4byte gUnknown_08143A10
+	.4byte gUnknown_08143C80
+	.4byte gUnknown_08143794
+	.4byte gUnknown_08143DAC
+	.4byte gUnknown_081437DC
+	.4byte gUnknown_08143A7C
+	.4byte gUnknown_08143A7C
+	.4byte gUnknown_08143C98
+	.4byte gUnknown_08143D1C
+	.4byte gUnknown_08143D4C
+	.4byte gUnknown_08143D7C
+	.4byte gUnknown_08143800
+	.4byte gUnknown_08143824
+	.4byte gUnknown_08143A7C
+	.4byte gUnknown_08143A7C
+	.4byte gUnknown_08143830
+	.4byte gUnknown_081439C8
+	.4byte gUnknown_08143A28
+	.4byte gUnknown_08143A34
+	.4byte gUnknown_08143A64
+
+	.INCBIN "baserom.gba", 0x42985C, 0x4299B4-0x42985C
 
 	.GLOBAL gUnknown_084299B4
 gUnknown_084299B4:

@@ -7526,7 +7526,7 @@ void sub_081346FC(void);
 //sub_08135FA8();
 
 // rom7.s
-//sub_081360BC();
+//__fixunssfsi();
 
 // rom8.s
 

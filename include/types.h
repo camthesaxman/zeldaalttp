@@ -225,10 +225,6 @@ struct UnknownStruct7
 
 struct UnknownStruct9
 {
-    //u8 unk0;
-    //u8 unk1;
-    //u8 unk2;
-    //u8 unk3;
     u32 unk0;
     u8 *dest;
     s32 size;
