@@ -1,5 +1,7 @@
 	.INCLUDE "macro.inc"
 
+	.SECTION .rodata
+
 	.GLOBAL gText_4swords_08641608
 gText_4swords_08641608:
 	.ASCII "TLPID\x0F\x10", "INFO\x0F\x10", "000\0"

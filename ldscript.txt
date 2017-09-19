@@ -35,15 +35,8 @@ SECTIONS
 		tools/agbcc/lib/libgcc.a:_muldi3.o(.text);
 		tools/agbcc/lib/libgcc.a:_negdi2.o(.text);
 		src/newlib-libc/string/memcpy.o(.text);
-		asm/rom8.o(.text);
-		asm/4swords_text.o(.text);
-	} = 0
-
-	. = 0x08000000;
-	.rodata :
-	ALIGN(4)
-	{
-		INCLUDE "sym_rom.txt"
+		asm/rom8.o(.rodata);
+		asm/4swords_text.o(.rodata);
 	} = 0
 
 	. = 0x02000000;
