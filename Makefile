@@ -23,6 +23,7 @@ SOURCES  := \
 	asm/crt0.s \
 	asm/rom1.s \
 	src/main.c \
+	src/math.c \
 	src/rom2.c \
 	asm/rom2.s \
 	asm/rom2a.s \
@@ -47,7 +48,7 @@ src/newlib-libc/string/memcpy.o: CPPFLAGS += -Isrc/newlib-libc/include
 src/newlib-libc/string/memcpy.o: CC1FLAGS := -O2
 
 # main.c might also need the old compiler, too.
-src/rom2.o: CC1 := $(CC1_OLD)
+src/math.o: CC1 := $(CC1_OLD)
 
 #src/rom3a.o: CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O1 -fhex-asm
 #src/rom3a.o: CC1 := $(CC1_OLD)

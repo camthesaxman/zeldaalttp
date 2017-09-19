@@ -1,3 +1,5 @@
+// TODO: Try to get this file to match using the old compiler
+
 #include "gba/gba.h"
 #include "global.h"
 

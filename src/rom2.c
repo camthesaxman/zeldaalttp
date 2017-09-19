@@ -1,47 +1,6 @@
 #include "gba/gba.h"
 #include "global.h"
 
-// abs
-s32 sub_0800B830(s32 n)
-{
-    return abs(n);
-}
-
-// signum
-s32 sub_0800B838(s32 n)
-{
-    if (n > 0)
-        return 1;
-    if (n < 0)
-        return -1;
-    return 0;
-}
-
-void sub_0800B850(u32 *a, s32 size)
-{
-    do
-    {
-        *a++ = 0;
-        size -= sizeof(u32);
-    } while (size > 0);
-}
-
-void sub_0800B85C(u32 a)
-{
-    switch (a)
-    {
-    default:
-        gUnknown_0202A4F4 = NULL;
-        break;
-    case 0:
-        gUnknown_0202A4F4 = gUnknown_08137B98;
-        break;
-    case 2:
-        gUnknown_0202A4F4 = gUnknown_08137C58;
-        break;
-    }
-}
-
 #ifdef NONMATCHING
 void sub_0800B890(u32 a)
 {
@@ -108,21 +67,220 @@ _0800B8D0:\n\
 }
 #endif
 
-/*
-void sub_0800B8D4(struct UnknownStruct6 *a, u32 b, u32 c)
+void sub_0800B8D4(u16 *a, u32 b, u32 c)
 {
-    s32 i;
+    register s32 i asm("r1");
     u32 r2 = 1 << b;
-    
-    for (i = 0; i < c - 1; i++)
+    u16 *r6;
+
+    asm("":::"r3");
+    for (i = c - 1; i != 0; i--)
         r2 |= r2 << 1;
     gUnknown_0200B310 |= r2;
-    b <<= 5;
-    c <<= 5;
-    if (gUnknown_0202A4F4 != 0)
+    r6 = gUnknown_020163D0 + b * 16;
+    c = c * 32;
+    if (gUnknown_0202A4F4 != NULL)
     {
-        
+        do
+        {
+            u16 *r4 = r6++;
+            *r4 = gUnknown_0202A4F4[*a & 0x1F] | gUnknown_0202A4F4[((*a & 0x3E0) >> 5) + 32] | gUnknown_0202A4F4[((*a & 0x7C00) >> 10) + 64];
+            a++;
+            c -= 2;
+        } while (c != 0);
     }
-    //_0800B968
+    else
+    {
+        CpuFastCopy(a, r6, c);
+    }
 }
-*/
+
+void sub_0800B980(u32 a, u32 b)
+{
+    if (gUnknown_0202A4F4 != NULL)
+        b = gUnknown_0202A4F4[b & 0x1F] | gUnknown_0202A4F4[((b & 0x3E0) >> 5) + 32] | gUnknown_0202A4F4[((b & 0x7C00) >> 10) + 64];
+    gUnknown_020163D0[a] = b;
+    gUnknown_0200B310 |= 1 << (a / 16);
+}
+
+// copy palettes
+void sub_0800B9E4(void)
+{
+    u32 r4;
+    u16 *src;
+    u16 *dest;
+
+    if (gUnknown_02002480 != 0)
+    {
+        src = gUnknown_02000030;
+        r4 = gUnknown_02002480;
+    }
+    else
+    {
+        src = gUnknown_020163D0;
+        r4 = gUnknown_0201EF14;
+    }
+    dest = (void *)PLTT;
+    while (r4 != 0)
+    {
+        if (r4 & 1)
+            CpuFastCopy(src, dest, 16 * sizeof(u16));
+        src += 16;
+        dest += 16;
+        r4 >>= 1;
+    }
+    gUnknown_02002480 = gUnknown_0201EF14 = 0;
+}
+
+void sub_0800BA44(u16 a)
+{
+    struct UnknownStruct9 *r4 = gUnknown_084297F8[a];
+
+    do
+    {
+        bool32 shouldCopy = FALSE;
+        u32 var = (r4->unk0 >> 24) & 0xF;
+
+        switch (var)
+        {
+          case 14:
+            if (gUnknown_0202A8C0 > 1)
+                shouldCopy = TRUE;
+            break;
+          case 15:
+            if (gUnknown_0202A8C0 != 0)
+                shouldCopy = TRUE;
+            break;
+          case 7:
+                shouldCopy = TRUE;
+            break;
+          default:
+            if (var == gUnknown_0202A8C0)
+                shouldCopy = TRUE;
+            break;
+        }
+
+        if (shouldCopy)
+        {
+            const u8 *src = gUnknown_03000030 + (r4->unk0 & 0x00FFFFFF);
+            u8 *dest = r4->dest;
+
+            if (r4->size < 0)
+            {
+                if (dest >= (u8 *)VRAM)
+                    LZ77UnCompVram(src, dest);
+                else
+                    LZ77UnCompWram(src, dest);
+            }
+            else
+            {
+                CpuCopy16(src, dest, (u32)r4->size);
+            }
+        }
+    } while (((r4++)->unk0 >> 24) & 0x80);
+}
+
+void sub_0800BAE4(u16 *dest, const u16 *src, u16 c, u16 d)
+{
+    u16 var;
+    u16 i;
+
+    if (d & 0x8000)
+        var = 64 - c;
+    else
+        var = 32 - c;
+    d &= 0x7FFF;
+    do
+    {
+        for (i = 0; i < c; i++)
+            *dest++ = *src++;
+        dest += var;
+        d--;
+    } while (d != 0);
+}
+
+void sub_0800BB3C(u16 *dest, const u16 *src, u16 c, u16 d, u16 e)
+{
+    u16 var;
+    u16 i;
+
+    if (d & 0x8000)
+        var = 64 - c;
+    else
+        var = 32 - c;
+    d &= 0x7FFF;
+    do
+    {
+        for (i = 0; i < c; i++)
+            *dest++ = *src++ | e;
+        dest += var;
+        d--;
+    } while (d != 0);
+}
+
+void sub_0800BBA0(void)
+{
+    u16 keyInput = REG_KEYINPUT ^ 0x3FF;
+
+    keyInput &= 0x3FF;
+    gUnknown_03000BD0 = keyInput & ~gUnknown_03000510;
+    gUnknown_03000510 = keyInput;
+}
+
+void sub_0800BBD4(void)
+{
+    u16 keyInput = REG_KEYINPUT ^ 0x3FF;
+
+    gUnknown_03000BD0 = keyInput & ~gUnknown_03000510;
+    if (keyInput == gUnknown_03000510)
+    {
+        gUnknown_03000BF4--;
+        if (gUnknown_03000BF4 == 0)
+        {
+            gUnknown_03005BE0 = keyInput;
+            gUnknown_03000BF4 = 4;
+        }
+        else
+        {
+            gUnknown_03005BE0 = 0;
+        }
+    }
+    else
+    {
+        gUnknown_03000BF4 = 20;
+        gUnknown_03005BE0 = keyInput & ~gUnknown_03000510;
+    }
+    gUnknown_03000510 = keyInput;
+}
+
+void sub_0800BC50(void)
+{
+    gUnknown_03005ADC[0] = (gUnknown_03000510 & 64) ? gUnknown_03005ADC[0] + 1 : 0;
+    gUnknown_03005ADC[1] = (gUnknown_03000510 & 16) ? gUnknown_03005ADC[1] + 1 : 0;
+    gUnknown_03005ADC[2] = (gUnknown_03000510 & 128) ? gUnknown_03005ADC[2] + 1 : 0;
+    gUnknown_03005ADC[3] = (gUnknown_03000510 & 32) ? gUnknown_03005ADC[3] + 1 : 0;
+
+    if (gUnknown_03005ADC[0] > 29)
+    {
+        gUnknown_03000BD0 |= 64;
+        gUnknown_03005ADC[0] = 22;
+    }
+
+    if (gUnknown_03005ADC[1] > 29)
+    {
+        gUnknown_03000BD0 |= 16;
+        gUnknown_03005ADC[1] = 22;
+    }
+
+    if (gUnknown_03005ADC[2] > 29)
+    {
+        gUnknown_03000BD0 |= 128;
+        gUnknown_03005ADC[2] = 22;
+    }
+
+    if (gUnknown_03005ADC[3] > 29)
+    {
+        gUnknown_03000BD0 |= 32;
+        gUnknown_03005ADC[3] = 22;
+    }
+}

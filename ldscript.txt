@@ -8,6 +8,7 @@ SECTIONS
 		asm/crt0.o(.text);
 		asm/rom1.o(.text);
 		src/main.o(.text);
+		src/math.o(.text);
 		src/rom2.o(.text);
 		asm/rom2.o(.text);
 		asm/rom2a.o(.text);
