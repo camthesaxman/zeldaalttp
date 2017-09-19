@@ -15,7 +15,7 @@ ASFLAGS  := -mcpu=arm7tdmi -mthumb-interwork -Iasminclude
 
 #### Files ####
 
-ROM      := zeldalttp.gba
+ROM      := zeldaalttp.gba
 ELF      := $(ROM:.gba=.elf)
 MAP      := $(ROM:.gba=.map)
 LDSCRIPT := ldscript.txt
