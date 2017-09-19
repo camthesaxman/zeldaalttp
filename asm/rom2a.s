@@ -1835,7 +1835,7 @@ sub_0802EA14: @ 0x0802EA14
 	bl 0x08000BAC
 	bl sub_0802BFC4
 	bl sub_0802E9B8
-	ldr r0, _0802EA80  @ =gUnknown_03000BD0
+	ldr r0, _0802EA80  @ =gNewKeys
 	ldrh r1, [r0]
 	mov r0, #8
 	and r0, r0, r1
@@ -1871,7 +1871,7 @@ _0802EA78:
 _0802EA7C:
 	.4byte gUnknown_03000BFC
 _0802EA80:
-	.4byte gUnknown_03000BD0
+	.4byte gNewKeys
 _0802EA84:
 	.4byte 0x80010000
 _0802EA88:
@@ -3876,7 +3876,7 @@ _0802F99E:
 	strb r0, [r1]
 	ldr r0, _0802F9EC  @ =gUnknown_03000BFC
 	strb r5, [r0]
-	ldr r2, _0802F9F0  @ =gUnknown_03000BD0
+	ldr r2, _0802F9F0  @ =gNewKeys
 	ldrh r1, [r2]
 	ldr r0, _0802F9F4  @ =0x0000FFF7
 	and r0, r0, r1
@@ -3896,7 +3896,7 @@ _0802F9E8:
 _0802F9EC:
 	.4byte gUnknown_03000BFC
 _0802F9F0:
-	.4byte gUnknown_03000BD0
+	.4byte gNewKeys
 _0802F9F4:
 	.4byte 0x0000FFF7
 	THUMB_FUNC_END sub_0802F6D4
@@ -4291,7 +4291,7 @@ sub_0802FCCC: @ 0x0802FCCC
 	ldrb r4, [r5]
 	cmp r4, #0
 	bne _0802FD74
-	ldr r0, _0802FD04  @ =gUnknown_03000BD0
+	ldr r0, _0802FD04  @ =gNewKeys
 	ldrh r1, [r0]
 	mov r0, #9
 	and r0, r0, r1
@@ -4313,7 +4313,7 @@ sub_0802FCCC: @ 0x0802FCCC
 _0802FD00:
 	.4byte gUnknown_03000520
 _0802FD04:
-	.4byte gUnknown_03000BD0
+	.4byte gNewKeys
 _0802FD08:
 	.4byte gUnknown_03000BFC
 _0802FD0C:
@@ -4390,7 +4390,7 @@ sub_0802FD88: @ 0x0802FD88
 	mov r5, #0
 	ldr r0, _0802FDC4  @ =gUnknown_03000FC0
 	mov r9, r0
-	ldr r1, _0802FDC8  @ =gUnknown_03000510
+	ldr r1, _0802FDC8  @ =gHeldKeys
 	mov r10, r1
 	mov r8, r9
 	ldr r0, _0802FDCC  @ =0x0000FFFF
@@ -4416,7 +4416,7 @@ _0802FDA6:
 _0802FDC4:
 	.4byte gUnknown_03000FC0
 _0802FDC8:
-	.4byte gUnknown_03000510
+	.4byte gHeldKeys
 _0802FDCC:
 	.4byte 0x0000FFFF
 _0802FDD0:
@@ -4452,7 +4452,7 @@ _0802FDE0:
 	THUMB_FUNC_START sub_0802FE04
 sub_0802FE04: @ 0x0802FE04
 	push {r4-r6,lr}
-	ldr r0, _0802FE38  @ =gUnknown_03000BD0
+	ldr r0, _0802FE38  @ =gNewKeys
 	ldrh r1, [r0]
 	mov r0, #2
 	and r0, r0, r1
@@ -4476,7 +4476,7 @@ sub_0802FE04: @ 0x0802FE04
 	strh r0, [r1, #6]
 	b _0802FEDC
 _0802FE38:
-	.4byte gUnknown_03000BD0
+	.4byte gNewKeys
 _0802FE3C:
 	.4byte gUnknown_03000BFC
 _0802FE40:
@@ -6396,7 +6396,7 @@ sub_08030C7C: @ 0x08030C7C
 	THUMB_FUNC_START sub_08030C8C
 sub_08030C8C: @ 0x08030C8C
 	push {lr}
-	ldr r0, _08030CB8  @ =gUnknown_03000BD0
+	ldr r0, _08030CB8  @ =gNewKeys
 	ldrh r1, [r0]
 	mov r0, #240
 	and r0, r0, r1
@@ -6418,7 +6418,7 @@ _08030CA8:
 	bl sub_0800D24C
 	b _08030D22
 _08030CB8:
-	.4byte gUnknown_03000BD0
+	.4byte gNewKeys
 _08030CBC:
 	.4byte gUnknown_03005050
 _08030CC0:
@@ -6846,7 +6846,7 @@ _08030FDC:
 sub_08030FE0: @ 0x08030FE0
 	push {r4,lr}
 	ldr r1, _08030FFC  @ =gUnknown_03005E10
-	ldr r0, _08031000  @ =gUnknown_03000BD0
+	ldr r0, _08031000  @ =gNewKeys
 	ldrh r3, [r0]
 	strh r3, [r1]
 	ldr r4, _08031004  @ =gUnknown_02016D60
@@ -6861,7 +6861,7 @@ sub_08030FE0: @ 0x08030FE0
 _08030FFC:
 	.4byte gUnknown_03005E10
 _08031000:
-	.4byte gUnknown_03000BD0
+	.4byte gNewKeys
 _08031004:
 	.4byte gUnknown_02016D60
 _08031008:
@@ -11036,8 +11036,8 @@ _08032F9C:
 	mov r0, #9
 	bl sub_0800BA44
 	bl sub_0803364C
-	ldr r1, _08033038  @ =gUnknown_03000510
-	ldr r0, _0803303C  @ =gUnknown_03000BD0
+	ldr r1, _08033038  @ =gHeldKeys
+	ldr r0, _0803303C  @ =gNewKeys
 	mov r4, #0
 	strh r5, [r0]
 	strh r5, [r1]
@@ -11106,9 +11106,9 @@ _08033030:
 _08033034:
 	.4byte gUnknown_0202A8C0
 _08033038:
-	.4byte gUnknown_03000510
+	.4byte gHeldKeys
 _0803303C:
-	.4byte gUnknown_03000BD0
+	.4byte gNewKeys
 _08033040:
 	.4byte gUnknown_03000940
 _08033044:
@@ -11144,9 +11144,9 @@ sub_0803306C: @ 0x0803306C
 	cmp r0, #0
 	beq _08033138
 	mov r2, #0
-	ldr r0, _08033148  @ =gUnknown_03000510
+	ldr r0, _08033148  @ =gHeldKeys
 	mov r9, r0
-	ldr r0, _0803314C  @ =gUnknown_03000BD0
+	ldr r0, _0803314C  @ =gNewKeys
 	mov r12, r0
 	ldr r0, _08033150  @ =gUnknown_03000494
 	mov r8, r0
@@ -11239,9 +11239,9 @@ _08033138:
 	.byte 0x00
 	.byte 0x00
 _08033148:
-	.4byte gUnknown_03000510
+	.4byte gHeldKeys
 _0803314C:
-	.4byte gUnknown_03000BD0
+	.4byte gNewKeys
 _08033150:
 	.4byte gUnknown_03000494
 _08033154:
@@ -20889,7 +20889,7 @@ sub_08037574: @ 0x08037574
 	lsl r5, r3, #5
 	add r2, r2, r5
 	add r1, r1, r2
-	ldr r2, _080376E8  @ =gUnknown_03000510
+	ldr r2, _080376E8  @ =gHeldKeys
 	ldrh r4, [r2]
 	add r2, r4, #0
 	ldr r3, _080376EC  @ =gUnknown_02000010
@@ -21059,7 +21059,7 @@ _080376E0:
 _080376E4:
 	.4byte gUnknown_03000414
 _080376E8:
-	.4byte gUnknown_03000510
+	.4byte gHeldKeys
 _080376EC:
 	.4byte gUnknown_02000010
 _080376F0:
@@ -23068,8 +23068,8 @@ sub_0803857C: @ 0x0803857C
 	bl sub_0802C800
 	bl sub_0803A544
 	bl sub_0802B6BC
-	ldr r0, _08038698  @ =gUnknown_03000510
-	ldr r1, _0803869C  @ =gUnknown_03000BD0
+	ldr r0, _08038698  @ =gHeldKeys
+	ldr r1, _0803869C  @ =gNewKeys
 	mov r2, #0
 	strh r2, [r1]
 	mov r1, #0
@@ -23183,9 +23183,9 @@ _08038690:
 _08038694:
 	.4byte gUnknown_03000490
 _08038698:
-	.4byte gUnknown_03000510
+	.4byte gHeldKeys
 _0803869C:
-	.4byte gUnknown_03000BD0
+	.4byte gNewKeys
 _080386A0:
 	.4byte gUnknown_03000940
 _080386A4:
@@ -23453,8 +23453,8 @@ _08038898:
 _0803889C:
 	.4byte gUnknown_03005E10
 _080388A0:
-	ldr r0, _08038924  @ =gUnknown_03000510
-	ldr r1, _08038928  @ =gUnknown_03000BD0
+	ldr r0, _08038924  @ =gHeldKeys
+	ldr r1, _08038928  @ =gNewKeys
 	mov r2, #0
 	strh r2, [r1]
 	mov r1, #0
@@ -23520,9 +23520,9 @@ _080388A0:
 	.byte 0x00
 	.byte 0x00
 _08038924:
-	.4byte gUnknown_03000510
+	.4byte gHeldKeys
 _08038928:
-	.4byte gUnknown_03000BD0
+	.4byte gNewKeys
 _0803892C:
 	.4byte gUnknown_0200B1D0
 _08038930:
@@ -34800,11 +34800,11 @@ sub_0803DBD4: @ 0x0803DBD4
 	mov r7, sp
 	str r0, [r7]
 	add r0, r7, #4
-	ldr r1, _0803DC04  @ =gUnknown_03000510
+	ldr r1, _0803DC04  @ =gHeldKeys
 	ldrh r2, [r1]
 	strh r2, [r0]
 	add r0, r7, #6
-	ldr r1, _0803DC08  @ =gUnknown_03000BD0
+	ldr r1, _0803DC08  @ =gNewKeys
 	ldrh r2, [r1]
 	strh r2, [r0]
 	ldr r0, _0803DC0C  @ =gUnknown_03006620
@@ -34820,15 +34820,15 @@ sub_0803DBD4: @ 0x0803DBD4
 	beq _0803DC14
 	b _0803DC38
 _0803DC04:
-	.4byte gUnknown_03000510
+	.4byte gHeldKeys
 _0803DC08:
-	.4byte gUnknown_03000BD0
+	.4byte gNewKeys
 _0803DC0C:
 	.4byte gUnknown_03006620
 _0803DC10:
 	.4byte gUnknown_03006D10
 _0803DC14:
-	ldr r0, _0803DC58  @ =gUnknown_03000510
+	ldr r0, _0803DC58  @ =gHeldKeys
 	ldr r1, _0803DC5C  @ =gUnknown_03000940
 	ldr r2, [r7]
 	ldrb r3, [r2, #10]
@@ -34837,7 +34837,7 @@ _0803DC14:
 	add r1, r1, r3
 	ldrh r2, [r1]
 	strh r2, [r0]
-	ldr r0, _0803DC60  @ =gUnknown_03000BD0
+	ldr r0, _0803DC60  @ =gNewKeys
 	ldr r1, _0803DC64  @ =gUnknown_03005E10
 	ldr r2, [r7]
 	ldrb r3, [r2, #10]
@@ -34849,11 +34849,11 @@ _0803DC14:
 _0803DC38:
 	ldr r0, [r7]
 	bl 0x080045FC
-	ldr r0, _0803DC58  @ =gUnknown_03000510
+	ldr r0, _0803DC58  @ =gHeldKeys
 	add r1, r7, #4
 	ldrh r2, [r1]
 	strh r2, [r0]
-	ldr r0, _0803DC60  @ =gUnknown_03000BD0
+	ldr r0, _0803DC60  @ =gNewKeys
 	add r1, r7, #6
 	ldrh r2, [r1]
 	strh r2, [r0]
@@ -34864,11 +34864,11 @@ _0803DC38:
 	.byte 0x00
 	.byte 0x00
 _0803DC58:
-	.4byte gUnknown_03000510
+	.4byte gHeldKeys
 _0803DC5C:
 	.4byte gUnknown_03000940
 _0803DC60:
-	.4byte gUnknown_03000BD0
+	.4byte gNewKeys
 _0803DC64:
 	.4byte gUnknown_03005E10
 	THUMB_FUNC_END sub_0803DBD4
@@ -35131,7 +35131,7 @@ _0803DE34:
 	ldrh r2, [r1]
 	strh r2, [r0]
 	ldr r0, _0803DE8C  @ =gUnknown_03000FC0
-	ldr r1, _0803DE90  @ =gUnknown_03000510
+	ldr r1, _0803DE90  @ =gHeldKeys
 	ldrh r2, [r0, #18]
 	mov r3, #0
 	and r2, r2, r3
@@ -35160,7 +35160,7 @@ _0803DE88:
 _0803DE8C:
 	.4byte gUnknown_03000FC0
 _0803DE90:
-	.4byte gUnknown_03000510
+	.4byte gHeldKeys
 	THUMB_FUNC_END sub_0803DD94
 
 	THUMB_FUNC_START sub_0803DE94

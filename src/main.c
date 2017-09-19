@@ -12,11 +12,13 @@ struct UnknownStruct1
 
 #define unk3000000 (*(struct UnknownStruct1 *)0x3000000)
 
+#define SOFT_RESET_KEY_COMBO (A_BUTTON | B_BUTTON | START_BUTTON | SELECT_BUTTON)
+
 void AgbMain(void)
 {
     s32 var;
 
-  main_top:
+  reset:
     initialize_gba();
     sub_08134684();
     sub_08067AE0();
@@ -55,10 +57,10 @@ void AgbMain(void)
             VBlankIntrWait();
         else
             IntrWait(TRUE, INTR_FLAG_SERIAL);
-        sub_0800BBA0();
+        rom2_read_keys();
         gUnknown_03000BF0 = sub_0800C54C(gUnknown_03000FF8);
-        if (sub_0800B2CC())
-            goto main_top;
+        if (is_reset_key_combo_pressed())
+            goto reset;
         gUnknown_03000948.unk0++;
         sub_08036864();
         gUnknown_0842731C[gUnknown_03006D10]();
@@ -92,16 +94,16 @@ void initialize_gba(void)
 
 // Why can't I get this short thing to match?
 #ifdef NONMATCHING
-bool32 sub_0800B2CC(void)
+bool32 is_reset_key_combo_pressed(void)
 {
-    return ((gUnknown_03000510 & 0xF) == 0xF);
+    return ((gHeldKeys & SOFT_RESET_KEY_COMBO) == SOFT_RESET_KEY_COMBO);
 }
 #else
 __attribute__((naked))
-bool32 sub_0800B2CC(void)
+bool32 is_reset_key_combo_pressed(void)
 {
     asm("mov r2, #0\n\
-	ldr r0, _0800B2E0  @ =gUnknown_03000510\n\
+	ldr r0, _0800B2E0  @ =gHeldKeys\n\
 	ldrh r1, [r0]\n\
 	mov r0, #15\n\
 	and r0, r0, r1\n\
@@ -112,7 +114,7 @@ _0800B2DC:\n\
 	add r0, r2, #0\n\
 	bx lr\n\
 _0800B2E0:\n\
-	.4byte gUnknown_03000510");
+	.4byte gHeldKeys");
 }
 #endif
 
@@ -291,83 +293,3 @@ void sub_0800B700(void)
     REG_IME = 1;
 }
 
-// Seems to match when compiling with old_agbcc, but that breaks other functions
-#ifdef NONMATCHING
-void sub_0800B7A0(void)
-{
-    if (gUnknown_03000BC0.unk0 != 0)
-    {
-        DmaStop(0);
-        DmaSet(0, gUnknown_03000BC0.src, gUnknown_03000BC0.dest, gUnknown_03000BC0.dmaCnt);
-    }
-    REG_DISPSTAT = 0x2028;
-    gUnknown_03000B70.unk8 = sub_0800B7FC;
-}
-#else
-__attribute__((naked))
-void sub_0800B7A0(void)
-{
-    asm("ldr r3, _0800B7DC  @ =gUnknown_03000BC0\n\
-	ldrb r0, [r3]\n\
-	cmp r0, #0\n\
-	beq _0800B7CA\n\
-	ldr r1, _0800B7E0  @ =0x040000B0\n\
-	ldrh r2, [r1, #10]\n\
-	ldr r0, _0800B7E4  @ =0x0000C5FF\n\
-	and r0, r0, r2\n\
-	strh r0, [r1, #10]\n\
-	ldrh r2, [r1, #10]\n\
-	ldr r0, _0800B7E8  @ =0x00007FFF\n\
-	and r0, r0, r2\n\
-	strh r0, [r1, #10]\n\
-	ldrh r0, [r1, #10]\n\
-	ldr r0, [r3, #4]\n\
-	str r0, [r1]\n\
-	ldr r0, [r3, #8]\n\
-	str r0, [r1, #4]\n\
-	ldr r0, [r3, #12]\n\
-	str r0, [r1, #8]\n\
-	ldr r0, [r1, #8]\n\
-_0800B7CA:\n\
-	ldr r1, _0800B7EC  @ =0x04000004\n\
-	ldr r2, _0800B7F0  @ =0x00002028\n\
-	add r0, r2, #0\n\
-	strh r0, [r1]\n\
-	ldr r1, _0800B7F4  @ =gUnknown_03000B70\n\
-	ldr r0, _0800B7F8  @ =0x0800B7FD\n\
-	str r0, [r1, #8]\n\
-	bx lr\n\
-	.byte 0x00\n\
-	.byte 0x00\n\
-_0800B7DC:\n\
-	.4byte gUnknown_03000BC0\n\
-_0800B7E0:\n\
-	.4byte 0x040000B0\n\
-_0800B7E4:\n\
-	.4byte 0x0000C5FF\n\
-_0800B7E8:\n\
-	.4byte 0x00007FFF\n\
-_0800B7EC:\n\
-	.4byte 0x04000004\n\
-_0800B7F0:\n\
-	.4byte 0x00002028\n\
-_0800B7F4:\n\
-	.4byte gUnknown_03000B70\n\
-_0800B7F8:\n\
-	.4byte 0x0800B7FD");
-}
-#endif
-
-void sub_0800B7FC(void)
-{
-    sub_081346FC();
-    REG_DISPSTAT = DISPSTAT_VBLANK_INTR | DISPSTAT_VCOUNT_INTR;
-    gUnknown_03000B70.unk8 = sub_0800B7A0;
-}
-
-void sub_0800B820(void)
-{
-    void (*func)(void) = (void (*)(void))(gUnknown_02030590 + 1);  // Add 1 so that we remain in THUMB mode.
-    
-    func();
-}

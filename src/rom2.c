@@ -218,21 +218,21 @@ void sub_0800BB3C(u16 *dest, const u16 *src, u16 c, u16 d, u16 e)
     } while (d != 0);
 }
 
-void sub_0800BBA0(void)
+void rom2_read_keys(void)
 {
-    u16 keyInput = REG_KEYINPUT ^ 0x3FF;
+    u16 keyInput = REG_KEYINPUT ^ KEYS_MASK;
 
-    keyInput &= 0x3FF;
-    gUnknown_03000BD0 = keyInput & ~gUnknown_03000510;
-    gUnknown_03000510 = keyInput;
+    keyInput &= KEYS_MASK;
+    gNewKeys = keyInput & ~gHeldKeys;
+    gHeldKeys = keyInput;
 }
 
 void sub_0800BBD4(void)
 {
-    u16 keyInput = REG_KEYINPUT ^ 0x3FF;
+    u16 keyInput = REG_KEYINPUT ^ KEYS_MASK;
 
-    gUnknown_03000BD0 = keyInput & ~gUnknown_03000510;
-    if (keyInput == gUnknown_03000510)
+    gNewKeys = keyInput & ~gHeldKeys;
+    if (keyInput == gHeldKeys)
     {
         gUnknown_03000BF4--;
         if (gUnknown_03000BF4 == 0)
@@ -248,39 +248,39 @@ void sub_0800BBD4(void)
     else
     {
         gUnknown_03000BF4 = 20;
-        gUnknown_03005BE0 = keyInput & ~gUnknown_03000510;
+        gUnknown_03005BE0 = keyInput & ~gHeldKeys;
     }
-    gUnknown_03000510 = keyInput;
+    gHeldKeys = keyInput;
 }
 
 void sub_0800BC50(void)
 {
-    gUnknown_03005ADC[0] = (gUnknown_03000510 & 64) ? gUnknown_03005ADC[0] + 1 : 0;
-    gUnknown_03005ADC[1] = (gUnknown_03000510 & 16) ? gUnknown_03005ADC[1] + 1 : 0;
-    gUnknown_03005ADC[2] = (gUnknown_03000510 & 128) ? gUnknown_03005ADC[2] + 1 : 0;
-    gUnknown_03005ADC[3] = (gUnknown_03000510 & 32) ? gUnknown_03005ADC[3] + 1 : 0;
+    gUnknown_03005ADC[0] = (gHeldKeys & DPAD_UP) ? gUnknown_03005ADC[0] + 1 : 0;
+    gUnknown_03005ADC[1] = (gHeldKeys & DPAD_RIGHT) ? gUnknown_03005ADC[1] + 1 : 0;
+    gUnknown_03005ADC[2] = (gHeldKeys & DPAD_DOWN) ? gUnknown_03005ADC[2] + 1 : 0;
+    gUnknown_03005ADC[3] = (gHeldKeys & DPAD_LEFT) ? gUnknown_03005ADC[3] + 1 : 0;
 
     if (gUnknown_03005ADC[0] > 29)
     {
-        gUnknown_03000BD0 |= 64;
+        gNewKeys |= DPAD_UP;
         gUnknown_03005ADC[0] = 22;
     }
 
     if (gUnknown_03005ADC[1] > 29)
     {
-        gUnknown_03000BD0 |= 16;
+        gNewKeys |= DPAD_RIGHT;
         gUnknown_03005ADC[1] = 22;
     }
 
     if (gUnknown_03005ADC[2] > 29)
     {
-        gUnknown_03000BD0 |= 128;
+        gNewKeys |= DPAD_DOWN;
         gUnknown_03005ADC[2] = 22;
     }
 
     if (gUnknown_03005ADC[3] > 29)
     {
-        gUnknown_03000BD0 |= 32;
+        gNewKeys |= DPAD_LEFT;
         gUnknown_03005ADC[3] = 22;
     }
 }
