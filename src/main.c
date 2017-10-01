@@ -74,7 +74,7 @@ void AgbMain(void)
 
 void initialize_gba(void)
 {
-    sub_0800B608();
+    main_disable_interrupts();
     REG_WAITCNT = 0x4014;
 
     // Clear memory regions
@@ -118,7 +118,7 @@ _0800B2E0:\n\
 }
 #endif
 
-void sub_0800B2E4(void)
+void main_update_bg_regs(void)
 {
     struct GPURegConfig *gpuConfig = &gUnknown_03000F50;
 
@@ -231,7 +231,7 @@ void sub_0800B5EC(u32 a)
     gUnknown_03005050 = gUnknown_03000BFC = 0;
 }
 
-void sub_0800B608(void)
+void main_disable_interrupts(void)
 {
     REG_IME = 0;
     REG_IE = 0;
@@ -251,7 +251,7 @@ void sub_0800B69C(void)
 {
     sub_0800C4FC();
     sub_0800D24C(0x80070000);
-    sub_0800B608();
+    main_disable_interrupts();
     sub_0806940C();
 }
 
@@ -283,7 +283,7 @@ void sub_0800B700(void)
             CpuFastCopy(src, dest, 0x1000);
         }
         sub_0800B430();
-        sub_0800B2E4();
+        main_update_bg_regs();
         sub_0800C8E4();
         sub_0800B9E4();
         gUnknown_0300050C = 0;

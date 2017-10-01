@@ -157,7 +157,7 @@ _080A6B84:\n\
 #endif
 
 // Copies sprite graphics to VRAM
-void sub_080A6B88(void)
+void rom3a_copy_sprite_tiles(void)
 {
     const u16 *linkSpriteTiles = (u16 *)gGfx_link4bpp;  // not sure about this being u16
 
@@ -259,7 +259,7 @@ void sub_080A7020(void)
 {
     if (gUnknown_03002230.unkC90 == 0)
     {
-        sub_080A6B88();
+        rom3a_copy_sprite_tiles();
         sub_080A7048();
     }
     sub_080A7080();
