@@ -37,15 +37,10 @@ SOURCES  := \
 	asm/rom5.s \
 	asm/syscall.s \
 	asm/rom6.s \
-	src/newlib-libc/string/memcpy.c \
 	asm/rom8.s \
 	asm/4swords_text.s
 OFILES   := $(addsuffix .o, $(basename $(SOURCES)))
-
-# Special configurations
-src/newlib-libc/string/memcpy.o: CC1 := $(CC1_OLD)
-src/newlib-libc/string/memcpy.o: CPPFLAGS += -Isrc/newlib-libc/include
-src/newlib-libc/string/memcpy.o: CC1FLAGS := -O2
+LIB      := -L tools/agbcc/lib -lgcc -lc
 
 # main.c might also need the old compiler, too.
 src/main_2.o: CC1 := $(CC1_OLD)
@@ -73,7 +68,7 @@ clean:
 
 # Link ELF file
 $(ELF): $(OFILES) $(LDSCRIPT)
-	$(LD) -T $(LDSCRIPT) -Map $(MAP) $(OFILES) tools/agbcc/lib/libgcc.a -o $@
+	$(LD) -T $(LDSCRIPT) -Map $(MAP) $(OFILES) $(LIB) -o $@
 
 # Build GBA ROM
 %.gba: %.elf

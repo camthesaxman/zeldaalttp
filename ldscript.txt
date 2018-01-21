@@ -35,7 +35,7 @@ SECTIONS
 		tools/agbcc/lib/libgcc.a:_lshrdi3.o(.text);
 		tools/agbcc/lib/libgcc.a:_muldi3.o(.text);
 		tools/agbcc/lib/libgcc.a:_negdi2.o(.text);
-		src/newlib-libc/string/memcpy.o(.text);
+		tools/agbcc/lib/libc.a:memcpy.o(.text);
 		asm/rom8.o(.rodata);
 		asm/4swords_text.o(.rodata);
 	} = 0
