@@ -40,7 +40,12 @@ SOURCES  := \
 	asm/rom8.s \
 	asm/4swords_text.s
 OFILES   := $(addsuffix .o, $(basename $(SOURCES)))
-LIB      := -L tools/agbcc/lib -lgcc -lc
+
+ifeq ($(OS),Windows_NT)
+  LIB := tools/agbcc/lib/libgcc.a tools/agbcc/lib/libc.a
+else
+  LIB := -L tools/agbcc/lib -lgcc -lc
+endif
 
 # main.c might also need the old compiler, too.
 src/main_2.o: CC1 := $(CC1_OLD)
