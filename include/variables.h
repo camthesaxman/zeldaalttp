@@ -1215,8 +1215,8 @@ extern void *gUnknown_03007FFC;  // interrupt callback?
 //extern gUnknown_08135C15;
 //extern gUnknown_08137B10;
 //extern gUnknown_08137B90;
-extern const u8 gUnknown_08137B98[];
-extern const u8 gUnknown_08137C58[];
+extern const u16 gUnknown_08137B98[];
+extern const u16 gUnknown_08137C58[];
 //extern gUnknown_08137D18;
 //extern gUnknown_08137D44;
 //extern gUnknown_08137D5C;
