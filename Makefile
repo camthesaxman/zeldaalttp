@@ -37,8 +37,8 @@ SOURCES  := \
 	asm/rom5.s \
 	asm/syscall.s \
 	asm/rom6.s \
-	asm/rom8.s \
-	asm/4swords_text.s
+	data/data.s \
+	data/4swords_text.s
 OFILES   := $(addsuffix .o, $(basename $(SOURCES)))
 
 ifeq ($(OS),Windows_NT)
