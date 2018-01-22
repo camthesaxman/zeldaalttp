@@ -450,16 +450,16 @@ sub_0800066C: @ 0x0800066C
 	ldr r2, _080007AC  @ =gUnknown_03006A44
 	mov r6, #1
 	mov r7, #80
-	bl _080006BC
+	bl sub_080006BC
 	add r2, r2, #144
 	mov r6, #2
-	bl _080006BC
+	bl sub_080006BC
 	add r2, r2, #144
 	mov r6, #4
-	bl _080006BC
+	bl sub_080006BC
 	add r2, r2, #144
 	mov r6, #8
-	bl _080006BC
+	bl sub_080006BC
 	pop {r4-r7,pc}
 	THUMB_FUNC_END sub_0800066C
 
@@ -470,19 +470,22 @@ sub_08000694: @ 0x08000694
 	ldr r2, _080007B0  @ =gUnknown_03006A44
 	mov r6, #1
 	mov r7, #80
-	bl _080006CC
+	bl sub_080006CC
 	add r2, r2, #144
 	mov r6, #2
-	bl _080006CC
+	bl sub_080006CC
 	add r2, r2, #144
 	mov r6, #4
-	bl _080006CC
+	bl sub_080006CC
 	add r2, r2, #144
 	mov r6, #8
-	bl _080006CC
+	bl sub_080006CC
 	pop {r4-r7,pc}
+	THUMB_FUNC_END sub_08000694
 
-_080006BC:
+	.align 2, 0
+	THUMB_FUNC_START sub_080006BC
+sub_080006BC:
 	ldr r3, [r2, #20]
 	cmp r3, #0
 	beq _0800073C
@@ -492,7 +495,8 @@ _080006BC:
 	b _0800073C
 
 	.align 2, 0
-_080006CC:
+	THUMB_FUNC_START sub_080006CC
+sub_080006CC:
 	ldr r3, [r2, #20]
 	cmp r3, #0
 	beq _0800073C

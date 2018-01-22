@@ -1,7 +1,0 @@
-cmake_minimum_required(VERSION 3.8)
-
-project(zeldaalttp.gba)
-file(GLOB_RECURSE SRC_FILES src/*.c)
-file(GLOB_RECURSE INCLUDES include/*.h)
-include_directories(src include tools/agbcc/include)
-add_executable(zeldaalttp.gba ${SRC_FILES} ${INCLUDES})
