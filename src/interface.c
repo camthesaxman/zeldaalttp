@@ -419,3 +419,23 @@ void sub_08129734(void)
     sub_0812FC80();
     sub_08127334();
 }
+
+void sub_0812976C(void)
+{
+    s32 i;
+    u8 *ptr;
+
+    gUnknown_03002230.unk1AF2 = 0;
+    gUnknown_03002230.unk1AF0 = 0;
+    gUnknown_03002230.unk1AF4 = 0;
+    gUnknown_03002230.unk1AF6 = 0;
+    
+    // This loop is hard to match.
+    i = 207;
+    ptr = gUnknown_02010470 + 207;
+    while (i >= 0)
+    {
+	*ptr-- = 0;
+	i--;
+    }
+}

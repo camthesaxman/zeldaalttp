@@ -591,8 +591,8 @@ extern u32 gUnknown_0200B310;
 //extern gUnknown_02010324;
 //extern gUnknown_0201046F;
 extern u8 gUnknown_02010470[];
-//extern gUnknown_02010471;
-//extern gUnknown_0201053F;
+//extern gUnknown_02010471;  // part of gUnknown_02010470
+//extern gUnknown_0201053F;  // part of gUnknown_02010470
 //extern gUnknown_02010540;
 //extern gUnknown_02010740;
 //extern gUnknown_02010940;

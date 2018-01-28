@@ -57,6 +57,7 @@ src/math.o: CC1 := $(CC1_OLD)
 #src/rom3a.o: CC1 := $(CC1_OLD)
 src/text.o: CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O2 -fhex-asm
 
+
 #### Main Targets ####
 
 compare: $(ROM)

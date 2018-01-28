@@ -1,44 +1,5 @@
 	.INCLUDE "macro.inc"
 
-	THUMB_FUNC_START sub_0812976C
-sub_0812976C: @ 0x0812976C
-	push {lr}
-	ldr r1, _0812979C  @ =gUnknown_03002230
-	ldr r2, _081297A0  @ =0x00001AF2
-	add r0, r1, r2
-	mov r2, #0
-	strh r2, [r0]
-	ldr r3, _081297A4  @ =0x00001AF0
-	add r0, r1, r3
-	strh r2, [r0]
-	add r3, r3, #4
-	add r0, r1, r3
-	strh r2, [r0]
-	ldr r0, _081297A8  @ =0x00001AF6
-	add r1, r1, r0
-	strh r2, [r1]
-	mov r1, #207
-	ldr r0, _081297AC  @ =gUnknown_0201053F
-_0812978E:
-	strb r2, [r0]
-	sub r0, r0, #1
-	sub r1, r1, #1
-	cmp r1, #0
-	bge _0812978E
-	pop {r0}
-	bx r0
-_0812979C:
-	.4byte gUnknown_03002230
-_081297A0:
-	.4byte 0x00001AF2
-_081297A4:
-	.4byte 0x00001AF0
-_081297A8:
-	.4byte 0x00001AF6
-_081297AC:
-	.4byte gUnknown_0201053F
-	THUMB_FUNC_END sub_0812976C
-
 	THUMB_FUNC_START sub_081297B0
 sub_081297B0: @ 0x081297B0
 	push {r4,lr}
