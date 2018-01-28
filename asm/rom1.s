@@ -129,14 +129,16 @@ _0800042A:
 sub_08000434: @ 0x08000434
 	push {lr}
 	ldr r0, _08000774  @ =gUnknown_03000E40
-	ldr r1, _08000778  @ =0x08000441
+	ldr r1, _08000778  @ =_08000440 + 1
 	mov lr, r1
 	bx r0
 
 	.align 2, 0
 
+_08000440:
 	bl sub_0803A320
 	pop {pc}
+	THUMB_FUNC_END sub_08000434
 
 	.align 2, 0
 
@@ -212,15 +214,15 @@ _080004AA:
 	add r2, r2, r3
 	pop {r0,r1}
 	beq _080004DA
-	ldr r3, _0800077C  @ =0x08000524
+	ldr r3, _0800077C  @ _08000524
 	ldr r2, [r3, r2]
-	ldr r3, _08000780  @ =0x080004DB
+	ldr r3, _08000780  @ =_080004DA + 1
 	mov lr, r3
 	bx r2
 _080004DA:
 	mov r2, #0
 	add r3, r2, #0
-	bl 0x08003F54
+	bl sub_08003F54
 	add r6, r0, #0
 	ldr r0, _08000784  @ =gUnknown_081423A0
 	ldrb r1, [r4, #16]
@@ -259,18 +261,20 @@ _0800051E:
 	mov r0, #0
 	pop {r3-r7}
 	bx r3
-	lsl r5, r6, #20
-	lsr r0, r0, #32
-	lsl r1, r7, #20
-	lsr r0, r0, #32
-	lsl r5, r2, #21
-	lsr r0, r0, #32
-	lsl r1, r6, #21
-	lsr r0, r0, #32
+
+	.align 2, 0
+_08000524:
+	.4byte _08000534 + 1
+	.4byte _08000538 + 1
+	.4byte _08000554 + 1
+	.4byte _08000570 + 1
+
+	.align 2, 0
+_08000534:
 	mov pc, lr
 
 	.align 2, 0
-
+_08000538:
 	ldrh r0, [r4, #2]
 	ldrh r1, [r5, #2]
 	mov r2, #0
@@ -286,7 +290,7 @@ _0800051E:
 	mov pc, lr
 
 	.align 2, 0
-
+_08000554:
 	ldrh r0, [r4, #2]
 	ldrh r1, [r5, #2]
 	sub r0, r0, r1
@@ -302,7 +306,7 @@ _0800051E:
 	mov pc, lr
 
 	.align 2, 0
-
+_08000570:
 	ldrh r0, [r4, #2]
 	ldrh r1, [r5, #2]
 	sub r0, r0, r1
@@ -394,8 +398,8 @@ _08000602:
 	orr r2, r2, r3
 	strb r2, [r0, r1]
 	mov pc, lr
-	.byte 0x00
-	.byte 0x00
+
+	.align 2, 0
 	ldr r1, _080007A0  @ =gUnknown_03005060
 	ldr r2, _080007A4  @ =gUnknown_03005960
 _08000624:
@@ -446,16 +450,16 @@ sub_0800066C: @ 0x0800066C
 	ldr r2, _080007AC  @ =gUnknown_03006A44
 	mov r6, #1
 	mov r7, #80
-	bl 0x080006BC
+	bl sub_080006BC
 	add r2, r2, #144
 	mov r6, #2
-	bl 0x080006BC
+	bl sub_080006BC
 	add r2, r2, #144
 	mov r6, #4
-	bl 0x080006BC
+	bl sub_080006BC
 	add r2, r2, #144
 	mov r6, #8
-	bl 0x080006BC
+	bl sub_080006BC
 	pop {r4-r7,pc}
 	THUMB_FUNC_END sub_0800066C
 
@@ -466,17 +470,22 @@ sub_08000694: @ 0x08000694
 	ldr r2, _080007B0  @ =gUnknown_03006A44
 	mov r6, #1
 	mov r7, #80
-	bl 0x080006CC
+	bl sub_080006CC
 	add r2, r2, #144
 	mov r6, #2
-	bl 0x080006CC
+	bl sub_080006CC
 	add r2, r2, #144
 	mov r6, #4
-	bl 0x080006CC
+	bl sub_080006CC
 	add r2, r2, #144
 	mov r6, #8
-	bl 0x080006CC
+	bl sub_080006CC
 	pop {r4-r7,pc}
+	THUMB_FUNC_END sub_08000694
+
+	.align 2, 0
+	THUMB_FUNC_START sub_080006BC
+sub_080006BC:
 	ldr r3, [r2, #20]
 	cmp r3, #0
 	beq _0800073C
@@ -484,14 +493,13 @@ sub_08000694: @ 0x08000694
 	lsr r4, r4, #8
 	bcs _080006D2
 	b _0800073C
-	.byte 0x00
-	.byte 0x00
-	.byte 0x53
-	.byte 0x69
-	.byte 0x00
-	.byte 0x2B
-	.byte 0x34
-	.byte 0xD0
+
+	.align 2, 0
+	THUMB_FUNC_START sub_080006CC
+sub_080006CC:
+	ldr r3, [r2, #20]
+	cmp r3, #0
+	beq _0800073C
 _080006D2:
 	ldrh r4, [r2, #34]
 	ldr r5, _080007B4  @ =0x00001051
@@ -543,7 +551,7 @@ _080006D2:
 	strh r4, [r3, r7]
 	push {r0-r2,lr}
 	add r0, r3, #0
-	bl 0x08008DD8
+	bl sub_08008DD8
 	pop {r0-r2,pc}
 _0800073C:
 	mov pc, lr
@@ -584,11 +592,11 @@ _08000752:
 _08000774:
 	.4byte gUnknown_03000E40
 _08000778:
-	.4byte 0x08000441
+	.4byte _08000440 + 1
 _0800077C:
-	.4byte 0x08000524
+	.4byte _08000524
 _08000780:
-	.4byte 0x080004DB
+	.4byte _080004DA + 1
 _08000784:
 	.4byte gUnknown_081423A0
 _08000788:
@@ -690,7 +698,15 @@ _08000888:
 
 	.GLOBAL sub_080008A8
 sub_080008A8:
-	.INCBIN "baserom.gba", 0x8A8, 0x8FA4-0x8A8
+	.INCBIN "baserom.gba", 0x8A8, 0x3F54-0x8A8
+
+	.GLOBAL sub_08003F54
+sub_08003F54:
+	.INCBIN "baserom.gba", 0x3F54, 0x8DD8-0x3F54
+
+	.GLOBAL sub_08008DD8
+sub_08008DD8:
+	.INCBIN "baserom.gba", 0x8DD8, 0x8FA4-0x8DD8
 
 	.GLOBAL sub_08008FA4
 sub_08008FA4:

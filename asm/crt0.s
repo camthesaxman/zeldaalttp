@@ -7,7 +7,7 @@
 _start:					@ Entry point of the ROM on startup
 	b init				@ Skip over the header information
 
-	.INCLUDE "asm/rom_header.s"
+	.INCLUDE "asm/rom_header.inc"
 
 	.ALIGN 2, 0
 init:

@@ -1,6 +1,7 @@
 // These functions require the old compiler to match, which is why they are
 // split into a different file.
 
+#include <stdlib.h>
 #include "gba/gba.h"
 #include "global.h"
 

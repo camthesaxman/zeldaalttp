@@ -26,7 +26,6 @@ SECTIONS
 		tools/agbcc/lib/libgcc.a:_divsi3.o(.text);
 		tools/agbcc/lib/libgcc.a:_dvmd_tls.o(.text);
 		tools/agbcc/lib/libgcc.a:_fixunssfsi.o(.text);
-		/*asm/rom7.o(.text);*/
 		tools/agbcc/lib/libgcc.a:_modsi3.o(.text);
 		tools/agbcc/lib/libgcc.a:_udivsi3.o(.text);
 		tools/agbcc/lib/libgcc.a:_umodsi3.o(.text);
@@ -35,9 +34,14 @@ SECTIONS
 		tools/agbcc/lib/libgcc.a:_lshrdi3.o(.text);
 		tools/agbcc/lib/libgcc.a:_muldi3.o(.text);
 		tools/agbcc/lib/libgcc.a:_negdi2.o(.text);
-		src/newlib-libc/string/memcpy.o(.text);
-		asm/rom8.o(.rodata);
-		asm/4swords_text.o(.rodata);
+		tools/agbcc/lib/libc.a:memcpy.o(.text);
+	} = 0
+
+	.rodata :
+	ALIGN(4)
+	{
+		data/data.o(.rodata);
+		data/4swords_text.o(.rodata);
 	} = 0
 
 	. = 0x02000000;
