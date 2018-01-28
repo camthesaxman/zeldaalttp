@@ -1,6 +1,6 @@
 # This file contains graphics dependencies for each file
 
-asm/rom8.o: \
+data/data.o: \
 	graphics/alttp/link.4bpp \
 	graphics/alttp/rom_0023482C.4bpp.lz \
 	graphics/alttp/rom_00234D44.4bpp.lz \
