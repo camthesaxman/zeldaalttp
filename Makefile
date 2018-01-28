@@ -41,11 +41,7 @@ ASM_OBJECTS := $(ASM_SOURCES:%.s=%.o)
 SOURCES  := $(C_SOURCES) $(ASM_SOURCES)
 OFILES   := $(C_OBJECTS) $(ASM_OBJECTS)
 
-ifeq ($(OS),Windows_NT)
-  LIB := tools/agbcc/lib/libgcc.a tools/agbcc/lib/libc.a
-else
-  LIB := -L tools/agbcc/lib -lgcc -lc
-endif
+LIB := tools/agbcc/lib/libgcc.a tools/agbcc/lib/libc.a
 
 ifeq ($(NODEP),)
   src/%.o:  C_DEP   = $(shell $(SCANINC) -I include src/$(*F).c)
