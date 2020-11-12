@@ -11,7 +11,7 @@ src/**/*.s
 *.lz
 
 # Tools
-tools/*
+tools/agbcc
 *.exe
 
 # Emulator save files

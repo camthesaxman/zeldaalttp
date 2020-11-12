@@ -6,6 +6,9 @@
 # Stop deleting my files
 .PRECIOUS: %.4bpp
 
+
+#### Tools ####
+
 GBAGFX   := tools/gbagfx/gbagfx
 CC1      := tools/agbcc/bin/agbcc
 CC1_OLD  := tools/agbcc/bin/old_agbcc
@@ -13,12 +16,15 @@ CPP      := $(DEVKITARM)/bin/arm-none-eabi-cpp
 AS       := $(DEVKITARM)/bin/arm-none-eabi-as
 LD       := $(DEVKITARM)/bin/arm-none-eabi-ld
 OBJCOPY  := $(DEVKITARM)/bin/arm-none-eabi-objcopy
-SCANINC  := tools/scaninc/scaninc
 
 CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O2 -fhex-asm
 CPPFLAGS := -Itools/agbcc/include -iquote include -nostdinc -undef
 ASFLAGS  := -mcpu=arm7tdmi -mthumb-interwork -Iasminclude
 
+# Build tools when building the ROM
+ifeq ($(filter clean tidy,$(MAKECMDGOALS)),)
+  DUMMY != make -C tools
+endif
 
 #### Files ####
 
@@ -65,6 +71,7 @@ compare: $(ROM)
 
 clean: tidy
 	$(RM) graphics/*/*.4bpp graphics/*/*.lz
+	$(MAKE) -C tools clean
 
 tidy:
 	$(RM) $(ROM) $(ELF) $(MAP) $(OFILES) $(C_SOURCES:%.c=%.s) $(ASM_SOURCES:%.s=%.o)
