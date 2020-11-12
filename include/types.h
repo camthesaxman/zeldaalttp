@@ -98,7 +98,9 @@ struct UnknownStruct8
 // Some huge struct that's used all over
 struct UnknownStruct7
 {
-    u8 filler0[0x550];
+    u8 filler0[0x544];
+    u8 unk544;
+    u8 filler545[0x550-0x545];
     struct UnknownStruct8 unk550[2];  // no idea of the length of this array
     u8 filler560[0x3F2];
     u16 unk952;
@@ -168,7 +170,10 @@ struct UnknownStruct7
     u8 fillerCEA[2];
     u16 unkCEC;
     u16 unkCEE;
-    u8 fillerCF0[0x1DF];
+    u8 fillerCF0[0xCF8-0xCF0];
+    u16 unkCF8;
+    u8 unkCFA[0xE50-0xCFA];
+    u8 fillerE50[0xECF-0xE50];
     u8 unkECF;
     u8 fillerED0[2];
     u8 unkED2[0x10];
@@ -201,9 +206,19 @@ struct UnknownStruct7
     u8 filler18AE[0x21C];
     u16 unk1ACA;
     u8 unk1ACC;
-    u8 filler1ACD[3];
+    u8 unk1ACD;
+    u8 unk1ACE;
+    u8 unk1ACF;
     u8 unk1AD0;
-    u8 filler1AD1[0x12];
+    u8 filler1AD1[1];
+    u16 unk1AD2;
+    u8 filler1AD4[2];
+    u16 unk1AD6;
+    u8 filler1AD8[0x1ADA-0x1AD8];
+    u16 unk1ADA;
+    u8 filler1ADC[0x1AE0-0x1ADC];
+    u16 unk1AE0;
+    u8 filler1AE2;
     u8 unk1AE3;
     u8 filler1AE4[4];
     u8 unk1AE8;
@@ -217,7 +232,8 @@ struct UnknownStruct7
     u32 unk1AFC;
     u32 unk1B00;
     u8 unk1B04;
-    u8 filler1B05[7];
+    u8 unk1B05;
+    u8 filler1B06[6];
     u8 unk1B0C;
     u8 filler1B0D[9];
     u8 unk1B16;

@@ -439,3 +439,205 @@ void sub_0812976C(void)
 	i--;
     }
 }
+
+// unused?
+void sub_081297B0(u8 *a)
+{
+    gUnknown_03002230.unk1ACC = sub_08129E0C(gUnknown_03002230.unk1AF8, a + gUnknown_03002230.unk1AD6 + 5);
+}
+
+extern const u16 gUnknown_0818097C[];
+
+// unused?
+void sub_081297E8(u8 *a)
+{
+    gUnknown_03002230.unk1ACA =
+        gUnknown_0818097C[sub_08129E0C(gUnknown_03002230.unk1AF8, a + gUnknown_03002230.unk1AD6 + 5)];
+}
+
+void sub_0812982C()
+{
+    sub_081279A0();
+}
+
+void sub_08129838(void)
+{
+    gUnknown_08180B34[gUnknown_03002230.unk1ACC]();
+}
+
+void sub_08129860(void)
+{
+    u16 sp0;
+    u16 sp2;
+    int i;
+
+    sub_08129CB0(&sp0, &sp2);
+    sub_081290B4(&sp0, &sp2);
+
+    for (i = 6; i != 0; i--)
+    {
+        sp2 = 6;
+        sub_081290B4(&sp0, &sp2);
+    }
+    sp2 = 12;
+    sub_081290B4(&sp0, &sp2);
+    //gUnknown_02000402[sp0 / 2] = 0xFFFF;
+    *(gUnknown_02000402 + (sp0 / 2)) = 0xFFFF;  // why is this needed to match?
+    gUnknown_03002230.unk1ACC = 2;
+}
+
+void sub_081298D0(void)
+{
+    u8 var = gUnknown_03002230.unk1ACF;
+
+    if (var != 0)
+    {
+        if (var <= 6)
+            var = 1;
+        else
+            var = 2;
+    }
+    gUnknown_08180B48[var]();
+}
+
+void sub_08129908(void)
+{
+    u16 sp0;
+    u16 sp2;
+
+    sub_08129CB0(&sp0, &sp2);
+    sub_081290B4(&sp0, &sp2);
+    //gUnknown_02000402[sp0 / 2] = 0xFFFF;
+    *(gUnknown_02000402 + (sp0 / 2)) = 0xFFFF;  // why is this needed to match?
+    gUnknown_03002230.unk1ACF++;
+}
+
+void sub_08129958(void)
+{
+    u16 sp0 = 0;
+    u16 sp2 = 6;
+
+    sub_081290B4(&sp0, &sp2);
+    //gUnknown_02000402[sp0 / 2] = 0xFFFF;
+    *(gUnknown_02000402 + (sp0 / 2)) = 0xFFFF;  // why is this needed to match?
+    gUnknown_03002230.unk1ACF++;
+}
+
+void sub_081299A4(void)
+{
+    u16 sp0 = 0;
+    u16 sp2 = 12;
+
+    sub_081290B4(&sp0, &sp2);
+    //gUnknown_02000402[sp0 / 2] = 0xFFFF;
+    *(gUnknown_02000402 + (sp0 / 2)) = 0xFFFF;  // why is this needed to match?
+    gUnknown_03002230.unk1ACF++;
+    gUnknown_03002230.unk1ACC = 2;
+}
+
+void sub_081299FC(void)
+{
+    sub_081291C8();
+    gUnknown_03002230.unk1ACC++;
+}
+
+// not sure what this returns
+int sub_08129A1C(u8 a)
+{
+    return gUnknown_08180B58[a]();
+}
+
+int sub_08129A34(void)
+{
+    int r4 = 0;
+
+    sub_08127DBC();
+    r4 = gUnknown_03002230.unk1AD6 != 19
+      && gUnknown_03002230.unk1AD6 != 59
+      && gUnknown_03002230.unk1AD6 != 99;
+    return r4;
+}
+
+int sub_08129A68(void)
+{
+    gUnknown_03002230.unk1ACD--;
+    return 0;
+}
+
+int sub_08129A80(void)
+{
+    int r5 = 0;
+
+    if (gUnknown_03002230.unk9AC == 20)
+    {
+        sub_08132C34();
+        if (gUnknown_03002230.unkCF8 == 0)
+            r5 = 1;
+        else
+            r5 = 0;
+        if (r5 == 0)
+            return 0;
+    }
+    gUnknown_03002230.unk1AD2++;
+    return 0;
+}
+
+int sub_08129AC8(void)
+{
+    gUnknown_03002230.unk1AD2++;
+    gUnknown_03002230.unk1B04 = 1;
+    return 0;
+}
+
+int sub_08129AEC(void)
+{
+    u8 r1;
+ 
+    if (!(gUnknown_03002230.unk544 & 0x80))
+    {
+        r1 = gUnknown_03002230.unk1ADA;
+        if (r1 > 1)
+            r1 = 2;
+    }
+    else
+        r1 = 1;
+    gUnknown_08180C90[r1]();
+    return 0;
+}
+
+void sub_08129B30(void)
+{
+    gUnknown_03002230.unk1ADA =
+        //gUnknown_08180C9C[gUnknown_02005481[gUnknown_03002230.unk1AD2] & 0xF];
+        gUnknown_08180C9C[*(gUnknown_02005481 + gUnknown_03002230.unk1AD2) & 0xF];
+    sub_08129B70();
+}
+
+void sub_08129B70(void)
+{
+    gUnknown_03002230.unk1ADA--;
+}
+
+void sub_08129B88(void)
+{
+    gUnknown_03002230.unk1AD2 += 2;
+    gUnknown_03002230.unk1ADA = 0;
+    gUnknown_03002230.unk1ACD = gUnknown_03002230.unk1B05;
+    gUnknown_03002230.unk1ACE = gUnknown_03002230.unk1B05;
+}
+
+int sub_08129BC4(void)
+{
+    //u8 *dest = gUnknown_03002230.fillerE50;
+    //CpuFastFill16(0, dest, 0x1000);
+
+    // TODO: this is part of gUnknown_03002230
+    extern u8 gUnknown_02003080[];
+    CpuFastFill16(0, gUnknown_02003080, 0x1000);
+
+    gUnknown_03002230.unk1AD6 = 0;
+    gUnknown_03002230.unk1AD2++;
+    gUnknown_03002230.unk1AE0 = 0;
+    return 0;
+}
+

@@ -59,6 +59,7 @@ endif
 src/main_2.o: CC1 := $(CC1_OLD)
 src/math.o: CC1 := $(CC1_OLD)
 
+#src/interface.o: CC1 := $(CC1_OLD)
 #src/rom3a.o: CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O1 -fhex-asm
 #src/rom3a.o: CC1 := $(CC1_OLD)
 src/text.o: CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O2 -fhex-asm
@@ -78,7 +79,7 @@ tidy:
 
 # Link ELF file
 $(ELF): $(OFILES) $(LDSCRIPT)
-	$(LD) -T $(LDSCRIPT) -Map $(MAP) $(OFILES) $(LIB) -o $@
+	$(LD) -T $(LDSCRIPT) -Map $(MAP) $(LIB) -o $@
 
 # Build GBA ROM
 %.gba: %.elf
