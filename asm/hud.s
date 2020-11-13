@@ -18,11 +18,11 @@ sub_08127E4C: @ 0x08127E4C
 	add r2, r0, #0
 	ldr r3, _08127EC8  @ =0x00001AF2
 	add r0, r2, r3
-	ldrh r0, [r0]
+	ldrh r0, [r0]       @ gUnknown_03002230.unk1AF2
 	lsr r0, r0, #1
 	lsl r0, r0, #1
 	add r1, r0, r1
-	ldrh r2, [r1]
+	ldrh r2, [r1]       @ gUnknown_08180BCC[gUnknown_03002230.unk1AF2 / 2]
 	ldr r4, _08127EBC  @ =gUnknown_03002230
 	ldr r6, _08127ECC  @ =0x00001AF6
 	add r1, r4, r6
@@ -31,7 +31,7 @@ sub_08127E4C: @ 0x08127E4C
 	strh r2, [r1]
 	ldr r1, _08127ED0  @ =gUnknown_08180BD2
 	add r0, r0, r1
-	ldrh r0, [r0]
+	ldrh r0, [r0]       @ gUnknown_08180BD2[gUnknown_03002230.unk1AF2 / 2]
 	lsl r0, r0, #1
 	ldr r2, _08127EBC  @ =gUnknown_03002230
 	sub r6, r6, #2
@@ -102,7 +102,7 @@ _08127F00:
 	mov r0, #248
 	lsl r0, r0, #1
 	and r0, r0, r2
-	lsl r0, r0, #1
+	lsl r0, r0, #1      @ (r2 & (248 * 2)) * 2
 	mov r1, #15
 	and r2, r2, r1
 	add r0, r0, r2
@@ -183,11 +183,11 @@ _08127FA0:
 _08127FA4:
 	mov r0, #248
 	and r1, r1, r0
-	lsl r1, r1, #2
+	lsl r1, r1, #2      @ (gUnknown_0201046F[gUnknown_03002230.unk1AF4] & 248) << 2
 	ldr r2, _08128008  @ =gUnknown_03002230
 	ldr r4, _0812800C  @ =0x00001AF6
 	add r0, r2, r4
-	ldrh r0, [r0]
+	ldrh r0, [r0]       @gUnknown_03002230.unk1AF6
 	lsr r0, r0, #1
 	lsl r0, r0, #2
 	ldr r2, _08128010  @ =gUnknown_02003080
@@ -251,40 +251,40 @@ _0812801C:
 	mov r7, #0
 	ldr r3, _081280B0  @ =gUnknown_08180BF8
 	add r1, r2, r3
-	ldr r1, [r1]
+	ldr r1, [r1]        @ gUnknown_08180BF8[r3]
 	str r1, [sp]
 	ldr r1, _081280B4  @ =gUnknown_08180BD8
 	add r2, r2, r1
-	ldr r2, [r2]
+	ldr r2, [r2]        @ gUnknown_08180BD8[r3]
 	str r2, [sp, #4]
 	lsr r0, r0, #22
 	add r1, r0, r1
 	ldr r1, [r1]
-	mov r10, r1
+	mov r10, r1         @ gUnknown_08180BD8[(u8)(r3 + r5 - 8)] ?
 	add r0, r0, r3
 	ldr r0, [r0]
-	mov r9, r0
+	mov r9, r0          @ gUnknown_08180BF8[(u8)(r3 + r5 - 8)]
 	mov r0, #32
 	mov r1, r12
-	sub r1, r0, r1
+	sub r1, r0, r1      @ 32 - (r3 << 2)
 	mov r8, r1
 _0812804C:
 	ldr r2, [r6]
 	ldr r1, [r4]
 	ldr r3, [sp]
-	and r1, r1, r3
+	and r1, r1, r3      @ *r4 & gUnknown_08180BF8[r3]
 	add r0, r2, #0
 	mov r3, r12
-	lsl r0, r0, r3
-	ldr r3, [sp, #4]
+	lsl r0, r0, r3      @ *r6 << r12
+	ldr r3, [sp, #4]     @ gUnknown_08180BD8[r3]
 	and r0, r0, r3
 	orr r1, r1, r0
 	str r1, [r4]
 	ldr r0, [r5]
 	mov r1, r10
-	and r0, r0, r1
+	and r0, r0, r1      @ *r5 & gUnknown_08180BD8[(u8)(r3 + r5 - 8)]
 	mov r3, r8
-	lsr r2, r2, r3
+	lsr r2, r2, r3      @ *r6 << (32 - (r3 << 2))
 	mov r1, r9
 	and r2, r2, r1
 	orr r0, r0, r2
