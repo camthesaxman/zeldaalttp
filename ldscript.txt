@@ -17,6 +17,7 @@ SECTIONS
 		src/rom3a.o(.text);
 		asm/rom3a.o(.text);
 		asm/rom4.o(.text);
+        asm/hud.o(.text);
 		src/interface.o(.text);
 		asm/interface.o(.text);
 		asm/rom5.o(.text);

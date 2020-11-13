@@ -3,7 +3,7 @@
 data/data.o: \
 	graphics/alttp/link.4bpp \
 	graphics/alttp/rom_0023482C.4bpp.lz \
-	graphics/alttp/rom_00234D44.4bpp.lz \
+	graphics/alttp/item_action.4bpp.lz \
 	graphics/alttp/rom_0023511C.4bpp.lz \
 	graphics/alttp/rom_002356AC.4bpp.lz \
 	graphics/alttp/rom_00235BE8.4bpp.lz \

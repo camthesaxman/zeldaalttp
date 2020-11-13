@@ -16004,7 +16004,7 @@ gUnknown_0823482C:
 	.ALIGN 2, 0
 	.GLOBAL gUnknown_08234D44
 gUnknown_08234D44:
-	.INCBIN "graphics/alttp/rom_00234D44.4bpp.lz"
+	.INCBIN "graphics/alttp/item_action.4bpp.lz"
 
 	.ALIGN 2, 0
 	.GLOBAL gUnknown_0823511C
