@@ -248,7 +248,7 @@ tools/agbcc/lib/libgcc.a:fp-bit.o(.bss);
 . = 0x5968;	gUnknown_03005968 = .;
 . = 0x5980;	gUnknown_03005980 = .;
 . = 0x59A0;	gUnknown_030059A0 = .;
-. = 0x59B0;	gUnknown_030059B0 = .;
+. = 0x59B0;	gInterruptMainBuf = .;
 . = 0x5AD8;	gUnknown_03005AD8 = .;
 . = 0x5ADC;	gUnknown_03005ADC = .;
 . = 0x5AE0;	gUnknown_03005AE0 = .;

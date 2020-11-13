@@ -4,7 +4,7 @@ struct BGConfig
     u16 hofs;
     u16 vofs;
     u16 unk6;
-    void *src;
+    void *mapBuf;
 };
 
 struct GPURegConfig

@@ -41,6 +41,8 @@ SECTIONS
 	ALIGN(4)
 	{
 		data/data.o(.rodata);
+        src/main.o(.rodata);
+        data/data_8427390.o(.rodata);
 		data/4swords_text.o(.rodata);
 	} = 0
 

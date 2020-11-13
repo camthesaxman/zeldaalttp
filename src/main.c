@@ -14,6 +14,33 @@ struct UnknownStruct1
 
 #define SOFT_RESET_KEY_COMBO (A_BUTTON | B_BUTTON | START_BUTTON | SELECT_BUTTON)
 
+void (*const gUnknown_0842731C[])(void) =
+{
+    sub_0800D4F0,
+    sub_0803815C,
+    sub_08038168,
+    sub_080310B4,
+    sub_080317F4,
+    sub_0803006C,
+    sub_0803074C,
+    sub_0802DC60,
+    sub_0800F808,
+    sub_0802E764,
+    sub_08037DE8,
+    sub_08031FD8,
+    sub_08032E08,
+    sub_0800B69C,
+};
+
+// size of a BG map in bytes (from bits 14-15 of BGnCNT
+static const u16 sBGMapSizes[] =
+{
+    2048,
+    4096,
+    4096,
+    8192,
+};
+
 void AgbMain(void)
 {
     s32 var;
@@ -85,7 +112,7 @@ void initialize_gba(void)
     DmaFill32(3, 0xA0,              gUnknown_03005E20,      OAM_SIZE * 2);
     DmaCopy32(3, gUnknown_03005E20, (void *)OAM,            OAM_SIZE * 2);  // Why are we writing into unused memory?
 
-    sub_0800B6BC();
+    setup_interrupt_handler();
     sub_080679CC(1, gUnknown_03000B94);
     REG_IE = INTR_FLAG_VBLANK | INTR_FLAG_VCOUNT | INTR_FLAG_GAMEPAK;
     REG_DISPSTAT = DISPSTAT_VBLANK_INTR | DISPSTAT_VCOUNT_INTR;
@@ -173,16 +200,16 @@ void main_update_bg_regs(void)
     REG_BLDY = gpuConfig->bldy;
 }
 
-void sub_0800B430(void)
+void copy_bgs_and_oam_to_vram(void)
 {
-    if (gUnknown_03000F50.bgConfig[0].unk6 != 0 && gUnknown_03000F50.bgConfig[0].src != NULL)
-        sub_0800B4E0(&gUnknown_03000F50.bgConfig[0]);
-    if (gUnknown_03000F50.bgConfig[1].unk6 != 0 && gUnknown_03000F50.bgConfig[1].src != NULL)
-        sub_0800B4E0(&gUnknown_03000F50.bgConfig[1]);
-    if (gUnknown_03000F50.bgConfig[2].unk6 != 0 && gUnknown_03000F50.bgConfig[2].src != NULL)
-        sub_0800B4E0(&gUnknown_03000F50.bgConfig[2]);
-    if (gUnknown_03000F50.bgConfig[3].unk6 != 0 && gUnknown_03000F50.bgConfig[3].src != NULL)
-        sub_0800B4E0(&gUnknown_03000F50.bgConfig[3]);
+    if (gUnknown_03000F50.bgConfig[0].unk6 != 0 && gUnknown_03000F50.bgConfig[0].mapBuf != NULL)
+        copy_bg_map_to_vram(&gUnknown_03000F50.bgConfig[0]);
+    if (gUnknown_03000F50.bgConfig[1].unk6 != 0 && gUnknown_03000F50.bgConfig[1].mapBuf != NULL)
+        copy_bg_map_to_vram(&gUnknown_03000F50.bgConfig[1]);
+    if (gUnknown_03000F50.bgConfig[2].unk6 != 0 && gUnknown_03000F50.bgConfig[2].mapBuf != NULL)
+        copy_bg_map_to_vram(&gUnknown_03000F50.bgConfig[2]);
+    if (gUnknown_03000F50.bgConfig[3].unk6 != 0 && gUnknown_03000F50.bgConfig[3].mapBuf != NULL)
+        copy_bg_map_to_vram(&gUnknown_03000F50.bgConfig[3]);
 
     if (gUnknown_03000954[gUnknown_03000204 ^ 1] != 0 && (gUnknown_03000F50.dispCnt & 0x1000))
     {
@@ -191,18 +218,18 @@ void sub_0800B430(void)
     }
 }
 
-void sub_0800B4E0(struct BGConfig *bgConfig)
+void copy_bg_map_to_vram(struct BGConfig *bgConfig)
 {
     u16 bgcnt = bgConfig->bgcnt;
-    u32 size = gUnknown_08427354[bgcnt >> 14];
-    u32 offset = (0x800 * (bgcnt >> 8)) & 0xF800;
+    u32 size = sBGMapSizes[bgcnt >> 14];
+    u32 offset = (2048 * (bgcnt >> 8)) & 0xF800;
     void *dest = (void *)(VRAM + offset);
 
     u32 r3 = bgConfig->unk6;
     if (r3 != 0xFFFF)
         bgConfig->unk6--;
 
-    CpuFastCopy(bgConfig->src, dest, size);
+    CpuFastCopy(bgConfig->mapBuf, dest, size);
 }
 
 void sub_0800B524(void)
@@ -259,10 +286,10 @@ void sub_0800B6B8(void)
 {
 }
 
-void sub_0800B6BC(void)
+void setup_interrupt_handler(void)
 {
-    DmaCopy32(3, (void *)interrupt_main, gUnknown_030059B0, 0x120);
-    gUnknown_03007FFC = gUnknown_030059B0;
+    DmaCopy32(3, (void *)interrupt_main, gInterruptMainBuf, 0x120);
+    gUnknown_03007FFC = gInterruptMainBuf;
     DmaCopy32(3, gUnknown_0842735C, &gUnknown_03000B70, 0x34);
 }
 
@@ -282,7 +309,7 @@ void sub_0800B700(void)
             dest = (void *)(VRAM + (gUnknown_0201F020->unk0 & 0x1F00) * 8);
             CpuFastCopy(src, dest, 0x1000);
         }
-        sub_0800B430();
+        copy_bgs_and_oam_to_vram();
         main_update_bg_regs();
         sub_0800C8E4();
         sub_0800B9E4();
