@@ -20,6 +20,7 @@ tools/agbcc
 
 # Various other detritus that doesn't need to be tracked
 Thumbs.db
+.DS_Store
 *.dump
 *.spr
 zeldaalttp.gba.pal
