@@ -12,6 +12,8 @@ SECTIONS
 		src/math.o(.text);
 		src/rom2.o(.text);
 		asm/rom2.o(.text);
+        src/rom_0800D4F0.o(.text);
+        asm/rom_0800D4F0.o(.text);
 		asm/rom2a.o(.text);
 		asm/rom3.o(.text);
 		src/rom3a.o(.text);

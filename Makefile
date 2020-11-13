@@ -64,6 +64,8 @@ src/math.o: CC1 := $(CC1_OLD)
 #src/rom3a.o: CC1 := $(CC1_OLD)
 src/text.o: CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O2 -fhex-asm
 
+# use old compiler to work around unnecessary push/pop in leaf functions
+#src/rom_0800D4F0.o: CC1 := $(CC1_OLD)
 
 #### Main Targets ####
 
