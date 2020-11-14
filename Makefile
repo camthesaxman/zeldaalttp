@@ -21,6 +21,8 @@ CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O2
 CPPFLAGS := -Itools/agbcc/include -iquote include -nostdinc -undef
 ASFLAGS  := -mcpu=arm7tdmi -mthumb-interwork -Iasminclude
 
+SHA1 := $(shell { command -v sha1sum || command -v shasum; } 2>/dev/null) -c
+
 # Build tools when building the ROM
 ifeq ($(filter clean tidy,$(MAKECMDGOALS)),)
   DUMMY != make -C tools
@@ -63,7 +65,7 @@ src/main.o: CC1FLAGS += -fprologue-bugfix
 #### Main Targets ####
 
 compare: $(ROM)
-	md5sum -c checksum.md5
+	$(SHA1) checksum.sha1
 
 clean: tidy
 	$(RM) graphics/*/*.4bpp graphics/*/*.lz
