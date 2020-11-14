@@ -72,7 +72,7 @@ sub_0800BEC4: @ 0x0800BEC4
 	ldr r0, _0800BED4  @ =gUnknown_0202A8D0
 	mov r1, #160
 	lsl r1, r1, #6
-	bl sub_0800B850
+	bl zero_memory
 	pop {r0}
 	bx r0
 _0800BED4:
@@ -200,7 +200,7 @@ sub_0800BFBC: @ 0x0800BFBC
 	ldr r4, _0800BFD4  @ =gUnknown_030059A0
 	ldr r0, [r4]
 	mov r1, #108
-	bl sub_0800B850
+	bl zero_memory
 	ldr r1, [r4]
 	mov r0, #64
 	strh r0, [r1]
@@ -285,7 +285,7 @@ sub_0800C03C: @ 0x0800C03C
 	ldr r4, _0800C05C  @ =gUnknown_03000520
 	add r0, r4, #0
 	mov r1, #16
-	bl sub_0800B850
+	bl zero_memory
 	bl sub_0800C080
 	mov r0, #1
 	neg r0, r0
@@ -305,7 +305,7 @@ sub_0800C060: @ 0x0800C060
 	ldr r4, _0800C07C  @ =gUnknown_03000520
 	add r0, r4, #0
 	mov r1, #16
-	bl sub_0800B850
+	bl zero_memory
 	mov r0, #1
 	neg r0, r0
 	str r0, [r4, #12]
@@ -1818,7 +1818,7 @@ sub_0800CAD4: @ 0x0800CAD4
 	add r0, r0, r1
 	mov r1, #160
 	lsl r1, r1, #1
-	bl sub_0800B850
+	bl zero_memory
 	add r5, r7, #0
 	asr r4, r4, #15
 	mov r0, #3
@@ -2073,7 +2073,7 @@ sub_0800CCAC: @ 0x0800CCAC
 	add r0, r0, r1
 	mov r1, #160
 	lsl r1, r1, #1
-	bl sub_0800B850
+	bl zero_memory
 	mov r0, r8
 	lsl r4, r0, #16
 	asr r6, r4, #16
@@ -2458,7 +2458,7 @@ sub_0800CE74: @ 0x0800CE74
 	add r0, r0, r6
 	mov r1, #160
 	lsl r1, r1, #1
-	bl sub_0800B850
+	bl zero_memory
 	ldr r2, _0800D034  @ =gUnknown_02038000
 	ldrb r1, [r7]
 	lsl r0, r1, #2
@@ -2713,7 +2713,7 @@ sub_0800D1A0: @ 0x0800D1A0
 	ldr r4, _0800D1BC  @ =gUnknown_0201EDA8
 	add r0, r4, #0
 	mov r1, #8
-	bl sub_0800B850
+	bl zero_memory
 	mov r0, #0
 	strh r0, [r4, #2]
 	mov r0, #128

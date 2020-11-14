@@ -21,11 +21,13 @@ s32 sub_0800B838(s32 n)
     return 0;
 }
 
-void sub_0800B850(u32 *a, s32 size)
+// zeros out a region of memory.
+// both ptr and size must be 4-byte aligned
+void zero_memory(void *addr, s32 size)
 {
     do
     {
-        *a++ = 0;
+        *((u32 *)addr)++ = 0;
         size -= sizeof(u32);
     } while (size > 0);
 }

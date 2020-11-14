@@ -61,7 +61,7 @@ src/rom_0800D4F0.o: CC1FLAGS += -fprologue-bugfix
 src/main_2.o: CC1FLAGS += -fprologue-bugfix
 src/math.o: CC1FLAGS += -fprologue-bugfix
 src/main.o: CC1FLAGS += -fprologue-bugfix
-src/interface.o: CC1FLAGS += -fprologue-bugfix
+#src/interface.o: CC1FLAGS += -fprologue-bugfix
 
 #### Main Targets ####
 

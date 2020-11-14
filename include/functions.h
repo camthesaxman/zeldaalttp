@@ -33,7 +33,7 @@ void sub_0800B7FC(void);
 //sub_0800B820();
 //sub_0800B830();
 //sub_0800B838();
-//sub_0800B850();
+void zero_memory(void *, s32);
 void sub_0800B85C();
 //sub_0800B890();
 //sub_0800B8D4();

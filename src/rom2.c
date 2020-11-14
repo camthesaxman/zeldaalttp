@@ -528,7 +528,7 @@ _0800BE18:\n\
 	strh r0, [r3]\n\
 	add r0, r4, #0\n\
 	mov r1, r9\n\
-	bl sub_0800B850\n\
+	bl zero_memory\n\
 	add r0, r4, #0\n\
 	b _0800BE42\n\
 _0800BE3C:\n\

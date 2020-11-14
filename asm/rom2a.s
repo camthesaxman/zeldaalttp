@@ -335,7 +335,7 @@ sub_0802DEB8: @ 0x0802DEB8
 	ldr r5, _0802DFA8  @ =gUnknown_02016D60
 	add r0, r5, #0
 	mov r1, #40
-	bl sub_0800B850
+	bl zero_memory
 	ldr r0, _0802DFAC  @ =gUnknown_03000830
 	mov r1, r9
 	strb r1, [r0]
@@ -10881,7 +10881,7 @@ sub_08032E28: @ 0x08032E28
 	ldr r0, _08032EC4  @ =0x03000040
 	mov r1, #224
 	lsl r1, r1, #1
-	bl sub_0800B850
+	bl zero_memory
 	bl sub_0803E518
 	ldr r1, _08032EC8  @ =gUnknown_03006A30
 	mov r2, #230
@@ -11211,7 +11211,7 @@ _08033098:
 	bl sub_0800D744
 	ldr r0, _08033178  @ =gUnknown_02016D60
 	mov r1, #40
-	bl sub_0800B850
+	bl zero_memory
 	ldr r1, _0803317C  @ =gUnknown_03005050
 	ldrb r0, [r1]
 	add r0, r0, #1
@@ -19113,7 +19113,7 @@ sub_080368A0: @ 0x080368A0
 	ldr r1, _080368BC  @ =gUnknown_03000FD0
 	add r0, r1, #0
 	mov r1, #20
-	bl sub_0800B850
+	bl zero_memory
 	pop {r7}
 	pop {r0}
 	bx r0
@@ -22853,7 +22853,7 @@ sub_080383F0: @ 0x080383F0
 	ldr r0, _08038430  @ =0x03000040
 	mov r1, #224
 	lsl r1, r1, #1
-	bl sub_0800B850
+	bl zero_memory
 	bl sub_0803E518
 	add r0, r7, #0
 	mov r1, #0
@@ -23375,7 +23375,7 @@ _0803880C:
 	ldr r1, _08038828  @ =gUnknown_03000FE4
 	add r0, r1, #0
 	mov r1, #20
-	bl sub_0800B850
+	bl zero_memory
 	ldr r1, _0803882C  @ =0x80010000
 	add r0, r1, #0
 	bl sub_0800D24C
@@ -27281,7 +27281,7 @@ sub_0803A544: @ 0x0803A544
 	ldr r0, _0803A5D0  @ =gUnknown_03005060
 	mov r1, #144
 	lsl r1, r1, #4
-	bl sub_0800B850
+	bl zero_memory
 	ldr r0, _0803A5D4  @ =gUnknown_02016D50
 	ldr r1, _0803A5D0  @ =gUnknown_03005060
 	str r1, [r0]
