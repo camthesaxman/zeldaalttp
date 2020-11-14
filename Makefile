@@ -17,7 +17,7 @@ AS       := $(DEVKITARM)/bin/arm-none-eabi-as
 LD       := $(DEVKITARM)/bin/arm-none-eabi-ld
 OBJCOPY  := $(DEVKITARM)/bin/arm-none-eabi-objcopy
 
-CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O2 -fhex-asm
+CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O2
 CPPFLAGS := -Itools/agbcc/include -iquote include -nostdinc -undef
 ASFLAGS  := -mcpu=arm7tdmi -mthumb-interwork -Iasminclude
 
@@ -55,17 +55,10 @@ ifeq ($(NODEP),)
   data/%.o: ASM_DEP = $(shell $(SCANINC) -I asminclude data/$(*F).s)
 endif
 
-# main.c might also need the old compiler, too.
-src/main_2.o: CC1 := $(CC1_OLD)
-src/math.o: CC1 := $(CC1_OLD)
-
-#src/interface.o: CC1 := $(CC1_OLD)
-#src/rom3a.o: CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O1 -fhex-asm
-#src/rom3a.o: CC1 := $(CC1_OLD)
-src/text.o: CC1FLAGS := -mthumb-interwork -Wimplicit -Wparentheses -O2 -fhex-asm
-
-# use old compiler to work around unnecessary push/pop in leaf functions
-#src/rom_0800D4F0.o: CC1 := $(CC1_OLD)
+src/rom_0800D4F0.o: CC1FLAGS += -fprologue-bugfix
+src/main_2.o: CC1FLAGS += -fprologue-bugfix
+src/math.o: CC1FLAGS += -fprologue-bugfix
+src/main.o: CC1FLAGS += -fprologue-bugfix
 
 #### Main Targets ####
 
