@@ -70,7 +70,7 @@ void AgbMain(void)
     sub_0800D744();
     sub_0803668C();
     sub_0800C03C();
-    gUnknown_03000F40 = 0x1234567;
+    gRandom = 0x1234567;
 
     // copy some functions into RAM
     CpuCopy32((void *)sub_08008FA4, gUnknown_03000530, sizeof(gUnknown_03000530));
@@ -109,8 +109,8 @@ void initialize_gba(void)
     DmaFill32(3, 0,                 (void *)(IWRAM + 0x10), IWRAM_SIZE - 0x210);
     DmaFill32(3, 0,                 (void *)VRAM,           VRAM_SIZE);
     DmaFill16(3, RGB_WHITE,         (void *)PLTT,           PLTT_SIZE);
-    DmaFill32(3, 0xA0,              gUnknown_03005E20,      OAM_SIZE * 2);
-    DmaCopy32(3, gUnknown_03005E20, (void *)OAM,            OAM_SIZE * 2);  // Why are we writing into unused memory?
+    DmaFill32(3, 0xA0,              gOAMBuffer,      OAM_SIZE * 2);
+    DmaCopy32(3, gOAMBuffer, (void *)OAM,            OAM_SIZE * 2);  // Why are we writing into unused memory?
 
     setup_interrupt_handler();
     sub_080679CC(1, gUnknown_03000B94);
@@ -192,7 +192,7 @@ void copy_bgs_and_oam_to_vram(void)
 
     if (gUnknown_03000954[gUnknown_03000204 ^ 1] != 0 && (gUnknown_03000F50.dispCnt & 0x1000))
     {
-        CpuFastCopy(gUnknown_03005E20 + (gUnknown_03000204 ^ 1) * 0x400, (void *)OAM, 0x400);
+        CpuFastCopy(gOAMBuffer + (gUnknown_03000204 ^ 1) * 0x400, (void *)OAM, 0x400);
         gUnknown_03000954[gUnknown_03000204 ^ 1] = 0;
     }
 }

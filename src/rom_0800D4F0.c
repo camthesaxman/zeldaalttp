@@ -140,7 +140,7 @@ struct Struct0202A5E0
 static_assert(offsetof(struct Struct0202A5E0, unkF8) == 0xF8);
 
 extern struct Struct0202A5E0 gUnknown_0202A5E0;
-extern struct Struct0202A5E0 gUnknown_0201EDF0;
+extern struct Struct0202A5E0 gTextbox;
 
 struct Struct020309C0
 {
@@ -160,7 +160,7 @@ extern u8 gUnknown_020309A0[];
 void sub_0800D6F4(void)
 {
     zero_memory(&gUnknown_02000010, 24);
-    zero_memory(&gUnknown_0201EDF0, 272);
+    zero_memory(&gTextbox, 272);
     zero_memory(&gUnknown_020309C0, 16);
     zero_memory(gUnknown_02030990, 16);
     zero_memory(gUnknown_02000000, 4);
@@ -191,33 +191,33 @@ void sub_0800D788(void)
     switch (gUnknown_02000010.unk0)
     {
     case 1:
-        gUnknown_0201EDF0.unk108 = 0;
-        gUnknown_0201EDF0.unkF8 = 1;
+        gTextbox.unk108 = 0;
+        gTextbox.unkF8 = 1;
         gUnknown_0202E154 = (gUnknown_0202E154 + 1) | ~0x7F;
         break;
     case 135:
-        if (gUnknown_0201EDF0.unk0 <= 1)
-            gUnknown_0201EDF0.unkF8 = 5;
-        else if (gUnknown_0201EDF0.unk0 <= 6)
-            gUnknown_0201EDF0.unkF8 = 4;
+        if (gTextbox.unk0 <= 1)
+            gTextbox.unkF8 = 5;
+        else if (gTextbox.unk0 <= 6)
+            gTextbox.unkF8 = 4;
         break;
     }
 
     while (gUnknown_084273EC[gUnknown_0202A6D8]())
         ;
 
-    if (gUnknown_0201EDF0.unkFA != 0)
-        gUnknown_0201EDF0.unkFA--;
+    if (gTextbox.unkFA != 0)
+        gTextbox.unkFA--;
     else
     {
-        if (gUnknown_0201EDF0.unk108 != 0)
+        if (gTextbox.unk108 != 0)
         {
-            gUnknown_0201EDF0.unk108 = 0;
+            gTextbox.unk108 = 0;
             sub_0800E3B0(2);
         }
         else
         {
-            while (gUnknown_084273D4[gUnknown_0201EDF0.unkF8]())
+            while (gUnknown_084273D4[gTextbox.unkF8]())
                 ;
         }
     }
@@ -229,7 +229,7 @@ void sub_0800D788(void)
 
 void sub_0800D87C(void)
 {
-    gUnknown_0201EDF0.unk10B = 0;
+    gTextbox.unk10B = 0;
 }
 
 int sub_0800D890(void)
@@ -250,7 +250,7 @@ extern void sub_0800EB50(void *, u8);
 
 int sub_0800D894(void)
 {
-    struct Struct0202A5E0 *r4 = &gUnknown_0201EDF0;
+    struct Struct0202A5E0 *r4 = &gTextbox;
 
     zero_memory(&gUnknown_020309C0, 16);
     zero_memory(gUnknown_0201EF00, 20);

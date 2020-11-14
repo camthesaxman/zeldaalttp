@@ -131,7 +131,7 @@ sub_0800BED8: @ 0x0800BED8
 	mov r1, r8
 	str r1, [sp, #12]
 	add r0, sp, #12
-	ldr r1, _0800BFA4  @ =gUnknown_0202D110
+	ldr r1, _0800BFA4  @ =gBG0Buffer
 	ldr r2, _0800BFA8  @ =0x01000400
 	bl CpuFastSet
 	ldr r3, _0800BFAC  @ =gUnknown_03000BC0
@@ -181,7 +181,7 @@ _0800BF9C:
 _0800BFA0:
 	.4byte 0x01000040
 _0800BFA4:
-	.4byte gUnknown_0202D110
+	.4byte gBG0Buffer
 _0800BFA8:
 	.4byte 0x01000400
 _0800BFAC:
@@ -244,7 +244,7 @@ _0800C000:
 sub_0800C004: @ 0x0800C004
 	add r1, r0, #0
 	mov r2, #0
-	ldr r0, _0800C020  @ =gUnknown_03001050
+	ldr r0, _0800C020  @ =gEntityList
 	cmp r1, r0
 	bcc _0800C01A
 	mov r3, #128
@@ -259,7 +259,7 @@ _0800C01A:
 	.byte 0x00
 	.byte 0x00
 _0800C020:
-	.4byte gUnknown_03001050
+	.4byte gEntityList
 	THUMB_FUNC_END sub_0800C004
 
 	THUMB_FUNC_START sub_0800C024
@@ -2734,7 +2734,7 @@ sub_0800D1C0: @ 0x0800D1C0
 	ldrb r0, [r3, #8]
 	cmp r0, #1
 	bne _0800D1E8
-	ldr r1, _0800D1F4  @ =gUnknown_03000414
+	ldr r1, _0800D1F4  @ =gLCDRegisterBuffer
 	ldrb r0, [r3, #10]
 	ldrb r1, [r1]
 	cmp r0, r1
@@ -2756,7 +2756,7 @@ _0800D1E8:
 	.byte 0x00
 	.byte 0x00
 _0800D1F4:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _0800D1F8:
 	.4byte 0x0000FFFF
 _0800D1FC:
