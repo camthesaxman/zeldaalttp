@@ -119,31 +119,10 @@ void initialize_gba(void)
     REG_IME = 1;
 }
 
-// Why can't I get this short thing to match?
-#ifdef NONMATCHING
 bool32 is_reset_key_combo_pressed(void)
 {
     return ((gHeldKeys & SOFT_RESET_KEY_COMBO) == SOFT_RESET_KEY_COMBO);
 }
-#else
-__attribute__((naked))
-bool32 is_reset_key_combo_pressed(void)
-{
-    asm("mov r2, #0\n\
-	ldr r0, _0800B2E0  @ =gHeldKeys\n\
-	ldrh r1, [r0]\n\
-	mov r0, #15\n\
-	and r0, r0, r1\n\
-	cmp r0, #15\n\
-	bne _0800B2DC\n\
-	mov r2, #1\n\
-_0800B2DC:\n\
-	add r0, r2, #0\n\
-	bx lr\n\
-_0800B2E0:\n\
-	.4byte gHeldKeys");
-}
-#endif
 
 void main_update_bg_regs(void)
 {
@@ -318,5 +297,30 @@ void sub_0800B700(void)
     REG_IME = 0;
     gUnknown_03007FF8 |= 1;
     REG_IME = 1;
+}
+
+void sub_0800B7A0(void)
+{
+    if (gUnknown_03000BC0.unk0 != 0)
+    {
+        DmaStop(0);
+        DmaSet(0, gUnknown_03000BC0.src, gUnknown_03000BC0.dest, gUnknown_03000BC0.dmaCnt);
+    }
+    REG_DISPSTAT = 0x2028;
+    gUnknown_03000B70.unk8 = sub_0800B7FC;
+}
+
+void sub_0800B7FC(void)
+{
+    sub_081346FC();
+    REG_DISPSTAT = DISPSTAT_VBLANK_INTR | DISPSTAT_VCOUNT_INTR;
+    gUnknown_03000B70.unk8 = sub_0800B7A0;
+}
+
+void sub_0800B820(void)
+{
+    void (*func)(void) = (void (*)(void))(gUnknown_02030590 + 1);  // Add 1 so that we remain in THUMB mode.
+    
+    func();
 }
 
