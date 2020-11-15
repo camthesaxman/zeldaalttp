@@ -906,7 +906,7 @@ extern u16 gNewKeys;
 //extern gUnknown_03000BE0;
 extern u32 gUnknown_03000BF0;
 extern u16 gUnknown_03000BF4;
-extern u8 gUnknown_03000BFC;
+extern u8 gSubState;
 //extern gUnknown_03000C00;
 //extern gUnknown_03000C1C;
 //extern gUnknown_03000C20;
@@ -1097,7 +1097,7 @@ extern void *gUnknown_03006C70;  // ARM function pointer
 //extern gUnknown_03006CA8;
 //extern gUnknown_03006CE8;
 //extern gUnknown_03006D04;
-extern u8 gUnknown_03006D10;
+extern u8 gMainState;
 //extern gUnknown_03006D14;
 //extern gUnknown_03006D18;
 //extern gUnknown_03007F00;

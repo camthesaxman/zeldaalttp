@@ -21,9 +21,9 @@ extern struct Struct0201ED90 gUnknown_02000010;
 extern struct Struct0201ED90 gUnknown_0201ED90;
 extern struct Struct0201ED90 gUnknown_08137D44;
 
-void sub_0800D4F0(void)
+void splash_screen_main(void)
 {
-    switch (gUnknown_03000BFC)
+    switch (gSubState)
     {
     case 0:
         sub_0800BED8();
@@ -35,7 +35,7 @@ void sub_0800D4F0(void)
         zero_memory(&gUnknown_02016D60, 40);
         gUnknown_02016D60.unk4 = 60;
         sub_0800C0B0(2, 8);
-        gUnknown_03000BFC++;
+        gSubState++;
         break;
     case 1:
         sub_0800C41C();
@@ -52,7 +52,7 @@ void sub_0800D4F0(void)
             gUnknown_030004A0.bgConfig[1].bgcnt = 0x1D05;
             sub_0800C0B0(0, 8);
             gUnknown_02016D60.unk4 = 120;
-            gUnknown_03000BFC++;
+            gSubState++;
         }
         break;
     case 3:
@@ -61,7 +61,7 @@ void sub_0800D4F0(void)
         break;
     case 4:
         if (gUnknown_03000520 == 0)
-            sub_0800B5EC(8);
+            set_main_state(8);
         break;
     }
 }
@@ -70,7 +70,7 @@ int sub_0800D610(void)
 {
     if (gUnknown_03000520 != 0 || --gUnknown_02016D60.unk4 != 0)
         return 0;
-    gUnknown_03000BFC++;
+    gSubState++;
     return 1;
 }
 

@@ -14,9 +14,14 @@ struct UnknownStruct1
 
 #define SOFT_RESET_KEY_COMBO (A_BUTTON | B_BUTTON | START_BUTTON | SELECT_BUTTON)
 
+// 0 = splash
+// 8 = file select
+// 9 = four swords intro?
+// 6 = game select
+// 0xD = link to the past
 void (*const gUnknown_0842731C[])(void) =
 {
-    sub_0800D4F0,
+    splash_screen_main,
     sub_0803815C,
     sub_08038168,
     sub_080310B4,
@@ -90,7 +95,7 @@ void AgbMain(void)
             goto reset;
         gUnknown_03000948.unk0++;
         sub_08036864();
-        gUnknown_0842731C[gUnknown_03006D10]();
+        gUnknown_0842731C[gMainState]();
         sub_080368A0();
         sub_0800D788();
         sub_0800C118();
@@ -231,10 +236,10 @@ void sub_0800B524(void)
     gUnknown_0300050C = 1;
 }
 
-void sub_0800B5EC(u32 a)
+void set_main_state(u32 state)
 {
-    gUnknown_03006D10 = a;
-    gUnknown_03005050 = gUnknown_03000BFC = 0;
+    gMainState = state;
+    gUnknown_03005050 = gSubState = 0;
 }
 
 void main_disable_interrupts(void)
