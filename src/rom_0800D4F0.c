@@ -111,7 +111,9 @@ struct Struct0202A5E0
     u8 unk2_0:4;
     u8 unk2_4:2;
     u8 filler3[1];
-    u8 unk4;
+    u8 unk4_0:5;
+    u8 unk4_5:2;
+    u8 unk4_7:1;
     u8 filler5[1];
     u16 unk6;
     u8 filler8[0x18-0x8];
@@ -125,14 +127,27 @@ struct Struct0202A5E0
     u8 unk5A;
     u8 filler5B[0x60-0x5B];
     void *unk60;
-    u8 filler64[0xD8-0x64];
+    u8 filler64[0x83-0x64];
+    u8 filler83;
+    u8 filler84[0xD4-0x84];
+
+    u8 unkD4;
+    u8 unkD5;
+    u8 unkD6;
+    u8 unkD7;
     u8 fillerD8[0xF8-0xD8];
     u8 unkF8;
-    u8 fillerF9[1];
+    u8 unkF9;
     u8 unkFA;
-    u8 fillerFB[0x108-0xFB];
+    u8 fillerFB[0x102-0xFB];
+    s8 unk102;
+    u8 filler103[2];
+    u8 unk105;
+    s8 unk106;
+    u8 filler107[1];
     u8 unk108;
-    u8 filler109[0x10B-0x109];
+    u8 unk109;
+    u8 filler10A[1];
     u8 unk10B;
     // size = 272 (0x110)?
 };
@@ -256,7 +271,7 @@ int sub_0800D894(void)
     zero_memory(gUnknown_0201EF00, 20);
     zero_memory(r4, 272);
     CpuCopy32(&gUnknown_02000010, r4, 24);
-    r4->unk19 = r4->unk4 >> 7;
+    r4->unk19 = r4->unk4_7;
     if ((r4->unk2_0) == 3)
         r4->unk2_0 = (*(struct Weird *)0x03000000).unk6;
     sub_0800ED7C(&r4->unk18, r4->unk6);
@@ -273,3 +288,190 @@ int sub_0800D894(void)
     sub_0800E69C(1);
     return 1;
 }
+
+extern u8 gUnknown_02002B90[];
+
+int sub_0800D958(void)
+{
+    struct Struct0202A5E0 *r5 = &gUnknown_0202A5E0;
+
+    zero_memory(gUnknown_020309B0, 16);
+    zero_memory(r5, 272);
+    CpuCopy32(&gUnknown_0201ED90, r5, 24);
+    if (r5->unk2_0 == 3)
+        r5->unk2_0 = (*(struct Weird *)0x03000000).unk6;
+    r5->unk6 &= 0x7FFF;
+    sub_0800ED7C(&r5->unk18, r5->unk6);
+    CpuFastFill(-1, gUnknown_02002B90, 0x500);
+    sub_0800EB08(2);
+    sub_0800D24C(121);
+    sub_0800EBD4(r5);
+    r5->unk4_0 = 20;
+    r5->unk60 = gUnknown_02002B90;
+    r5->unk5A = 160;
+    sub_0800DFC4(r5, 113);
+    r5->unk1B = 2;
+    r5->unk24 = r5->fillerD8;
+    r5->unkF8 = 2;
+    sub_0800EB50(r5, r5->unk2_4);
+    return 0;
+}
+
+int sub_0800DA30(void)
+{
+    struct Struct0202A5E0 *r4 = &gUnknown_0201EDF0;
+
+    if (r4->unk10B != 1)
+    {
+        r4->unk10B = 1;
+        sub_0800D24C(67);
+    }
+    sub_0800E69C(2);
+    if (sub_0800E6B0(1) != 0)
+        r4->unkF8 = 3;
+    return 0;
+}
+
+int sub_0800DA70(void)
+{
+    if (sub_0800E4EC(-1) != 0)
+        gUnknown_0202A5E0.unkF8 = 3;
+    return 0;
+}
+
+int sub_0800DA90(void)
+{
+    if (gUnknown_0201EDF0.unk10B != 3)
+    {
+        gUnknown_0201EDF0.unk10B = 3;
+        gUnknown_0201EDF0.unkD7 = 0;
+        gUnknown_0201EDF0.unkD6 = 0;
+        gUnknown_0201EDF0.unkD5 = 0;
+        gUnknown_0201EDF0.unkD4 = 0;
+        sub_0800D24C(68);
+    }
+    sub_0800E69C(7);
+    if (sub_0800E6B0(-1) != 0)
+        gUnknown_0201EDF0.unkF8 = 5;
+    return 0;
+}
+
+int sub_0800DAE8(void)
+{
+    if (sub_0800E4EC(1) != 0)
+        gUnknown_0202A5E0.unkF8 = 5;
+    return 0;
+}
+
+int sub_0800DB08(void)
+{
+    sub_0800E69C(0);
+    gUnknown_0201EDF0.unk10B = 4;
+    gUnknown_0201EDF0.unkF8 = 0;
+    return 0;
+}
+
+int sub_0800DB30(void)
+{
+    sub_0800E4EC(0);
+    gUnknown_0202A5E0.unkF8 = 0;
+    gUnknown_0201ED90.unk0 = 0;
+    gUnknown_0202A5E0.unk0 = 0;
+    return 0;
+}
+
+int sub_0800DB54(void)
+{
+    return 0;
+}
+
+extern void (*gUnknown_08427408[])(struct Struct0202A5E0 *);
+
+int sub_0800DB58(void)
+{
+    gUnknown_08427408[gUnknown_0202A5E0.unkF9](&gUnknown_0202A5E0);
+    sub_0800E4EC(0);
+    return 0;
+}
+
+int sub_0800DB84(void)
+{
+    sub_0800E69C(3);
+    gUnknown_0201EDF0.unk10B = 2;
+    gUnknown_08427408[gUnknown_0201EDF0.unkF9](&gUnknown_0201EDF0);
+    sub_0800E6B0(0);
+    return 0;
+}
+
+void sub_0800DBC0(struct Struct0202A5E0 *a)
+{
+    if (a->unk1B != 2)
+        sub_0800E3B0(0);
+    a->unkF9 = 1;
+}
+
+extern u8 gUnknown_03000414;
+extern u16 gUnknown_03000940[];
+extern u8 gUnknown_08137D5C[];
+
+extern u16 sub_0800DCDC();
+
+void sub_0800DBE0(struct Struct0202A5E0 *a)
+{
+    int r2;
+    s16 r5;
+    u16 r6;
+
+    if (a->unk105 != 0)
+    {
+        a->unk105--;
+        return;
+    }
+    if (a->unk106 != 0)
+        a->unk106--;
+
+    if (a->unk1B != 2)
+    {
+        int r1;
+
+        if ((gUnknown_03000940[gUnknown_03000414] & 2) != 0)
+            r1 = 5;
+        else
+            r1 = 1;
+        r2 = r1;
+    }
+    else
+        r2 = 2;
+
+    a->unk102 -= r2;
+    if (a->unk102 > 0)
+        return;
+
+    r5 = 0;
+    while (a->unk102 <= 0)
+    {
+        r5++;
+        a->unk102 += gUnknown_08137D5C[a->unk2_0];
+    }
+
+    r6 = 0;
+    do
+    {
+        u16 r1 = sub_0800DCDC(a);
+
+        if (r1 == 0 || a->unk105 != 0 || a->unkFA != 0)
+            break;
+        r6 += r1;
+        r5--;
+    }
+    while (r5 > 0);
+
+    if (r6 == 0)
+        return;
+
+    if (a->unk1B != 2)
+        sub_0800EB08(a->unk109);
+    else
+        sub_0800EB08(2);
+}
+
