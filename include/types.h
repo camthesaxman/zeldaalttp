@@ -252,3 +252,70 @@ struct UnknownStruct9
     u8 *dest;
     s32 size;
 };
+
+struct Struct0201ED90
+{
+    u8 unk0;
+    u8 filler1[1];
+    u8 unk2_0:4;
+    u8 unk2_4:2;
+    u8 filler3[1];
+    u16 unk4;
+    u16 unk6;
+    // size = 24?
+};
+
+struct Struct0202A5E0
+{
+    u8 unk0;
+    u8 filler1[1];
+    u8 unk2_0:4;
+    u8 unk2_4:2;
+    u8 filler3[1];
+    u8 unk4_0:5;
+    u8 unk4_5:2;
+    u8 unk4_7:1;
+    u8 filler5[1];
+    u16 unk6;
+    u8 filler8[0x18-0x8];
+    u8 unk18;
+    u8 unk19;
+    u8 filler1A[1];
+    u8 unk1B;
+    u8 filler1C[0x24-0x1C];
+    void *unk24;
+    u8 filler28[0x5A-0x28];
+    u8 unk5A;
+    u8 filler5B[0x60-0x5B];
+    void *unk60;
+    u8 filler64[0x83-0x64];
+    u8 filler83;
+    u8 filler84[0xD4-0x84];
+    u8 unkD4;
+    u8 unkD5;
+    u8 unkD6;
+    u8 unkD7;
+    u8 fillerD8[0xF8-0xD8];
+    u8 unkF8;
+    u8 unkF9;
+    u8 unkFA;
+    u8 fillerFB[0x102-0xFB];
+    s8 unk102;
+    u8 filler103[2];
+    u8 unk105;
+    s8 unk106;
+    u8 filler107[1];
+    u8 unk108;
+    u8 unk109;
+    u8 filler10A[1];
+    u8 unk10B;
+    // size = 272 (0x110)?
+};
+static_assert(offsetof(struct Struct0202A5E0, unkF8) == 0xF8);
+
+struct Struct020309C0
+{
+    u8 unk0;
+    u8 filler1[7];
+    u8 unk8;
+};

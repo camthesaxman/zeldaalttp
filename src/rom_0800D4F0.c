@@ -1,31 +1,11 @@
 #include "gba/gba.h"
 #include "global.h"
 
-struct Struct0201ED90
-{
-    u8 unk0;
-    u8 filler1[1];
-    u8 unk2_0:4;
-    u8 unk2_4:2;
-    u8 filler3[1];
-    u16 unk4;
-    u16 unk6;
-    // size = 24?
-};
-
-
-extern struct Struct0201ED90 gUnknown_02016D60;
-extern u8 gUnknown_03000520;
-
-extern struct Struct0201ED90 gUnknown_02000010;
-extern struct Struct0201ED90 gUnknown_0201ED90;
-extern struct Struct0201ED90 gUnknown_08137D44;
-
 void splash_screen_main(void)
 {
     switch (gSubState)
     {
-    case 0:
+    case 0:  // fade in?
         sub_0800BED8();
         gUnknown_030004A0.dispCnt = 0x100;
         gUnknown_030004A0.bgConfig[0].bgcnt = 0x1C00;
@@ -55,7 +35,7 @@ void splash_screen_main(void)
             gSubState++;
         }
         break;
-    case 3:
+    case 3:  // showing title screen
         if (sub_0800D610() != 0)
             sub_0800C0B0(3, 8);
         break;
@@ -104,74 +84,6 @@ void sub_0800D6A4(u16 a)
     }
 }
 
-struct Struct0202A5E0
-{
-    u8 unk0;
-    u8 filler1[1];
-    u8 unk2_0:4;
-    u8 unk2_4:2;
-    u8 filler3[1];
-    u8 unk4_0:5;
-    u8 unk4_5:2;
-    u8 unk4_7:1;
-    u8 filler5[1];
-    u16 unk6;
-    u8 filler8[0x18-0x8];
-    u8 unk18;
-    u8 unk19;
-    u8 filler1A[1];
-    u8 unk1B;
-    u8 filler1C[0x24-0x1C];
-    void *unk24;
-    u8 filler28[0x5A-0x28];
-    u8 unk5A;
-    u8 filler5B[0x60-0x5B];
-    void *unk60;
-    u8 filler64[0x83-0x64];
-    u8 filler83;
-    u8 filler84[0xD4-0x84];
-
-    u8 unkD4;
-    u8 unkD5;
-    u8 unkD6;
-    u8 unkD7;
-    u8 fillerD8[0xF8-0xD8];
-    u8 unkF8;
-    u8 unkF9;
-    u8 unkFA;
-    u8 fillerFB[0x102-0xFB];
-    s8 unk102;
-    u8 filler103[2];
-    u8 unk105;
-    s8 unk106;
-    u8 filler107[1];
-    u8 unk108;
-    u8 unk109;
-    u8 filler10A[1];
-    u8 unk10B;
-    // size = 272 (0x110)?
-};
-
-static_assert(offsetof(struct Struct0202A5E0, unkF8) == 0xF8);
-
-extern struct Struct0202A5E0 gUnknown_0202A5E0;
-extern struct Struct0202A5E0 gUnknown_0201EDF0;
-
-struct Struct020309C0
-{
-    u8 unk0;
-    u8 filler1[7];
-    u8 unk8;
-};
-
-extern u8 gUnknown_02000000[];
-extern struct Struct020309C0 gUnknown_020309C0;
-extern u8 gUnknown_02030990[];
-extern u8 gUnknown_0202E154;
-extern u8 gUnknown_0202E155;
-extern u8 gUnknown_020309B0[];
-extern u8 gUnknown_020309A0[];
-
 void sub_0800D6F4(void)
 {
     zero_memory(&gUnknown_02000010, 24);
@@ -190,10 +102,6 @@ void sub_0800D744(void)
     zero_memory(gUnknown_020309A0, 16);
     gUnknown_0202E155 = 0;
 }
-
-extern int (*gUnknown_084273D4[])();
-extern int (*gUnknown_084273EC[])();
-extern u8 gUnknown_0202A6D8;
 
 void sub_0800D788(void)
 {
@@ -252,9 +160,6 @@ int sub_0800D890(void)
     return 0;
 }
 
-extern u8 gUnknown_0201EF00[];
-extern u8 gUnknown_02002490[];
-
 struct Weird
 {
     u8 filler0[6];
@@ -288,8 +193,6 @@ int sub_0800D894(void)
     sub_0800E69C(1);
     return 1;
 }
-
-extern u8 gUnknown_02002B90[];
 
 int sub_0800D958(void)
 {
@@ -385,8 +288,6 @@ int sub_0800DB54(void)
     return 0;
 }
 
-extern void (*gUnknown_08427408[])(struct Struct0202A5E0 *);
-
 int sub_0800DB58(void)
 {
     gUnknown_08427408[gUnknown_0202A5E0.unkF9](&gUnknown_0202A5E0);
@@ -409,10 +310,6 @@ void sub_0800DBC0(struct Struct0202A5E0 *a)
         sub_0800E3B0(0);
     a->unkF9 = 1;
 }
-
-extern u8 gUnknown_03000414;
-extern u16 gUnknown_03000940[];
-extern u8 gUnknown_08137D5C[];
 
 extern u16 sub_0800DCDC();
 
