@@ -41,6 +41,7 @@ SECTIONS
 		tools/agbcc/lib/libgcc.a:_muldi3.o(.text);
 		tools/agbcc/lib/libgcc.a:_negdi2.o(.text);
 		tools/agbcc/lib/libc.a:memcpy.o(.text);
+		asm/thumb_interwork_veneers.o(.text);
 	} = 0
 
 	.rodata :

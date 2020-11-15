@@ -2,7 +2,7 @@
 
 	.SECTION .rodata
 
-	.INCBIN "baserom.gba", 0x137AFC, 0x137B10-0x137AFC
+	.INCBIN "baserom.gba", 0x137B04, 0x137B10-0x137B04
 
 	.GLOBAL gUnknown_08137B10
 gUnknown_08137B10:

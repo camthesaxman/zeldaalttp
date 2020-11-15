@@ -172,7 +172,7 @@ _08030854:
 	sub r1, r1, r0
 	strh r1, [r3, #24]
 _08030886:
-	bl 0x08137AFC
+	bl sub_08137AFC
 	bl sub_08000BAC
 	bl sub_0800099C
 	pop {r3}
