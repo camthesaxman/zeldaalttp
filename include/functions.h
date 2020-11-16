@@ -1358,7 +1358,7 @@ void sub_0803074C(void);
 //sub_08030C7C();
 //sub_08030C8C();
 //sub_08030D34();
-//sub_08030E0C();
+void sub_08030E0C(void);
 //sub_08030E4C();
 //sub_08030E74();
 //sub_08030E94();

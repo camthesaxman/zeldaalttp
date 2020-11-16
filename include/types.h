@@ -253,18 +253,53 @@ struct UnknownStruct9
     s32 size;
 };
 
+struct Struct0201ED90_child
+{
+	u8 filler0[0x1D];
+	u8 unk1D_0:6;
+	u8 unk1D_6:2;
+	u8 filler1E[1];
+	u8 unk1F_0:6;
+	u8 unk1F_6:2;
+};
+
+struct BitfieldThing
+{
+    u8 unk0;
+    u8 filler1[1];
+    u8 unk2_0:4;
+    u8 unk2_4:2;
+    u8 unk2_6:2;
+    u8 filler3[1];
+};
+
+struct NotBitfieldThing
+{
+    u8 unk0;
+    u8 filler1[1];
+    u8 unk2;
+    u8 filler3[1];
+};
+
 struct Struct0201ED90
 {
+	/*
     u8 unk0;
     u8 filler1[1];
     u8 unk2_0:4;
     u8 unk2_4:2;
     u8 unk2_6:2;  // maybe? game_select.c needs it?
     u8 filler3[1];
+    */
+    union
+    {
+		struct BitfieldThing asBitfield;
+		struct NotBitfieldThing asNotBitfield;
+	} unk0;
     u16 unk4;
     u16 unk6;
-    u32 unk8;
-    u32 unkC;
+    struct Struct0201ED90_child *unk8;
+    struct Struct0201ED90_child *unkC;
     u8 unk10;
     u8 unk11;
     u8 unk12;

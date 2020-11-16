@@ -56,8 +56,8 @@ int sub_0800D610(void)
 
 void sub_0800D644(void)
 {
-    if (gUnknown_02000010.unk0 & 0x7F)
-        gUnknown_02000010.unk0 = 135;
+    if (gUnknown_02000010.unk0.asBitfield.unk0 & 0x7F)
+        gUnknown_02000010.unk0.asBitfield.unk0 = 135;
 }
 
 void sub_0800D65C(void)
@@ -77,10 +77,10 @@ void sub_0800D6A4(u16 a)
     if ((gUnknown_0201ED90.unk6 & 0x8000) == 0)
     {
         zero_memory(&gUnknown_0201ED90, 24);
-        gUnknown_0201ED90.unk0 = 1;
+        gUnknown_0201ED90.unk0.asBitfield.unk0 = 1;
         gUnknown_0201ED90.unk6 = a;
-        gUnknown_0201ED90.unk2_0 = 3;
-        gUnknown_0201ED90.unk2_4 = (a & 0x7FFF) >> 8;
+        gUnknown_0201ED90.unk0.asBitfield.unk2_0 = 3;
+        gUnknown_0201ED90.unk0.asBitfield.unk2_4 = (a & 0x7FFF) >> 8;
     }
 }
 
@@ -105,13 +105,13 @@ void sub_0800D744(void)
 
 void sub_0800D788(void)
 {
-    if (gUnknown_0201ED90.unk0 == 1)
+    if (gUnknown_0201ED90.unk0.asBitfield.unk0 == 1)
     {
-        gUnknown_0201ED90.unk0 = 0;
+        gUnknown_0201ED90.unk0.asBitfield.unk0 = 0;
         gUnknown_0202A5E0.unkF8 = 1;
     }
 
-    switch (gUnknown_02000010.unk0)
+    switch (gUnknown_02000010.unk0.asBitfield.unk0)
     {
     case 1:
         gUnknown_0201EDF0.unk108 = 0;
@@ -278,7 +278,7 @@ int sub_0800DB30(void)
 {
     sub_0800E4EC(0);
     gUnknown_0202A5E0.unkF8 = 0;
-    gUnknown_0201ED90.unk0 = 0;
+    gUnknown_0201ED90.unk0.asBitfield.unk0 = 0;
     gUnknown_0202A5E0.unk0 = 0;
     return 0;
 }
