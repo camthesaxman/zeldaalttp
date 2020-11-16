@@ -542,9 +542,9 @@ sub_0800C1EC: @ 0x0800C1EC
 	push {r5-r7}
 	sub sp, sp, #8
 	mov r9, r0
-	ldr r0, _0800C284  @ =gUnknown_020163D0
+	ldr r0, _0800C284  @ =gPaletteBuf2
 	mov r12, r0
-	ldr r7, _0800C288  @ =gUnknown_02000030
+	ldr r7, _0800C288  @ =gPaletteBuf1
 	ldr r1, _0800C28C  @ =gUnknown_03000520
 	ldrb r0, [r1, #7]
 	lsl r0, r0, #3
@@ -615,9 +615,9 @@ _0800C23C:
 	.byte 0x00
 	.byte 0x00
 _0800C284:
-	.4byte gUnknown_020163D0
+	.4byte gPaletteBuf2
 _0800C288:
-	.4byte gUnknown_02000030
+	.4byte gPaletteBuf1
 _0800C28C:
 	.4byte gUnknown_03000520
 _0800C290:
@@ -2750,7 +2750,7 @@ sub_0800D1C0: @ 0x0800D1C0
 	orr r2, r2, r0
 _0800D1E8:
 	add r0, r2, #0
-	bl sub_0800D24C
+	bl play_sound
 	pop {r0}
 	bx r0
 	.byte 0x00
@@ -2805,8 +2805,8 @@ _0800D248:
 	.4byte 0x0000FFFF
 	THUMB_FUNC_END sub_0800D200
 
-	THUMB_FUNC_START sub_0800D24C
-sub_0800D24C: @ 0x0800D24C
+	THUMB_FUNC_START play_sound
+play_sound: @ 0x0800D24C
 	push {r4-r6,lr}
 	add r5, r0, #0
 	ldr r0, _0800D28C  @ =gUnknown_03000830
@@ -3171,6 +3171,6 @@ _0800D4E8:
 	.4byte gUnknown_083C3BBC
 _0800D4EC:
 	.4byte 0x0000FFFF
-	THUMB_FUNC_END sub_0800D24C
+	THUMB_FUNC_END play_sound
 
     .ALIGN 2, 0

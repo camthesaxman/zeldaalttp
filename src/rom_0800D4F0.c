@@ -160,12 +160,6 @@ int sub_0800D890(void)
     return 0;
 }
 
-struct Weird
-{
-    u8 filler0[6];
-    u8 unk6;
-};
-
 extern void sub_0800EB50(void *, u8);
 
 int sub_0800D894(void)
@@ -178,7 +172,7 @@ int sub_0800D894(void)
     CpuCopy32(&gUnknown_02000010, r4, 24);
     r4->unk19 = r4->unk4_7;
     if ((r4->unk2_0) == 3)
-        r4->unk2_0 = (*(struct Weird *)0x03000000).unk6;
+        r4->unk2_0 = unk3000000.unk6;
     sub_0800ED7C(&r4->unk18, r4->unk6);
     sub_0800EBD4(r4);
     gUnknown_020309C0.unk8 = gUnknown_0202E154;
@@ -202,12 +196,12 @@ int sub_0800D958(void)
     zero_memory(r5, 272);
     CpuCopy32(&gUnknown_0201ED90, r5, 24);
     if (r5->unk2_0 == 3)
-        r5->unk2_0 = (*(struct Weird *)0x03000000).unk6;
+        r5->unk2_0 = unk3000000.unk6;
     r5->unk6 &= 0x7FFF;
     sub_0800ED7C(&r5->unk18, r5->unk6);
     CpuFastFill(-1, gUnknown_02002B90, 0x500);
     sub_0800EB08(2);
-    sub_0800D24C(121);
+    play_sound(121);
     sub_0800EBD4(r5);
     r5->unk4_0 = 20;
     r5->unk60 = gUnknown_02002B90;
@@ -227,7 +221,7 @@ int sub_0800DA30(void)
     if (r4->unk10B != 1)
     {
         r4->unk10B = 1;
-        sub_0800D24C(67);
+        play_sound(67);
     }
     sub_0800E69C(2);
     if (sub_0800E6B0(1) != 0)
@@ -251,7 +245,7 @@ int sub_0800DA90(void)
         gUnknown_0201EDF0.unkD6 = 0;
         gUnknown_0201EDF0.unkD5 = 0;
         gUnknown_0201EDF0.unkD4 = 0;
-        sub_0800D24C(68);
+        play_sound(68);
     }
     sub_0800E69C(7);
     if (sub_0800E6B0(-1) != 0)

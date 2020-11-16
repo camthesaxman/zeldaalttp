@@ -24,8 +24,6 @@ if offset & 0x08000000:
     offset -= 0x08000000
 
 def check_size(elemSize):
-    print('size = ' + str(size))
-    print('fuck ' + str(size % elemSize))
     if size % elemSize != 0:
         print('Error: size is not a multiple of ' + str(elemSize))
         sys.exit(1)

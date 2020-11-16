@@ -3,7 +3,7 @@
 . = 0x10;	gUnknown_02000010 = .;
 . = 0x28;	gUnknown_02000028 = .;
 . = 0x2C;	gUnknown_0200002C = .;
-. = 0x30;	gUnknown_02000030 = .;
+. = 0x30;	gPaletteBuf1 = .;
 . = 0xC0;	gUnknown_020000C0 = .;
 . = 0x180;	gUnknown_02000180 = .;
 . = 0x200;	gUnknown_02000200 = .;
@@ -262,7 +262,7 @@
 . = 0x243E;	gUnknown_0200243E = .;
 . = 0x2440;	gUnknown_02002440 = .;
 . = 0x247F;	gUnknown_0200247F = .;
-. = 0x2480;	gUnknown_02002480 = .;
+. = 0x2480;	gPaletteBuf1Bitmask = .;
 . = 0x2490;	gUnknown_02002490 = .;
 . = 0x2600;	gUnknown_02002600 = .;
 . = 0x2880;	gUnknown_02002880 = .;
@@ -626,7 +626,7 @@
 . = 0x16328;	gUnknown_02016328 = .;
 . = 0x16330;	gUnknown_02016330 = .;
 . = 0x16350;	gUnknown_02016350 = .;
-. = 0x163D0;	gUnknown_020163D0 = .;
+. = 0x163D0;	gPaletteBuf2 = .;
 . = 0x16470;	gUnknown_02016470 = .;
 . = 0x167D0;	gUnknown_020167D0 = .;
 . = 0x16C50;	gUnknown_02016C50 = .;
@@ -669,7 +669,7 @@
 . = 0x1EE54;	gUnknown_0201EE54 = .;
 . = 0x1EEC4;	gUnknown_0201EEC4 = .;
 . = 0x1EF00;	gUnknown_0201EF00 = .;
-. = 0x1EF14;	gUnknown_0201EF14 = .;
+. = 0x1EF14;	gPaletteBuf2Bitmask = .;
 . = 0x1EF18;	gUnknown_0201EF18 = .;
 . = 0x1EF30;	gUnknown_0201EF30 = .;
 . = 0x1EFF0;	gUnknown_0201EFF0 = .;

@@ -77,7 +77,7 @@ void sub_0800B8D4(u16 *a, u32 b, u32 c)
     for (i = c - 1; i != 0; i--)
         r2 |= r2 << 1;
     gUnknown_0200B310 |= r2;
-    r6 = gUnknown_020163D0 + b * 16;
+    r6 = gPaletteBuf2 + b * 16;
     c = c * 32;
     if (gUnknown_0202A4F4 != NULL)
     {
@@ -99,37 +99,36 @@ void sub_0800B980(u32 a, u32 b)
 {
     if (gUnknown_0202A4F4 != NULL)
         b = gUnknown_0202A4F4[b & 0x1F] | gUnknown_0202A4F4[((b & 0x3E0) >> 5) + 32] | gUnknown_0202A4F4[((b & 0x7C00) >> 10) + 64];
-    gUnknown_020163D0[a] = b;
+    gPaletteBuf2[a] = b;
     gUnknown_0200B310 |= 1 << (a / 16);
 }
 
-// copy palettes
-void sub_0800B9E4(void)
+void flush_palette_buffer(void)
 {
-    u32 r4;
+    u32 bitmask;
     u16 *src;
     u16 *dest;
 
-    if (gUnknown_02002480 != 0)
+    if (gPaletteBuf1Bitmask != 0)
     {
-        src = gUnknown_02000030;
-        r4 = gUnknown_02002480;
+        src = gPaletteBuf1;
+        bitmask = gPaletteBuf1Bitmask;
     }
     else
     {
-        src = gUnknown_020163D0;
-        r4 = gUnknown_0201EF14;
+        src = gPaletteBuf2;
+        bitmask = gPaletteBuf2Bitmask;
     }
     dest = (void *)PLTT;
-    while (r4 != 0)
+    while (bitmask != 0)
     {
-        if (r4 & 1)
+        if (bitmask & 1)
             CpuFastCopy(src, dest, 16 * sizeof(u16));
         src += 16;
         dest += 16;
-        r4 >>= 1;
+        bitmask >>= 1;
     }
-    gUnknown_02002480 = gUnknown_0201EF14 = 0;
+    gPaletteBuf1Bitmask = gPaletteBuf2Bitmask = 0;
 }
 
 void sub_0800BA44(u16 a)

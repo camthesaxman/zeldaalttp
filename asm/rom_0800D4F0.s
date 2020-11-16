@@ -372,7 +372,7 @@ _0800DF88:
 	lsl r0, r0, #2
 	add r0, r0, r1
 	ldr r0, [r0]
-	bl sub_0800D24C
+	bl play_sound
 _0800DFB6:
 	add r0, r4, #0
 _0800DFB8:
@@ -660,7 +660,7 @@ _0800E1AE:
 	beq _0800E1C4
 	strb r1, [r5, #3]
 	mov r0, #61
-	bl sub_0800D24C
+	bl play_sound
 _0800E1C4:
 	pop {r4-r7}
 	pop {r0}
@@ -705,7 +705,7 @@ _0800E1F8:
 	cmp r0, #0
 	beq _0800E22C
 	mov r0, #66
-	bl sub_0800D24C
+	bl play_sound
 	mov r1, #134
 	lsl r1, r1, #1
 	add r0, r4, r1

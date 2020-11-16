@@ -322,7 +322,7 @@ sub_0802DEB8: @ 0x0802DEB8
 	add r0, r1, #0
 	mov r1, r8
 	strh r0, [r1]
-	ldr r6, _0802DFA4  @ =gUnknown_020163D0
+	ldr r6, _0802DFA4  @ =gPaletteBuf2
 	mov r1, #0
 	mov r9, r1
 	mov r4, r9
@@ -411,7 +411,7 @@ _0802DF9C:
 _0802DFA0:
 	.4byte 0x00006739
 _0802DFA4:
-	.4byte gUnknown_020163D0
+	.4byte gPaletteBuf2
 _0802DFA8:
 	.4byte gUnknown_02016D60
 _0802DFAC:
@@ -541,7 +541,7 @@ _0802E078:
 	str r1, [r0, #12]
 	str r1, [r0, #16]
 	ldr r0, _0802E0E4  @ =0x00000195
-	bl sub_0800D24C
+	bl play_sound
 _0802E08A:
 	ldr r0, _0802E0E8  @ =gUnknown_03000948
 	ldrh r1, [r0]
@@ -550,7 +550,7 @@ _0802E08A:
 	cmp r0, #0
 	bne _0802E09C
 	mov r0, #8
-	bl sub_0800D24C
+	bl play_sound
 _0802E09C:
 	mov r4, #0
 	ldr r0, _0802E0EC  @ =gUnknown_03006C80
@@ -616,7 +616,7 @@ _0802E0FA:
 	add r0, r0, #1
 	str r0, [r3, #16]
 	mov r0, #9
-	bl sub_0800D24C
+	bl play_sound
 	lsl r0, r4, #3
 	add r0, r0, r4
 	lsl r0, r0, #4
@@ -645,7 +645,7 @@ _0802E134:
 	mov r0, #180
 	strh r0, [r2, #4]
 	add r0, r0, #226
-	bl sub_0800D24C
+	bl play_sound
 	b _0802E192
 _0802E154:
 	.4byte gUnknown_02016D60
@@ -1027,7 +1027,7 @@ _0802E3FC:
 	add r0, r0, #1
 	strb r0, [r5]
 	ldr r0, _0802E424  @ =0x80040000
-	bl sub_0800D24C
+	bl play_sound
 	mov r0, #1
 	mov r1, #8
 	bl sub_0800C0B0
@@ -1042,7 +1042,7 @@ _0802E428:
 	cmp r4, #0
 	bne _0802E4AC
 	ldr r0, _0802E484  @ =0x80010000
-	bl sub_0800D24C
+	bl play_sound
 	bl sub_0801239C
 	bl sub_080123BC
 	bl sub_0802BF60
@@ -1050,7 +1050,7 @@ _0802E428:
 	mov r0, #160
 	lsl r0, r0, #19
 	strh r4, [r0]
-	ldr r0, _0802E488  @ =gUnknown_020163D0
+	ldr r0, _0802E488  @ =gPaletteBuf2
 	strh r4, [r0]
 	str r4, [sp]
 	mov r1, #192
@@ -1078,7 +1078,7 @@ _0802E480:
 _0802E484:
 	.4byte 0x80010000
 _0802E488:
-	.4byte gUnknown_020163D0
+	.4byte gPaletteBuf2
 _0802E48C:
 	.4byte 0x01006000
 _0802E490:
@@ -1167,7 +1167,7 @@ _0802E524:
 	lsl r0, r0, #16
 	lsr r4, r0, #16
 	mov r0, #121
-	bl sub_0800D24C
+	bl play_sound
 	ldr r1, _0802E56C  @ =gUnknown_030004A0
 	mov r0, #0
 	strh r0, [r1, #10]
@@ -1240,7 +1240,7 @@ _0802E5AC:
 	ldr r2, _0802E5D8  @ =0x00006739
 	add r1, r2, #0
 	strh r1, [r0]
-	ldr r0, _0802E5DC  @ =gUnknown_020163D0
+	ldr r0, _0802E5DC  @ =gPaletteBuf2
 	strh r1, [r0]
 	mov r0, #5
 	bl set_main_state
@@ -1254,7 +1254,7 @@ _0802E5D4:
 _0802E5D8:
 	.4byte 0x00006739
 _0802E5DC:
-	.4byte gUnknown_020163D0
+	.4byte gPaletteBuf2
 	THUMB_FUNC_END sub_0802E4B8
 
 	THUMB_FUNC_START sub_0802E5E0
@@ -1512,9 +1512,9 @@ _0802E79A:
 	ldr r0, _0802E8AC  @ =gUnknown_03000830
 	strb r6, [r0]
 	ldr r0, _0802E8B0  @ =0x80010000
-	bl sub_0800D24C
+	bl play_sound
 	ldr r0, _0802E8B4  @ =0x800B01AD
-	bl sub_0800D24C
+	bl play_sound
 	bl sub_0800BED8
 	bl sub_08059A44
 	bl sub_080123BC
@@ -1842,7 +1842,7 @@ sub_0802EA14: @ 0x0802EA14
 	cmp r0, #0
 	beq _0802EA72
 	ldr r0, _0802EA84  @ =0x80010000
-	bl sub_0800D24C
+	bl play_sound
 	ldr r1, _0802EA88  @ =gUnknown_03000520
 	mov r0, #1
 	neg r0, r0
@@ -2194,7 +2194,7 @@ _0802ECCC:
 	orr r1, r1, r0
 	strb r1, [r3, #4]
 	ldr r0, _0802ED10  @ =0x80040008
-	bl sub_0800D24C
+	bl play_sound
 _0802ED00:
 	ldrb r0, [r5]
 	add r0, r0, #1
@@ -2330,7 +2330,7 @@ _0802EE06:
 	mov r0, #120
 	strh r0, [r3, #4]
 	ldr r0, _0802EE1C  @ =0x00000203
-	bl sub_0800D24C
+	bl play_sound
 	b _0802F074
 _0802EE18:
 	.4byte gUnknown_03000948
@@ -2373,7 +2373,7 @@ _0802EE5E:
 	strb r0, [r1]
 	mov r0, #215
 	lsl r0, r0, #1
-	bl sub_0800D24C
+	bl play_sound
 	mov r0, #98
 	mov r1, #0
 	mov r2, #0
@@ -2508,7 +2508,7 @@ _0802EF5C:
 	mov r0, #40
 	strh r0, [r3, #4]
 	ldr r0, _0802EF7C  @ =0x000001AF
-	bl sub_0800D24C
+	bl play_sound
 	b _0802F074
 _0802EF78:
 	.4byte gUnknown_030004A0
@@ -2593,7 +2593,7 @@ _0802EFF8:
 	strb r0, [r1, #14]
 	mov r0, #253
 	lsl r0, r0, #1
-	bl sub_0800D24C
+	bl play_sound
 	b _0802F074
 	.byte 0x00
 	.byte 0x00
@@ -2672,7 +2672,7 @@ sub_0802F080: @ 0x0802F080
 	mov r1, #8
 	bl sub_0800C0B0
 	ldr r0, _0802F0B4  @ =0x000001F9
-	bl sub_0800D24C
+	bl play_sound
 	pop {r0}
 	bx r0
 _0802F0AC:
@@ -2789,7 +2789,7 @@ _0802F16C:
 	add r0, r0, #1
 	strb r0, [r1]
 	ldr r0, _0802F198  @ =0x00000203
-	bl sub_0800D24C
+	bl play_sound
 	b _0802F1B0
 _0802F190:
 	.4byte gUnknown_02000010
@@ -2958,7 +2958,7 @@ _0802F2C4:
 	strh r0, [r2, #4]
 	bl sub_0800D644
 	ldr r0, _0802F2DC  @ =0x80040000
-	bl sub_0800D24C
+	bl play_sound
 	b _0802F2F8
 	.byte 0x00
 	.byte 0x00
@@ -3083,7 +3083,7 @@ _0802F3BC:
 	strh r0, [r2, #48]
 	strh r0, [r2, #36]
 	ldr r0, _0802F3D8  @ =0x800B01AD
-	bl sub_0800D24C
+	bl play_sound
 	b _0802F4BC
 _0802F3D0:
 	.4byte gUnknown_030004A0
@@ -3130,7 +3130,7 @@ _0802F3F8:
 	bl sub_0804C8A8
 	str r0, [r4, #52]
 	ldr r0, _0802F438  @ =0x00000201
-	bl sub_0800D24C
+	bl play_sound
 	b _0802F676
 _0802F430:
 	.4byte gUnknown_03000948
@@ -3408,7 +3408,7 @@ _0802F5FC:
 	mov r2, #60
 	bl sub_0802F9F8
 	ldr r0, _0802F650  @ =0x00000201
-	bl sub_0800D24C
+	bl play_sound
 _0802F63C:
 	ldrb r0, [r4]
 	add r0, r0, #1
@@ -3478,7 +3478,7 @@ _0802F698:
 	cmp r4, #3
 	bls _0802F698
 	ldr r0, _0802F6D0  @ =0x00000205
-	bl sub_0800D24C
+	bl play_sound
 	pop {r4,r5}
 	pop {r0}
 	bx r0
@@ -3570,7 +3570,7 @@ _0802F774:
 	strb r0, [r4]
 	mov r0, #255
 	lsl r0, r0, #1
-	bl sub_0800D24C
+	bl play_sound
 	b _0802F9D6
 	.byte 0x00
 	.byte 0x00
@@ -3626,7 +3626,7 @@ _0802F7E2:
 	bne _0802F7F0
 	mov r0, #130
 	lsl r0, r0, #2
-	bl sub_0800D24C
+	bl play_sound
 _0802F7F0:
 	ldrh r0, [r4, #4]
 	sub r0, r0, #1
@@ -3640,7 +3640,7 @@ _0802F7FE:
 	add r0, r0, #1
 	strb r0, [r4]
 	ldr r0, _0802F80C  @ =0x000001FF
-	bl sub_0800D24C
+	bl play_sound
 	b _0802F9D6
 _0802F80C:
 	.4byte 0x000001FF
@@ -3670,7 +3670,7 @@ _0802F830:
 	mov r0, #120
 	strh r0, [r4, #4]
 	ldr r0, _0802F844  @ =0x000001FD
-	bl sub_0800D24C
+	bl play_sound
 	b _0802F9D6
 	.byte 0x00
 	.byte 0x00
@@ -3697,9 +3697,9 @@ _0802F856:
 	str r0, [r2]
 	mov r0, #128
 	lsl r0, r0, #2
-	bl sub_0800D24C
+	bl play_sound
 	ldr r0, _0802F880  @ =0x800B01B0
-	bl sub_0800D24C
+	bl play_sound
 	b _0802F9D6
 	.byte 0x00
 	.byte 0x00
@@ -3781,7 +3781,7 @@ _0802F8E0:
 	orr r0, r0, r1
 	str r0, [r2]
 	ldr r0, _0802F920  @ =0x80040000
-	bl sub_0800D24C
+	bl play_sound
 	b _0802F9D6
 	.byte 0x00
 	.byte 0x00
@@ -3820,7 +3820,7 @@ _0802F950:
 	.4byte gUnknown_030004A0
 _0802F954:
 	ldr r0, _0802F96C  @ =0x000001B1
-	bl sub_0800D24C
+	bl play_sound
 	ldr r1, _0802F970  @ =gUnknown_02016D60
 	ldrb r0, [r1]
 	add r0, r0, #1
@@ -3840,7 +3840,7 @@ _0802F974:
 	cmp r0, #60
 	bne _0802F99E
 	ldr r0, _0802F9DC  @ =0x00000201
-	bl sub_0800D24C
+	bl play_sound
 	mov r0, #0
 	mov r1, #6
 	mov r2, #40
@@ -3924,7 +3924,7 @@ sub_0802F9F8: @ 0x0802F9F8
 	mov r0, #1
 	strb r0, [r1, #20]
 	ldr r0, _0802FA38  @ =0x00000201
-	bl sub_0800D24C
+	bl play_sound
 	pop {r4}
 	pop {r0}
 	bx r0
@@ -4335,9 +4335,9 @@ _0802FD14:
 	mov r0, #7
 	strb r0, [r1]
 	ldr r0, _0802FD44  @ =0x80010000
-	bl sub_0800D24C
+	bl play_sound
 	mov r0, #66
-	bl sub_0800D24C
+	bl play_sound
 	b _0802FD74
 	.byte 0x00
 	.byte 0x00
@@ -4365,7 +4365,7 @@ _0802FD48:
 	mov r0, #6
 	strb r0, [r1]
 	ldr r0, _0802FD84  @ =0x80040000
-	bl sub_0800D24C
+	bl play_sound
 _0802FD74:
 	pop {r4,r5}
 	pop {r0}
@@ -4529,7 +4529,7 @@ _0802FE48:
 	mov r1, #8
 	bl sub_0800C0B0
 	ldr r0, _0802FECC  @ =0x80040000
-	bl sub_0800D24C
+	bl play_sound
 _0802FEB2:
 	strh r5, [r6]
 	b _0802FEDC
@@ -4712,7 +4712,7 @@ sub_0802FFE4: @ 0x0802FFE4
 	ldr r2, _08030010  @ =0x00006739
 	add r1, r2, #0
 	strh r1, [r0]
-	ldr r0, _08030014  @ =gUnknown_020163D0
+	ldr r0, _08030014  @ =gPaletteBuf2
 	strh r1, [r0]
 	mov r0, #9
 	bl set_main_state
@@ -4726,7 +4726,7 @@ _0803000C:
 _08030010:
 	.4byte 0x00006739
 _08030014:
-	.4byte gUnknown_020163D0
+	.4byte gPaletteBuf2
 	THUMB_FUNC_END sub_0802FFE4
 
 	THUMB_FUNC_START sub_08030018
@@ -4742,7 +4742,7 @@ sub_08030018: @ 0x08030018
 	ldr r2, _0803004C  @ =0x00006739
 	add r1, r2, #0
 	strh r1, [r0]
-	ldr r0, _08030050  @ =gUnknown_020163D0
+	ldr r0, _08030050  @ =gPaletteBuf2
 	strh r1, [r0]
 	bl sub_080123BC
 	bl sub_0801239C
@@ -4758,7 +4758,7 @@ _08030048:
 _0803004C:
 	.4byte 0x00006739
 _08030050:
-	.4byte gUnknown_020163D0
+	.4byte gPaletteBuf2
 	THUMB_FUNC_END sub_08030018
 
 	THUMB_FUNC_START sub_08030054
@@ -4816,7 +4816,7 @@ _080300A0:
 	ldr r2, _080300D4  @ =0x00006739
 	add r1, r2, #0
 	strh r1, [r0]
-	ldr r0, _080300D8  @ =gUnknown_020163D0
+	ldr r0, _080300D8  @ =gPaletteBuf2
 	strh r1, [r0]
 	bl sub_0801239C
 	bl sub_080123BC
@@ -4834,7 +4834,7 @@ _080300A0:
 _080300D4:
 	.4byte 0x00006739
 _080300D8:
-	.4byte gUnknown_020163D0
+	.4byte gPaletteBuf2
 _080300DC:
 	.4byte gUnknown_02016D60
 _080300E0:
@@ -4878,7 +4878,7 @@ sub_08030100: @ 0x08030100
 	ldr r2, _080301D8  @ =0x00006739
 	add r1, r2, #0
 	strh r1, [r0]
-	ldr r0, _080301DC  @ =gUnknown_020163D0
+	ldr r0, _080301DC  @ =gPaletteBuf2
 	strh r1, [r0]
 	ldr r1, _080301E0  @ =gUnknown_030004A0
 	mov r0, #234
@@ -4953,7 +4953,7 @@ _080301BA:
 	strb r6, [r0]
 	bl sub_0800D1A0
 	ldr r0, _08030210  @ =0x80010000
-	bl sub_0800D24C
+	bl play_sound
 _080301CE:
 	pop {r4-r6}
 	pop {r0}
@@ -4963,7 +4963,7 @@ _080301D4:
 _080301D8:
 	.4byte 0x00006739
 _080301DC:
-	.4byte gUnknown_020163D0
+	.4byte gPaletteBuf2
 _080301E0:
 	.4byte gUnknown_030004A0
 _080301E4:
@@ -5009,7 +5009,7 @@ sub_08030214: @ 0x08030214
 	ldrh r2, [r2]
 	bl 0x080009F4
 	ldr r0, _08030250  @ =0x80020000
-	bl sub_0800D24C
+	bl play_sound
 	cmp r4, #4
 	bhi _0803030A
 	lsl r0, r4, #2
@@ -5043,7 +5043,7 @@ _0803026C:
 	bl sub_0804C8A8
 	mov r0, #220
 	lsl r0, r0, #1
-	bl sub_0800D24C
+	bl play_sound
 	b _0803030A
 _0803028A:
 	mov r0, #70
@@ -5059,7 +5059,7 @@ _0803028A:
 	add r2, r4, #0
 	bl sub_0804C8A8
 	ldr r0, _080302B0  @ =0x000001B5
-	bl sub_0800D24C
+	bl play_sound
 	b _0803030A
 _080302B0:
 	.4byte 0x000001B5
@@ -5074,7 +5074,7 @@ _080302B4:
 	bl sub_0804C8A8
 	mov r0, #218
 	lsl r0, r0, #1
-	bl sub_0800D24C
+	bl play_sound
 	b _0803030A
 _080302D2:
 	mov r0, #70
@@ -5091,7 +5091,7 @@ _080302D2:
 	bl sub_0804C8A8
 	mov r0, #219
 	lsl r0, r0, #1
-	bl sub_0800D24C
+	bl play_sound
 	b _0803030A
 _080302FA:
 	mov r0, #70
@@ -5099,7 +5099,7 @@ _080302FA:
 	add r2, r4, #0
 	bl sub_0804C8A8
 	ldr r0, _08030310  @ =0x000001B7
-	bl sub_0800D24C
+	bl play_sound
 _0803030A:
 	pop {r4}
 	pop {r0}
@@ -5295,7 +5295,7 @@ _08030478:
 	cmp r2, r4
 	beq _08030484
 	mov r0, #32
-	bl sub_0800D24C
+	bl play_sound
 _08030484:
 	ldr r1, _08030498  @ =gSubState
 	ldrb r0, [r1]
@@ -5415,7 +5415,7 @@ _08030556:
 	ldrb r0, [r2, #8]
 	bl sub_08030214
 	mov r0, #61
-	bl sub_0800D24C
+	bl play_sound
 	b _08030598
 _08030566:
 	mov r0, #9
@@ -5423,11 +5423,11 @@ _08030566:
 	cmp r0, #0
 	beq _08030598
 	ldr r0, _080305B0  @ =0x80010000
-	bl sub_0800D24C
+	bl play_sound
 	mov r0, #62
-	bl sub_0800D24C
+	bl play_sound
 	mov r0, #77
-	bl sub_0800D24C
+	bl play_sound
 	ldr r0, _080305B4  @ =gUnknown_03000450
 	ldr r0, [r0]
 	mov r1, #0
@@ -5470,7 +5470,7 @@ sub_080305BC: @ 0x080305BC
 	lsl r6, r6, #19
 	mov r0, #0
 	strh r0, [r6]
-	ldr r5, _08030628  @ =gUnknown_020163D0
+	ldr r5, _08030628  @ =gPaletteBuf2
 	mov r4, #0
 	strh r4, [r5]
 	bl sub_080123BC
@@ -5504,7 +5504,7 @@ _08030610:
 	bl set_main_state
 	b _0803063E
 _08030628:
-	.4byte gUnknown_020163D0
+	.4byte gPaletteBuf2
 _0803062C:
 	.4byte gUnknown_03006C80
 _08030630:

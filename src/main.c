@@ -3,15 +3,6 @@
 #include "gba/gba.h"
 #include "global.h"
 
-struct UnknownStruct1
-{
-    u8 unk0;
-    u8 filler1[4];
-    u8 unk5;
-};
-
-#define unk3000000 (*(struct UnknownStruct1 *)0x3000000)
-
 #define SOFT_RESET_KEY_COMBO (A_BUTTON | B_BUTTON | START_BUTTON | SELECT_BUTTON)
 
 // 0 = splash
@@ -224,8 +215,8 @@ void sub_0800B524(void)
     gUnknown_03005E04 = gUnknown_03005E60 + gUnknown_03000204 * 0x400;
     gUnknown_03005E08 = gUnknown_03000E34;
     gUnknown_03000E34 = gUnknown_03006630 + gUnknown_03000204 * 0x80;
-    gUnknown_0201EF14 = gUnknown_0200B310;
-    gUnknown_02002480 = gUnknown_0201EDE0;
+    gPaletteBuf2Bitmask = gUnknown_0200B310;
+    gPaletteBuf1Bitmask = gUnknown_0201EDE0;
     gUnknown_0201EDE0 = 0;
     gUnknown_0200B310 = 0;
     CpuCopy32(gUnknown_030059A0, &gUnknown_03000F50, sizeof(gUnknown_03000F50));
@@ -261,7 +252,7 @@ void main_disable_interrupts(void)
 void sub_0800B69C(void)
 {
     sub_0800C4FC();
-    sub_0800D24C(0x80070000);
+    play_sound(0x80070000);
     main_disable_interrupts();
     sub_0806940C();
 }
@@ -296,7 +287,7 @@ void sub_0800B700(void)
         copy_bgs_and_oam_to_vram();
         main_update_bg_regs();
         sub_0800C8E4();
-        sub_0800B9E4();
+        flush_palette_buffer();
         gUnknown_0300050C = 0;
     }
     REG_IME = 0;
@@ -304,7 +295,7 @@ void sub_0800B700(void)
     REG_IME = 1;
 }
 
-void sub_0800B7A0(void)
+void process_dma_request(void)
 {
     if (gUnknown_03000BC0.unk0 != 0)
     {
@@ -319,7 +310,7 @@ void sub_0800B7FC(void)
 {
     sub_081346FC();
     REG_DISPSTAT = DISPSTAT_VBLANK_INTR | DISPSTAT_VCOUNT_INTR;
-    gUnknown_03000B70.unk8 = sub_0800B7A0;
+    gUnknown_03000B70.unk8 = process_dma_request;
 }
 
 void sub_0800B820(void)

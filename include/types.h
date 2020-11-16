@@ -376,3 +376,22 @@ struct Struct03000520
 	u8 filler8[4];
 	u32 unkC;
 };
+
+struct Struct03000BE0
+{
+    u8 unk0;
+    u8 filler1[3];
+    u16 unk4;
+    u16 unk6;
+    u16 unk8;
+    u16 unkA;
+    u16 unkC;
+    u16 unkE;
+};
+
+struct Struct0200B250
+{
+    u8 filler0[0x25];
+    u8 unk25;
+    u8 filler26[0x40-0x26];
+};
