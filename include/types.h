@@ -1,17 +1,17 @@
 struct BGConfig
 {
-    u16 bgcnt;
-    u16 hofs;
-    u16 vofs;
-    u16 unk6;
-    void *mapBuf;
+    /*0x00*/ u16 bgcnt;
+    /*0x02*/ u16 hofs;
+    /*0x04*/ u16 vofs;
+    /*0x06*/ u16 unk6;
+    /*0x08*/ void *mapBuf;
 };
 
 struct GPURegConfig
 {
     /*0x00*/ u16 dispCnt;
     /*0x02*/ u8 filler02[6];
-    /*0x08*/ struct BGConfig bgConfig[4];
+    /*0x08*/ struct BGConfig bgConfig[4];  // [1] = 0x14, [2] = 0x20, [3] = 0x2C
     /*0x38*/ u16 bg2pa;
     /*0x3A*/ u16 bg2pb;
     /*0x3C*/ u16 bg2pc;
@@ -62,10 +62,10 @@ struct UnknownStruct3
 
 struct UnknownStruct4
 {
-    u8 unk0;
-    void *src;
-    void *dest;
-    u32 dmaCnt;
+    /*0x00*/ u8 unk0;
+    /*0x04*/ void *src;
+    /*0x08*/ void *dest;
+    /*0x0C*/ u32 dmaCnt;
 };
 
 struct UnknownStruct5
@@ -259,10 +259,23 @@ struct Struct0201ED90
     u8 filler1[1];
     u8 unk2_0:4;
     u8 unk2_4:2;
+    u8 unk2_6:2;  // maybe? game_select.c needs it?
     u8 filler3[1];
     u16 unk4;
     u16 unk6;
-    // size = 24?
+    u32 unk8;
+    u32 unkC;
+    u8 unk10;
+    u8 unk11;
+    u8 unk12;
+    u8 unk13;
+    u8 unk14;
+    u8 filler15[0x20-0x15];
+    u16 unk20;
+    u16 unk22;
+    u16 unk24;
+    u16 unk26;
+    // size = 24? possibly multiple structs from an overlay, or sub-structs?
 };
 
 struct Struct0202A5E0
@@ -318,4 +331,13 @@ struct Struct020309C0
     u8 unk0;
     u8 filler1[7];
     u8 unk8;
+};
+
+struct Struct03000520
+{
+	u8 unk0;  // screen fading?
+	u8 filler1[6];
+	u8 unk7;
+	u8 filler8[4];
+	u32 unkC;
 };

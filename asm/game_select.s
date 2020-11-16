@@ -1,5 +1,6 @@
 	.INCLUDE "macro.inc"
 
+.if 0
 	THUMB_FUNC_START sub_0803074C
 sub_0803074C: @ 0x0803074C
 	push {r4-r7,lr}
@@ -146,7 +147,7 @@ _08030844:
 	cmp r4, #159
 	bls _08030844
 _08030854:
-	ldrb r0, [r2]
+	ldrb r0, [r2]	@ gUnknown_03000204.unk0
 	lsl r1, r0, #2
 	add r1, r1, r0
 	lsl r1, r1, #6
@@ -478,6 +479,8 @@ _08030AE0:
 _08030AE4:
 	.4byte 0x800B0190
 	THUMB_FUNC_END sub_08030A40
+
+.endif
 
 	THUMB_FUNC_START sub_08030AE8
 sub_08030AE8: @ 0x08030AE8

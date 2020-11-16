@@ -886,7 +886,7 @@ extern struct GPURegConfig gUnknown_030004A0;
 //extern gUnknown_030004C0;
 extern volatile u8 gUnknown_0300050C;
 extern u16 gHeldKeys;
-extern u8 gUnknown_03000520;  // screen fading?
+extern struct Struct03000520 gUnknown_03000520;
 extern u8 gUnknown_03000530[0x300];
 //extern gUnknown_0300069C;
 //extern gUnknown_03000830;

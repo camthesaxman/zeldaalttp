@@ -23,7 +23,7 @@ void splash_screen_main(void)
             sub_0800C0B0(1, 8);
         break;
     case 2:
-        if (gUnknown_03000520 == 0)
+        if (gUnknown_03000520.unk0 == 0)
         {
             sub_0800BA44(7);
             sub_0800B890(7);
@@ -40,7 +40,7 @@ void splash_screen_main(void)
             sub_0800C0B0(3, 8);
         break;
     case 4:
-        if (gUnknown_03000520 == 0)
+        if (gUnknown_03000520.unk0 == 0)
             set_main_state(8);
         break;
     }
@@ -48,7 +48,7 @@ void splash_screen_main(void)
 
 int sub_0800D610(void)
 {
-    if (gUnknown_03000520 != 0 || --gUnknown_02016D60.unk4 != 0)
+    if (gUnknown_03000520.unk0 != 0 || --gUnknown_02016D60.unk4 != 0)
         return 0;
     gSubState++;
     return 1;

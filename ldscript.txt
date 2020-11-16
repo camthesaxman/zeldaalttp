@@ -15,8 +15,8 @@ SECTIONS
         asm/rom_0800D4F0.o(.text);
         asm/file_select.o(.text);
         asm/rom2a.o(.text);
+        src/game_select.o(.text);
 		asm/game_select.o(.text);
-		src/game_select.o(.text);
 		asm/rom3.o(.text);
 		src/rom3a.o(.text);
 		asm/rom3a.o(.text);
