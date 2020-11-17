@@ -9273,7 +9273,7 @@ _08063480:
 	orr r2, r2, r1
 	add r1, r2, #0
 	strb r1, [r0]
-	ldr r0, _0806351C  @ =gUnknown_03000414
+	ldr r0, _0806351C  @ =gLCDRegisterBuffer
 	ldr r1, [r7]
 	ldr r2, [r1, #88]
 	ldrb r0, [r0]
@@ -9291,7 +9291,7 @@ _08063512:
 	.byte 0x00
 	.byte 0x00
 _0806351C:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _08063520:
 	.4byte gUnknown_03000450
 	THUMB_FUNC_END sub_08063384
@@ -9476,7 +9476,7 @@ _08063668:
 	orr r2, r2, r1
 	add r1, r2, #0
 	strh r1, [r0, #54]
-	ldr r0, _080636CC  @ =gUnknown_03000414
+	ldr r0, _080636CC  @ =gLCDRegisterBuffer
 	ldr r1, [r7]
 	ldr r2, [r1, #88]
 	ldrb r0, [r0]
@@ -9498,7 +9498,7 @@ _080636C4:
 _080636C8:
 	.4byte 0x0000F7FF
 _080636CC:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _080636D0:
 	.4byte gUnknown_03000450
 _080636D4:
@@ -9628,7 +9628,7 @@ _080637A2:
 _080637C4:
 	b _080637E2
 _080637C6:
-	ldr r0, _080637EC  @ =gUnknown_03000414
+	ldr r0, _080637EC  @ =gLCDRegisterBuffer
 	ldr r1, [r7]
 	ldr r2, [r1, #88]
 	ldrb r0, [r0]
@@ -9650,7 +9650,7 @@ _080637E2:
 	.byte 0x00
 	.byte 0x00
 _080637EC:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _080637F0:
 	.4byte gUnknown_03000450
 	THUMB_FUNC_END sub_08063524
