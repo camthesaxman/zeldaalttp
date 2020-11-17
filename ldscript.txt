@@ -13,6 +13,7 @@ SECTIONS
 		asm/rom2.o(.text);
         src/rom_0800D4F0.o(.text);
         asm/rom_0800D4F0.o(.text);
+        src/file_select.o(.text);
         asm/file_select.o(.text);
         asm/rom2a.o(.text);
         src/game_select.o(.text);
@@ -49,7 +50,9 @@ SECTIONS
 	{
 		data/data.o(.rodata);
         src/main.o(.rodata);
-        data/data_8427390.o(.rodata);
+        data/data_842735C.o(.rodata);
+        src/file_select.o(.rodata);
+        data/data_84274AC.o(.rodata);
 		data/4swords_text.o(.rodata);
 	} = 0
 
@@ -73,3 +76,5 @@ SECTIONS
         *(*);
     }
 }
+
+gUnknown_02016D60_alt = gUnknown_02016D60;

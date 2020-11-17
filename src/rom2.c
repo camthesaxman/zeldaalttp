@@ -362,7 +362,7 @@ u32 sub_0800BD14(u16 a)
 }
 */
 __attribute__((naked))
-u32 sub_0800BD14(u16 a)
+void *sub_0800BD14(u16 a)
 {
     asm("push {r4-r7,lr}\n\
 	mov r7, r10\n\

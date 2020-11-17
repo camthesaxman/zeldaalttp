@@ -5,6 +5,7 @@ struct Weird
     u8 unk4;
     u8 unk5;
     u8 unk6;
+    u8 unk7;
 };
 
 #define unk3000000 (*(struct Weird *)0x03000000)

@@ -391,7 +391,8 @@ struct Struct03000BE0
 
 struct Struct0200B250
 {
-    u8 filler0[0x25];
+	u32 unk0;
+    u8 filler4[0x25-0x4];
     u8 unk25;
     u8 filler26[0x40-0x26];
 };
