@@ -2486,7 +2486,7 @@ sub_08010E90: @ 0x08010E90
 	mov r8, r0
 	mov r6, #0
 	str r6, [sp]
-	ldr r4, _08010F3C  @ =gUnknown_0202D110
+	ldr r4, _08010F3C  @ =gBG0Buffer
 	ldr r2, _08010F40  @ =0x01000140
 	mov r0, sp
 	add r1, r4, #0
@@ -2560,7 +2560,7 @@ _08010F26:
 	beq _08010F5A
 	b _08010F8E
 _08010F3C:
-	.4byte gUnknown_0202D110
+	.4byte gBG0Buffer
 _08010F40:
 	.4byte 0x01000140
 _08010F44:
@@ -5439,7 +5439,7 @@ sub_0801239C: @ 0x0801239C
 	sub sp, sp, #4
 	mov r0, #0
 	str r0, [sp]
-	ldr r1, _080123B4  @ =gUnknown_03001050
+	ldr r1, _080123B4  @ =gEntityList
 	ldr r2, _080123B8  @ =0x05001000
 	mov r0, sp
 	bl CpuSet
@@ -5447,14 +5447,14 @@ sub_0801239C: @ 0x0801239C
 	pop {r0}
 	bx r0
 _080123B4:
-	.4byte gUnknown_03001050
+	.4byte gEntityList
 _080123B8:
 	.4byte 0x05001000
 	THUMB_FUNC_END sub_0801239C
 
 	THUMB_FUNC_START sub_080123BC
 sub_080123BC: @ 0x080123BC
-	ldr r0, _080123DC  @ =gUnknown_03005960
+	ldr r0, _080123DC  @ =gEntityLinks
 	add r1, r0, #0
 	add r1, r1, #64
 	ldr r2, _080123E0  @ =gUnknown_03005AD8
@@ -5473,7 +5473,7 @@ _080123D4:
 	strb r0, [r3]
 	bx lr
 _080123DC:
-	.4byte gUnknown_03005960
+	.4byte gEntityLinks
 _080123E0:
 	.4byte gUnknown_03005AD8
 _080123E4:
@@ -5482,7 +5482,7 @@ _080123E4:
 
 	THUMB_FUNC_START sub_080123E8
 sub_080123E8: @ 0x080123E8
-	ldr r1, _08012400  @ =gUnknown_03001050
+	ldr r1, _08012400  @ =gEntityList
 	mov r2, #232
 	lsl r2, r2, #6
 	add r0, r1, r2
@@ -5496,7 +5496,7 @@ _080123F6:
 	add r0, r1, #0
 	b _0801240C
 _08012400:
-	.4byte gUnknown_03001050
+	.4byte gEntityList
 _08012404:
 	add r1, r1, #128
 	cmp r1, r2
@@ -5889,7 +5889,7 @@ _08012672:
 	lsl r1, r1, #24
 	lsr r1, r1, #24
 	add r1, r1, r3
-	ldr r0, _080126C4  @ =gUnknown_03001050
+	ldr r0, _080126C4  @ =gEntityList
 	sub r0, r4, r0
 	lsr r0, r0, #7
 	strb r0, [r1]
@@ -5908,7 +5908,7 @@ _080126BC:
 _080126C0:
 	.4byte gUnknown_0202A8C4
 _080126C4:
-	.4byte gUnknown_03001050
+	.4byte gEntityList
 _080126C8:
 	.4byte gUnknown_03005AD8
 	THUMB_FUNC_END sub_08012540
@@ -5932,7 +5932,7 @@ _080126E4:
 	str r0, [sp]
 	ldrb r1, [r5]
 	lsl r1, r1, #7
-	ldr r0, _08012720  @ =gUnknown_03001050
+	ldr r0, _08012720  @ =gEntityList
 	add r1, r1, r0
 	add r5, r5, #1
 	mov r0, sp
@@ -5960,7 +5960,7 @@ _08012718:
 _0801271C:
 	.4byte gUnknown_0202A8C4
 _08012720:
-	.4byte gUnknown_03001050
+	.4byte gEntityList
 _08012724:
 	.4byte 0x05000020
 	THUMB_FUNC_END sub_080126CC
@@ -5970,7 +5970,7 @@ sub_08012728: @ 0x08012728
 	add r2, r1, #0
 	lsl r0, r0, #24
 	lsr r0, r0, #21
-	ldr r1, _08012760  @ =gUnknown_03005960
+	ldr r1, _08012760  @ =gEntityLinks
 	add r0, r0, r1
 	str r0, [r2, #4]
 	ldr r1, [r0]
@@ -5997,7 +5997,7 @@ _08012746:
 	strb r0, [r1]
 	bx lr
 _08012760:
-	.4byte gUnknown_03005960
+	.4byte gEntityLinks
 _08012764:
 	.4byte gUnknown_0813E7D4
 _08012768:
@@ -6010,7 +6010,7 @@ sub_0801276C: @ 0x0801276C
 	lsl r0, r0, #24
 	lsr r3, r0, #24
 	lsl r0, r3, #3
-	ldr r1, _080127A0  @ =gUnknown_03005960
+	ldr r1, _080127A0  @ =gEntityLinks
 	add r0, r0, r1
 	ldr r2, [r0, #4]
 	ldr r0, [r0]
@@ -6033,7 +6033,7 @@ _0801279C:
 	pop {r0}
 	bx r0
 _080127A0:
-	.4byte gUnknown_03005960
+	.4byte gEntityLinks
 _080127A4:
 	.4byte gUnknown_03005AD8
 	THUMB_FUNC_END sub_0801276C
@@ -6044,7 +6044,7 @@ sub_080127A8: @ 0x080127A8
 	lsr r3, r0, #24
 	lsl r1, r1, #24
 	lsr r1, r1, #21
-	ldr r0, _080127C4  @ =gUnknown_03005960
+	ldr r0, _080127C4  @ =gEntityLinks
 	add r1, r1, r0
 	ldr r2, [r1, #4]
 	cmp r2, r1
@@ -6056,7 +6056,7 @@ _080127BA:
 	add r0, r2, #0
 	b _080127D0
 _080127C4:
-	.4byte gUnknown_03005960
+	.4byte gEntityLinks
 _080127C8:
 	ldr r2, [r2, #4]
 	cmp r2, r1
@@ -6074,7 +6074,7 @@ sub_080127D4: @ 0x080127D4
 	add r3, r0, #0
 	lsl r1, r1, #24
 	lsr r1, r1, #21
-	ldr r0, _080127F0  @ =gUnknown_03005960
+	ldr r0, _080127F0  @ =gEntityLinks
 	add r1, r1, r0
 	ldr r2, [r3, #4]
 	cmp r2, r1
@@ -6087,7 +6087,7 @@ _080127E6:
 	add r0, r2, #0
 	b _080127FC
 _080127F0:
-	.4byte gUnknown_03005960
+	.4byte gEntityLinks
 _080127F4:
 	ldr r2, [r2, #4]
 	cmp r2, r1
@@ -6366,7 +6366,7 @@ _080129E8:
 	bl CpuSet
 	ldr r3, _08012A1C  @ =gUnknown_03000450
 	ldr r2, _08012A14  @ =gUnknown_03006A30
-	ldr r0, _08012A20  @ =gUnknown_03000414
+	ldr r0, _08012A20  @ =gLCDRegisterBuffer
 	ldrb r1, [r0]
 	lsl r0, r1, #3
 	add r0, r0, r1
@@ -6388,7 +6388,7 @@ _08012A18:
 _08012A1C:
 	.4byte gUnknown_03000450
 _08012A20:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 	THUMB_FUNC_END sub_080128EC
 
 	THUMB_FUNC_START sub_08012A24
@@ -6778,7 +6778,7 @@ _08012CCC:
 	cmp r0, #1
 	beq _08012D0A
 	ldr r6, _08012E28  @ =0x03000030
-	ldr r5, _08012E40  @ =gUnknown_03000414
+	ldr r5, _08012E40  @ =gLCDRegisterBuffer
 	ldrb r1, [r5]
 	lsl r1, r1, #7
 	ldr r4, _08012E44  @ =0x00044920
@@ -6910,7 +6910,7 @@ _08012DD4:
 	lsr r0, r0, #16
 	cmp r0, #3
 	bhi _08012E5A
-	ldr r0, _08012E40  @ =gUnknown_03000414
+	ldr r0, _08012E40  @ =gLCDRegisterBuffer
 	ldrb r0, [r0]
 	cmp r1, r0
 	beq _08012E5A
@@ -6947,7 +6947,7 @@ _08012E38:
 _08012E3C:
 	.4byte gUnknown_03006C80
 _08012E40:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _08012E44:
 	.4byte 0x00044920
 _08012E48:
@@ -22013,7 +22013,7 @@ sub_08019BC4: @ 0x08019BC4
 	add r4, r0, #0
 	ldr r3, _08019C18  @ =gUnknown_03000450
 	ldr r2, _08019C1C  @ =gUnknown_03006A30
-	ldr r0, _08019C20  @ =gUnknown_03000414
+	ldr r0, _08019C20  @ =gLCDRegisterBuffer
 	ldrb r1, [r0]
 	lsl r0, r1, #3
 	add r0, r0, r1
@@ -22056,7 +22056,7 @@ _08019C18:
 _08019C1C:
 	.4byte gUnknown_03006A30
 _08019C20:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _08019C24:
 	.4byte 0xFFFF8000
 	THUMB_FUNC_END sub_08019BC4
@@ -22069,7 +22069,7 @@ sub_08019C28: @ 0x08019C28
 	add r5, r0, #0
 	ldr r6, _08019C68  @ =gUnknown_03000450
 	ldr r2, _08019C6C  @ =gUnknown_03006A30
-	ldr r0, _08019C70  @ =gUnknown_03000414
+	ldr r0, _08019C70  @ =gLCDRegisterBuffer
 	mov r8, r0
 	ldrb r1, [r0]
 	lsl r0, r1, #3
@@ -22100,7 +22100,7 @@ _08019C68:
 _08019C6C:
 	.4byte gUnknown_03006A30
 _08019C70:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _08019C74:
 	cmp r0, #48
 	bne _08019D32
@@ -38632,7 +38632,7 @@ _080212AC:
 	add r0, r6, #0
 	bl sub_08021190
 _080212C4:
-	ldr r0, _080212E4  @ =gUnknown_03005960
+	ldr r0, _080212E4  @ =gEntityLinks
 	ldr r5, [r0, #20]
 	add r7, r5, #0
 	cmp r5, #0
@@ -38651,7 +38651,7 @@ _080212CE:
 _080212E0:
 	.4byte gUnknown_03006A30
 _080212E4:
-	.4byte gUnknown_03005960
+	.4byte gEntityLinks
 _080212E8:
 	cmp r0, #4
 	beq _08021312
@@ -40713,7 +40713,7 @@ _080222C2:
 	ldrb r0, [r6]
 	cmp r0, #0
 	bne _08022314
-	ldr r0, _080222FC  @ =gUnknown_03000414
+	ldr r0, _080222FC  @ =gLCDRegisterBuffer
 	add r1, r5, #0
 	add r1, r1, #115
 	ldrb r0, [r0]
@@ -40740,7 +40740,7 @@ _080222C2:
 _080222F8:
 	.4byte gUnknown_03006A30
 _080222FC:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _08022300:
 	ldr r0, [r5, #84]
 	ldrb r0, [r0, #30]
@@ -40850,7 +40850,7 @@ _080223BC:
 	mov r0, #128
 	orr r0, r0, r1
 	strb r0, [r2]
-	ldr r0, _080223FC  @ =gUnknown_03000414
+	ldr r0, _080223FC  @ =gLCDRegisterBuffer
 	add r1, r5, #0
 	add r1, r1, #115
 	ldrb r0, [r0]
@@ -40875,7 +40875,7 @@ _080223BC:
 	strb r0, [r5, #30]
 	b _08022414
 _080223FC:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _08022400:
 	ldr r0, [r5, #84]
 	ldrb r0, [r0, #30]
@@ -42157,7 +42157,7 @@ sub_08022D50: @ 0x08022D50
 	ldrb r0, [r2, #10]
 	cmp r0, #3
 	bne _08022D86
-	ldr r0, _08022D78  @ =gUnknown_03000414
+	ldr r0, _08022D78  @ =gLCDRegisterBuffer
 	add r1, r2, #0
 	add r1, r1, #120
 	ldrb r0, [r0]
@@ -42175,7 +42175,7 @@ sub_08022D50: @ 0x08022D50
 	.byte 0x00
 	.byte 0x00
 _08022D78:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _08022D7C:
 	ldrb r1, [r2, #28]
 	mov r0, #4
@@ -42833,7 +42833,7 @@ sub_080231D4: @ 0x080231D4
 	bl play_sound
 	ldr r3, _08023228  @ =gUnknown_03000450
 	ldr r2, _0802322C  @ =gUnknown_03006A30
-	ldr r0, _08023230  @ =gUnknown_03000414
+	ldr r0, _08023230  @ =gLCDRegisterBuffer
 	ldrb r1, [r0]
 	lsl r0, r1, #3
 	add r0, r0, r1
@@ -42851,7 +42851,7 @@ _08023228:
 _0802322C:
 	.4byte gUnknown_03006A30
 _08023230:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 	THUMB_FUNC_END sub_080231D4
 
 	THUMB_FUNC_START sub_08023234
@@ -63379,7 +63379,7 @@ sub_0802C8F8: @ 0x0802C8F8
 	bl sub_0802D514
 	ldrb r1, [r4, #3]
 	lsl r0, r1, #11
-	ldr r2, _0802C930  @ =gUnknown_0202D110
+	ldr r2, _0802C930  @ =gBG0Buffer
 	add r0, r0, r2
 	eor r1, r1, r5
 	lsl r1, r1, #11
@@ -63395,7 +63395,7 @@ sub_0802C8F8: @ 0x0802C8F8
 _0802C92C:
 	.4byte gUnknown_03000420
 _0802C930:
-	.4byte gUnknown_0202D110
+	.4byte gBG0Buffer
 	THUMB_FUNC_END sub_0802C8F8
 
 	THUMB_FUNC_START sub_0802C934
@@ -63421,7 +63421,7 @@ sub_0802C940: @ 0x0802C940
 	strh r0, [r2, #14]
 	ldrb r0, [r3, #3]
 	lsl r0, r0, #11
-	ldr r1, _0802C970  @ =gUnknown_0202D110
+	ldr r1, _0802C970  @ =gBG0Buffer
 	add r0, r0, r1
 	str r0, [r2, #16]
 	ldrb r0, [r3, #3]
@@ -63437,7 +63437,7 @@ _0802C968:
 _0802C96C:
 	.4byte gUnknown_030004A0
 _0802C970:
-	.4byte gUnknown_0202D110
+	.4byte gBG0Buffer
 	THUMB_FUNC_END sub_0802C940
 
 	THUMB_FUNC_START sub_0802C974
@@ -63534,7 +63534,7 @@ sub_0802C9B8: @ 0x0802C9B8
 	bl 0x080009EC
 	bl sub_0802D514
 	bl sub_0802D280
-	ldr r0, _0802CA6C  @ =gUnknown_0202D110
+	ldr r0, _0802CA6C  @ =gBG0Buffer
 	mov r2, #128
 	lsl r2, r2, #4
 	add r1, r0, r2
@@ -63558,7 +63558,7 @@ _0802CA64:
 _0802CA68:
 	.4byte 0x0600CB00
 _0802CA6C:
-	.4byte gUnknown_0202D110
+	.4byte gBG0Buffer
 	THUMB_FUNC_END sub_0802C9B8
 
 	THUMB_FUNC_START sub_0802CA70
@@ -63623,7 +63623,7 @@ _0802CADA:
 	ldrb r1, [r3, #3]
 	lsl r1, r1, #11
 	lsl r0, r2, #6
-	ldr r4, _0802CC04  @ =gUnknown_0202D110
+	ldr r4, _0802CC04  @ =gBG0Buffer
 	add r0, r0, r4
 	add r3, r1, r0
 	mov r1, r12
@@ -63652,7 +63652,7 @@ _0802CB0C:
 	lsl r1, r1, #11
 	sub r0, r6, #1
 	lsl r0, r0, #6
-	ldr r2, _0802CC04  @ =gUnknown_0202D110
+	ldr r2, _0802CC04  @ =gBG0Buffer
 	add r0, r0, r2
 	add r1, r1, r0
 	mov r3, r12
@@ -63692,7 +63692,7 @@ _0802CB5C:
 	mov r1, r10
 	ldrb r0, [r1, #3]
 	lsl r0, r0, #11
-	ldr r2, _0802CC04  @ =gUnknown_0202D110
+	ldr r2, _0802CC04  @ =gBG0Buffer
 	add r1, r7, r2
 	add r0, r0, r1
 	mov r1, r12
@@ -63776,7 +63776,7 @@ _0802CB94:
 _0802CC00:
 	.4byte gUnknown_03000420
 _0802CC04:
-	.4byte gUnknown_0202D110
+	.4byte gBG0Buffer
 _0802CC08:
 	.4byte 0x0000084D
 _0802CC0C:
@@ -63796,7 +63796,7 @@ sub_0802CC20: @ 0x0802CC20
 	push {r4,lr}
 	sub sp, sp, #4
 	ldr r1, _0802CC94  @ =gUnknown_03000940
-	ldr r0, _0802CC98  @ =gUnknown_03000414
+	ldr r0, _0802CC98  @ =gLCDRegisterBuffer
 	ldrb r0, [r0]
 	lsl r0, r0, #1
 	add r0, r0, r1
@@ -63854,7 +63854,7 @@ _0802CC62:
 _0802CC94:
 	.4byte gUnknown_03000940
 _0802CC98:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _0802CC9C:
 	.4byte gUnknown_03000420
 _0802CCA0:
@@ -63908,7 +63908,7 @@ _0802CD06:
 _0802CD0E:
 	ldr r2, _0802CD30  @ =gUnknown_03000420
 	ldr r0, _0802CD34  @ =gUnknown_03006C80
-	ldr r1, _0802CD38  @ =gUnknown_03000414
+	ldr r1, _0802CD38  @ =gLCDRegisterBuffer
 	add r0, r0, #104
 	ldrb r1, [r1]
 	add r0, r0, r1
@@ -63929,7 +63929,7 @@ _0802CD30:
 _0802CD34:
 	.4byte gUnknown_03006C80
 _0802CD38:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 	THUMB_FUNC_END sub_0802CC20
 
 	THUMB_FUNC_START sub_0802CD3C
@@ -64031,7 +64031,7 @@ _0802CDE8:
 	cmp r0, #0
 	bne _0802CE80
 	ldr r1, _0802CE60  @ =gUnknown_03000940
-	ldr r0, _0802CE64  @ =gUnknown_03000414
+	ldr r0, _0802CE64  @ =gLCDRegisterBuffer
 	ldrb r0, [r0]
 	lsl r0, r0, #1
 	add r0, r0, r1
@@ -64087,7 +64087,7 @@ _0802CE5C:
 _0802CE60:
 	.4byte gUnknown_03000940
 _0802CE64:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _0802CE68:
 	.4byte gUnknown_030004A0
 _0802CE6C:
@@ -64331,7 +64331,7 @@ _0802D010:
 	bl sub_0802CF70
 	bl sub_0802D104
 	ldr r6, _0802D0E4  @ =gUnknown_03006C80
-	ldr r1, _0802D0E8  @ =gUnknown_03000414
+	ldr r1, _0802D0E8  @ =gLCDRegisterBuffer
 	add r0, r6, #0
 	add r0, r0, #100
 	ldrb r1, [r1]
@@ -64434,7 +64434,7 @@ _0802D0D4:
 _0802D0E4:
 	.4byte gUnknown_03006C80
 _0802D0E8:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _0802D0EC:
 	.4byte gUnknown_03000420
 _0802D0F0:
@@ -65497,7 +65497,7 @@ sub_0802D858: @ 0x0802D858
 	push {r4-r6,lr}
 	lsl r0, r0, #24
 	lsr r0, r0, #14
-	ldr r1, _0802D8A8  @ =gUnknown_03005E20
+	ldr r1, _0802D8A8  @ =gOAMBuffer
 	add r0, r0, r1
 	ldr r4, _0802D8AC  @ =gUnknown_02030A70
 	ldr r6, _0802D8B0  @ =gUnknown_0813D73D
@@ -65535,7 +65535,7 @@ sub_0802D858: @ 0x0802D858
 	pop {r0}
 	bx r0
 _0802D8A8:
-	.4byte gUnknown_03005E20
+	.4byte gOAMBuffer
 _0802D8AC:
 	.4byte gUnknown_02030A70
 _0802D8B0:
@@ -65588,7 +65588,7 @@ sub_0802D8E4: @ 0x0802D8E4
 	add r6, r0, #0
 	ldr r0, _0802D94C  @ =gUnknown_03000420
 	mov r9, r0
-	ldr r0, _0802D950  @ =gUnknown_0202D110
+	ldr r0, _0802D950  @ =gBG0Buffer
 	mov r8, r0
 _0802D90E:
 	mov r0, r9
@@ -65628,7 +65628,7 @@ _0802D940:
 _0802D94C:
 	.4byte gUnknown_03000420
 _0802D950:
-	.4byte gUnknown_0202D110
+	.4byte gBG0Buffer
 	THUMB_FUNC_END sub_0802D8E4
 
 	THUMB_FUNC_START sub_0802D954
@@ -65779,7 +65779,7 @@ sub_0802DA30: @ 0x0802DA30
 	strb r0, [r1]
 	mov r0, #30
 	strb r0, [r1, #2]
-	ldr r0, _0802DA9C  @ =gUnknown_03000414
+	ldr r0, _0802DA9C  @ =gLCDRegisterBuffer
 	ldrb r0, [r0]
 	cmp r4, r0
 	bne _0802DAA8
@@ -65818,7 +65818,7 @@ _0802DA94:
 _0802DA98:
 	.4byte gUnknown_0201EF18
 _0802DA9C:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _0802DAA0:
 	.4byte 0x00000406
 _0802DAA4:
@@ -65908,7 +65908,7 @@ sub_0802DB24: @ 0x0802DB24
 	and r0, r0, r1
 	cmp r0, #0
 	bne _0802DB84
-	ldr r0, _0802DB68  @ =gUnknown_03000414
+	ldr r0, _0802DB68  @ =gLCDRegisterBuffer
 	ldrb r0, [r0]
 	cmp r2, r0
 	bne _0802DB74
@@ -65927,7 +65927,7 @@ _0802DB60:
 _0802DB64:
 	.4byte gUnknown_03000E20
 _0802DB68:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _0802DB6C:
 	.4byte gUnknown_02000000
 _0802DB70:

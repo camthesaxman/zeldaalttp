@@ -252,7 +252,7 @@ void sub_0800FB9C(void)
 		gUnknown_030004A0.bgConfig[0].bgcnt = 0x1C00;
 		gUnknown_02016D60_alt.unk4 = 300;
 		gSubState = 2;
-		CpuFastFill(0, gUnknown_0202D110, 0x800);
+		CpuFastFill(0, gBG0Buffer, 0x800);
 		sub_0800FD28();
 		sub_0800F4C4(gUnknown_08137EB4[(u8)gUnknown_02016D60_alt.unk21], gUnknown_08137E9C);
 		play_sound(32);

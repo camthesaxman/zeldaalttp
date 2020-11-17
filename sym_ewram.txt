@@ -665,7 +665,7 @@
 . = 0x1EDA8;	gUnknown_0201EDA8 = .;
 . = 0x1EDB0;	gUnknown_0201EDB0 = .;
 . = 0x1EDE0;	gUnknown_0201EDE0 = .;
-. = 0x1EDF0;	gUnknown_0201EDF0 = .;
+. = 0x1EDF0;	gTextbox = .;
 . = 0x1EE54;	gUnknown_0201EE54 = .;
 . = 0x1EEC4;	gUnknown_0201EEC4 = .;
 . = 0x1EF00;	gUnknown_0201EF00 = .;
@@ -729,7 +729,7 @@
 . = 0x2D0CE;	gUnknown_0202D0CE = .;
 . = 0x2D0D0;	gUnknown_0202D0D0 = .;
 . = 0x2D0E0;	gUnknown_0202D0E0 = .;
-. = 0x2D110;	gUnknown_0202D110 = .;
+. = 0x2D110;	gBG0Buffer = .;
 . = 0x2D112;	gUnknown_0202D112 = .;
 . = 0x2D118;	gUnknown_0202D118 = .;
 . = 0x2D11E;	gUnknown_0202D11E = .;

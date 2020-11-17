@@ -75,7 +75,7 @@ _0802DCE2:
 	and r0, r0, r1
 	orr r0, r0, r3
 	strb r0, [r4, #30]
-	ldr r0, _0802DD44  @ =gUnknown_03000414
+	ldr r0, _0802DD44  @ =gLCDRegisterBuffer
 	ldrb r0, [r0]
 	cmp r5, r0
 	bne _0802DD10
@@ -108,7 +108,7 @@ _0802DD34:
 	.byte 0x00
 	.byte 0x00
 _0802DD44:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _0802DD48:
 	.4byte gUnknown_03000450
 _0802DD4C:
@@ -176,7 +176,7 @@ sub_0802DDAC: @ 0x0802DDAC
 	strb r0, [r5, #2]
 	strb r1, [r5, #3]
 	str r1, [sp]
-	ldr r4, _0802DE2C  @ =gUnknown_0202D110
+	ldr r4, _0802DE2C  @ =gBG0Buffer
 	ldr r2, _0802DE30  @ =0x01000400
 	mov r0, sp
 	add r1, r4, #0
@@ -231,7 +231,7 @@ _0802DE10:
 _0802DE28:
 	.4byte gUnknown_03000420
 _0802DE2C:
-	.4byte gUnknown_0202D110
+	.4byte gBG0Buffer
 _0802DE30:
 	.4byte 0x01000400
 _0802DE34:
@@ -1136,7 +1136,7 @@ _0802E4DA:
 	ldr r2, _0802E510  @ =0x04000006
 	mov r1, sp
 	bl CpuSet
-	ldr r0, _0802E514  @ =gUnknown_03000414
+	ldr r0, _0802E514  @ =gLCDRegisterBuffer
 	ldrb r0, [r0]
 	bl sub_08039AA0
 	lsl r0, r0, #24
@@ -1154,7 +1154,7 @@ _0802E50C:
 _0802E510:
 	.4byte 0x04000006
 _0802E514:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _0802E518:
 	.4byte 0x0000041E
 _0802E51C:
@@ -1546,13 +1546,13 @@ _0802E79A:
 	bl sub_0802C2DC
 	ldr r0, _0802E8C8  @ =gUnknown_0202A4F8
 	str r6, [r0]
-	ldr r0, _0802E8CC  @ =gUnknown_03000414
+	ldr r0, _0802E8CC  @ =gLCDRegisterBuffer
 	strb r4, [r0]
 	ldr r0, _0802E8D0  @ =gUnknown_03000420
 	strb r4, [r0]
 	strb r4, [r0, #3]
 	ldr r2, _0802E8D4  @ =gUnknown_030004A0
-	ldr r0, _0802E8D8  @ =gUnknown_0202D110
+	ldr r0, _0802E8D8  @ =gBG0Buffer
 	str r0, [r2, #16]
 	ldr r0, _0802E8DC  @ =gUnknown_08142374
 	ldrh r0, [r0, #36]
@@ -1643,13 +1643,13 @@ _0802E8C4:
 _0802E8C8:
 	.4byte gUnknown_0202A4F8
 _0802E8CC:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _0802E8D0:
 	.4byte gUnknown_03000420
 _0802E8D4:
 	.4byte gUnknown_030004A0
 _0802E8D8:
-	.4byte gUnknown_0202D110
+	.4byte gBG0Buffer
 _0802E8DC:
 	.4byte gUnknown_08142374
 _0802E8E0:
@@ -4101,7 +4101,7 @@ sub_0802FB28: @ 0x0802FB28
 	bl CpuFastSet
 	str r4, [sp, #4]
 	add r0, sp, #4
-	ldr r6, _0802FC2C  @ =gUnknown_03005E20
+	ldr r6, _0802FC2C  @ =gOAMBuffer
 	ldr r1, _0802FC30  @ =0x01000200
 	mov r9, r1
 	add r1, r6, #0
@@ -4194,7 +4194,7 @@ _0802FC24:
 _0802FC28:
 	.4byte 0x01000100
 _0802FC2C:
-	.4byte gUnknown_03005E20
+	.4byte gOAMBuffer
 _0802FC30:
 	.4byte 0x01000200
 _0802FC34:
@@ -5118,7 +5118,7 @@ sub_08030314: @ 0x08030314
 	mov r0, #70
 	mov r1, #6
 	bl sub_0804C8A8
-	ldr r4, _08030370  @ =gUnknown_03000414
+	ldr r4, _08030370  @ =gLCDRegisterBuffer
 	ldrb r2, [r4]
 	mov r0, #70
 	mov r1, #7
@@ -5152,7 +5152,7 @@ _08030362:
 _0803036C:
 	.4byte gUnknown_02016D60
 _08030370:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _08030374:
 	.4byte gUnknown_03000450
 _08030378:
