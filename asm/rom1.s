@@ -377,7 +377,7 @@ _080005EC:
 	THUMB_FUNC_START sub_080005F0
 sub_080005F0: @ 0x080005F0
 	ldr r1, _08000794  @ =gUnknown_03005060
-	ldr r2, _08000798  @ =gUnknown_03005960
+	ldr r2, _08000798  @ =gEntityLinks
 _080005F4:
 	ldr r3, [r1, #8]
 	cmp r3, #0
@@ -406,7 +406,7 @@ _08000602:
 	THUMB_FUNC_START sub_08000620
 sub_08000620: @ 0x08000620
 	ldr r1, _080007A0  @ =gUnknown_03005060
-	ldr r2, _080007A4  @ =gUnknown_03005960
+	ldr r2, _080007A4  @ =gEntityLinks
 _08000624:
 	ldr r3, [r1, #8]
 	cmp r3, r0
@@ -565,7 +565,7 @@ _0800073C:
 	THUMB_FUNC_START sub_08000740
 sub_08000740: @ 0x08000740
 	ldr r1, _080007B8  @ =gUnknown_03005060
-	ldr r2, _080007BC  @ =gUnknown_03005960
+	ldr r2, _080007BC  @ =gEntityLinks
 _08000744:
 	ldr r3, [r1, #8]
 	cmp r3, #0
@@ -613,13 +613,13 @@ _08000790:
 _08000794:
 	.4byte gUnknown_03005060
 _08000798:
-	.4byte gUnknown_03005960
+	.4byte gEntityLinks
 _0800079C:
 	.4byte gUnknown_02016D50
 _080007A0:
 	.4byte gUnknown_03005060
 _080007A4:
-	.4byte gUnknown_03005960
+	.4byte gEntityLinks
 _080007A8:
 	.4byte gUnknown_02016D50
 _080007AC:
@@ -631,7 +631,7 @@ _080007B4:
 _080007B8:
 	.4byte gUnknown_03005060
 _080007BC:
-	.4byte gUnknown_03005960
+	.4byte gEntityLinks
 _080007C0:
 	.4byte gUnknown_02016D50
 

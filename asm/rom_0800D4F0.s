@@ -507,7 +507,7 @@ sub_0800E094: @ 0x0800E094
 	push {r4-r7,lr}
 	add r5, r0, #0
 	ldr r1, _0800E0D0  @ =gUnknown_03005E10
-	ldr r0, _0800E0D4  @ =gUnknown_03000414
+	ldr r0, _0800E0D4  @ =gLCDRegisterBuffer
 	ldrb r0, [r0]
 	lsl r0, r0, #1
 	add r0, r0, r1
@@ -538,7 +538,7 @@ sub_0800E094: @ 0x0800E094
 _0800E0D0:
 	.4byte gUnknown_03005E10
 _0800E0D4:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _0800E0D8:
 	.4byte gUnknown_0201EF00
 _0800E0DC:
@@ -695,7 +695,7 @@ sub_0800E1D4: @ 0x0800E1D4
 	b _0800E236
 _0800E1F8:
 	ldr r1, _0800E224  @ =gUnknown_03005E10
-	ldr r0, _0800E228  @ =gUnknown_03000414
+	ldr r0, _0800E228  @ =gLCDRegisterBuffer
 	ldrb r0, [r0]
 	lsl r0, r0, #1
 	add r0, r0, r1
@@ -719,7 +719,7 @@ _0800E1F8:
 _0800E224:
 	.4byte gUnknown_03005E10
 _0800E228:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _0800E22C:
 	mov r0, #134
 	lsl r0, r0, #1
@@ -867,7 +867,7 @@ sub_0800E324: @ 0x0800E324
 	cmp r0, #0
 	bne _0800E394
 	ldr r1, _0800E354  @ =gUnknown_03005E10
-	ldr r0, _0800E358  @ =gUnknown_03000414
+	ldr r0, _0800E358  @ =gLCDRegisterBuffer
 	ldrb r0, [r0]
 	lsl r0, r0, #1
 	add r0, r0, r1
@@ -880,7 +880,7 @@ sub_0800E324: @ 0x0800E324
 _0800E354:
 	.4byte gUnknown_03005E10
 _0800E358:
-	.4byte gUnknown_03000414
+	.4byte gLCDRegisterBuffer
 _0800E35C:
 	ldr r0, _0800E374  @ =gUnknown_0201ED90
 	ldrh r1, [r0, #6]
@@ -943,7 +943,7 @@ sub_0800E3B0: @ 0x0800E3B0
 	add r5, r0, #0
 	cmp r5, #0
 	beq _0800E3CA
-	ldr r0, _0800E420  @ =gUnknown_0201EDF0
+	ldr r0, _0800E420  @ =gTextbox
 	ldr r1, _0800E424  @ =0x00000109
 	add r2, r0, r1
 	ldrb r0, [r2]
@@ -959,7 +959,7 @@ _0800E3CA:
 	ldr r2, _0800E42C  @ =0x010001A0
 	mov r0, sp
 	bl CpuFastSet
-	ldr r4, _0800E420  @ =gUnknown_0201EDF0
+	ldr r4, _0800E420  @ =gTextbox
 	ldr r0, _0800E424  @ =0x00000109
 	add r6, r4, r0
 	ldrb r0, [r6]
@@ -995,7 +995,7 @@ _0800E3F0:
 	.byte 0x00
 	.byte 0x00
 _0800E420:
-	.4byte gUnknown_0201EDF0
+	.4byte gTextbox
 _0800E424:
 	.4byte 0x00000109
 _0800E428:
@@ -1021,7 +1021,7 @@ sub_0800E430: @ 0x0800E430
 	lsl r2, r2, #11
 	ldrb r3, [r3, #5]
 	lsl r0, r3, #6
-	ldr r1, _0800E4E4  @ =gUnknown_0202D110
+	ldr r1, _0800E4E4  @ =gBG0Buffer
 	add r0, r0, r1
 	add r2, r2, r0
 	mov r0, #20
@@ -1060,7 +1060,7 @@ _0800E476:
 	ldrb r1, [r3, #4]
 	add r0, r0, r1
 	lsl r0, r0, #1
-	ldr r1, _0800E4E4  @ =gUnknown_0202D110
+	ldr r1, _0800E4E4  @ =gBG0Buffer
 	add r0, r0, r1
 	add r2, r2, r0
 	ldrb r0, [r3, #7]
@@ -1102,7 +1102,7 @@ _0800E4DC:
 _0800E4E0:
 	.4byte gUnknown_020309A0
 _0800E4E4:
-	.4byte gUnknown_0202D110
+	.4byte gBG0Buffer
 _0800E4E8:
 	.4byte gUnknown_02030990
 	THUMB_FUNC_END sub_0800E430
@@ -1358,7 +1358,7 @@ _0800E694:
 	THUMB_FUNC_START sub_0800E69C
 sub_0800E69C: @ 0x0800E69C
 	ldr r2, _0800E6A8  @ =gUnknown_02000010
-	ldr r1, _0800E6AC  @ =gUnknown_0201EDF0
+	ldr r1, _0800E6AC  @ =gTextbox
 	strb r0, [r1]
 	strb r0, [r2]
 	bx lr
@@ -1367,14 +1367,14 @@ sub_0800E69C: @ 0x0800E69C
 _0800E6A8:
 	.4byte gUnknown_02000010
 _0800E6AC:
-	.4byte gUnknown_0201EDF0
+	.4byte gTextbox
 	THUMB_FUNC_END sub_0800E69C
 
 	THUMB_FUNC_START sub_0800E6B0
 sub_0800E6B0: @ 0x0800E6B0
 	push {r4-r7,lr}
 	mov r7, #0
-	ldr r2, _0800E6D0  @ =gUnknown_0201EDF0
+	ldr r2, _0800E6D0  @ =gTextbox
 	ldr r1, _0800E6D4  @ =0x0000010D
 	add r3, r2, r1
 	ldrb r1, [r3]
@@ -1390,7 +1390,7 @@ sub_0800E6B0: @ 0x0800E6B0
 	.byte 0x00
 	.byte 0x00
 _0800E6D0:
-	.4byte gUnknown_0201EDF0
+	.4byte gTextbox
 _0800E6D4:
 	.4byte 0x0000010D
 _0800E6D8:
@@ -1496,7 +1496,7 @@ _0800E788:
 	THUMB_FUNC_START sub_0800E78C
 sub_0800E78C: @ 0x0800E78C
 	push {r4-r6,lr}
-	ldr r3, _0800E7F4  @ =gUnknown_0201EDF0
+	ldr r3, _0800E7F4  @ =gTextbox
 	ldr r1, _0800E7F8  @ =0x0000010D
 	add r0, r3, r1
 	ldrb r0, [r0]
@@ -1515,7 +1515,7 @@ sub_0800E78C: @ 0x0800E78C
 	ldrb r2, [r4, #4]
 	add r1, r1, r2
 	lsl r1, r1, #1
-	ldr r2, _0800E804  @ =gUnknown_0202D110
+	ldr r2, _0800E804  @ =gBG0Buffer
 	add r1, r1, r2
 	add r0, r0, r1
 	ldrb r3, [r3, #2]
@@ -1544,7 +1544,7 @@ _0800E7EE:
 	pop {r0}
 	bx r0
 _0800E7F4:
-	.4byte gUnknown_0201EDF0
+	.4byte gTextbox
 _0800E7F8:
 	.4byte 0x0000010D
 _0800E7FC:
@@ -1552,7 +1552,7 @@ _0800E7FC:
 _0800E800:
 	.4byte gUnknown_020309C0
 _0800E804:
-	.4byte gUnknown_0202D110
+	.4byte gBG0Buffer
 _0800E808:
 	.4byte gUnknown_02030990
 	THUMB_FUNC_END sub_0800E78C
@@ -1882,7 +1882,7 @@ sub_0800EA38: @ 0x0800EA38
 	add r0, r0, r1
 	lsl r2, r2, #11
 	lsl r0, r0, #1
-	ldr r1, _0800EAA0  @ =gUnknown_0202D110
+	ldr r1, _0800EAA0  @ =gBG0Buffer
 	add r0, r0, r1
 	add r2, r2, r0
 	ldrb r0, [r3, #3]
@@ -1912,12 +1912,12 @@ _0800EA98:
 _0800EA9C:
 	.4byte gUnknown_020309C0
 _0800EAA0:
-	.4byte gUnknown_0202D110
+	.4byte gBG0Buffer
 	THUMB_FUNC_END sub_0800EA38
 
 	THUMB_FUNC_START sub_0800EAA4
 sub_0800EAA4: @ 0x0800EAA4
-	ldr r2, _0800EAF4  @ =gUnknown_0201EDF0
+	ldr r2, _0800EAF4  @ =gTextbox
 	mov r1, #134
 	lsl r1, r1, #1
 	add r0, r2, r1
@@ -1942,7 +1942,7 @@ sub_0800EAA4: @ 0x0800EAA4
 	ldrb r1, [r2, #4]
 	add r0, r0, r1
 	lsl r0, r0, #1
-	ldr r1, _0800EB04  @ =gUnknown_0202D110
+	ldr r1, _0800EB04  @ =gBG0Buffer
 	add r0, r0, r1
 	add r3, r3, r0
 	ldrb r0, [r2, #7]
@@ -1960,7 +1960,7 @@ _0800EAF0:
 	.byte 0x00
 	.byte 0x00
 _0800EAF4:
-	.4byte gUnknown_0201EDF0
+	.4byte gTextbox
 _0800EAF8:
 	.4byte 0x0000010B
 _0800EAFC:
@@ -1968,7 +1968,7 @@ _0800EAFC:
 _0800EB00:
 	.4byte gUnknown_020309C0
 _0800EB04:
-	.4byte gUnknown_0202D110
+	.4byte gBG0Buffer
 	THUMB_FUNC_END sub_0800EAA4
 
 	THUMB_FUNC_START sub_0800EB08

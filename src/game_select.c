@@ -326,7 +326,7 @@ void sub_08030E0C(void)
 void sub_08030E4C(void)
 {
     sub_0800F4C4(0x0403, gUnknown_08427964);
-    CpuFastCopy(gUnknown_0202D110, gUnknown_0202D110 + 0x800, 384);
+    CpuFastCopy(gBG0Buffer, gBG0Buffer + 0x800, 384);
 }
 
 void sub_08030E74(void)

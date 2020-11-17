@@ -87,7 +87,7 @@ void sub_0800D6A4(u16 a)
 void sub_0800D6F4(void)
 {
     zero_memory(&gUnknown_02000010, 24);
-    zero_memory(&gUnknown_0201EDF0, 272);
+    zero_memory(&gTextbox, 272);
     zero_memory(&gUnknown_020309C0, 16);
     zero_memory(gUnknown_02030990, 16);
     zero_memory(gUnknown_02000000, 4);
@@ -114,33 +114,33 @@ void sub_0800D788(void)
     switch (gUnknown_02000010.unk0.asBitfield.unk0)
     {
     case 1:
-        gUnknown_0201EDF0.unk108 = 0;
-        gUnknown_0201EDF0.unkF8 = 1;
+        gTextbox.unk108 = 0;
+        gTextbox.unkF8 = 1;
         gUnknown_0202E154 = (gUnknown_0202E154 + 1) | ~0x7F;
         break;
     case 135:
-        if (gUnknown_0201EDF0.unk0 <= 1)
-            gUnknown_0201EDF0.unkF8 = 5;
-        else if (gUnknown_0201EDF0.unk0 <= 6)
-            gUnknown_0201EDF0.unkF8 = 4;
+        if (gTextbox.unk0 <= 1)
+            gTextbox.unkF8 = 5;
+        else if (gTextbox.unk0 <= 6)
+            gTextbox.unkF8 = 4;
         break;
     }
 
     while (gUnknown_084273EC[gUnknown_0202A6D8]())
         ;
 
-    if (gUnknown_0201EDF0.unkFA != 0)
-        gUnknown_0201EDF0.unkFA--;
+    if (gTextbox.unkFA != 0)
+        gTextbox.unkFA--;
     else
     {
-        if (gUnknown_0201EDF0.unk108 != 0)
+        if (gTextbox.unk108 != 0)
         {
-            gUnknown_0201EDF0.unk108 = 0;
+            gTextbox.unk108 = 0;
             sub_0800E3B0(2);
         }
         else
         {
-            while (gUnknown_084273D4[gUnknown_0201EDF0.unkF8]())
+            while (gUnknown_084273D4[gTextbox.unkF8]())
                 ;
         }
     }
@@ -152,7 +152,7 @@ void sub_0800D788(void)
 
 void sub_0800D87C(void)
 {
-    gUnknown_0201EDF0.unk10B = 0;
+    gTextbox.unk10B = 0;
 }
 
 int sub_0800D890(void)
@@ -164,7 +164,7 @@ extern void sub_0800EB50(void *, u8);
 
 int sub_0800D894(void)
 {
-    struct Struct0202A5E0 *r4 = &gUnknown_0201EDF0;
+    struct Struct0202A5E0 *r4 = &gTextbox;
 
     zero_memory(&gUnknown_020309C0, 16);
     zero_memory(gUnknown_0201EF00, 20);
@@ -216,7 +216,7 @@ int sub_0800D958(void)
 
 int sub_0800DA30(void)
 {
-    struct Struct0202A5E0 *r4 = &gUnknown_0201EDF0;
+    struct Struct0202A5E0 *r4 = &gTextbox;
 
     if (r4->unk10B != 1)
     {
@@ -238,18 +238,18 @@ int sub_0800DA70(void)
 
 int sub_0800DA90(void)
 {
-    if (gUnknown_0201EDF0.unk10B != 3)
+    if (gTextbox.unk10B != 3)
     {
-        gUnknown_0201EDF0.unk10B = 3;
-        gUnknown_0201EDF0.unkD7 = 0;
-        gUnknown_0201EDF0.unkD6 = 0;
-        gUnknown_0201EDF0.unkD5 = 0;
-        gUnknown_0201EDF0.unkD4 = 0;
+        gTextbox.unk10B = 3;
+        gTextbox.unkD7 = 0;
+        gTextbox.unkD6 = 0;
+        gTextbox.unkD5 = 0;
+        gTextbox.unkD4 = 0;
         play_sound(68);
     }
     sub_0800E69C(7);
     if (sub_0800E6B0(-1) != 0)
-        gUnknown_0201EDF0.unkF8 = 5;
+        gTextbox.unkF8 = 5;
     return 0;
 }
 
@@ -263,8 +263,8 @@ int sub_0800DAE8(void)
 int sub_0800DB08(void)
 {
     sub_0800E69C(0);
-    gUnknown_0201EDF0.unk10B = 4;
-    gUnknown_0201EDF0.unkF8 = 0;
+    gTextbox.unk10B = 4;
+    gTextbox.unkF8 = 0;
     return 0;
 }
 
@@ -292,8 +292,8 @@ int sub_0800DB58(void)
 int sub_0800DB84(void)
 {
     sub_0800E69C(3);
-    gUnknown_0201EDF0.unk10B = 2;
-    gUnknown_08427408[gUnknown_0201EDF0.unkF9](&gUnknown_0201EDF0);
+    gTextbox.unk10B = 2;
+    gUnknown_08427408[gTextbox.unkF9](&gTextbox);
     sub_0800E6B0(0);
     return 0;
 }
@@ -325,7 +325,7 @@ void sub_0800DBE0(struct Struct0202A5E0 *a)
     {
         int r1;
 
-        if ((gUnknown_03000940[gUnknown_03000414] & 2) != 0)
+        if ((gUnknown_03000940[gLCDRegisterBuffer] & 2) != 0)
             r1 = 5;
         else
             r1 = 1;
