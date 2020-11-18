@@ -108,7 +108,7 @@ sub_0800FDD4: @ 0x0800FDD4
 	lsl r0, r0, #5
 	bl sub_0800F97C
 	mov r0, #23
-	bl sub_0800BA44
+	bl load_gfx_group
 	ldr r4, _0800FE88  @ =gUnknown_02016D60
 	ldrb r0, [r4, #31]
 	bl sub_0800F888
@@ -1623,7 +1623,7 @@ sub_08010858: @ 0x08010858
 	add r0, r0, #1
 	strb r0, [r1]
 	mov r0, #24
-	bl sub_0800BA44
+	bl load_gfx_group
 _080108B0:
 	pop {r0}
 	bx r0
@@ -1733,7 +1733,7 @@ _0801095A:
 	strb r0, [r5, #3]
 	ldr r2, _0801097C  @ =gUnknown_08427524
 	ldrb r1, [r4, #2]
-	ldr r0, _08010980  @ =gUnknown_0202A8C0
+	ldr r0, _08010980  @ =gGameLanguage
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _08010970
@@ -1748,12 +1748,12 @@ _08010970:
 _0801097C:
 	.4byte gUnknown_08427524
 _08010980:
-	.4byte gUnknown_0202A8C0
+	.4byte gGameLanguage
 _08010984:
 	ldrb r0, [r4, #3]
 	cmp r0, #5
 	bne _080109F4
-	ldr r0, _080109A8  @ =gUnknown_0202A8C0
+	ldr r0, _080109A8  @ =gGameLanguage
 	ldrb r1, [r0]
 	add r6, r0, #0
 	cmp r1, #0
@@ -1770,7 +1770,7 @@ _08010984:
 	.byte 0x00
 	.byte 0x00
 _080109A8:
-	.4byte gUnknown_0202A8C0
+	.4byte gGameLanguage
 _080109AC:
 	add r0, r1, #6
 _080109AE:
@@ -1846,7 +1846,7 @@ _08010A26:
 	ldrb r0, [r2, #3]
 	cmp r0, #5
 	bne _08010A6C
-	ldr r0, _08010A48  @ =gUnknown_0202A8C0
+	ldr r0, _08010A48  @ =gGameLanguage
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08010A4C
@@ -1860,7 +1860,7 @@ _08010A26:
 	bl sub_08010CCC
 	b _08010A9E
 _08010A48:
-	.4byte gUnknown_0202A8C0
+	.4byte gGameLanguage
 _08010A4C:
 	add r0, r2, #0
 	add r0, r0, #32
@@ -2098,7 +2098,7 @@ _08010BF8:
 	THUMB_FUNC_START sub_08010BFC
 sub_08010BFC: @ 0x08010BFC
 	push {lr}
-	ldr r0, _08010C2C  @ =gUnknown_0202A8C0
+	ldr r0, _08010C2C  @ =gGameLanguage
 	ldrb r0, [r0]
 	mov r2, #3
 	cmp r0, #0
@@ -2124,7 +2124,7 @@ _08010C1C:
 	strb r2, [r0]
 	b _08010C3A
 _08010C2C:
-	.4byte gUnknown_0202A8C0
+	.4byte gGameLanguage
 _08010C30:
 	.4byte gUnknown_02016D60
 _08010C34:
@@ -2292,7 +2292,7 @@ sub_08010D1C: @ 0x08010D1C
 	mov r6, #5
 _08010D5A:
 	ldrb r1, [r4]
-	ldr r0, _08010DB8  @ =gUnknown_0202A8C0
+	ldr r0, _08010DB8  @ =gGameLanguage
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _08010D6C
@@ -2338,7 +2338,7 @@ _08010DB0:
 _08010DB4:
 	.4byte gUnknown_0200B250
 _08010DB8:
-	.4byte gUnknown_0202A8C0
+	.4byte gGameLanguage
 _08010DBC:
 	.4byte 0x06010000
 	THUMB_FUNC_END sub_08010D1C
@@ -2365,7 +2365,7 @@ _08010DD6:
 sub_08010DD8: @ 0x08010DD8
 	push {lr}
 	mov r2, #1
-	ldr r0, _08010DF0  @ =gUnknown_0202A8C0
+	ldr r0, _08010DF0  @ =gGameLanguage
 	strb r2, [r0]
 	mov r1, #192
 	lsl r1, r1, #18
@@ -2377,7 +2377,7 @@ sub_08010DD8: @ 0x08010DD8
 	.byte 0x00
 	.byte 0x00
 _08010DF0:
-	.4byte gUnknown_0202A8C0
+	.4byte gGameLanguage
 _08010DF4:
 	strb r2, [r1, #5]
 	add r0, r1, #0
@@ -4573,7 +4573,7 @@ sub_08011D4C: @ 0x08011D4C
 	mov r1, #2
 	orr r0, r0, r1
 	strb r0, [r2, #28]
-	ldr r0, _08011D80  @ =gUnknown_0202A8C0
+	ldr r0, _08011D80  @ =gGameLanguage
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08011D84
@@ -4588,7 +4588,7 @@ sub_08011D4C: @ 0x08011D4C
 	.byte 0x00
 	.byte 0x00
 _08011D80:
-	.4byte gUnknown_0202A8C0
+	.4byte gGameLanguage
 _08011D84:
 	ldrb r0, [r2, #11]
 	cmp r0, #4
@@ -4769,7 +4769,7 @@ sub_08011E9C: @ 0x08011E9C
 	mov r1, #2
 	bl 0x08003870
 _08011EC8:
-	ldr r0, _08011EE4  @ =gUnknown_0202A8C0
+	ldr r0, _08011EE4  @ =gGameLanguage
 	ldrb r1, [r0]
 	sub r1, r1, #1
 	lsl r0, r1, #3
@@ -4783,7 +4783,7 @@ _08011EC8:
 	pop {r0}
 	bx r0
 _08011EE4:
-	.4byte gUnknown_0202A8C0
+	.4byte gGameLanguage
 	THUMB_FUNC_END sub_08011E9C
 
 	THUMB_FUNC_START sub_08011EE8
@@ -4866,7 +4866,7 @@ sub_08011F28: @ 0x08011F28
 	mov r0, #11
 	strb r0, [r1]
 _08011F78:
-	ldr r1, _08011F94  @ =gUnknown_0202A8C0
+	ldr r1, _08011F94  @ =gGameLanguage
 	ldrb r0, [r3, #11]
 	mov r2, #1
 	ldrb r1, [r1]
@@ -4882,7 +4882,7 @@ _08011F86:
 	strb r0, [r3, #30]
 	bx lr
 _08011F94:
-	.4byte gUnknown_0202A8C0
+	.4byte gGameLanguage
 	THUMB_FUNC_END sub_08011F28
 
 	THUMB_FUNC_START sub_08011F98
@@ -8301,7 +8301,7 @@ sub_08013804: @ 0x08013804
 	lsl r0, r0, #1
 	add r0, r0, r1
 	ldrh r0, [r0]
-	bl sub_0800BA44
+	bl load_gfx_group
 	pop {r0}
 	bx r0
 	.byte 0x00
@@ -10643,7 +10643,7 @@ _080148DC:
 	ldr r0, _080148FC  @ =0x7FFFFFFF
 	and r2, r2, r0
 	add r0, r2, #0
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 _080148E6:
 	add r5, r6, #0
 	add r0, r5, #0
@@ -13374,7 +13374,7 @@ _08015D08:
 	beq _08015D30
 	lsr r1, r3, #5
 	add r0, r5, #0
-	bl sub_0800B8D4
+	bl load_palette
 	b _08015D3E
 _08015D2C:
 	.4byte 0x03000030
@@ -13599,7 +13599,7 @@ _08015E5A:
 	mov r1, #1
 	bl sub_0801484C
 	mov r0, #30
-	bl sub_0800BA44
+	bl load_gfx_group
 	bl sub_0801620C
 	ldr r0, _08015F68  @ =gUnknown_08146060
 	add r4, r4, r0
@@ -62563,7 +62563,7 @@ _0802C34C:
 	add r1, r5, #0
 	add r1, r1, #16
 	add r2, r4, #0
-	bl sub_0800B8D4
+	bl load_palette
 	add r0, r5, #0
 	b _0802C392
 _0802C374:
@@ -63483,7 +63483,7 @@ sub_0802C9B8: @ 0x0802C9B8
 	mov r5, r8
 	push {r5,r6}
 	mov r0, #1
-	bl sub_0800BA44
+	bl load_gfx_group
 	mov r0, #128
 	lsl r0, r0, #1
 	mov r9, r0
@@ -64078,7 +64078,7 @@ _0802CDE8:
 	ldr r0, _0802CE78  @ =0x00002878
 	strh r0, [r1]
 	mov r0, #17
-	bl sub_0800BA44
+	bl load_gfx_group
 	b _0802CE8C
 	.byte 0x00
 	.byte 0x00

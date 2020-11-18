@@ -246,7 +246,7 @@ struct UnknownStruct7
     u8 unk1B16;
 };
 
-struct UnknownStruct9
+struct GfxGroup
 {
     u32 unk0;
     u8 *dest;

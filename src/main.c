@@ -54,7 +54,7 @@ void AgbMain(void)
         break;
     }
     unk3000000.unk5 = 1;
-    gUnknown_0202A8C0 = 1;
+    gGameLanguage = 1;
     gUnknown_03000030 = gUnknown_0844DD74;
     gUnknown_03000BA4 = gUnknown_0854F7E8;
     gUnknown_030059A0 = &gUnknown_030004A0;

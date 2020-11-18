@@ -733,7 +733,7 @@ extern u8 gUnknown_0202A6D8;
 //extern gUnknown_0202A788;
 //extern gUnknown_0202A7E0;
 //extern gUnknown_0202A880;
-extern u8 gUnknown_0202A8C0;
+extern u8 gGameLanguage;
 //extern gUnknown_0202A8C4;
 //extern gUnknown_0202A8CE;
 extern u16 gUnknown_0202A8D0[];
@@ -839,6 +839,7 @@ extern u8 gUnknown_03000010[];
 //extern gUnknown_03000020;
 // I can't define this as a normal symbol because it overlaps
 // with the .bss section of libgcc.
+//extern u8 *gUnknown_03000030
 #define gUnknown_03000030 (*(const u8 **)0x03000030)
 //extern gUnknown_03000040;
 //extern gUnknown_03000050;
@@ -5475,7 +5476,7 @@ extern void (*gUnknown_0842797C[])(void);
 //extern gUnknown_084296C0;
 //extern gUnknown_084296F0;
 extern struct UnknownStruct6 *gUnknown_08429750[];
-extern struct UnknownStruct9 *gUnknown_084297F8[];
+extern struct GfxGroup *gUnknown_084297F8[];
 //extern gUnknown_084299B4;
 //extern gUnknown_08429A00;
 //extern gUnknown_08429A4C;

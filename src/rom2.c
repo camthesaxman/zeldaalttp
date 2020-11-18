@@ -1,106 +1,69 @@
 #include "gba/gba.h"
 #include "global.h"
 
-#ifdef NONMATCHING
-void sub_0800B890(u32 a)
+void load_palette_from_gfx_group(u32 gfxId)
 {
-    const struct UnknownStruct6 *r4 = gUnknown_08429750[a];
-
+    const struct UnknownStruct6 *r4 = gUnknown_08429750[gfxId];
+    
     for (;;)
     {
         u8 r3 = r4->unk2;
-        u8 r2 = r4->unk3;
-        u16 r0;
+        u32 r0;
+        u16 r2;
+        u32 foo;
 
-        if ((r2 & 0xF) == 0)
-            r2 == 16;
+        if ((r4->unk3 & 0xF) == 0)
+            r2 = 16;
         else
-            r2 = r2 & 0xF;
+            r2 = r4->unk3 & 0xF;
         r0 = r4->unk0;
-        sub_0800B8D4(gUnknown_03000030 + r0, r3, r2);
+        foo = (uintptr_t)gUnknown_03000030;
+        r0 += foo;
+        load_palette((void *)r0, r3, r2);
         if (!(r4->unk3 & 0x80))
             break;
         r4++;
     }
 }
-#else
-__attribute__((naked))
-void sub_0800B890(u32 a)
-{
-    asm("push {r4,lr}\n\
-	ldr r1, _0800B89C  @ =gUnknown_08429750\n\
-	lsl r0, r0, #2\n\
-	add r0, r0, r1\n\
-	ldr r4, [r0]\n\
-	b _0800B8A2\n\
-_0800B89C:\n\
-	.4byte gUnknown_08429750\n\
-_0800B8A0:\n\
-	add r4, r4, #4\n\
-_0800B8A2:\n\
-	ldrb r3, [r4, #2]\n\
-	ldrb r0, [r4, #3]\n\
-	mov r2, #15\n\
-	and r2, r2, r0\n\
-	cmp r2, #0\n\
-	bne _0800B8B0\n\
-	mov r2, #16\n\
-_0800B8B0:\n\
-	ldrh r0, [r4]\n\
-	ldr r1, _0800B8D0  @ =0x03000030\n\
-	ldr r1, [r1]\n\
-	add r0, r0, r1\n\
-	add r1, r3, #0\n\
-	bl sub_0800B8D4\n\
-	ldrb r1, [r4, #3]\n\
-	mov r0, #128\n\
-	and r0, r0, r1\n\
-	cmp r0, #0\n\
-	bne _0800B8A0\n\
-	pop {r4}\n\
-	pop {r0}\n\
-	bx r0\n\
-	.byte 0x00\n\
-	.byte 0x00\n\
-_0800B8D0:\n\
-	.4byte 0x03000030");
-}
-#endif
 
-void sub_0800B8D4(u16 *a, u32 b, u32 c)
+void load_palette(u16 *src, u32 paletteNum, u32 size)
 {
     register s32 i asm("r1");
-    u32 r2 = 1 << b;
-    u16 *r6;
+    u32 r2 = 1 << paletteNum;
+    u16 *dest;
 
     asm("":::"r3");
-    for (i = c - 1; i != 0; i--)
+    for (i = size - 1; i != 0; i--)
         r2 |= r2 << 1;
     gUnknown_0200B310 |= r2;
-    r6 = gPaletteBuf2 + b * 16;
-    c = c * 32;
+    dest = gPaletteBuf2 + paletteNum * 16;
+    size = size * 32;
     if (gUnknown_0202A4F4 != NULL)
     {
         do
         {
-            u16 *r4 = r6++;
-            *r4 = gUnknown_0202A4F4[*a & 0x1F] | gUnknown_0202A4F4[((*a & 0x3E0) >> 5) + 32] | gUnknown_0202A4F4[((*a & 0x7C00) >> 10) + 64];
-            a++;
-            c -= 2;
-        } while (c != 0);
+            u16 *ptr = dest++;
+            *ptr = gUnknown_0202A4F4[*src & 0x1F]
+                 | gUnknown_0202A4F4[((*src & 0x3E0) >> 5) + 32]
+                 | gUnknown_0202A4F4[((*src & 0x7C00) >> 10) + 64];
+            src++;
+            size -= 2;
+        } while (size != 0);
     }
     else
     {
-        CpuFastCopy(a, r6, c);
+        CpuFastCopy(src, dest, size);
     }
 }
 
-void sub_0800B980(u32 a, u32 b)
+void set_palette_color(u32 index, u32 color)
 {
     if (gUnknown_0202A4F4 != NULL)
-        b = gUnknown_0202A4F4[b & 0x1F] | gUnknown_0202A4F4[((b & 0x3E0) >> 5) + 32] | gUnknown_0202A4F4[((b & 0x7C00) >> 10) + 64];
-    gPaletteBuf2[a] = b;
-    gUnknown_0200B310 |= 1 << (a / 16);
+        color = gUnknown_0202A4F4[color & 0x1F]
+              | gUnknown_0202A4F4[((color & 0x3E0) >> 5) + 32]
+              | gUnknown_0202A4F4[((color & 0x7C00) >> 10) + 64];
+    gPaletteBuf2[index] = color;
+    gUnknown_0200B310 |= 1 << (index / 16);
 }
 
 void flush_palette_buffer(void)
@@ -131,9 +94,9 @@ void flush_palette_buffer(void)
     gPaletteBuf1Bitmask = gPaletteBuf2Bitmask = 0;
 }
 
-void sub_0800BA44(u16 a)
+void load_gfx_group(u16 gfxId)
 {
-    struct UnknownStruct9 *r4 = gUnknown_084297F8[a];
+    struct GfxGroup *r4 = gUnknown_084297F8[gfxId];
 
     do
     {
@@ -143,18 +106,18 @@ void sub_0800BA44(u16 a)
         switch (var)
         {
           case 14:
-            if (gUnknown_0202A8C0 > 1)
+            if (gGameLanguage > 1)
                 shouldCopy = TRUE;
             break;
           case 15:
-            if (gUnknown_0202A8C0 != 0)
+            if (gGameLanguage != 0)
                 shouldCopy = TRUE;
             break;
           case 7:
                 shouldCopy = TRUE;
             break;
           default:
-            if (var == gUnknown_0202A8C0)
+            if (var == gGameLanguage)
                 shouldCopy = TRUE;
             break;
         }

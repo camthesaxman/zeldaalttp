@@ -9,9 +9,9 @@ sub_08030E94: @ 0x08030E94
 	cmp r5, #0
 	bne _08030F30
 	mov r0, #19
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	mov r0, #1
-	bl sub_0800BA44
+	bl load_gfx_group
 	ldr r2, _08030F3C  @ =gUnknown_030004A0
 	ldrh r1, [r2]
 	ldr r0, _08030F40  @ =0x0000FDFF
@@ -320,9 +320,9 @@ sub_080310DC: @ 0x080310DC
 	add r1, r5, #0
 	bl CpuSet
 	mov r0, #35
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	mov r0, #12
-	bl sub_0800BA44
+	bl load_gfx_group
 	ldr r4, _08031174  @ =gUnknown_030004A0
 	mov r1, #0
 	mov r0, #242
@@ -1133,7 +1133,7 @@ _080316EC:
 	add r0, r0, #1
 	strb r0, [r3]
 	mov r0, #35
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	ldrb r1, [r4, #2]
 	add r1, r1, #5
 	lsl r1, r1, #24
@@ -1477,17 +1477,17 @@ _0803198E:
 	bl sub_0800D744
 	bl sub_0800D6F4
 	mov r0, #2
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	mov r0, #16
-	bl sub_0800BA44
+	bl load_gfx_group
 	ldr r1, _08031A60  @ =gUnknown_08427A04
 	ldr r0, _08031A64  @ =gUnknown_03006C80
 	ldrb r0, [r0, #1]
 	add r0, r0, r1
 	ldrb r0, [r0]
-	bl sub_0800BA44
+	bl load_gfx_group
 	mov r0, #1
-	bl sub_0800BA44
+	bl load_gfx_group
 	mov r0, sp
 	mov r5, #0
 	strh r5, [r0]
@@ -1523,7 +1523,7 @@ _0803198E:
 	str r4, [r0]
 	mov r0, #0
 	mov r1, #0
-	bl sub_0800B980
+	bl set_palette_color
 	ldr r1, _08031A8C  @ =gUnknown_03005050
 	ldrb r0, [r1]
 	add r0, r0, #1
@@ -2391,7 +2391,7 @@ sub_08031FF8: @ 0x08031FF8
 	ldr r2, _0803211C  @ =0x01000014
 	bl CpuSet
 	mov r0, #8
-	bl sub_0800BA44
+	bl load_gfx_group
 	ldr r0, _08032120  @ =gUnknown_0201F000
 	str r6, [r0]
 	mov r0, #93
@@ -3362,9 +3362,9 @@ _080327CC:
 	b _0803285E
 _080327D2:
 	mov r0, #13
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	mov r0, #6
-	bl sub_0800BA44
+	bl load_gfx_group
 	mov r0, #40
 	mov r1, #0
 	mov r2, #0
@@ -3493,7 +3493,7 @@ sub_08032888: @ 0x08032888
 	add r0, r0, r1
 	mov r1, #15
 	mov r2, #1
-	bl sub_0800B8D4
+	bl load_palette
 _080328DA:
 	pop {r4}
 	pop {r0}
@@ -3548,9 +3548,9 @@ _08032906:
 	ldr r2, _08032A48  @ =0x01000120
 	bl CpuSet
 	mov r0, #23
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	mov r0, #2
-	bl sub_0800BA44
+	bl load_gfx_group
 	ldr r2, _08032A4C  @ =gUnknown_030004A0
 	ldr r0, _08032A50  @ =0x00009E4A
 	strh r0, [r2, #32]
@@ -4351,8 +4351,8 @@ sub_08032F50: @ 0x08032F50
 	mov r0, sp
 	bl CpuFastSet
 	mov r0, #2
-	bl sub_0800B890
-	ldr r0, _08033034  @ =gUnknown_0202A8C0
+	bl load_palette_from_gfx_group
+	ldr r0, _08033034  @ =gGameLanguage
 	ldrb r0, [r0]
 	mov r1, #41
 	cmp r0, #0
@@ -4360,9 +4360,9 @@ sub_08032F50: @ 0x08032F50
 	mov r1, #8
 _08032F9C:
 	add r0, r1, #0
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	mov r0, #9
-	bl sub_0800BA44
+	bl load_gfx_group
 	bl sub_0803364C
 	ldr r1, _08033038  @ =gHeldKeys
 	ldr r0, _0803303C  @ =gNewKeys
@@ -4393,7 +4393,7 @@ _08032F9C:
 	strb r4, [r0, #2]
 	mov r0, #0
 	mov r1, #0
-	bl sub_0800B980
+	bl set_palette_color
 	ldr r2, _0803305C  @ =gUnknown_030004A0
 	ldrh r0, [r2]
 	mov r3, #186
@@ -4432,7 +4432,7 @@ _0803302C:
 _08033030:
 	.4byte 0x01000400
 _08033034:
-	.4byte gUnknown_0202A8C0
+	.4byte gGameLanguage
 _08033038:
 	.4byte gHeldKeys
 _0803303C:
@@ -5516,7 +5516,7 @@ sub_080337B0: @ 0x080337B0
 	lsl r0, r0, #1
 	add r0, r0, r1
 	ldrh r0, [r0]
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	pop {r4}
 	pop {r0}
 	bx r0
@@ -15522,13 +15522,13 @@ sub_08037EEC: @ 0x08037EEC
 	add r0, r7, #0
 	bl CpuFastSet
 	mov r0, #2
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	mov r0, #21
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	mov r0, #27
-	bl sub_0800BA44
+	bl load_gfx_group
 	mov r0, #1
-	bl sub_0800BA44
+	bl load_gfx_group
 	mov r0, #160
 	lsl r0, r0, #19
 	mov r1, #0
@@ -16233,9 +16233,9 @@ _08038478:
 	.4byte gUnknown_03006C80
 _0803847C:
 	mov r0, #2
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	mov r0, #16
-	bl sub_0800BA44
+	bl load_gfx_group
 	mov r0, #160
 	lsl r0, r0, #19
 	mov r1, #0
@@ -16268,10 +16268,10 @@ _0803847C:
 	strh r2, [r0, #2]
 	mov r0, #0
 	mov r1, #0
-	bl sub_0800B980
+	bl set_palette_color
 	ldr r1, _08038500  @ =0x0000FFFF
 	mov r0, #14
-	bl sub_0800B980
+	bl set_palette_color
 	ldr r0, _08038504  @ =gUnknown_030004A0
 	ldrh r1, [r0]
 	mov r2, #0
@@ -16471,7 +16471,7 @@ sub_0803857C: @ 0x0803857C
 	strb r1, [r0]
 	mov r0, #0
 	mov r1, #0
-	bl sub_0800B980
+	bl set_palette_color
 	ldr r0, _0803868C  @ =gUnknown_030004A0
 	ldr r1, _0803868C  @ =gUnknown_030004A0
 	ldrh r2, [r0, #4]
@@ -18284,11 +18284,11 @@ _08039410:
 	bl sub_0802C278
 	bl sub_0800D6F4
 	mov r0, #2
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	mov r0, #21
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	mov r0, #27
-	bl sub_0800BA44
+	bl load_gfx_group
 	mov r0, #160
 	lsl r0, r0, #19
 	mov r1, #0
@@ -62091,7 +62091,7 @@ _0804DAF4:
 	orr r2, r2, r1
 	add r1, r2, #0
 	strh r1, [r0, #54]
-	ldr r0, _0804DB58  @ =gUnknown_0202A8C0
+	ldr r0, _0804DB58  @ =gGameLanguage
 	ldrb r1, [r0]
 	cmp r1, #0
 	bne _0804DB5C
@@ -62113,7 +62113,7 @@ _0804DAF4:
 _0804DB54:
 	.4byte gUnknown_030004A0
 _0804DB58:
-	.4byte gUnknown_0202A8C0
+	.4byte gGameLanguage
 _0804DB5C:
 	ldr r0, [r7]
 	ldr r1, [r7]
@@ -62393,7 +62393,7 @@ _0804DD78:
 _0804DD7C:
 	.4byte gUnknown_03000948
 _0804DD80:
-	ldr r0, _0804DDAC  @ =gUnknown_0202A8C0
+	ldr r0, _0804DDAC  @ =gGameLanguage
 	ldrb r1, [r0]
 	cmp r1, #0
 	beq _0804DD9C
@@ -62417,7 +62417,7 @@ _0804DD9C:
 _0804DDAA:
 	b _0804DDB6
 _0804DDAC:
-	.4byte gUnknown_0202A8C0
+	.4byte gGameLanguage
 _0804DDB0:
 	.4byte gUnknown_02016D60
 _0804DDB4:
@@ -64312,7 +64312,7 @@ _0804EB9C:
 _0804EBBC:
 	mov r0, #0
 	mov r1, #0
-	bl sub_0800B980
+	bl set_palette_color
 	ldr r0, _0804ECF8  @ =gUnknown_03006A30
 	ldr r1, [r7]
 	ldr r2, [r1, #76]
@@ -81720,7 +81720,7 @@ sub_08056DCC: @ 0x08056DCC
 	add r1, r2, #0
 	add r1, r1, #24
 	mov r2, #1
-	bl sub_0800B8D4
+	bl load_palette
 	ldr r0, [r7]
 	ldrb r1, [r0, #23]
 	mov r2, #0
@@ -85356,7 +85356,7 @@ _080588A0:
 	b _080588E0
 _080588B6:
 	mov r0, #36
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	ldr r0, [r7]
 	ldr r1, [r7]
 	ldrb r2, [r1, #11]
@@ -92974,7 +92974,7 @@ sub_0805C0F0: @ 0x0805C0F0
 	add r2, r1, #0
 	strh r2, [r0, #58]
 	mov r0, #27
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	ldr r0, [r7]
 	ldrb r1, [r0, #10]
 	cmp r1, #0
@@ -97819,7 +97819,7 @@ _0805E542:
 	add r0, r1, #0
 	mov r1, #15
 	mov r2, #1
-	bl sub_0800B8D4
+	bl load_palette
 	ldr r0, [r7]
 	ldrb r1, [r0, #23]
 	mov r2, #0
@@ -97869,7 +97869,7 @@ _0805E5D0:
 	add r0, r1, #0
 	mov r1, #15
 	mov r2, #1
-	bl sub_0800B8D4
+	bl load_palette
 	ldr r0, [r7]
 	bl sub_08012540
 _0805E5F6:

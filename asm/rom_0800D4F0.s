@@ -2309,7 +2309,7 @@ sub_0800ED7C: @ 0x0800ED7C
 	lsr r3, r2, #16
 	strh r3, [r0, #6]
 	ldr r4, _0800EDB0  @ =gUnknown_08427444
-	ldr r1, _0800EDB4  @ =gUnknown_0202A8C0
+	ldr r1, _0800EDB4  @ =gGameLanguage
 	ldrb r1, [r1]
 	lsl r1, r1, #2
 	add r1, r1, r4
@@ -2333,7 +2333,7 @@ sub_0800ED7C: @ 0x0800ED7C
 _0800EDB0:
 	.4byte gUnknown_08427444
 _0800EDB4:
-	.4byte gUnknown_0202A8C0
+	.4byte gGameLanguage
 	THUMB_FUNC_END sub_0800ED7C
 
 	THUMB_FUNC_START sub_0800EDB8
@@ -2454,7 +2454,7 @@ sub_0800EE50: @ 0x0800EE50
 	lsr r4, r0, #24
 	cmp r3, #1
 	bne _0800EE78
-	ldr r0, _0800EE74  @ =gUnknown_0202A8C0
+	ldr r0, _0800EE74  @ =gGameLanguage
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _0800EE88
@@ -2465,7 +2465,7 @@ sub_0800EE50: @ 0x0800EE50
 	.byte 0x00
 	.byte 0x00
 _0800EE74:
-	.4byte gUnknown_0202A8C0
+	.4byte gGameLanguage
 _0800EE78:
 	cmp r3, #1
 	blt _0800EE88

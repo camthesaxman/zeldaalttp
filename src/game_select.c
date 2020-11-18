@@ -79,8 +79,8 @@ void sub_080308F8(void)
         sub_08011418(unk3000000.unk4);
         sub_080681D0(&gUnknown_0200B250[unk3000000.unk4]);
         sub_0800B85C(gUnknown_0200B250[unk3000000.unk4].unk25);
-        sub_0800B890(22);
-        sub_0800BA44(28);
+        load_palette_from_gfx_group(22);
+        load_gfx_group(28);
         gUnknown_030004A0.dispCnt = 0x1F40;
         gUnknown_030004A0.bgConfig[0].bgcnt = 0x1A40;
         gUnknown_030004A0.bgConfig[1].bgcnt = 0x1B41;

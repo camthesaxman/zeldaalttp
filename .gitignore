@@ -13,6 +13,7 @@ src/**/*.s
 # Tools
 tools/agbcc
 *.exe
+*.pyc
 
 # Emulator save files
 *.sav

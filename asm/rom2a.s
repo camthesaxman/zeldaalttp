@@ -340,18 +340,18 @@ sub_0802DEB8: @ 0x0802DEB8
 	mov r1, r9
 	strb r1, [r0]
 	mov r0, #20
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	mov r0, r8
 	strh r4, [r0]
 	strh r4, [r6]
 	mov r0, #1
-	bl sub_0800BA44
+	bl load_gfx_group
 	mov r0, #35
-	bl sub_0800BA44
+	bl load_gfx_group
 	ldr r0, _0802DFB0  @ =gUnknown_03006C80
 	ldrb r0, [r0]
 	add r0, r0, #34
-	bl sub_0800BA44
+	bl load_gfx_group
 	bl sub_0802DC80
 	bl sub_0802DDAC
 	bl sub_0802DE48
@@ -1128,10 +1128,10 @@ _0802E4D4:
 	b _0802E5CC
 _0802E4DA:
 	mov r0, #21
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	mov r0, #0
 	mov r1, #0
-	bl sub_0800B980
+	bl set_palette_color
 	ldr r0, _0802E50C  @ =gUnknown_08427818
 	ldr r2, _0802E510  @ =0x04000006
 	mov r1, sp
@@ -1537,11 +1537,11 @@ _0802E79A:
 	ldr r2, _0802E8C4  @ =0x05000090
 	bl CpuSet
 	mov r0, #23
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	mov r0, #1
-	bl sub_0800BA44
+	bl load_gfx_group
 	mov r0, #2
-	bl sub_0800BA44
+	bl load_gfx_group
 	mov r0, #18
 	bl sub_0802C2DC
 	ldr r0, _0802E8C8  @ =gUnknown_0202A4F8
@@ -1802,7 +1802,7 @@ sub_0802E9B8: @ 0x0802E9B8
 	add r0, r0, r1
 	mov r1, #15
 	mov r2, #1
-	bl sub_0800B8D4
+	bl load_palette
 _0802E9F6:
 	ldrb r0, [r5, #12]
 	lsl r0, r0, #4
@@ -1858,7 +1858,7 @@ sub_0802EA14: @ 0x0802EA14
 	strb r2, [r4]
 	ldr r1, _0802EA94  @ =0x00006739
 	mov r0, #0
-	bl sub_0800B980
+	bl set_palette_color
 	mov r0, #3
 	mov r1, #32
 	bl sub_0800C0B0
@@ -3867,7 +3867,7 @@ _0802F99E:
 	str r0, [r1, #12]
 	ldr r1, _0802F9E4  @ =0x00006739
 	mov r0, #0
-	bl sub_0800B980
+	bl set_palette_color
 	strb r5, [r4, #9]
 	mov r0, #255
 	strb r0, [r4, #10]
@@ -4139,15 +4139,15 @@ sub_0802FB28: @ 0x0802FB28
 	mov r2, r9
 	bl CpuFastSet
 	mov r0, #5
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	mov r0, #3
-	bl sub_0800BA44
+	bl load_gfx_group
 	bl sub_08030054
 	ldr r0, _0802FC5C  @ =gUnknown_0200B310
 	str r7, [r0]
 	ldr r1, _0802FC60  @ =0x00006739
 	mov r0, #0
-	bl sub_0800B980
+	bl set_palette_color
 	add r1, r5, #0
 	add r1, r1, #102
 	ldr r0, _0802FC64  @ =0x00003C64
@@ -4870,9 +4870,9 @@ sub_08030100: @ 0x08030100
 	strh r4, [r0]
 	bl sub_0800BED8
 	mov r0, #15
-	bl sub_0800B890
+	bl load_palette_from_gfx_group
 	mov r0, #20
-	bl sub_0800BA44
+	bl load_gfx_group
 	mov r0, #160
 	lsl r0, r0, #19
 	ldr r2, _080301D8  @ =0x00006739

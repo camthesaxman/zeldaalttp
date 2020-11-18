@@ -721,7 +721,7 @@
 . = 0x2A788;	gUnknown_0202A788 = .;
 . = 0x2A7E0;	gUnknown_0202A7E0 = .;
 . = 0x2A880;	gUnknown_0202A880 = .;
-. = 0x2A8C0;	gUnknown_0202A8C0 = .;
+. = 0x2A8C0;	gGameLanguage = .;
 . = 0x2A8C4;	gUnknown_0202A8C4 = .;
 . = 0x2A8CE;	gUnknown_0202A8CE = .;
 . = 0x2A8D0;	gUnknown_0202A8D0 = .;

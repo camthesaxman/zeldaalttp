@@ -1,0 +1,37 @@
+#!/usr/bin/env python
+
+from util import *
+
+addresses = [
+	0x08143A7C,
+	0x081437F4,
+	0x08143B84,
+	0x08143C08,
+	0x081437C4,
+	0x08143A10,
+	0x08143C80,
+	0x08143794,
+	0x08143DAC,
+	0x081437DC,
+	0x08143A7C,
+	0x08143A7C,
+	0x08143C98,
+	0x08143D1C,
+	0x08143D4C,
+	0x08143D7C,
+	0x08143800,
+	0x08143824,
+	0x08143A7C,
+	0x08143A7C,
+	0x08143830,
+	0x081439C8,
+	0x08143A28,
+	0x08143A34,
+	0x08143A64,
+]
+
+with open('baserom.gba', 'rb') as f:
+    for addr in addresses:
+        f.seek(addr - 0x08000000, 0)
+        print('addr: 0x%' % (addr))
+        

@@ -9,9 +9,9 @@ void splash_screen_main(void)
         sub_0800BED8();
         gUnknown_030004A0.dispCnt = 0x100;
         gUnknown_030004A0.bgConfig[0].bgcnt = 0x1C00;
-        sub_0800BA44(4);
-        sub_0800B890(gUnknown_0202A8C0 == 0 ? 3 : 40);
-        sub_0800B980(0, 0x7FFF);
+        load_gfx_group(4);
+        load_palette_from_gfx_group(gGameLanguage == 0 ? 3 : 40);
+        set_palette_color(0, 0x7FFF);
         zero_memory(&gUnknown_02016D60, 40);
         gUnknown_02016D60.unk4 = 60;
         sub_0800C0B0(2, 8);
@@ -25,8 +25,8 @@ void splash_screen_main(void)
     case 2:
         if (gUnknown_03000520.unk0 == 0)
         {
-            sub_0800BA44(7);
-            sub_0800B890(7);
+            load_gfx_group(7);
+            load_palette_from_gfx_group(7);
             gUnknown_030004A0.dispCnt = 0x300;
             gUnknown_030004A0.bgConfig[0].bgcnt = 0x1C00;
             gUnknown_030004A0.bgConfig[1].bgcnt = 0x1D05;

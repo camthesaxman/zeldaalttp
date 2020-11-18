@@ -50,7 +50,7 @@ void sub_0800F808(void)
 	{
 		unk3000000.unk7 = gUnknown_02016D60_alt.unk27;
 		sub_0800B85C(gUnknown_02016D60_alt.unk27);
-		sub_0800B8D4(gUnknown_02016D60_alt.unkC, 0, 32);
+		load_palette(gUnknown_02016D60_alt.unkC, 0, 32);
 	}
 	gUnknown_02016D60_alt.unk1B = 0;
 	gUnknown_02016D60_alt.unk1D = 0;
@@ -105,7 +105,7 @@ void sub_0800F8B0(void)
 				CpuFastCopy(r4 + 0x1780, gUnknown_02016D60_alt.unkC + 448, 32);
 				CpuFastCopy(r4 + 0x1680, gUnknown_02016D60_alt.unkC + 416, 32);
 				CpuFastCopy(r4 + 0x1580, gUnknown_02016D60_alt.unkC + 384, 32);
-				sub_0800B8D4(gUnknown_02016D60_alt.unkC + 384, 12, 4);
+				load_palette(gUnknown_02016D60_alt.unkC + 384, 12, 4);
 			}
 		}
 	}
@@ -126,9 +126,9 @@ void sub_0800F9AC(void)
 	sub_0800F97C(0);
 	sub_0800F888(-1);
 	sub_0800B85C(1);
-	sub_0800BA44(21);
-	sub_0800B890(16);
-	sub_0800B890(17);
+	load_gfx_group(21);
+	load_palette_from_gfx_group(16);
+	load_palette_from_gfx_group(17);
 	play_sound(SOUND_BGM_FILE_SELECT);
 	sub_0800C0B0(2, 8);
 	do
@@ -215,8 +215,8 @@ void sub_0800FAD4(void)
 		gSubState = 1;
 		CpuFastFill(0, (void *)VRAM, 0x20);
 		CpuFastFill(0, (void *)(VRAM + 0xE000), 0x800);
-		sub_0800BA44(5);
-		sub_0800B890(12);
+		load_gfx_group(5);
+		load_palette_from_gfx_group(12);
 		gPaletteBuf2[0] = gPaletteBuf2[15];
 		sub_0800C0B0(2, 8);
 	}
