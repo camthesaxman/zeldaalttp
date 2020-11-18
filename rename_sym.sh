@@ -10,5 +10,5 @@ fi
 
 #echo "Replace $1 with $2?"
 #read
-grep -rl "$1" src/*.{c,h} asm/*.s include/*.h data/*.s sym_*.txt | xargs sed -i "s/\b$1\b/$2/g"
+grep -rl "$1" src/*.c asm/*.s include/*.h data/*.s ldscript.txt sym_*.txt | xargs sed -i "s/\b$1\b/$2/g"
 

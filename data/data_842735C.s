@@ -8,7 +8,10 @@ gUnknown_0842735C:
 
 	.GLOBAL gUnknown_08427390
 gUnknown_08427390:
-	.INCBIN "baserom.gba", 0x427390, 0x4273A0-0x427390
+    .4byte sub_0800C140
+    .4byte sub_0800C190
+    .4byte sub_0800C140
+    .4byte sub_0800C190
 
 	.GLOBAL gUnknown_084273A0
 gUnknown_084273A0:

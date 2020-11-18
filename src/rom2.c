@@ -507,28 +507,280 @@ _0800BE42:\n\
 	bx r1");
 }
 
-/*
-#define gUnknown_0202A8CE ((u16 *)0x0202A8CE)
-#define gUnknown_0202A8D0 ((u16 *)0x0202A8D0)
+//#define gUnknown_0202A8CE ((u16 *)0x0202A8CE)
+//#define gUnknown_0202A8D0 ((u16 *)0x0202A8D0)
 
+extern u16 gUnknown_0202A8CE[];
+#define gUnknown_0202A8D0 (gUnknown_0202A8CE + 1)
+
+// register differences
+#ifdef NONMATCHING
 void sub_0800BE50(u8 *a)
 {
-    u16 *r4 = gUnknown_0202A8D0;
-    u32 r5 = *r4++;
-    u16 r1 = a - (u8 *)gUnknown_0202A8D0;
+    register u16 *r4 = &gUnknown_0202A8CE[1];
+    register u32 r5 = *r4++;
+    u16 r1 = a - (u8 *)&gUnknown_0202A8CE[1];
     u16 r2 = 0;
     
-    while (r2 < r5)
+    if (r2 < r5)
     {
-        if (r4[0] == r1)
+        if (*r4 == r1)
         {
-            u16 *r0 = gUnknown_0202A8CE + r5 * 2;
-            r4[0] = *r0;
-            *r0++ = r2;
-            r4[1] = *r0;
-            *r0 = r2;
-            gUnknown_0202A8D0[0] = r5 - 1;
+            u16 *ptr;
+            ptr = &gUnknown_0202A8CE[r5 * 2];
+            r4[0] = *ptr;
+            *ptr = 0;
+            ptr++;
+            r4[1] = *ptr;
+            *ptr = 0;
+            gUnknown_0202A8CE[1] = r5 - 1;
+        }
+        //_0800BE8C
+        else
+        {
+            register u16 *ptr asm("r1");
+            while (*r4 != r1)
+            {
+                asm("":::"r3");
+                r4 += 2;
+                r2++;
+                if (r2 >= r5)
+                    return;
+            }
+            ptr = &gUnknown_0202A8CE[r5 * 2];
+            r4[0] = *ptr;
+            *ptr = 0;
+            ptr++;
+            r4[1] = *ptr;
+            *ptr = 0;
+            gUnknown_0202A8CE[1] = r5 - 1;
+            asm("");
+        }
+    }
+    //_0800BEB8
+}
+#else
+__attribute__((naked))
+void sub_0800BE50(u8 *a)
+{
+    asm("\n\
+	push {r4,r5,lr}\n\
+	ldr r4, _0800BE88  @ =gUnknown_0202A8D0\n\
+	ldrh r5, [r4]\n\
+	add r4, r4, #2\n\
+	ldr r3, _0800BE88  @ =gUnknown_0202A8D0\n\
+	sub r0, r0, r3\n\
+	lsl r0, r0, #16\n\
+	lsr r1, r0, #16\n\
+	mov r2, #0\n\
+	cmp r2, r5\n\
+	bcs _0800BEB8\n\
+	ldrh r0, [r4]\n\
+	cmp r0, r1\n\
+	bne _0800BE8C\n\
+	lsl r0, r5, #2\n\
+	sub r1, r3, #2\n\
+	add r0, r0, r1\n\
+	ldrh r1, [r0]\n\
+	strh r1, [r4]\n\
+	strh r2, [r0]\n\
+	add r0, r0, #2\n\
+	ldrh r1, [r0]\n\
+	strh r1, [r4, #2]\n\
+	strh r2, [r0]\n\
+	sub r0, r5, #1\n\
+	strh r0, [r3]\n\
+	b _0800BEB8\n\
+	.byte 0x00\n\
+	.byte 0x00\n\
+_0800BE88:\n\
+	.4byte gUnknown_0202A8D0\n\
+_0800BE8C:\n\
+	add r4, r4, #4\n\
+	add r0, r2, #1\n\
+	lsl r0, r0, #16\n\
+	lsr r2, r0, #16\n\
+	cmp r2, r5\n\
+	bcs _0800BEB8\n\
+	ldrh r0, [r4]\n\
+	cmp r0, r1\n\
+	bne _0800BE8C\n\
+	lsl r1, r5, #2\n\
+	ldr r3, _0800BEC0  @ =gUnknown_0202A8CE\n\
+	add r1, r1, r3\n\
+	ldrh r0, [r1]\n\
+	strh r0, [r4]\n\
+	mov r2, #0\n\
+	strh r2, [r1]\n\
+	add r1, r1, #2\n\
+	ldrh r0, [r1]\n\
+	strh r0, [r4, #2]\n\
+	strh r2, [r1]\n\
+	sub r0, r5, #1\n\
+	strh r0, [r3, #2]\n\
+_0800BEB8:\n\
+	pop {r4,r5}\n\
+	pop {r0}\n\
+	bx r0\n\
+	.byte 0x00\n\
+	.byte 0x00\n\
+_0800BEC0:\n\
+	.4byte gUnknown_0202A8CE\n");
+}
+#endif
+
+void sub_0800BEC4(void)
+{
+    zero_memory(gUnknown_0202A8CE + 1, 0x2800);
+}
+
+extern u8 gUnknown_03005E20[];
+
+void sub_0800BED8(void)
+{
+    REG_DISPCNT = 0;
+    gUnknown_0300050C = 0;
+    gUnknown_03000204 = 0;
+    gUnknown_03000E34 = gUnknown_03006630;
+    gUnknown_03005E08 = (u8 *)gUnknown_03000E34 + 128;
+    gUnknown_03005E04 = gUnknown_03005E20 + 64;//gUnknown_03005E60;
+    gUnknown_03000948.unk5 = 0;
+    gUnknown_03000948.unk4 = 0;
+    sub_0800BFBC();
+    CpuFastFill(0xA0, (void *)OAM, OAM_SIZE);
+    CpuFastFill(0xA0, gUnknown_03005E20, 0x800);
+    CpuFastFill(0, gUnknown_03006630, 0x100);
+    CpuFastFill(0, gBG0Buffer, 0x1000);
+    if (gUnknown_03000BC0.unk0 != 0)
+    {
+        DmaStop(0);
+        gUnknown_03000BC0.unk0 = 0;
+    }
+}
+
+void sub_0800BFBC(void)
+{
+    zero_memory(gUnknown_030059A0, 108);
+    gUnknown_030059A0->dispCnt = 0x40;
+}
+
+int is_ram_address(void *addr)
+{
+    return (uintptr_t)addr - IWRAM < IWRAM_SIZE
+        || (uintptr_t)addr - EWRAM < EWRAM_SIZE;
+}
+
+extern u8 gEntityList[];  // TODO: correct type
+
+int sub_0800C004(u8 *a)
+{
+    return a >= gEntityList && a < gEntityList + 0x4000;
+}
+
+int is_rom_address(void *addr)
+{
+    return (uintptr_t)addr - 0x08000000 < 0x800000;
+}
+
+void sub_0800C03C(void)
+{
+    zero_memory(&gUnknown_03000520, 16);
+    sub_0800C080();
+    gUnknown_03000520.unkC = -1;
+    gUnknown_03000520.unk4 = 1;
+}
+
+void sub_0800C060(void)
+{
+    zero_memory(&gUnknown_03000520, 16);
+    gUnknown_03000520.unkC = -1;
+    gUnknown_03000520.unk4 = 1;
+}
+
+void sub_0800C080(void)
+{
+    if (gUnknown_03000520.unk4 != 0)
+    {
+        gUnknown_0200B310 = -1;
+        gUnknown_0201EDE0 = 0;
+    }
+    else
+        gUnknown_030004A0.bldcnt = 0;
+}
+
+extern u16 gUnknown_08137D18[];
+
+void sub_0800C0B0(u8 a, u32 b)
+{
+    gUnknown_03000520.unk1 = a;
+    gUnknown_03000520.unk3 = b;
+    gUnknown_03000520.unk0 = 1;
+    gUnknown_03000520.unk2 = 0;
+    gUnknown_03000520.unk8 = 0x100;
+    if (gUnknown_03000520.unk4 != 0)
+    {
+        gUnknown_03000520.unk7 = (a > 1) ? 25 : 0;
+        gUnknown_0200B310 = 0;
+    }
+    else
+    {
+        gUnknown_030004A0.bldcnt = gUnknown_08137D18[a];
+        gUnknown_030004A0.bldy = ((a & 1) != 0) ? 15 : 0;
+    }
+}
+
+extern void (*gUnknown_08427390[])(struct Struct03000520 *);
+
+void sub_0800C118(void)
+{
+    if (gUnknown_03000520.unk0 != 0)
+        gUnknown_08427390[gUnknown_03000520.unk1](&gUnknown_03000520);
+}
+
+void sub_0800C140(struct Struct03000520 *a)
+{
+    if (a->unk4 != 0)
+    {
+        a->unk8 -= a->unk3;
+        if (a->unk8 <= 0)
+        {
+            a->unk8 = 0;
+            a->unk0 = 0;
+        }
+        sub_0800C1EC(a->unk8);
+    }
+    else
+    {
+        a->unk8 -= a->unk3;
+        gUnknown_030004A0.bldy = a->unk8 >> 4;
+        if (a->unk8 <= 0)
+        {
+            a->unk0 = 0;
+            gUnknown_030004A0.bldy = 0;
         }
     }
 }
-*/
+
+void sub_0800C190(struct Struct03000520 *a)
+{
+    if (a->unk4 != 0)
+    {
+        a->unk8 -= a->unk3;
+        if (a->unk8 <= 0)
+        {
+            a->unk8 = 0;
+            a->unk0 = 0;
+        }
+        sub_0800C1EC(256 - a->unk8);
+    }
+    else
+    {
+        a->unk8 -= a->unk3;
+        gUnknown_030004A0.bldy = 16 - (a->unk8 >> 4);
+        if (a->unk8 <= 0)
+        {
+            a->unk0 = 0;
+            gUnknown_030004A0.bldy = 16;
+        }
+    }
+}

@@ -371,11 +371,16 @@ struct Struct020309C0
 struct Struct03000520
 {
 	u8 unk0;  // screen fading?
-	u8 filler1[6];
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u8 unk4;
+	u8 filler5[2];
 	u8 unk7;
-	u8 filler8[4];
+    s16 unk8;
+	u8 fillerA[2];
 	u32 unkC;
-};
+};  // size = 16 (0x10)
 
 struct Struct03000BE0
 {

@@ -1,5 +1,9 @@
 from elftools.elf.elffile import ELFFile
 
+elfFileName = 'zeldaalttp.elf'
+
+symbols = {}
+
 def read_symbols():
     try:
         with open(elfFileName, 'rb') as f:

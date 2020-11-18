@@ -77,4 +77,5 @@ SECTIONS
     }
 }
 
+gUnknown_03005E20 = 0x03005E20;  /* gUnknown_03005E60 seems to be part of this. (see sub_0800BED8) */
 gUnknown_02016D60_alt = gUnknown_02016D60;

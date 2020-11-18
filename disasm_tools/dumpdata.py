@@ -7,7 +7,6 @@ import sys
 from util import *
 
 romFileName = 'baserom.gba'
-elfFileName = 'zeldaalttp.elf'
 
 if len(sys.argv) != 4:
     print('usage: ' + sys.argv[0] + ' offset size fmt')
@@ -16,8 +15,6 @@ if len(sys.argv) != 4:
 offset = int(sys.argv[1], 0)
 size   = int(sys.argv[2], 0)
 fmt    = sys.argv[3]
-
-symbols = {}
 
 # auto-convert ROM address
 if offset & 0x08000000:
