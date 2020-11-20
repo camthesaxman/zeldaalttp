@@ -1581,7 +1581,7 @@ sub_08001290: @ 0x08001290
 	strb r2, [r0, #0x14]
 	strb r3, [r0, #0x15]
 	strb r3, [r0, #0x16]
-	bl sub_080045FC
+	bl DoPlayerItemEntity
 	pop {pc}
 _080012A0:
 	.byte 0x01, 0x1C, 0x00, 0x00
@@ -4596,7 +4596,7 @@ sub_080037CC: @ 0x080037CC
 sub_080037EC: @ 0x080037EC
 	push {lr}
 	push {r1}
-	bl sub_08003828
+	bl GetNextFrame
 	movs r2, #0x21
 	ldrb r3, [r0, r2]
 	movs r2, #0x22
@@ -4624,22 +4624,22 @@ sub_080037EC: @ 0x080037EC
 _08003826:
 	pop {pc}
 
-	thumb_func_start sub_08003828
-sub_08003828: @ 0x08003828
+	thumb_func_start GetNextFrame	@ r0 = Entity* this
+GetNextFrame: @ 0x08003828
 	movs r1, #0x28
-	ldrb r2, [r0, r1]
+	ldrb r2, [r0, r1]			@ Load frame timer
 	subs r2, #1
 	strb r2, [r0, r1]
-	beq _08003884
+	beq FrameNeedsUpdate				@ Continue if frame expired
 	mov pc, lr
 
-	thumb_func_start sub_08003834
-sub_08003834: @ 0x08003834
+	thumb_func_start Advance4Frames	@ r0 = Entity* this
+Advance4Frames: @ 0x08003834
 	movs r1, #0x28
 	ldrb r2, [r0, r1]
 	subs r2, #4
 	strb r2, [r0, r1]
-	blo _08003884
+	blo FrameNeedsUpdate
 	mov pc, lr
 
 	thumb_func_start sub_08003840
@@ -4668,7 +4668,7 @@ sub_08003840: @ 0x08003840
 _0800386E:
 	pop {pc}
 
-	thumb_func_start sub_08003870
+	thumb_func_start sub_08003870	@ r0, r1
 sub_08003870: @ 0x08003870
 	movs r2, #0x23
 	strb r1, [r0, r2]
@@ -4680,32 +4680,40 @@ sub_08003870: @ 0x08003870
 	ldr r1, [r2, r1]
 	str r1, [r0, #0x24]
 	movs r0, r0
-_08003884:
-	movs r2, #0x21
+
+FrameNeedsUpdate:
+	movs r2, #0x21		@ Get this frame idx
 	ldrb r1, [r0, r2]
 	movs r3, #0x22
-	strb r1, [r0, r3]
-	ldr r1, [r0, #0x24]
-	ldrb r3, [r1]
+	strb r1, [r0, r3]	@ Store as prev frame idx
+
+	ldr r1, [r0, #0x24]	@ Load frame data
+
+	ldrb r3, [r1]		@ Set new frame idx
 	strb r3, [r0, r2]
-	ldrb r3, [r1, #1]
+
+	ldrb r3, [r1, #1]	@ Set new frame timer
 	movs r2, #0x28
 	strb r3, [r0, r2]
-	ldrb r3, [r1, #2]
+
+	ldrb r3, [r1, #2]	@ Load something ??
 	movs r2, #0x2f
 	strb r3, [r0, r2]
-	ldrb r3, [r1, #3]
+
+	ldrb r3, [r1, #3]	@ Load something ??
 	movs r2, #0x29
 	strb r3, [r0, r2]
-	adds r1, #4
+
+	adds r1, #4			@ advance r1
 	movs r2, #0x80
-	tst r2, r3
+	tst r2, r3			@ Maybe testing if we should flip the sprite?
 	beq _080038B2
-	eors r2, r2
+	eors r2, r2			@ huh??
 	ldrsh r3, [r1, r2]
 	subs r1, r1, r3
+
 _080038B2:
-	str r1, [r0, #0x24]
+	str r1, [r0, #0x24]	@ Store result and be done
 	mov pc, lr
 	.align 2, 0
 
@@ -5725,8 +5733,8 @@ _08004240: .4byte 0x08000FF4
 
 	.INCBIN "baserom.gba", 0x4244, 0x45FC-0x4244
 
-	thumb_func_start sub_080045FC
-sub_080045FC: @ 0x080045FC
+	thumb_func_start DoPlayerItemEntity
+DoPlayerItemEntity: @ 0x080045FC
 	mov r3, lr
 	push {r3, r4, r5, r6, r7}
 	mov r4, r8

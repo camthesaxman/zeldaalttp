@@ -5,4 +5,4 @@ sub_08137AFC: @ 0x08137AFC
 	bx pc
 	nop
 	.arm
-	b sub_0800023C
+	b UpdateAllEntities
