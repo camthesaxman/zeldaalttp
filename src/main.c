@@ -70,7 +70,7 @@ void AgbMain(void)
     CpuCopy32((void *)sub_08008FA4, gUnknown_03000530, sizeof(gUnknown_03000530));
     CpuCopy32((void *)sub_080007C4, gUnknown_03000E40, sizeof(gUnknown_03000E40));
     CpuCopy32((void *)sub_080008A8, gUnknown_03005AE0, sizeof(gUnknown_03005AE0));
-    CpuCopy32((void *)sub_0800023C, gUnknown_03006740, sizeof(gUnknown_03006740));
+    CpuCopy32((void *)UpdateAllEntities, gUnknown_03006740, sizeof(gUnknown_03006740));
     gUnknown_03006C70 = gUnknown_03006740;
     while (1)
     {

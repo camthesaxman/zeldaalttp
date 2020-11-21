@@ -5382,7 +5382,7 @@ sub_080336F0: @ 0x080336F0
 	cmp r0, #7
 	bls _08033722
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08033722:
 	pop {r4}
 	pop {r0}
@@ -5697,7 +5697,7 @@ _0803393C:
 sub_08033940: @ 0x08033940
 	push {r4,r5,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldrb r0, [r4, #23]
 	add r5, r0, #0
 	cmp r5, #0
@@ -5761,7 +5761,7 @@ _08033994:
 	strb r0, [r5, #24]
 _080339BC:
 	add r0, r5, #0
-	bl sub_08003828
+	bl GetNextFrame
 	pop {r4,r5}
 	pop {r0}
 	bx r0
@@ -5938,7 +5938,7 @@ sub_08033AC4: @ 0x08033AC4
 	THUMB_FUNC_START sub_08033AEC
 sub_08033AEC: @ 0x08033AEC
 	push {lr}
-	bl sub_08003828
+	bl GetNextFrame
 	pop {r0}
 	bx r0
 	THUMB_FUNC_END sub_08033AEC
@@ -5996,7 +5996,7 @@ _08033B46:
 sub_08033B4C: @ 0x08033B4C
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r4, #56]
 	ldr r1, _08033B78  @ =0xFFFF8000
 	add r0, r0, r1
@@ -6049,7 +6049,7 @@ _08033BAA:
 sub_08033BB0: @ 0x08033BB0
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	add r0, r4, #0
 	bl sub_08034248
 	ldr r0, _08033BD8  @ =gUnknown_0201F000
@@ -6059,7 +6059,7 @@ sub_08033BB0: @ 0x08033BB0
 	cmp r0, #0
 	beq _08033BD0
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08033BD0:
 	pop {r4}
 	pop {r0}
@@ -6256,7 +6256,7 @@ _08033D1C:
 sub_08033D20: @ 0x08033D20
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	add r0, r4, #0
 	add r0, r0, #41
 	ldrb r1, [r0]
@@ -6265,7 +6265,7 @@ sub_08033D20: @ 0x08033D20
 	cmp r0, #0
 	beq _08033D3C
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08033D3C:
 	pop {r4}
 	pop {r0}
@@ -6324,13 +6324,13 @@ sub_08033D84: @ 0x08033D84
 	cmp r0, #0
 	beq _08033DA0
 	add r0, r2, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08033DA6
 _08033D9C:
 	.4byte gUnknown_0201F000
 _08033DA0:
 	add r0, r2, #0
-	bl sub_08003828
+	bl GetNextFrame
 _08033DA6:
 	pop {r0}
 	bx r0
@@ -6388,7 +6388,7 @@ _08033DF8:
 sub_08033DFC: @ 0x08033DFC
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldrb r0, [r4, #23]
 	cmp r0, #0
 	beq _08033E10
@@ -6413,7 +6413,7 @@ _08033E10:
 	orr r0, r0, r1
 	str r0, [r2]
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08033E3A:
 	pop {r4}
 	pop {r0}
@@ -6466,7 +6466,7 @@ sub_08033E60: @ 0x08033E60
 sub_08033E88: @ 0x08033E88
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	add r0, r4, #0
 	add r0, r0, #41
 	ldrb r1, [r0]
@@ -6475,7 +6475,7 @@ sub_08033E88: @ 0x08033E88
 	cmp r0, #0
 	beq _08033EA4
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08033EA4:
 	pop {r4}
 	pop {r0}
@@ -6510,7 +6510,7 @@ _08033ECC:
 	add r0, r4, #0
 	bl _call_via_r1
 	add r0, r4, #0
-	bl sub_08003828
+	bl GetNextFrame
 _08033EE2:
 	pop {r4}
 	pop {r0}
@@ -6602,7 +6602,7 @@ sub_08033F60: @ 0x08033F60
 	bl play_sound
 _08033F86:
 	add r0, r6, #0
-	bl sub_08003828
+	bl GetNextFrame
 	add r0, r6, #0
 	bl sub_0803CC20
 	ldr r0, [r6, #84]
@@ -6711,7 +6711,7 @@ sub_08034030: @ 0x08034030
 	orr r1, r1, r2
 	str r1, [r0]
 	add r0, r3, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08034050:
 	pop {r0}
 	bx r0
@@ -6843,7 +6843,7 @@ sub_08034120: @ 0x08034120
 	cmp r0, #0
 	bne _08034136
 	add r0, r1, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08034136:
 	pop {r0}
 	bx r0
@@ -6916,7 +6916,7 @@ sub_080341A8: @ 0x080341A8
 	add r4, r0, #0
 	bl sub_0803CC20
 	add r0, r4, #0
-	bl sub_08003828
+	bl GetNextFrame
 	add r2, r4, #0
 	add r2, r2, #96
 	ldrh r0, [r2]
@@ -7116,7 +7116,7 @@ sub_08034308: @ 0x08034308
 	cmp r0, #0
 	beq _08034324
 	add r0, r3, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08034324:
 	pop {r0}
 	bx r0
@@ -7229,7 +7229,7 @@ _080343E4:
 sub_080343E8: @ 0x080343E8
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	add r0, r4, #0
 	bl sub_0803D8AC
 	cmp r0, #0
@@ -7256,7 +7256,7 @@ sub_08034414: @ 0x08034414
 	add r4, r0, #0
 	bl sub_0803CC20
 	add r0, r4, #0
-	bl sub_08003828
+	bl GetNextFrame
 	add r2, r4, #0
 	add r2, r2, #96
 	ldrh r0, [r2]
@@ -7329,9 +7329,9 @@ _080344A0:
 sub_080344A4: @ 0x080344A4
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	add r0, r4, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, _080344E0  @ =gUnknown_0813E4CC
 	ldrb r0, [r4, #23]
 	add r0, r0, #64
@@ -7413,7 +7413,7 @@ _08034536:
 	cmp r0, #0
 	bne _08034548
 	add r0, r3, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08034548:
 	pop {r0}
 	bx r0
@@ -7482,7 +7482,7 @@ _080345B4:
 	cmp r0, #0
 	beq _080345C4
 	add r0, r3, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _080345C4:
 	pop {r0}
 	bx r0
@@ -7725,7 +7725,7 @@ _08034744:
 	ldrb r2, [r2]
 	bl sub_08013C8C
 	add r0, r5, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _0803477C:
 	pop {r4-r6}
 	pop {r0}
@@ -7845,7 +7845,7 @@ sub_08034824: @ 0x08034824
 	cmp r0, #255
 	bne _08034854
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08034854:
 	pop {r4}
 	pop {r0}
@@ -7884,7 +7884,7 @@ _0803488A:
 	ldrh r1, [r1]
 	bl sub_0801478C
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _0803489C:
 	pop {r4}
 	pop {r0}
@@ -8039,7 +8039,7 @@ sub_08034984: @ 0x08034984
 	b _080349D0
 _080349A0:
 	add r0, r4, #0
-	bl sub_08003828
+	bl GetNextFrame
 	add r0, r4, #0
 	add r0, r0, #41
 	ldrb r1, [r0]
@@ -8112,7 +8112,7 @@ sub_08034A18: @ 0x08034A18
 	add r4, r0, #0
 	bl sub_0803CC20
 	add r0, r4, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldrb r0, [r4, #23]
 	sub r0, r0, #1
 	strb r0, [r4, #23]
@@ -8249,7 +8249,7 @@ sub_08034AF0: @ 0x08034AF0
 	add r0, r0, r1
 	str r0, [r4, #56]
 	add r0, r4, #0
-	bl sub_08003828
+	bl GetNextFrame
 	b _08034B54
 _08034B0E:
 	ldr r2, _08034B5C  @ =gUnknown_0201F000
@@ -8299,7 +8299,7 @@ _08034B60:
 	THUMB_FUNC_START sub_08034B64
 sub_08034B64: @ 0x08034B64
 	push {lr}
-	bl sub_08003828
+	bl GetNextFrame
 	pop {r0}
 	bx r0
 	THUMB_FUNC_END sub_08034B64
@@ -8339,7 +8339,7 @@ sub_08034B88: @ 0x08034B88
 sub_08034B9C: @ 0x08034B9C
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r4, #96]
 	mov r0, #2
 	strb r0, [r1, #2]
@@ -8505,7 +8505,7 @@ sub_08034CA0: @ 0x08034CA0
 	bl sub_0803D3D0
 _08034CC6:
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08034CCC:
 	pop {r4}
 	pop {r0}
@@ -8558,7 +8558,7 @@ sub_08034D10: @ 0x08034D10
 	cmp r0, #0
 	bne _08034D20
 	add r0, r4, #0
-	bl sub_08003828
+	bl GetNextFrame
 _08034D20:
 	ldrb r0, [r4, #11]
 	cmp r0, #0
@@ -8587,7 +8587,7 @@ _08034D38:
 	cmp r0, #0
 	bne _08034D6E
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08034D6E
 _08034D5A:
 	add r0, r4, #0
@@ -8598,7 +8598,7 @@ _08034D5A:
 	cmp r0, #0
 	beq _08034D6E
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08034D6E:
 	ldr r1, [r4, #88]
 	cmp r1, #0
@@ -8716,7 +8716,7 @@ _08034E38:
 	cmp r0, #0
 	bne _08034E7A
 	add r0, r5, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08034E7A
 _08034E50:
 	.4byte gUnknown_03006C80
@@ -8820,7 +8820,7 @@ sub_08034EB4: @ 0x08034EB4
 sub_08034EFC: @ 0x08034EFC
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	add r2, r4, #0
 	add r2, r2, #41
 	ldrb r1, [r2]
@@ -8858,7 +8858,7 @@ _08034F30:
 	mov r1, #40
 	strh r1, [r0, #54]
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08034F56:
 	pop {r4}
 	pop {r0}
@@ -8940,7 +8940,7 @@ _08034FDC:
 sub_08034FE0: @ 0x08034FE0
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, _08034FFC  @ =gUnknown_02016D60
 	ldrb r0, [r0, #14]
 	cmp r0, #4
@@ -9023,7 +9023,7 @@ _08035088:
 	.4byte gUnknown_02016D60
 _0803508C:
 	add r0, r4, #0
-	bl sub_08003828
+	bl GetNextFrame
 	add r1, r4, #0
 	add r1, r1, #96
 	mov r0, #192
@@ -9051,7 +9051,7 @@ _080350B0:
 sub_080350B8: @ 0x080350B8
 	push {r4,r5,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	add r0, r4, #0
 	add r0, r0, #97
 	ldrb r1, [r0]
@@ -9200,7 +9200,7 @@ _080351DC:
 sub_080351E0: @ 0x080351E0
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	add r0, r4, #0
 	bl sub_0803CC20
 	mov r0, #50
@@ -9242,7 +9242,7 @@ sub_0803522C: @ 0x0803522C
 	push {r4,r5,lr}
 	sub sp, sp, #4
 	add r5, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r4, _08035250  @ =gUnknown_02016D60
 	ldrb r0, [r4, #14]
 	cmp r0, #4
@@ -9339,7 +9339,7 @@ _080352E4:
 	add r0, r0, #1
 	strb r0, [r4]
 	add r0, r5, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _080352FA:
 	add sp, sp, #4
 	pop {r4,r5}
@@ -9409,7 +9409,7 @@ sub_08035338: @ 0x08035338
 	bic r2, r2, r0
 	str r2, [r4]
 	add r0, r3, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08035366:
 	pop {r4}
 	pop {r0}
@@ -9538,7 +9538,7 @@ sub_08035418: @ 0x08035418
 	orr r1, r1, r0
 	str r1, [r2]
 	add r0, r6, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0803549A
 _08035448:
 	.4byte gUnknown_0201F000
@@ -9793,7 +9793,7 @@ sub_080355DC: @ 0x080355DC
 	THUMB_FUNC_START sub_08035610
 sub_08035610: @ 0x08035610
 	push {lr}
-	bl sub_08003828
+	bl GetNextFrame
 	pop {r0}
 	bx r0
 	THUMB_FUNC_END sub_08035610
@@ -9852,7 +9852,7 @@ sub_08035634: @ 0x08035634
 	bl sub_08003870
 _08035678:
 	add r0, r4, #0
-	bl sub_08003828
+	bl GetNextFrame
 	add r2, r4, #0
 	add r2, r2, #41
 	ldrb r1, [r2]
@@ -9878,7 +9878,7 @@ _080356A2:
 	cmp r0, #0
 	beq _080356B4
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _080356B4:
 	pop {r4}
 	pop {r0}
@@ -9939,7 +9939,7 @@ sub_080356DC: @ 0x080356DC
 sub_08035710: @ 0x08035710
 	push {r4,r5,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, _08035744  @ =gUnknown_0201F000
 	ldr r0, [r0]
 	mov r5, #2
@@ -9970,7 +9970,7 @@ _08035744:
 sub_08035748: @ 0x08035748
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldrb r0, [r4, #23]
 	sub r0, r0, #1
 	strb r0, [r4, #23]
@@ -10022,7 +10022,7 @@ _0803579E:
 sub_080357A4: @ 0x080357A4
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r4, #12]
 	cmp r0, #0
 	beq _080357B8
@@ -10036,7 +10036,7 @@ _080357B8:
 	cmp r0, #0
 	beq _080357CA
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _080357CA:
 	pop {r4}
 	pop {r0}
@@ -10143,7 +10143,7 @@ _08035868:
 	cmp r0, #0
 	beq _0803588E
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _0803588E:
 	ldr r1, [r4, #84]
 	ldr r0, [r1, #48]
@@ -10153,7 +10153,7 @@ _0803588E:
 	ldr r0, [r1, #56]
 	str r0, [r4, #56]
 	add r0, r4, #0
-	bl sub_08003828
+	bl GetNextFrame
 	pop {r4}
 	pop {r0}
 	bx r0
@@ -10203,7 +10203,7 @@ _080358E2:
 	bl sub_08003870
 _080358F8:
 	add r0, r4, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldrb r2, [r4, #11]
 	cmp r2, #0
 	bne _08035926
@@ -10232,7 +10232,7 @@ _08035926:
 	cmp r0, #0
 	beq _08035938
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08035938:
 	pop {r4,r5}
 	pop {r0}
@@ -10728,7 +10728,7 @@ _08035C8C:
 sub_08035C90: @ 0x08035C90
 	push {r4-r6,lr}
 	add r5, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldrb r0, [r5, #23]
 	cmp r0, #0
 	beq _08035CF8
@@ -10838,7 +10838,7 @@ _08035D60:
 	bl sub_0803D4A4
 	str r4, [r5, #88]
 	ldr r0, [r5, #84]
-	bl sub_08012540
+	bl DeleteThisEntity
 	mov r0, #176
 	bl play_sound
 	mov r0, #12
@@ -10855,7 +10855,7 @@ _08035D80:
 sub_08035D88: @ 0x08035D88
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r4, #88]
 	add r0, r0, #69
 	ldrb r0, [r0]
@@ -10927,7 +10927,7 @@ _08035E04:
 sub_08035E08: @ 0x08035E08
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldrb r0, [r4, #23]
 	sub r0, r0, #1
 	strb r0, [r4, #23]
@@ -10962,7 +10962,7 @@ _08035E40:
 sub_08035E44: @ 0x08035E44
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldrb r0, [r4, #23]
 	cmp r0, #0
 	beq _08035E58
@@ -11000,7 +11000,7 @@ _08035E88:
 sub_08035E8C: @ 0x08035E8C
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	mov r0, #17
 	strb r0, [r4, #20]
 	mov r0, #120
@@ -11019,7 +11019,7 @@ sub_08035E8C: @ 0x08035E8C
 sub_08035EAC: @ 0x08035EAC
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldrb r0, [r4, #23]
 	sub r0, r0, #1
 	strb r0, [r4, #23]
@@ -11120,7 +11120,7 @@ _08035F68:
 sub_08035F6C: @ 0x08035F6C
 	push {r4,lr}
 	add r4, r0, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldrb r0, [r4, #23]
 	sub r0, r0, #1
 	strb r0, [r4, #23]
@@ -11272,7 +11272,7 @@ _08036088:
 	add r0, r4, #0
 	bl 0x08003BCC
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08036094:
 	pop {r4}
 	pop {r0}
@@ -11332,7 +11332,7 @@ _080360FC:
 	add r0, r4, #0
 	bl 0x08003BCC
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08036108:
 	pop {r4}
 	pop {r0}
@@ -11380,7 +11380,7 @@ sub_08036110: @ 0x08036110
 	bl sub_08003870
 _08036158:
 	add r0, r5, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldrb r0, [r5, #23]
 	sub r0, r0, #1
 	strb r0, [r5, #23]
@@ -11389,7 +11389,7 @@ _08036158:
 	cmp r0, #0
 	bne _08036174
 	add r0, r5, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0803618A
 _08036174:
 	cmp r0, #14
@@ -11429,7 +11429,7 @@ sub_08036190: @ 0x08036190
 	bl sub_08003870
 _080361B2:
 	add r0, r4, #0
-	bl sub_08003828
+	bl GetNextFrame
 	pop {r4}
 	pop {r0}
 	bx r0
@@ -12000,7 +12000,7 @@ sub_08036598: @ 0x08036598
 	b _080365B2
 _080365AC:
 	add r0, r4, #0
-	bl sub_08003828
+	bl GetNextFrame
 _080365B2:
 	ldrb r0, [r4, #23]
 	cmp r0, #0
@@ -12063,7 +12063,7 @@ _08036610:
 	b _08036626
 _08036620:
 	add r0, r4, #0
-	bl sub_08003828
+	bl GetNextFrame
 _08036626:
 	pop {r4}
 	pop {r0}
@@ -12083,7 +12083,7 @@ sub_0803662C: @ 0x0803662C
 	b _08036646
 _08036640:
 	add r0, r4, #0
-	bl sub_08003828
+	bl GetNextFrame
 _08036646:
 	ldrb r0, [r4, #23]
 	cmp r0, #251
@@ -12114,7 +12114,7 @@ _08036678:
 	add r0, r4, #0
 	bl 0x08003BCC
 	add r0, r4, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08036684:
 	pop {r4,r5}
 	pop {r0}
@@ -28098,8 +28098,8 @@ _0803DBA8:
 	.4byte gUnknown_03006A30
 	THUMB_FUNC_END sub_0803DB4C
 
-	THUMB_FUNC_START sub_0803DBAC
-sub_0803DBAC: @ 0x0803DBAC
+	THUMB_FUNC_START DoPlayerEntity
+DoPlayerEntity: @ 0x0803DBAC
 	push {r7,lr}
 	sub sp, sp, #4
 	mov r7, sp
@@ -28119,7 +28119,7 @@ sub_0803DBAC: @ 0x0803DBAC
 	bx r0
 _0803DBD0:
 	.4byte gUnknown_08427C28
-	THUMB_FUNC_END sub_0803DBAC
+	THUMB_FUNC_END DoPlayerEntity
 
 	THUMB_FUNC_START sub_0803DBD4
 sub_0803DBD4: @ 0x0803DBD4
@@ -31667,8 +31667,8 @@ _0803F6A8:
 	.4byte gUnknown_03006C80
 	THUMB_FUNC_END sub_0803F638
 
-	THUMB_FUNC_START sub_0803F6AC
-sub_0803F6AC: @ 0x0803F6AC
+	THUMB_FUNC_START DoManagerEntity
+DoManagerEntity: @ 0x0803F6AC
 	push {r7,lr}
 	sub sp, sp, #4
 	mov r7, sp
@@ -31707,7 +31707,7 @@ sub_0803F6AC: @ 0x0803F6AC
 	.byte 0x00
 _0803F6F4:
 	.4byte gUnknown_084286E0
-	THUMB_FUNC_END sub_0803F6AC
+	THUMB_FUNC_END DoManagerEntity
 
 	THUMB_FUNC_START sub_0803F6F8
 sub_0803F6F8: @ 0x0803F6F8
@@ -31716,7 +31716,7 @@ sub_0803F6F8: @ 0x0803F6F8
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	add sp, sp, #4
 	pop {r7}
 	pop {r0}
@@ -32215,7 +32215,7 @@ _0803FAD4:
 	.4byte gUnknown_0813E8BC
 _0803FAD8:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0803FADE:
 	add sp, sp, #12
 	pop {r4,r5,r7}
@@ -32262,7 +32262,7 @@ sub_0803FAE8: @ 0x0803FAE8
 	add r0, r1, #0
 	bl sub_0800BE50
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0803FE9E
 _0803FB38:
 	.4byte gUnknown_03006A30
@@ -32309,7 +32309,7 @@ _0803FB3C:
 	add r0, r1, #0
 	bl sub_0800BE50
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0803FE9E
 	.byte 0x00
 	.byte 0x00
@@ -32753,7 +32753,7 @@ sub_0803FEAC: @ 0x0803FEAC
 	add r0, r1, #0
 	bl sub_0800BE50
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0803FEFA:
 	ldr r0, _0803FF58  @ =gUnknown_03006A30
 	ldr r2, [r7]
@@ -32797,7 +32797,7 @@ _0803FF12:
 	add r0, r1, #0
 	bl sub_0800BE50
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08040066
 	.byte 0x00
 	.byte 0x00
@@ -32833,7 +32833,7 @@ _0803FF5C:
 	add r0, r1, #0
 	bl sub_0800BE50
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08040038
 _0803FFA0:
 	.4byte gUnknown_03006A30
@@ -32933,7 +32933,7 @@ _0804003A:
 	add r0, r1, #0
 	bl sub_0800BE50
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08040066:
 	add sp, sp, #8
 	pop {r7}
@@ -33424,7 +33424,7 @@ _0804039C:
 	add r0, r1, #0
 	bl sub_0800BE50
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804041E:
 	ldr r1, [r7]
 	add r0, r1, #0
@@ -34061,7 +34061,7 @@ _080408C4:
 	ldr r0, [r7]
 	bl _call_via_r1
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	ldrb r1, [r0, #20]
 	cmp r1, #3
@@ -35043,7 +35043,7 @@ sub_08041030: @ 0x08041030
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	add sp, sp, #4
 	pop {r7}
 	pop {r0}
@@ -35080,7 +35080,7 @@ sub_08041048: @ 0x08041048
 	cmp r0, #255
 	bne _08041080
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08041080:
 	add sp, sp, #4
 	pop {r7}
@@ -35179,7 +35179,7 @@ sub_08041088: @ 0x08041088
 	bl sub_08003870
 _08041138:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	ldr r1, [r7, #4]
 	ldr r2, [r1, #48]
@@ -35272,7 +35272,7 @@ _080411D8:
 	b _080411F8
 _080411F2:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080411F8:
 	add sp, sp, #8
 	pop {r7}
@@ -35984,7 +35984,7 @@ _08041720:
 	mov r0, #0
 	str r0, [r1]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804173C:
 	add sp, sp, #8
 	pop {r7}
@@ -36674,7 +36674,7 @@ sub_08041C3C: @ 0x08041C3C
 	b _08041FD0
 _08041C64:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #108
@@ -36729,7 +36729,7 @@ _08041C9C:
 	ldr r0, [r7]
 	bl sub_08000620
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _080421FC
 _08041CDC:
 	.4byte gUnknown_03006A30
@@ -36768,7 +36768,7 @@ _08041CE0:
 	ldr r0, [r7]
 	bl sub_08000620
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _080421FC
 _08041D2E:
 	b _08041FCE
@@ -37388,7 +37388,7 @@ _080421BC:
 	ldr r0, [r7]
 	bl sub_08000620
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080421FC:
 	add sp, sp, #20
 	pop {r4,r5,r7}
@@ -37418,7 +37418,7 @@ sub_08042208: @ 0x08042208
 	b _08042230
 _0804222A:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 _08042230:
 	ldr r1, [r7]
 	ldr r0, [r7]
@@ -37442,7 +37442,7 @@ _08042230:
 	cmp r0, #255
 	bne _08042260
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08042260:
 	add sp, sp, #4
 	pop {r7}
@@ -37457,7 +37457,7 @@ sub_08042268: @ 0x08042268
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_0803CC20
 	mov r1, #128
@@ -37467,7 +37467,7 @@ sub_08042268: @ 0x08042268
 	cmp r0, #0
 	bne _08042290
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08042290:
 	add sp, sp, #4
 	pop {r7}
@@ -37800,7 +37800,7 @@ _080424EC:
 	add r0, r1, #0
 	bl 0x080012A0
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08042576
 	.byte 0x00
 	.byte 0x00
@@ -37868,7 +37868,7 @@ _08042578:
 	add r0, r1, #0
 	bl 0x080012A0
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08042594:
 	add sp, sp, #16
 	pop {r7}
@@ -37908,7 +37908,7 @@ sub_080425A0: @ 0x080425A0
 	ldr r0, [r7]
 	bl sub_08000620
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08042A70
 _080425E0:
 	.4byte gUnknown_03006A30
@@ -38172,7 +38172,7 @@ _080427CE:
 	ldr r0, [r7]
 	bl sub_08000620
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08042946
 _080427DC:
 	ldr r0, [r7]
@@ -38251,7 +38251,7 @@ _08042870:
 	ldr r0, [r7]
 	bl sub_08000620
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08042944
 _0804287E:
 	ldr r0, [r7]
@@ -38322,7 +38322,7 @@ _080428AA:
 	ldr r0, [r7]
 	bl sub_08000620
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08042944
 _0804290E:
 	ldr r1, [r7, #4]
@@ -38517,7 +38517,7 @@ sub_08042A78: @ 0x08042A78
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	add sp, sp, #4
 	pop {r7}
 	pop {r0}
@@ -38800,7 +38800,7 @@ _08042C90:
 	add r0, r1, #0
 	bl 0x080012A0
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08042CAC:
 	add sp, sp, #16
 	pop {r7}
@@ -39502,7 +39502,7 @@ _080431AC:
 	mov r0, #0
 	str r0, [r1]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080431FE:
 	ldr r0, [r7, #8]
 	ldrb r1, [r0, #27]
@@ -39875,7 +39875,7 @@ _080434C4:
 	.4byte gUnknown_03006A30
 _080434C8:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080434CE:
 	add sp, sp, #8
 	pop {r4,r7}
@@ -39922,7 +39922,7 @@ sub_080434D8: @ 0x080434D8
 	ldr r0, [r7]
 	bl sub_08000620
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08043526:
 	ldr r0, _0804356C  @ =gUnknown_03006A30
 	ldr r2, [r7]
@@ -39953,7 +39953,7 @@ _08043526:
 	mov r0, #0
 	str r0, [r1]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0804360C
 	.byte 0x00
 	.byte 0x00
@@ -40604,7 +40604,7 @@ sub_08043A34: @ 0x08043A34
 	b _08043B80
 _08043A52:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_0803CC20
 	ldr r1, [r7]
@@ -40705,7 +40705,7 @@ _08043A86:
 	mov r2, #0
 	bl sub_0804CB38
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08043B34:
 	ldr r1, [r7]
 	add r0, r1, #0
@@ -40720,7 +40720,7 @@ _08043B34:
 	mov r2, #0
 	bl sub_0804CB38
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08043B56:
 	ldr r0, [r7]
 	mov r1, #12
@@ -40730,7 +40730,7 @@ _08043B56:
 	ldr r0, [r7]
 	bl sub_08000620
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08043B6E:
 	b _08043B8C
 _08043B70:
@@ -40745,7 +40745,7 @@ _08043B80:
 	ldr r0, [r7]
 	bl sub_08000620
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08043B8C:
 	add sp, sp, #12
 	pop {r4,r5,r7}
@@ -41348,7 +41348,7 @@ _08043F98:
 	strb r1, [r0, #11]
 _08044004:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804400A:
 	add sp, sp, #8
 	pop {r7}
@@ -42691,7 +42691,7 @@ sub_080449F4: @ 0x080449F4
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	ldr r0, [r7]
 	ldr r1, [r7]
@@ -42813,7 +42813,7 @@ sub_08044AE0: @ 0x08044AE0
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	ldr r0, [r7]
 	ldr r1, [r7]
@@ -42892,7 +42892,7 @@ sub_08044B78: @ 0x08044B78
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #41
@@ -43161,7 +43161,7 @@ sub_08044D64: @ 0x08044D64
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	ldr r0, [r7]
 	ldr r1, [r7]
@@ -43281,7 +43281,7 @@ sub_08044E10: @ 0x08044E10
 	bl 0x08002E64
 _08044E54:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	b _08044ED0
 _08044E5C:
 	bl sub_0800099C
@@ -43353,7 +43353,7 @@ sub_08044ED8: @ 0x08044ED8
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #41
@@ -43492,7 +43492,7 @@ sub_08044FD8: @ 0x08044FD8
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #41
@@ -43734,7 +43734,7 @@ _0804515E:
 	strh r1, [r0]
 _080451BC:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	add sp, sp, #16
 	pop {r7}
 	pop {r0}
@@ -44192,7 +44192,7 @@ sub_08045524: @ 0x08045524
 	str r0, [r7]
 	bl sub_0803DF84
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_080660BC
 	ldr r0, [r7]
@@ -44266,7 +44266,7 @@ sub_080455B4: @ 0x080455B4
 	str r0, [r7]
 	bl sub_0803DF84
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_080660BC
 	ldr r0, [r7]
@@ -44514,7 +44514,7 @@ sub_08045780: @ 0x08045780
 	str r0, [r7]
 	bl sub_0803DF84
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_080660BC
 	ldr r1, [r7]
@@ -44571,7 +44571,7 @@ sub_080457EC: @ 0x080457EC
 	str r0, [r7]
 	bl sub_0803DF84
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_080660BC
 	ldr r1, [r7]
@@ -44638,7 +44638,7 @@ sub_08045870: @ 0x08045870
 	str r0, [r7]
 	bl sub_0803DF84
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_080660BC
 	ldr r0, [r7]
@@ -44709,7 +44709,7 @@ sub_080458FC: @ 0x080458FC
 	str r0, [r7]
 	bl sub_0803DF84
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_080660BC
 	ldr r0, [r7]
@@ -44940,7 +44940,7 @@ sub_08045ABC: @ 0x08045ABC
 	str r0, [r7]
 	bl sub_0803DF84
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_080660BC
 	ldr r1, [r7]
@@ -45058,7 +45058,7 @@ sub_08045B9C: @ 0x08045B9C
 	str r0, [r7]
 	bl sub_0803DF84
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_080660BC
 	ldr r0, [r7]
@@ -45122,7 +45122,7 @@ sub_08045C18: @ 0x08045C18
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_080660BC
 	ldr r1, [r7]
@@ -45342,7 +45342,7 @@ sub_08045DC8: @ 0x08045DC8
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	ldrh r1, [r0, #50]
 	ldr r2, _08045E50  @ =0xFFFFFE09
@@ -45479,14 +45479,14 @@ sub_08045E98: @ 0x08045E98
 	ldrh r2, [r1]
 	str r2, [r0, #12]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 _08045EEA:
 	b _08045EF6
 _08045EEC:
 	.4byte gUnknown_0813F058
 _08045EF0:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 _08045EF6:
 	add sp, sp, #4
 	pop {r7}
@@ -45503,7 +45503,7 @@ sub_08045F00: @ 0x08045F00
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #112
@@ -45558,7 +45558,7 @@ sub_08045F64: @ 0x08045F64
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #112
@@ -45676,7 +45676,7 @@ _08046018:
 	strb r2, [r0, #23]
 _0804604C:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	add sp, sp, #4
 	pop {r7}
 	pop {r0}
@@ -45738,7 +45738,7 @@ sub_0804605C: @ 0x0804605C
 	strb r2, [r0]
 _080460BE:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	add sp, sp, #4
 	pop {r7}
 	pop {r0}
@@ -45807,7 +45807,7 @@ sub_080460CC: @ 0x080460CC
 	strb r2, [r0, #20]
 _08046140:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	add sp, sp, #4
 	pop {r7}
 	pop {r0}
@@ -45825,7 +45825,7 @@ sub_08046154: @ 0x08046154
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #112
@@ -45915,7 +45915,7 @@ sub_080461F4: @ 0x080461F4
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #41
@@ -45968,7 +45968,7 @@ sub_08046258: @ 0x08046258
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	ldr r0, [r7]
 	ldr r1, [r7]
@@ -46037,7 +46037,7 @@ sub_080462DC: @ 0x080462DC
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #41
@@ -46138,7 +46138,7 @@ sub_0804639C: @ 0x0804639C
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_08047538
 	ldr r1, [r7]
@@ -46184,7 +46184,7 @@ sub_080463F4: @ 0x080463F4
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_08047538
 	ldr r0, [r7]
@@ -46225,7 +46225,7 @@ sub_08046440: @ 0x08046440
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_08047538
 	ldr r1, [r7]
@@ -46268,7 +46268,7 @@ sub_08046490: @ 0x08046490
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	ldr r1, [r7]
 	add r2, r1, #0
@@ -46406,7 +46406,7 @@ sub_0804659C: @ 0x0804659C
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	ldr r0, [r7]
 	ldr r1, [r7]
@@ -46504,7 +46504,7 @@ sub_08046658: @ 0x08046658
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	ldr r0, [r7]
 	ldr r1, [r7]
@@ -46550,7 +46550,7 @@ sub_080466AC: @ 0x080466AC
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	ldrh r1, [r0, #50]
 	ldr r2, _08046734  @ =0xFFFFFE09
@@ -46672,7 +46672,7 @@ sub_0804679C: @ 0x0804679C
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	ldr r0, [r7]
 	ldr r1, [r7]
@@ -46746,7 +46746,7 @@ sub_08046828: @ 0x08046828
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	ldr r0, [r7]
 	ldr r1, [r7]
@@ -46873,7 +46873,7 @@ sub_08046918: @ 0x08046918
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	ldrb r1, [r0, #23]
 	cmp r1, #0
@@ -47323,7 +47323,7 @@ sub_08046C7C: @ 0x08046C7C
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	ldr r1, [r7]
 	ldrb r2, [r1, #28]
@@ -47412,7 +47412,7 @@ sub_08046D24: @ 0x08046D24
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	add sp, sp, #4
 	pop {r7}
 	pop {r0}
@@ -48780,7 +48780,7 @@ sub_08047740: @ 0x08047740
 	cmp r0, #255
 	bne _08047778
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _080477DE
 	.byte 0x00
 	.byte 0x00
@@ -48849,7 +48849,7 @@ _080477DE:
 	ldr r0, [r7]
 	bl sub_0804CA20
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080477F8:
 	add sp, sp, #4
 	pop {r4,r7}
@@ -49245,7 +49245,7 @@ _08047AE0:
 	b _08047AE8
 _08047AE2:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 _08047AE8:
 	add sp, sp, #4
 	pop {r7}
@@ -49262,13 +49262,13 @@ sub_08047AF0: @ 0x08047AF0
 	ldr r0, [r7]
 	ldr r1, [r0, #120]
 	add r0, r1, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	ldr r1, [r0, #124]
 	add r0, r1, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	ldr r0, [r7]
 	ldr r1, [r7]
@@ -49325,13 +49325,13 @@ sub_08047B70: @ 0x08047B70
 	ldr r0, [r7]
 	ldr r1, [r0, #120]
 	add r0, r1, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	ldr r1, [r0, #124]
 	add r0, r1, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #41
@@ -49381,11 +49381,11 @@ sub_08047B70: @ 0x08047B70
 	ldr r0, [r7]
 	ldr r1, [r0, #120]
 	add r0, r1, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 	ldr r0, [r7]
 	ldr r1, [r0, #124]
 	add r0, r1, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08047C04:
 	add sp, sp, #4
 	pop {r7}
@@ -50048,7 +50048,7 @@ _080480DE:
 	b _080480E6
 _080480E0:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 _080480E6:
 	add sp, sp, #4
 	pop {r7}
@@ -50065,7 +50065,7 @@ sub_080480F0: @ 0x080480F0
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #118
@@ -50103,7 +50103,7 @@ sub_080480F0: @ 0x080480F0
 	ldr r0, [r7]
 	ldr r1, [r0, #120]
 	add r0, r1, #0
-	bl sub_08003828
+	bl GetNextFrame
 	b _08048176
 _08048150:
 	ldr r1, [r7]
@@ -50136,7 +50136,7 @@ _08048176:
 	ldr r0, [r7]
 	ldr r1, [r0, #124]
 	add r0, r1, #0
-	bl sub_08003828
+	bl GetNextFrame
 	b _080481B6
 _08048190:
 	ldr r1, [r7]
@@ -50208,11 +50208,11 @@ _080481B8:
 	ldr r0, [r7]
 	ldr r1, [r0, #120]
 	add r0, r1, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	ldr r1, [r0, #124]
 	add r0, r1, #0
-	bl sub_08003828
+	bl GetNextFrame
 	b _08048312
 _08048226:
 	ldr r1, [r7]
@@ -50348,13 +50348,13 @@ sub_0804831C: @ 0x0804831C
 	ldr r0, [r7]
 	ldr r1, [r0, #120]
 	add r0, r1, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	ldr r1, [r0, #124]
 	add r0, r1, #0
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #41
@@ -50392,11 +50392,11 @@ sub_0804831C: @ 0x0804831C
 	ldr r0, [r7]
 	ldr r1, [r0, #120]
 	add r0, r1, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 	ldr r0, [r7]
 	ldr r1, [r0, #124]
 	add r0, r1, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _08048398:
 	add sp, sp, #4
 	pop {r7}
@@ -50677,7 +50677,7 @@ sub_08048514: @ 0x08048514
 	bl sub_08003870
 _080485A4:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	ldr r0, [r1, #88]
 	ldr r1, [r7]
@@ -52399,7 +52399,7 @@ sub_080492B4: @ 0x080492B4
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_0804930C
 	ldr r0, [r7]
@@ -52430,7 +52430,7 @@ _080492F8:
 	.4byte 0xFFFFFE70
 _080492FC:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08049302:
 	add sp, sp, #4
 	pop {r7}
@@ -53448,7 +53448,7 @@ _08049A74:
 	.4byte gUnknown_0813F6C8
 _08049A78:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08049A7E:
 	add sp, sp, #4
 	pop {r7}
@@ -53558,7 +53558,7 @@ sub_08049B30: @ 0x08049B30
 	mov r3, #1
 	bl sub_0803D4A4
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #41
@@ -53685,7 +53685,7 @@ _08049C3A:
 	cmp r0, #0
 	beq _08049C56
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08049C56:
 	add sp, sp, #12
 	pop {r7}
@@ -53875,7 +53875,7 @@ sub_08049DA8: @ 0x08049DA8
 	ldr r0, [r7]
 	bl sub_0803CC20
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	ldr r1, [r7]
 	ldrh r2, [r1, #58]
@@ -54011,7 +54011,7 @@ _08049EB2:
 	b _08049E54
 _08049EC8:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08049ECE:
 	add sp, sp, #12
 	pop {r4,r7}
@@ -54085,7 +54085,7 @@ sub_08049F40: @ 0x08049F40
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl 0x08009F9C
 	ldr r0, [r7]
@@ -54123,7 +54123,7 @@ _08049F90:
 	ldr r0, [r7]
 	bl sub_0804C9F4
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08049F9C:
 	add sp, sp, #4
 	pop {r7}
@@ -54350,7 +54350,7 @@ _0804A13A:
 	bl sub_0804CB38
 _0804A144:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804A14A:
 	add sp, sp, #4
 	pop {r7}
@@ -54367,7 +54367,7 @@ sub_0804A154: @ 0x0804A154
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	add sp, sp, #4
 	pop {r7}
 	pop {r0}
@@ -54439,7 +54439,7 @@ _0804A1D0:
 	bl sub_0803D3D0
 _0804A1EA:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0804A20C
 	.byte 0x00
 	.byte 0x00
@@ -54609,7 +54609,7 @@ sub_0804A2D8: @ 0x0804A2D8
 	strb r1, [r0]
 _0804A32C:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_0803CC20
 	mov r1, #192
@@ -54663,7 +54663,7 @@ sub_0804A38C: @ 0x0804A38C
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_0803CC20
 	mov r1, #192
@@ -54702,7 +54702,7 @@ sub_0804A3D4: @ 0x0804A3D4
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_0803CC20
 	mov r1, #192
@@ -54776,7 +54776,7 @@ sub_0804A438: @ 0x0804A438
 	add r1, r2, #0
 	strb r1, [r0, #28]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_0803CC20
 	mov r1, #192
@@ -54786,7 +54786,7 @@ sub_0804A438: @ 0x0804A438
 	cmp r0, #0
 	bne _0804A48A
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804A48A:
 	add sp, sp, #4
 	pop {r7}
@@ -54889,7 +54889,7 @@ _0804A4F2:
 	bl sub_0803D3D0
 _0804A54E:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0804A57C
 	.byte 0x00
 	.byte 0x00
@@ -54909,7 +54909,7 @@ _0804A568:
 	cmp r1, #0
 	beq _0804A57C
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804A57C:
 	add sp, sp, #8
 	pop {r4,r7}
@@ -55055,7 +55055,7 @@ _0804A69E:
 	cmp r1, #1
 	bne _0804A6AC
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804A6AC:
 	b _0804A788
 	.byte 0x00
@@ -55075,14 +55075,14 @@ _0804A6C2:
 	mov r1, #3
 	bl sub_0804B708
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0804A6E2
 _0804A6D2:
 	ldr r0, [r7]
 	mov r1, #2
 	bl sub_0804B708
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0804A6E2
 _0804A6E2:
 	b _0804A788
@@ -55148,7 +55148,7 @@ _0804A750:
 	mov r1, #1
 	bl sub_0804B708
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0804A786
 _0804A760:
 	bl sub_0800099C
@@ -55166,7 +55166,7 @@ _0804A776:
 	bl sub_0804CABC
 _0804A77E:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0804A786
 _0804A786:
 	b _0804A788
@@ -55460,7 +55460,7 @@ _0804A954:
 	b _0804A9CA
 _0804A9C2:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0804ABA8
 _0804A9CA:
 	b _0804AB28
@@ -55719,7 +55719,7 @@ sub_0804ABB8: @ 0x0804ABB8
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #65
@@ -56239,7 +56239,7 @@ _0804AF28:
 	add r2, r1, #0
 	strb r2, [r0]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0804B154
 _0804AFC0:
 	ldr r0, [r7]
@@ -56259,7 +56259,7 @@ _0804AFC0:
 	add r2, r1, #0
 	strb r2, [r0]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804AFE8:
 	ldr r1, [r7]
 	ldr r0, [r7]
@@ -56469,7 +56469,7 @@ sub_0804B15C: @ 0x0804B15C
 	cmn r1, r0
 	beq _0804B1F8
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_0803CC20
 	ldr r1, [r7]
@@ -56532,7 +56532,7 @@ _0804B1F4:
 	.4byte gUnknown_03006A30
 _0804B1F8:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804B1FE:
 	add sp, sp, #4
 	pop {r7}
@@ -56554,11 +56554,11 @@ sub_0804B208: @ 0x0804B208
 	cmp r0, #4
 	bne _0804B222
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0804B2F8
 _0804B222:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #35
@@ -56577,7 +56577,7 @@ _0804B222:
 	cmp r0, #0
 	beq _0804B250
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804B250:
 	b _0804B2F8
 _0804B252:
@@ -56682,7 +56682,7 @@ sub_0804B300: @ 0x0804B300
 	add r2, r1, #0
 	strb r2, [r0, #24]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	mov r1, #128
 	lsl r1, r1, #6
 	ldr r0, [r7]
@@ -57038,7 +57038,7 @@ _0804B5AC:
 	cmp r0, #0
 	beq _0804B5D4
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804B5D4:
 	b _0804B5F4
 _0804B5D6:
@@ -57069,7 +57069,7 @@ sub_0804B5FC: @ 0x0804B5FC
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	ldrb r1, [r0, #21]
 	cmp r1, #0
@@ -57081,7 +57081,7 @@ sub_0804B5FC: @ 0x0804B5FC
 	cmp r0, #0
 	bne _0804B626
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804B626:
 	b _0804B700
 _0804B628:
@@ -57193,7 +57193,7 @@ _0804B6F8:
 	b _0804B700
 _0804B6FA:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804B700:
 	add sp, sp, #4
 	pop {r7}
@@ -57260,7 +57260,7 @@ sub_0804B744: @ 0x0804B744
 	ldr r0, [r7]
 	bl sub_0804CA20
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804B77A:
 	add sp, sp, #4
 	pop {r7}
@@ -57495,7 +57495,7 @@ sub_0804B8B0: @ 0x0804B8B0
 	mov r0, #180
 	bl sub_08003DFC
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0804BAF6
 _0804B94A:
 	b _0804B98C
@@ -57534,7 +57534,7 @@ _0804B94C:
 	strb r2, [r0]
 _0804B98C:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	ldr r2, [r7]
 	add r1, r2, #0
@@ -57710,7 +57710,7 @@ _0804B9B6:
 	ldr r0, [r7]
 	bl sub_0803D3D0
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804BAF6:
 	add sp, sp, #12
 	pop {r4,r7}
@@ -57755,7 +57755,7 @@ sub_0804BB08: @ 0x0804BB08
 	ldr r0, [r7]
 	bl sub_0804CA20
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804BB4A:
 	add sp, sp, #4
 	pop {r7}
@@ -58532,7 +58532,7 @@ sub_0804C088: @ 0x0804C088
 	strb r2, [r0]
 _0804C11A:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl 0x08009FCC
 	ldr r0, [r7]
@@ -58556,7 +58556,7 @@ _0804C11A:
 	ldr r0, [r7]
 	bl sub_0804BFA4
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0804C168
 _0804C15A:
 	ldr r0, [r7]
@@ -58564,7 +58564,7 @@ _0804C15A:
 	cmp r1, #0
 	beq _0804C168
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804C168:
 	add sp, sp, #8
 	pop {r7}
@@ -58572,8 +58572,8 @@ _0804C168:
 	bx r0
 	THUMB_FUNC_END sub_0804C088
 
-	THUMB_FUNC_START sub_0804C170
-sub_0804C170: @ 0x0804C170
+	THUMB_FUNC_START DoObjectEntity
+DoObjectEntity: @ 0x0804C170
 	push {r7,lr}
 	sub sp, sp, #4
 	mov r7, sp
@@ -58645,7 +58645,7 @@ _0804C1B8:
 	bx r0
 _0804C1FC:
 	.4byte gUnknown_0813F998
-	THUMB_FUNC_END sub_0804C170
+	THUMB_FUNC_END DoObjectEntity
 
 	THUMB_FUNC_START sub_0804C200
 sub_0804C200: @ 0x0804C200
@@ -60250,7 +60250,7 @@ sub_0804CD94: @ 0x0804CD94
 	add r1, r0, r1
 	ldr r2, [r1]
 	add r0, r2, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804CDD0:
 	add r0, r7, #2
 	mov r1, #0
@@ -61205,7 +61205,7 @@ sub_0804D448: @ 0x0804D448
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #41
@@ -61275,7 +61275,7 @@ sub_0804D448: @ 0x0804D448
 	bl sub_0803D3D0
 _0804D4E2:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804D4E8:
 	add sp, sp, #12
 	pop {r4,r5,r7}
@@ -61359,7 +61359,7 @@ sub_0804D4FC: @ 0x0804D4FC
 	ldr r0, [r7]
 	ldr r1, [r0, #88]
 	add r0, r1, #0
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804D58C:
 	ldr r1, [r7, #4]
 	ldr r0, _0804D5B8  @ =gUnknown_0842882C
@@ -61722,7 +61722,7 @@ _0804D834:
 	orr r2, r2, r1
 	str r2, [r0]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804D846:
 	add sp, sp, #16
 	pop {r7}
@@ -62053,7 +62053,7 @@ _0804DAA0:
 	cmp r1, #0
 	beq _0804DAEA
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804DAEA:
 	b _0804DDB6
 _0804DAEC:
@@ -62132,7 +62132,7 @@ _0804DB72:
 	cmp r1, #0
 	beq _0804DB80
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804DB80:
 	b _0804DDB6
 	.byte 0x00
@@ -62193,7 +62193,7 @@ _0804DBE4:
 	.4byte 0x0000FF80
 _0804DBE8:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_0803CC20
 	ldr r0, [r7]
@@ -62413,7 +62413,7 @@ _0804DD9C:
 	cmp r1, #0
 	beq _0804DDAA
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804DDAA:
 	b _0804DDB6
 _0804DDAC:
@@ -62602,7 +62602,7 @@ sub_0804DE58: @ 0x0804DE58
 	b _0804DF0C
 _0804DF06:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 _0804DF0C:
 	add sp, sp, #4
 	pop {r7}
@@ -62822,7 +62822,7 @@ _0804E070:
 	add r1, r2, #0
 	strh r1, [r0]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804E0AA:
 	add sp, sp, #16
 	pop {r4,r7}
@@ -63055,7 +63055,7 @@ sub_0804E248: @ 0x0804E248
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, _0804E280  @ =gUnknown_03006C80
 	add r0, r1, #0
 	add r1, r1, #110
@@ -63297,7 +63297,7 @@ _0804E41C:
 	.4byte gUnknown_03006C80
 _0804E420:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 _0804E426:
 	ldr r0, [r7]
 	bl sub_0804E434
@@ -63553,7 +63553,7 @@ sub_0804E50C: @ 0x0804E50C
 	cmp r0, r1
 	bne _0804E628
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0804E6E8
 	.byte 0x00
 	.byte 0x00
@@ -64542,7 +64542,7 @@ sub_0804ED74: @ 0x0804ED74
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	add sp, sp, #4
 	pop {r7}
 	pop {r0}
@@ -64844,7 +64844,7 @@ sub_0804EF98: @ 0x0804EF98
 	str r1, [r0, #84]
 _0804EFBA:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	add sp, sp, #12
 	pop {r7}
 	pop {r0}
@@ -65795,7 +65795,7 @@ _0804F6C4:
 	bl play_sound
 _0804F6D8:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804F6DE:
 	add sp, sp, #4
 	pop {r4,r7}
@@ -66872,7 +66872,7 @@ _0804FF5C:
 	b _0804FF72
 _0804FF72:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0804FF78:
 	add sp, sp, #8
 	pop {r4,r7}
@@ -67199,7 +67199,7 @@ sub_080501C0: @ 0x080501C0
 	ldr r0, [r7]
 	bl sub_08050B50
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	add sp, sp, #4
 	pop {r7}
 	pop {r0}
@@ -70086,7 +70086,7 @@ sub_08051870: @ 0x08051870
 	cmp r0, #0
 	bne _080518A8
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080518A8:
 	add sp, sp, #4
 	pop {r7}
@@ -70297,7 +70297,7 @@ _08051A00:
 	cmp r0, #0
 	bne _08051A26
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08051A26:
 	ldr r1, [r7]
 	ldr r0, [r7]
@@ -70360,7 +70360,7 @@ _08051A7E:
 	cmp r1, r0
 	bne _08051A9C
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08051B22
 _08051A9C:
 	ldr r0, [r7]
@@ -71266,7 +71266,7 @@ _0805213C:
 	cmp r0, #0
 	beq _0805214E
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805214E:
 	add sp, sp, #4
 	pop {r7}
@@ -71415,7 +71415,7 @@ _0805222E:
 	cmp r0, #0
 	beq _08052268
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08052268:
 	add sp, sp, #12
 	pop {r7}
@@ -71796,7 +71796,7 @@ sub_0805251C: @ 0x0805251C
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_0803CC20
 	ldr r0, [r7]
@@ -72242,7 +72242,7 @@ sub_080527AC: @ 0x080527AC
 	bl sub_08003870
 _08052884:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	bl sub_0803CC20
 	ldr r1, [r7]
@@ -72257,7 +72257,7 @@ _08052884:
 	cmp r0, #0
 	beq _080528AC
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080528AC:
 	add sp, sp, #4
 	pop {r7}
@@ -72504,7 +72504,7 @@ _08052A70:
 	mov r0, #16
 	bl play_sound
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08052A7C:
 	b _08052A7E
 _08052A7E:
@@ -73803,7 +73803,7 @@ _080533D2:
 	strb r2, [r0, #28]
 _080533DE:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 _080533E4:
 	add sp, sp, #40
 	pop {r4,r7}
@@ -73982,7 +73982,7 @@ sub_08053514: @ 0x08053514
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #41
@@ -74003,7 +74003,7 @@ sub_08053514: @ 0x08053514
 	ldr r0, [r7]
 	bl sub_08000620
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0805355A
 _08053552:
 	ldr r0, [r7]
@@ -74334,7 +74334,7 @@ _080537B0:
 	.4byte gUnknown_08137B10
 _080537B4:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080537BA:
 	add sp, sp, #8
 	pop {r4,r7}
@@ -74371,7 +74371,7 @@ sub_080537C4: @ 0x080537C4
 	cmp r0, r2
 	bne _08053800
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _080538BE
 _080537FC:
 	.4byte gUnknown_0201F000
@@ -74717,7 +74717,7 @@ sub_080539D8: @ 0x080539D8
 	bl sub_08013C8C
 _08053A8A:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08053A90:
 	add sp, sp, #4
 	pop {r4,r7}
@@ -75294,7 +75294,7 @@ _08053E42:
 	mov r0, #16
 	bl play_sound
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08053E9C:
 	add sp, sp, #4
 	pop {r7}
@@ -75405,7 +75405,7 @@ _08053F16:
 	mov r0, #16
 	bl play_sound
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08053F70:
 	add sp, sp, #4
 	pop {r7}
@@ -75776,7 +75776,7 @@ _080541CE:
 	mov r0, #16
 	bl play_sound
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08054228:
 	add sp, sp, #4
 	pop {r7}
@@ -75980,7 +75980,7 @@ sub_08054370: @ 0x08054370
 	cmp r0, #20
 	bne _080543A4
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _080544FA
 	.byte 0x00
 	.byte 0x00
@@ -76078,7 +76078,7 @@ _08054420:
 	orr r2, r2, r1
 	str r2, [r0]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _080544FA
 	.byte 0x00
 	.byte 0x00
@@ -76280,7 +76280,7 @@ _080545C0:
 	.4byte gUnknown_0201F000
 _080545C4:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080545CA:
 	add sp, sp, #4
 	pop {r7}
@@ -77490,7 +77490,7 @@ _08054E94:
 	orr r1, r1, r2
 	str r1, [r0]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08054ECE:
 	add sp, sp, #16
 	pop {r4,r7}
@@ -77738,7 +77738,7 @@ _08055010:
 	strh r1, [r0, #54]
 _080550AC:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	add sp, sp, #12
 	pop {r4,r7}
 	pop {r0}
@@ -77831,7 +77831,7 @@ sub_080550C0: @ 0x080550C0
 	strh r1, [r0, #54]
 _0805515E:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	add sp, sp, #8
 	pop {r7}
 	pop {r0}
@@ -78430,7 +78430,7 @@ _080555A4:
 	cmp r1, #16
 	bne _080555C8
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0805567E
 _080555C4:
 	.4byte gUnknown_03006A30
@@ -78463,7 +78463,7 @@ _080555DE:
 	cmp r1, #0
 	beq _08055608
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0805567E
 	.byte 0x19
 	.byte 0xE0
@@ -78489,7 +78489,7 @@ _0805560C:
 	cmp r1, #0
 	beq _08055636
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0805567E
 _08055636:
 	b _0805563A
@@ -78570,7 +78570,7 @@ sub_08055688: @ 0x08055688
 	cmp r0, #255
 	bne _080556C8
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080556C8:
 	b _080559F2
 _080556CA:
@@ -79195,7 +79195,7 @@ _08055B7A:
 	add r2, r1, #0
 	strb r2, [r0, #29]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08055B8E:
 	ldr r1, [r7]
 	ldr r0, [r1, #76]
@@ -79306,7 +79306,7 @@ sub_08055BDC: @ 0x08055BDC
 	add r1, r2, #0
 	bl sub_0804CABC
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08055C64:
 	add sp, sp, #4
 	pop {r4,r5,r7}
@@ -80414,7 +80414,7 @@ sub_0805643C: @ 0x0805643C
 	mov r2, #0
 	bl sub_0804C8A8
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	ldr r1, _080564B8  @ =gSubState
 	ldr r0, _080564B8  @ =gSubState
 	ldr r1, _080564B8  @ =gSubState
@@ -80595,7 +80595,7 @@ _080565DC:
 	cmp r1, #0
 	beq _080565EA
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080565EA:
 	add sp, sp, #4
 	pop {r7}
@@ -81330,7 +81330,7 @@ _08056B22:
 	add r1, r2, #0
 	strb r1, [r0, #28]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	b _08056B4A
 _08056B3E:
 	ldr r0, [r7]
@@ -81785,7 +81785,7 @@ sub_08056E6C: @ 0x08056E6C
 	cmp r1, #3
 	beq _08056E88
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08056EEC
 _08056E84:
 	.4byte gSubState
@@ -81835,7 +81835,7 @@ _08056EDC:
 	b _08056EEC
 _08056EE6:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08056EEC:
 	add sp, sp, #4
 	pop {r7}
@@ -82001,7 +82001,7 @@ sub_08057010: @ 0x08057010
 	ldr r0, [r7]
 	bl sub_0803CC20
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #41
@@ -82014,7 +82014,7 @@ sub_08057010: @ 0x08057010
 	cmp r0, #0
 	beq _08057040
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08057040:
 	add sp, sp, #4
 	pop {r7}
@@ -82111,7 +82111,7 @@ sub_08057070: @ 0x08057070
 	cmp r0, #0
 	beq _08057108
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _080571B0
 	.byte 0x00
 	.byte 0x00
@@ -82221,7 +82221,7 @@ sub_080571BC: @ 0x080571BC
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #41
@@ -82264,7 +82264,7 @@ _0805720C:
 	cmp r0, r1
 	beq _08057224
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08057224:
 	add sp, sp, #4
 	pop {r7}
@@ -82447,7 +82447,7 @@ sub_08057368: @ 0x08057368
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	ldrb r1, [r0, #10]
 	cmp r1, #1
@@ -82474,7 +82474,7 @@ sub_08057368: @ 0x08057368
 	cmp r0, #255
 	bne _080573AE
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080573AE:
 	add sp, sp, #4
 	pop {r7}
@@ -82830,7 +82830,7 @@ _0805764C:
 	add r2, r1, #0
 	strb r2, [r0, #28]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08057666:
 	b _080576C4
 _08057668:
@@ -83059,7 +83059,7 @@ _080577D8:
 	cmp r1, #0
 	bne _08057810
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08057810:
 	add sp, sp, #4
 	pop {r7}
@@ -83173,7 +83173,7 @@ _080578AE:
 	mov r0, #16
 	bl play_sound
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080578F2:
 	b _080578FC
 _080578F4:
@@ -83446,7 +83446,7 @@ _08057ABC:
 	cmp r0, #0
 	bne _08057B00
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08057B12
 	.byte 0x00
 	.byte 0x00
@@ -83462,7 +83462,7 @@ _08057B00:
 	cmp r0, #0
 	beq _08057B12
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08057B12:
 	add sp, sp, #4
 	pop {r4,r5,r7}
@@ -83573,7 +83573,7 @@ _08057BD0:
 	.4byte gUnknown_03006A30
 _08057BD4:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	add sp, sp, #12
 	pop {r4,r7}
 	pop {r0}
@@ -84383,7 +84383,7 @@ _0805819A:
 	add r1, r2, #0
 	strb r1, [r0, #28]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, _080581F0  @ =gUnknown_02016D60
 	ldrb r1, [r0, #8]
 	cmp r1, #1
@@ -84418,7 +84418,7 @@ _080581F0:
 	.4byte gUnknown_02016D60
 _080581F4:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080581FA:
 	add sp, sp, #4
 	pop {r7}
@@ -84435,7 +84435,7 @@ sub_08058204: @ 0x08058204
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	ldrb r0, [r1, #21]
 	cmp r0, #0
@@ -84556,13 +84556,13 @@ sub_080582F0: @ 0x080582F0
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, _08058314  @ =gUnknown_02016D60
 	ldrb r1, [r0, #8]
 	cmp r1, #1
 	bls _0805830C
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805830C:
 	add sp, sp, #4
 	pop {r7}
@@ -84961,7 +84961,7 @@ sub_080585B0: @ 0x080585B0
 	cmn r1, r0
 	bge _080585E2
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080585E2:
 	add sp, sp, #4
 	pop {r7}
@@ -85439,7 +85439,7 @@ sub_0805893C: @ 0x0805893C
 	add r0, r1, #0
 	bl play_sound
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _080589C0
 	.byte 0x00
 	.byte 0x00
@@ -85596,13 +85596,13 @@ sub_080589CC: @ 0x080589CC
 	bl sub_08003870
 _08058A84:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, _08058AA4  @ =gUnknown_02016D60
 	ldrb r1, [r0, #8]
 	cmp r1, #0
 	beq _08058A98
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08058A98:
 	add sp, sp, #8
 	pop {r4,r7}
@@ -85741,13 +85741,13 @@ sub_08058AA8: @ 0x08058AA8
 	bl sub_08003870
 _08058BA0:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, _08058BC0  @ =gUnknown_02016D60
 	ldrb r1, [r0, #8]
 	cmp r1, #0
 	beq _08058BB4
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08058BB4:
 	add sp, sp, #8
 	pop {r4,r7}
@@ -85917,7 +85917,7 @@ _08058CD6:
 	cmp r1, #0
 	beq _08058CF8
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08058CF8:
 	add sp, sp, #8
 	pop {r4,r7}
@@ -86011,7 +86011,7 @@ sub_08058D8C: @ 0x08058D8C
 	cmp r1, #0
 	bne _08058DA8
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08058DBC
 _08058DA4:
 	.4byte gUnknown_03000420
@@ -86370,7 +86370,7 @@ _08058FE8:
 	add r1, r2, #0
 	strh r1, [r0, #54]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	add sp, sp, #8
 	pop {r7}
 	pop {r0}
@@ -86542,7 +86542,7 @@ _08059190:
 	strb r2, [r0, #28]
 _0805919C:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	add sp, sp, #4
 	pop {r7}
 	pop {r0}
@@ -86976,7 +86976,7 @@ _080594E8:
 	b _08059504
 _080594FE:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08059504:
 	add sp, sp, #8
 	pop {r4,r7}
@@ -87306,7 +87306,7 @@ _0805977A:
 	b _08059798
 _08059798:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805979E:
 	add sp, sp, #4
 	pop {r7}
@@ -87563,7 +87563,7 @@ sub_08059960: @ 0x08059960
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	ldr r0, [r7]
 	ldr r1, [r7]
@@ -87586,7 +87586,7 @@ sub_08059960: @ 0x08059960
 	cmp r0, #0
 	bne _0805999E
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805999E:
 	add sp, sp, #4
 	pop {r7}
@@ -87979,7 +87979,7 @@ _08059C4C:
 	mov r1, #1
 	str r1, [r0]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08059E2A
 	.byte 0x00
 	.byte 0x00
@@ -88009,7 +88009,7 @@ _08059C84:
 	mov r1, #1
 	str r1, [r0]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08059E2A
 	.byte 0x00
 	.byte 0x00
@@ -88613,7 +88613,7 @@ _0805A12A:
 	b _0805A140
 _0805A13A:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 _0805A140:
 	add sp, sp, #4
 	pop {r7}
@@ -88778,7 +88778,7 @@ _0805A188:
 	str r1, [r0]
 _0805A278:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	mov r0, #1
 	b _0805A3E0
 	.byte 0x00
@@ -88943,7 +88943,7 @@ _0805A2CC:
 	str r1, [r0]
 _0805A3BC:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	mov r0, #1
 	b _0805A3E0
 	.byte 0x00
@@ -89412,7 +89412,7 @@ _0805A6F0:
 	cmp r0, #5
 	bne _0805A746
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805A746:
 	b _0805A9B0
 _0805A748:
@@ -90221,7 +90221,7 @@ _0805AD52:
 	add r0, r1, #0
 	bl sub_0800D6A4
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805AD68:
 	add sp, sp, #4
 	pop {r7}
@@ -90860,7 +90860,7 @@ _0805B210:
 	mov r2, #0
 	bl sub_0804CB38
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0805B234
 _0805B222:
 	b _0805B234
@@ -90870,7 +90870,7 @@ _0805B224:
 	mov r2, #0
 	bl sub_0804CB38
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805B234:
 	add sp, sp, #8
 	pop {r4,r7}
@@ -92696,7 +92696,7 @@ sub_0805BF9C: @ 0x0805BF9C
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #71
@@ -93017,7 +93017,7 @@ sub_0805C1F4: @ 0x0805C1F4
 	b _0805C214
 _0805C20E:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 _0805C214:
 	ldr r0, [r7]
 	ldrb r1, [r0, #23]
@@ -93174,7 +93174,7 @@ _0805C322:
 	b _0805C33A
 _0805C334:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 _0805C33A:
 	add sp, sp, #4
 	pop {r7}
@@ -93719,7 +93719,7 @@ _0805C71C:
 	strb r2, [r0, #24]
 _0805C74A:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 _0805C750:
 	add sp, sp, #4
 	pop {r7}
@@ -93770,7 +93770,7 @@ _0805C7A4:
 	ldr r0, [r7]
 	bl sub_0805CA84
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	add sp, sp, #4
 	pop {r7}
 	pop {r0}
@@ -93869,7 +93869,7 @@ _0805C836:
 	strh r1, [r0]
 _0805C868:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	add sp, sp, #4
 	pop {r7}
 	pop {r0}
@@ -94757,7 +94757,7 @@ sub_0805CECC: @ 0x0805CECC
 	cmp r0, #0
 	beq _0805CF00
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0805CF56
 _0805CEF8:
 	.4byte gUnknown_08137B10
@@ -94990,7 +94990,7 @@ _0805D0A0:
 	bl sub_0803D3D0
 _0805D0BA:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805D0C0:
 	add sp, sp, #12
 	pop {r7}
@@ -95710,7 +95710,7 @@ sub_0805D62C: @ 0x0805D62C
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	ldr r0, [r7]
 	ldr r1, [r7]
@@ -95798,7 +95798,7 @@ sub_0805D6D4: @ 0x0805D6D4
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	add r0, r1, #0
 	add r1, r1, #41
@@ -95842,7 +95842,7 @@ _0805D714:
 	ldrh r2, [r3]
 	bl sub_08014658
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805D73C:
 	add sp, sp, #4
 	pop {r7}
@@ -95895,7 +95895,7 @@ sub_0805D748: @ 0x0805D748
 	cmp r1, #0
 	bne _0805D79E
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805D79E:
 	add sp, sp, #4
 	pop {r7}
@@ -96115,7 +96115,7 @@ _0805D904:
 	cmn r1, r0
 	bgt _0805D92E
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805D92E:
 	add sp, sp, #4
 	pop {r7}
@@ -96192,7 +96192,7 @@ _0805D98C:
 	cmp r1, r0
 	ble _0805D9B6
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805D9B6:
 	add sp, sp, #4
 	pop {r7}
@@ -96529,7 +96529,7 @@ sub_0805DBBC: @ 0x0805DBBC
 	b _0805DC2A
 _0805DC24:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 _0805DC2A:
 	add sp, sp, #4
 	pop {r7}
@@ -96658,7 +96658,7 @@ sub_0805DD04: @ 0x0805DD04
 	mov r7, sp
 	str r0, [r7]
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, [r7]
 	ldr r1, _0805DD90  @ =gUnknown_02016D60
 	ldrb r0, [r0, #22]
@@ -96874,7 +96874,7 @@ _0805DE86:
 	b _0805DEBA
 _0805DEA2:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, _0805DEC4  @ =gUnknown_02016D60
 	ldr r1, [r7]
 	ldrb r0, [r0, #8]
@@ -96882,7 +96882,7 @@ _0805DEA2:
 	cmp r0, r1
 	beq _0805DEBA
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805DEBA:
 	add sp, sp, #4
 	pop {r7}
@@ -96916,7 +96916,7 @@ sub_0805DEC8: @ 0x0805DEC8
 	cmp r0, r1
 	beq _0805DEF6
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805DEF6:
 	add sp, sp, #4
 	pop {r7}
@@ -97008,7 +97008,7 @@ sub_0805DF8C: @ 0x0805DF8C
 	ldr r0, [r7]
 	bl sub_0803CC20
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	ldr r0, [r7]
 	ldr r1, [r7]
@@ -97067,7 +97067,7 @@ sub_0805DFE0: @ 0x0805DFE0
 	cmp r0, r1
 	beq _0805E00E
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805E00E:
 	add sp, sp, #4
 	pop {r7}
@@ -97488,7 +97488,7 @@ sub_0805E2B8: @ 0x0805E2B8
 	strb r1, [r0, #20]
 _0805E324:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	add sp, sp, #4
 	pop {r7}
 	pop {r0}
@@ -97558,7 +97558,7 @@ _0805E382:
 	b _0805E3FE
 _0805E39E:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r1, [r7]
 	ldr r0, [r7]
 	ldr r1, [r7]
@@ -97602,7 +97602,7 @@ _0805E3EC:
 	cmp r0, r1
 	beq _0805E3FE
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805E3FE:
 	add sp, sp, #4
 	pop {r7}
@@ -97730,7 +97730,7 @@ _0805E4D8:
 	cmp r0, r1
 	beq _0805E4EA
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805E4EA:
 	add sp, sp, #4
 	pop {r4,r7}
@@ -97871,7 +97871,7 @@ _0805E5D0:
 	mov r2, #1
 	bl load_palette
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805E5F6:
 	add sp, sp, #4
 	pop {r7}
@@ -97946,7 +97946,7 @@ _0805E656:
 	b _0805E68A
 _0805E672:
 	ldr r0, [r7]
-	bl sub_08003828
+	bl GetNextFrame
 	ldr r0, _0805E694  @ =gUnknown_02016D60
 	ldr r1, [r7]
 	ldrb r0, [r0, #8]
@@ -97954,7 +97954,7 @@ _0805E672:
 	cmp r0, r1
 	beq _0805E68A
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805E68A:
 	add sp, sp, #4
 	pop {r7}
@@ -99044,7 +99044,7 @@ _0805EE70:
 	b _0805EE14
 _0805EE78:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0805EE7E:
 	add sp, sp, #12
 	pop {r4,r7}

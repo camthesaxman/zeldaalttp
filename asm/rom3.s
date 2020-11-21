@@ -1308,7 +1308,7 @@ _0805F924:
 	.4byte 0x0000FFFF
 _0805F928:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	add sp, sp, #12
 	pop {r7}
 	pop {r0}
@@ -1590,7 +1590,7 @@ sub_0805FAF8: @ 0x0805FAF8
 	cmp r1, #31
 	bhi _0805FB48
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0805FB98
 _0805FB44:
 	.4byte gUnknown_081417A4
@@ -1877,7 +1877,7 @@ _0805FD4C:
 	b _0805FD68
 _0805FD60:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _0805FD68
 _0805FD68:
 	add sp, sp, #4
@@ -2698,7 +2698,7 @@ _08060364:
 	b _0806036E
 _08060366:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _080603BC
 _0806036E:
 	ldr r0, [r7]
@@ -2767,7 +2767,7 @@ sub_080603C4: @ 0x080603C4
 	mov r1, #205
 	bl sub_0806041C
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08060414
 _080603F8:
 	ldr r1, [r7]
@@ -3133,7 +3133,7 @@ _08060690:
 	bl 0x08008F78
 _080606AA:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08060726
 _080606B2:
 	ldr r1, [r7]
@@ -3470,7 +3470,7 @@ sub_080608F8: @ 0x080608F8
 	cmp r1, #0
 	bne _08060932
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08060932:
 	ldr r0, [r7]
 	ldr r1, [r7, #4]
@@ -3563,7 +3563,7 @@ _080609D8:
 	.byte 0xE0
 _080609DE:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080609E4:
 	b _08060A36
 _080609E6:
@@ -3607,7 +3607,7 @@ _08060A2C:
 	.4byte gUnknown_08141A00
 _08060A30:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08060A36:
 	add r0, r7, #0
 	add r0, r0, #8
@@ -3963,7 +3963,7 @@ _08060CDC:
 	.4byte gUnknown_03006A30
 _08060CE0:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08060CE6:
 	add sp, sp, #16
 	pop {r4,r7}
@@ -4225,7 +4225,7 @@ _08060E8C:
 	b _08060EE0
 _08060EDA:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08060EE0:
 	add sp, sp, #4
 	pop {r7}
@@ -4253,7 +4253,7 @@ sub_08060EE8: @ 0x08060EE8
 	cmp r0, #0
 	beq _08060F12
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08060F12:
 	add sp, sp, #4
 	pop {r7}
@@ -4496,7 +4496,7 @@ _080610DC:
 	.4byte gUnknown_08141E04
 _080610E0:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080610E6:
 	add sp, sp, #4
 	pop {r7}
@@ -8605,7 +8605,7 @@ _08062FBC:
 	ldr r0, [r7]
 	bl sub_08062FD8
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08062FCA:
 	add sp, sp, #8
 	pop {r7}
@@ -9356,7 +9356,7 @@ sub_08063524: @ 0x08063524
 	ldr r2, [r1, #88]
 	str r2, [r0]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _080637E2
 	.byte 0x00
 	.byte 0x00
@@ -9489,7 +9489,7 @@ _08063668:
 	str r2, [r0]
 _080636BA:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _080637A0
 	.byte 0x00
 	.byte 0x00
@@ -9641,7 +9641,7 @@ _080637C6:
 	str r2, [r0]
 _080637DC:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _080637E2:
 	add sp, sp, #8
 	pop {r4,r7}
@@ -9741,7 +9741,7 @@ _0806385C:
 	add r1, r2, #0
 	strh r1, [r0, #54]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08063C54
 _080638A0:
 	.4byte gUnknown_03006A30
@@ -9807,7 +9807,7 @@ _080638D6:
 	add r1, r2, #0
 	strh r1, [r0, #54]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08063C54
 	.byte 0x00
 	.byte 0x00
@@ -10131,7 +10131,7 @@ _08063B7C:
 	add r1, r2, #0
 	strh r1, [r0, #54]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _08063C4C
 _08063BC0:
 	.4byte gUnknown_03006A30
@@ -10208,7 +10208,7 @@ _08063C4C:
 	b _08063C54
 _08063C4E:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08063C54:
 	add sp, sp, #8
 	pop {r4,r7}
@@ -12640,7 +12640,7 @@ _08064DF2:
 	cmp r1, r0
 	ble _08064E06
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08064E06:
 	add sp, sp, #4
 	pop {r7}
@@ -12797,7 +12797,7 @@ sub_08064E84: @ 0x08064E84
 	b _08064F2C
 _08064F26:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08064F2C:
 	add sp, sp, #4
 	pop {r7}
@@ -13184,7 +13184,7 @@ _0806519C:
 	strb r2, [r0]
 _08065214:
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0806521A:
 	add sp, sp, #8
 	pop {r7}
@@ -14617,7 +14617,7 @@ _08065C90:
 	mov r0, #13
 	bl play_sound
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08065CDC:
 	add sp, sp, #12
 	pop {r7}
@@ -14656,7 +14656,7 @@ sub_08065CEC: @ 0x08065CEC
 	add r2, r1, #0
 	strb r2, [r0]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08065D22:
 	b _08065DAA
 _08065D24:
@@ -14755,7 +14755,7 @@ sub_08065DB4: @ 0x08065DB4
 	cmp r0, #0
 	bne _08065DE2
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _08065DE2:
 	b _08065E3C
 _08065DE4:
@@ -15608,7 +15608,7 @@ sub_0806640C: @ 0x0806640C
 	cmp r0, #0
 	beq _0806642C
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 _0806642C:
 	add sp, sp, #8
 	pop {r7}
@@ -16095,7 +16095,7 @@ sub_08066764: @ 0x08066764
 	eor r1, r1, r2
 	str r1, [r0, #96]
 	ldr r0, [r7]
-	bl sub_08012540
+	bl DeleteThisEntity
 	b _080667FE
 _080667C8:
 	.4byte gUnknown_08137B10

@@ -1,6 +1,6 @@
 // crt0.s
 void interrupt_main(void);
-void sub_0800023C(void);
+void UpdateAllEntities(void);
 
 // rom1.s
 //sub_08000358();
@@ -268,7 +268,7 @@ void sub_08010834(void);
 //sub_08012494();
 //sub_080124C0();
 //sub_080124EC();
-//sub_08012540();
+//DeleteThisEntity();
 //sub_080126CC();
 //sub_08012728();
 //sub_0801276C();
@@ -1740,7 +1740,7 @@ void sub_08038168(void);
 //sub_0803D8AC();
 //sub_0803D9F4();
 //sub_0803DB4C();
-//sub_0803DBAC();
+//DoPlayerEntity();
 //sub_0803DBD4();
 //sub_0803DC68();
 //sub_0803DD0C();
@@ -1758,7 +1758,7 @@ void sub_08038168(void);
 //sub_0803F594();
 //sub_0803F628();
 //sub_0803F638();
-//sub_0803F6AC();
+//DoManagerEntity();
 //sub_0803F6F8();
 //sub_0803F710();
 //sub_0803F74C();
@@ -1955,7 +1955,7 @@ void sub_08038168(void);
 //sub_0804BD9C();
 //sub_0804BFA4();
 //sub_0804C088();
-//sub_0804C170();
+//DoObjectEntity();
 //sub_0804C200();
 //sub_0804C410();
 //sub_0804C448();
