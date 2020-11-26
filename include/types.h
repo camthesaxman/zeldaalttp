@@ -95,7 +95,6 @@ struct UnknownStruct8
     u8 unk5;
 };
 
-// Some huge struct that's used all over
 struct UnknownStruct7
 {
     u8 filler0[0x544];
@@ -176,21 +175,38 @@ struct UnknownStruct7
     u8 fillerCF0[0xCF8-0xCF0];
     u16 unkCF8;
     u8 unkCFA[0xE50-0xCFA];
-    u8 fillerE50[0xECF-0xE50];
+    u8 fillerE50[0x25];
+    u8 unkE75[0x5A];
     u8 unkECF;
     u8 fillerED0[2];
     u8 unkED2[0x10];
-    u8 unkEE2[0xB0];
-    u8 unkF92[0x20];
-    u8 unkFB2[0x110];
-    u8 unk10C2[0x80];
-    u8 unk1142[0x49A];
+    u8 unkEE2[0x10];
+    u8 unkEF2[0x10];
+    u8 unkF02[0x10];
+    u8 unkF12[0x10];
+    u8 unkF22[0x70];
+    u8 unkF92[0x10];
+    u8 unkFA2[0x10];
+    u8 unkFB2[0x40];
+    u8 unkFF2[0x10];
+    u8 unk1002[0x40];
+    u8 unk1042[0x80];
+    u8 unk10C2[0x10];
+    u8 unk10D2[0x70];
+    u8 unk1142[0x10];
+    u8 unk1152[0x20];
+    u8 unk1172[0x46A];
     u8 unk15DC;
-    u8 filler15DD[0x16C0-0x15DD];
+    u8 filler15DD[0x19];
+    u8 unk15F6;
+    u8 filler15F7[0xE];
+    u8 unk1605;
+    u8 filler1606[0xBA];
     u8 unk16C0;
     s8 unk16C1;
     u8 filler16C2[2];
-    u16 unk16C4;
+    u8 unk16C4;
+    s8 unk16C5;
     u8 filler16C6[0x5D];
     u8 unk1723;
     u8 unk1724;
@@ -198,7 +214,9 @@ struct UnknownStruct7
     u8 unk1734;
     u8 filler1735[0x3B];
     u8 unk1770;
-    u8 filler1771[0x121];
+    u8 filler1771[0x2D];
+    u8 unk179E;
+    u8 filler179F[0xF3];
     u16 unk1892;
     u8 filler1894[4];
     u8 unk1898;

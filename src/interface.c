@@ -7,13 +7,13 @@ void sub_081293B0(void)
     u32 r4;
     u32 r5;
 
-    if (gUnknown_03002230.unk9AD == 76)
+    if (gRam.unk9AD == 76)
     {
         LZ77UnCompVram(gUnknown_08279684, (void *)(VRAM + 0x5600));
         LZ77UnCompVram(gUnknown_08279B88, (void *)(VRAM + 0x6000));
         LZ77UnCompVram(gUnknown_0827A228, (void *)(VRAM + 0x7000));
     }
-    switch (gUnknown_03002230.unk98E)
+    switch (gRam.unk98E)
     {
       case 0:
         r4 = 0x1400;
@@ -102,7 +102,7 @@ void sub_081293B0(void)
 	mov r7, r9\n\
 	mov r6, r8\n\
 	push {r6,r7}\n\
-	ldr r4, _081293F8  @ =gUnknown_03002230\n\
+	ldr r4, _081293F8  @ =gRam\n\
 	ldr r1, _081293FC  @ =0x000009AD\n\
 	add r0, r4, r1\n\
 	ldrb r0, [r0]\n\
@@ -135,7 +135,7 @@ _081293EC:\n\
 	.byte 0x00\n\
 	.byte 0x00\n\
 _081293F8:\n\
-	.4byte gUnknown_03002230\n\
+	.4byte gRam\n\
 _081293FC:\n\
 	.4byte 0x000009AD\n\
 _08129400:\n\
@@ -337,23 +337,23 @@ static_assert(offsetof(struct UnknownStruct7, unk1B0C) == 0x1B0C);
 
 u32 sub_08129578(void)
 {
-    if (gUnknown_03002230.unk1AE3 == 0)
+    if (gRam.unk1AE3 == 0)
         return 1;
-    if (--gUnknown_03002230.unk1AE3 == 1 && gUnknown_03002230.unk1B04 == 0 && gUnknown_03002230.unk9AC != 20)
+    if (--gRam.unk1AE3 == 1 && gRam.unk1B04 == 0 && gRam.unk9AC != 20)
         sub_0812A324(70, 0);
     return 0;
 }
 
 void sub_081295CC(void)
 {
-    gUnknown_08180980[gUnknown_03002230.unk1AD0]();
+    gUnknown_08180980[gRam.unk1AD0]();
 }
 
 void sub_081295F4(void)
 {
     void *ptr = NULL;
     
-    switch (gUnknown_03002230.unk98E)
+    switch (gRam.unk98E)
     {
       case 0:
         ptr = gUnknown_08180CE4;
@@ -375,33 +375,33 @@ void sub_081295F4(void)
         ptr = gUnknown_08195D94;
         break;
     }
-    sub_08129CD8(&gUnknown_03002230.unk1AFC, &gUnknown_03002230.unk1B00, ptr);
-    gUnknown_03002230.unk1AF8 = ptr;
+    sub_08129CD8(&gRam.unk1AFC, &gRam.unk1B00, ptr);
+    gRam.unk1AF8 = ptr;
 }
 
 void sub_08129684(void)
 {
-    gUnknown_03002230.unk1AD0 = 0;
+    gRam.unk1AD0 = 0;
 }
 
 void sub_08129698(void)
 {
-    if (gUnknown_03002230.unk1ACC == 4)
-        gUnknown_03002230.unk1ACC = 3;
+    if (gRam.unk1ACC == 4)
+        gRam.unk1ACC = 3;
 }
 
 u32 sub_081296B8(void)
 {
-    return (gUnknown_03002230.unk1AE3 == 0);
+    return (gRam.unk1AE3 == 0);
 }
 
 void sub_081296D8(void)
 {
-    gUnknown_03002230.unk1AE8 = 3;
-    gUnknown_03002230.unk1AE9 = 0;
+    gRam.unk1AE8 = 3;
+    gRam.unk1AE9 = 0;
     sub_08127334();
-    gUnknown_03002230.unk1ACA = 0x8310;
-    gUnknown_03002230.unk1ACC = 2;
+    gRam.unk1ACA = 0x8310;
+    gRam.unk1ACC = 2;
     sub_08129838();
     sub_08129838();
     sub_08129838();
@@ -411,7 +411,7 @@ void sub_081296D8(void)
 
 void sub_08129734(void)
 {
-    if (gUnknown_03002230.unk9AC == 20)
+    if (gRam.unk9AC == 20)
     {
         sub_08133774();
         LZ77UnCompVram(gUnknown_082788B8, (void *)(VRAM + 0x6000));
@@ -425,10 +425,10 @@ void sub_0812976C(void)
     s32 i;
     u8 *ptr;
 
-    gUnknown_03002230.unk1AF2 = 0;
-    gUnknown_03002230.unk1AF0 = 0;
-    gUnknown_03002230.unk1AF4 = 0;
-    gUnknown_03002230.unk1AF6 = 0;
+    gRam.unk1AF2 = 0;
+    gRam.unk1AF0 = 0;
+    gRam.unk1AF4 = 0;
+    gRam.unk1AF6 = 0;
     
     // This loop is hard to match.
     i = 207;
@@ -443,7 +443,7 @@ void sub_0812976C(void)
 // unused?
 void sub_081297B0(u8 *a)
 {
-    gUnknown_03002230.unk1ACC = sub_08129E0C(gUnknown_03002230.unk1AF8, a + gUnknown_03002230.unk1AD6 + 5);
+    gRam.unk1ACC = sub_08129E0C(gRam.unk1AF8, a + gRam.unk1AD6 + 5);
 }
 
 extern const u16 gUnknown_0818097C[];
@@ -451,8 +451,8 @@ extern const u16 gUnknown_0818097C[];
 // unused?
 void sub_081297E8(u8 *a)
 {
-    gUnknown_03002230.unk1ACA =
-        gUnknown_0818097C[sub_08129E0C(gUnknown_03002230.unk1AF8, a + gUnknown_03002230.unk1AD6 + 5)];
+    gRam.unk1ACA =
+        gUnknown_0818097C[sub_08129E0C(gRam.unk1AF8, a + gRam.unk1AD6 + 5)];
 }
 
 void sub_0812982C()
@@ -462,7 +462,7 @@ void sub_0812982C()
 
 void sub_08129838(void)
 {
-    gUnknown_08180B34[gUnknown_03002230.unk1ACC]();
+    gUnknown_08180B34[gRam.unk1ACC]();
 }
 
 void sub_08129860(void)
@@ -483,12 +483,12 @@ void sub_08129860(void)
     sub_081290B4(&sp0, &sp2);
     //gUnknown_02000402[sp0 / 2] = 0xFFFF;
     *(gUnknown_02000402 + (sp0 / 2)) = 0xFFFF;  // why is this needed to match?
-    gUnknown_03002230.unk1ACC = 2;
+    gRam.unk1ACC = 2;
 }
 
 void sub_081298D0(void)
 {
-    u8 var = gUnknown_03002230.unk1ACF;
+    u8 var = gRam.unk1ACF;
 
     if (var != 0)
     {
@@ -509,7 +509,7 @@ void sub_08129908(void)
     sub_081290B4(&sp0, &sp2);
     //gUnknown_02000402[sp0 / 2] = 0xFFFF;
     *(gUnknown_02000402 + (sp0 / 2)) = 0xFFFF;  // why is this needed to match?
-    gUnknown_03002230.unk1ACF++;
+    gRam.unk1ACF++;
 }
 
 void sub_08129958(void)
@@ -520,7 +520,7 @@ void sub_08129958(void)
     sub_081290B4(&sp0, &sp2);
     //gUnknown_02000402[sp0 / 2] = 0xFFFF;
     *(gUnknown_02000402 + (sp0 / 2)) = 0xFFFF;  // why is this needed to match?
-    gUnknown_03002230.unk1ACF++;
+    gRam.unk1ACF++;
 }
 
 void sub_081299A4(void)
@@ -531,14 +531,14 @@ void sub_081299A4(void)
     sub_081290B4(&sp0, &sp2);
     //gUnknown_02000402[sp0 / 2] = 0xFFFF;
     *(gUnknown_02000402 + (sp0 / 2)) = 0xFFFF;  // why is this needed to match?
-    gUnknown_03002230.unk1ACF++;
-    gUnknown_03002230.unk1ACC = 2;
+    gRam.unk1ACF++;
+    gRam.unk1ACC = 2;
 }
 
 void sub_081299FC(void)
 {
     sub_081291C8();
-    gUnknown_03002230.unk1ACC++;
+    gRam.unk1ACC++;
 }
 
 // not sure what this returns
@@ -552,15 +552,15 @@ int sub_08129A34(void)
     int r4 = 0;
 
     sub_08127DBC();
-    r4 = gUnknown_03002230.unk1AD6 != 19
-      && gUnknown_03002230.unk1AD6 != 59
-      && gUnknown_03002230.unk1AD6 != 99;
+    r4 = gRam.unk1AD6 != 19
+      && gRam.unk1AD6 != 59
+      && gRam.unk1AD6 != 99;
     return r4;
 }
 
 int sub_08129A68(void)
 {
-    gUnknown_03002230.unk1ACD--;
+    gRam.unk1ACD--;
     return 0;
 }
 
@@ -568,24 +568,24 @@ int sub_08129A80(void)
 {
     int r5 = 0;
 
-    if (gUnknown_03002230.unk9AC == 20)
+    if (gRam.unk9AC == 20)
     {
         sub_08132C34();
-        if (gUnknown_03002230.unkCF8 == 0)
+        if (gRam.unkCF8 == 0)
             r5 = 1;
         else
             r5 = 0;
         if (r5 == 0)
             return 0;
     }
-    gUnknown_03002230.unk1AD2++;
+    gRam.unk1AD2++;
     return 0;
 }
 
 int sub_08129AC8(void)
 {
-    gUnknown_03002230.unk1AD2++;
-    gUnknown_03002230.unk1B04 = 1;
+    gRam.unk1AD2++;
+    gRam.unk1B04 = 1;
     return 0;
 }
 
@@ -593,9 +593,9 @@ int sub_08129AEC(void)
 {
     u8 r1;
  
-    if (!(gUnknown_03002230.unk544 & 0x80))
+    if (!(gRam.unk544 & 0x80))
     {
-        r1 = gUnknown_03002230.unk1ADA;
+        r1 = gRam.unk1ADA;
         if (r1 > 1)
             r1 = 2;
     }
@@ -607,47 +607,47 @@ int sub_08129AEC(void)
 
 void sub_08129B30(void)
 {
-    gUnknown_03002230.unk1ADA =
-        //gUnknown_08180C9C[gUnknown_02005481[gUnknown_03002230.unk1AD2] & 0xF];
-        gUnknown_08180C9C[*(gUnknown_02005481 + gUnknown_03002230.unk1AD2) & 0xF];
+    gRam.unk1ADA =
+        //gUnknown_08180C9C[gUnknown_02005481[gRam.unk1AD2] & 0xF];
+        gUnknown_08180C9C[*(gUnknown_02005481 + gRam.unk1AD2) & 0xF];
     sub_08129B70();
 }
 
 void sub_08129B70(void)
 {
-    gUnknown_03002230.unk1ADA--;
+    gRam.unk1ADA--;
 }
 
 void sub_08129B88(void)
 {
-    gUnknown_03002230.unk1AD2 += 2;
-    gUnknown_03002230.unk1ADA = 0;
-    gUnknown_03002230.unk1ACD = gUnknown_03002230.unk1B05;
-    gUnknown_03002230.unk1ACE = gUnknown_03002230.unk1B05;
+    gRam.unk1AD2 += 2;
+    gRam.unk1ADA = 0;
+    gRam.unk1ACD = gRam.unk1B05;
+    gRam.unk1ACE = gRam.unk1B05;
 }
 
 int sub_08129BC4(void)
 {
-    //u8 *dest = gUnknown_03002230.fillerE50;
+    //u8 *dest = gRam.fillerE50;
     //CpuFastFill16(0, dest, 0x1000);
 
-    // TODO: this is part of gUnknown_03002230
+    // TODO: this is part of gRam
     extern u8 gUnknown_02003080[];
     CpuFastFill16(0, gUnknown_02003080, 0x1000);
 
-    gUnknown_03002230.unk1AD6 = 0;
-    gUnknown_03002230.unk1AD2++;
-    gUnknown_03002230.unk1AE0 = 0;
+    gRam.unk1AD6 = 0;
+    gRam.unk1AD2++;
+    gRam.unk1AE0 = 0;
     return 0;
 }
 
 int sub_08129C10(void)
 {
     if (sub_08129578() != 0
-     && (gUnknown_03002230.unk547 | gUnknown_03002230.unk546) != 0)
+     && (gRam.unk547 | gRam.unk546) != 0)
     {
-        gUnknown_03002230.unk1ACC = 4;
-        gUnknown_03002230.unk1AE3 = 16;
+        gRam.unk1ACC = 4;
+        gRam.unk1AE3 = 16;
     }
     return 0;
 }
@@ -656,17 +656,17 @@ extern const u16 gUnknown_0818097C[];
 
 void sub_08129C58(void)
 {
-    u16 var = gUnknown_03002230.unk16C0 + (gUnknown_03002230.unk16C1 << 8) - gUnknown_03002230.unk958;
+    u16 var = gRam.unk16C0 + (gRam.unk16C1 << 8) - gRam.unk958;
 
     if (var > 91)
-        gUnknown_03002230.unk1ACA = gUnknown_0818097C[0];
+        gRam.unk1ACA = gUnknown_0818097C[0];
     else
-        gUnknown_03002230.unk1ACA = gUnknown_0818097C[1];
+        gRam.unk1ACA = gUnknown_0818097C[1];
 }
 
 void sub_08129CB0(u16 *a, u16 *b)
 {
-    gUnknown_03002230.unk1AC8 = gUnknown_03002230.unk1ACA;
+    gRam.unk1AC8 = gRam.unk1ACA;
     *a = 0;
     *b = 0;
 }
@@ -752,19 +752,19 @@ int sub_08129D28(u8 *a, u8 *b, u32 c, u32 d)
 
 void sub_08129D90(void)
 {
-    if (gUnknown_03002230.unk1B04 == 0)
+    if (gRam.unk1B04 == 0)
         sub_0812A324(80, 0);
-    gUnknown_03002230.unk1ACC = 4;
+    gRam.unk1ACC = 4;
 }
 
 void sub_08129DC0(void)
 {
-    if (gUnknown_03002230.unk1B04 != 0)
+    if (gRam.unk1B04 != 0)
         sub_0812A324(119, 0);
     else
         sub_0812A324(108, 0);
-    gUnknown_03002230.unk1AE2 = 255;
-    gUnknown_03002230.unk1ACC = 4;
+    gRam.unk1AE2 = 255;
+    gRam.unk1ACC = 4;
 }
 
 u8 sub_08129E0C(const u8 *a, const u8 *b)

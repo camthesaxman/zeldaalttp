@@ -7820,8 +7820,8 @@ gUnknown_08173088:
 gUnknown_08173F38:
 	.INCBIN "baserom.gba", 0x173F38, 0x174138-0x173F38
 
-	.GLOBAL gUnknown_08174138
-gUnknown_08174138:
+	.GLOBAL SpriteActive_Table
+SpriteActive_Table:
 	.INCBIN "baserom.gba", 0x174138, 0x17451C-0x174138
 
 	.GLOBAL gUnknown_0817451C

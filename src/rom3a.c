@@ -7,33 +7,33 @@ static_assert(offsetof(struct UnknownStruct7, unk952) == 0x952);
 /*
 void sub_080A6754(void)
 {
-    u8 *r1 = &gUnknown_0816B308[gUnknown_03002230.unk968];
+    u8 *r1 = &gUnknown_0816B308[gRam.unk968];
     u16 r7 = gUnknown_03003E74 * 4 + *r1;
     u16 r2;
     s16 r9;
     u16 r6;
     
-    gUnknown_03002230.unk97C = gUnknown_081697A0[gUnknown_03002230.unk964];
-    gUnknown_03002230.unk189A = gUnknown_03002230.unk97C * 2;
-    r2 = gUnknown_03002230.unk97C * 3;
+    gRam.unk97C = gUnknown_081697A0[gRam.unk964];
+    gRam.unk189A = gRam.unk97C * 2;
+    r2 = gRam.unk97C * 3;
     
-    r9 = gUnknown_08169180[r2] + gUnknown_03002230.unk961;
-    r9 -= gUnknown_03002230.unk97D;
+    r9 = gUnknown_08169180[r2] + gRam.unk961;
+    r9 -= gRam.unk97D;
     // mov r9, r0
     
-    r6 = gUnknown_08169180[r2 + 1] + gUnknown_03002230.unk960;
-    gUnknown_03002230.unk96C = gUnknown_08169180[r2 + 2] << 8;
+    r6 = gUnknown_08169180[r2 + 1] + gRam.unk960;
+    gRam.unk96C = gUnknown_08169180[r2 + 2] << 8;
     
-    r2 = gUnknown_03002230.unk96C & 0xFFFFF000;
+    r2 = gRam.unk96C & 0xFFFFF000;
     if (r2 != (240 << 8))
     {
         struct UnknownStruct8 *r3;
         struct UnknownStruct8 *r4;
         
-        r2 |= gUnknown_03002230.unk1723 + (gUnknown_03002230.unk1724 << 8);
+        r2 |= gRam.unk1723 + (gRam.unk1724 << 8);
         r2 |= 0x100;
         sub_080A452C(r7, r2);
-        r3 = &gUnknown_03002230.unk550[r7 / 4];
+        r3 = &gRam.unk550[r7 / 4];
         if (gUnknown_03003E68 == 0)
         {
             r3->unk2 = r6;
@@ -42,20 +42,20 @@ void sub_080A6754(void)
                 r3->unk2 |= 0x100;
         }
         //_080A685E
-        r4 = &gUnknown_03002230.unk550[r7 / 4];
-        if (gUnknown_03002230.unk10C2[gUnknown_03002230.unk15DC] != 0)
+        r4 = &gRam.unk550[r7 / 4];
+        if (gRam.unk10C2[gRam.unk15DC] != 0)
         {
             r4->unk5 &= 0xF;
             r4->unk5 |= 0x80;
-            r4->unk2 += (gUnknown_03002230.unk10C2[gUnknown_03002230.unk15DC] & 1) << 1;
+            r4->unk2 += (gRam.unk10C2[gRam.unk15DC] & 1) << 1;
         }
     }
     //_080A68AC
     
-    r2 = gUnknown_03002230.unk96C & 0xF00;
+    r2 = gRam.unk96C & 0xF00;
     if (r2 != 0xF00)
     {
-        r2 = (r2 << 4) |  (gUnknown_03002230.unk1723 + (gUnknown_03002230.unk1724 << 8));
+        r2 = (r2 << 4) |  (gRam.unk1723 + (gRam.unk1724 << 8));
     }
     //_080A6996
 }
@@ -65,17 +65,17 @@ void sub_080A69FC(u8 a)
 {
     u16 *r8 = &gUnknown_03003E74;
     u16 r4 = gUnknown_02010990;
-    u8 r6 = gUnknown_03002230.unkF92[a];
+    u8 r6 = gRam.unkF92[a];
     
-    gUnknown_03002230.unk964 = r6;
-    gUnknown_03002230.unk961 = gUnknown_03002230.unkED2[a] + gUnknown_03002230.unk1142[a] - gUnknown_03002230.unk958 - 4;
-    gUnknown_03002230.unk960 = gUnknown_03002230.unkEE2[a] - gUnknown_03002230.unk952;
-    gUnknown_03002230.unk1734 = gUnknown_08169CDA[gUnknown_03002230.unkFB2[a] / 2];
-    gUnknown_03002230.unk968 = gUnknown_0816B258[gUnknown_03002230.unkFB2[a] / 2];
+    gRam.unk964 = r6;
+    gRam.unk961 = gRam.unkED2[a] + gRam.unk1142[a] - gRam.unk958 - 4;
+    gRam.unk960 = gRam.unkEE2[a] - gRam.unk952;
+    gRam.unk1734 = gUnknown_08169CDA[gRam.unkFB2[a] / 2];
+    gRam.unk968 = gUnknown_0816B258[gRam.unkFB2[a] / 2];
     r4 = r4 * 2;
-    r4 += gUnknown_03002230.unk968;
-    gUnknown_03002230.unk964 = gUnknown_0816B118[r4 / 2] + r6;
-    gUnknown_03002230.unk968 = gUnknown_0816AF12[gUnknown_03002230.unk964];
+    r4 += gRam.unk968;
+    gRam.unk964 = gUnknown_0816B118[r4 / 2] + r6;
+    gRam.unk968 = gUnknown_0816AF12[gRam.unk964];
     gUnknown_03003E68 = 0;
     sub_080A61D8();
     sub_080A64F8();
@@ -108,8 +108,8 @@ void sub_080A6B40(u8 a)
         register u16 r2 asm("r0") = 0xFF00;
         r1 |= r2;
     }
-    r0 = r1 + gUnknown_03002230.unk16C4 - gUnknown_03002230.unk952;
-    gUnknown_03002230.unk1892 = (r0 >> 8) & 1;
+    r0 = r1 + gRam.unk16C4 - gRam.unk952;
+    gRam.unk1892 = (r0 >> 8) & 1;
 }
 #else
 __attribute__((naked))
@@ -125,7 +125,7 @@ void sub_080A6B40(u8 a)
 	add r0, r2, #0\n\
 	orr r1, r1, r0\n\
 _080A6B52:\n\
-	ldr r2, _080A6B78  @ =gUnknown_03002230\n\
+	ldr r2, _080A6B78  @ =gRam\n\
 	ldr r3, _080A6B7C  @ =0x000016C4\n\
 	add r0, r2, r3\n\
 	ldrh r0, [r0]\n\
@@ -146,7 +146,7 @@ _080A6B52:\n\
 	.byte 0x00\n\
 	.byte 0x00\n\
 _080A6B78:\n\
-	.4byte gUnknown_03002230\n\
+	.4byte gRam\n\
 _080A6B7C:\n\
 	.4byte 0x000016C4\n\
 _080A6B80:\n\
@@ -162,74 +162,74 @@ void rom3a_copy_sprite_tiles(void)
     const u16 *linkSpriteTiles = (u16 *)gGfx_link4bpp;  // not sure about this being u16
 
     // Link's head
-    CpuFastCopy(linkSpriteTiles + gUnknown_03002230.unkCC2 / 2, (void *)(VRAM + 0x10000), 0x40);
-    CpuFastCopy(linkSpriteTiles + gUnknown_03002230.unkCC4 / 2, (void *)(VRAM + 0x10400), 0x40);
+    CpuFastCopy(linkSpriteTiles + gRam.unkCC2 / 2, (void *)(VRAM + 0x10000), 0x40);
+    CpuFastCopy(linkSpriteTiles + gRam.unkCC4 / 2, (void *)(VRAM + 0x10400), 0x40);
 
     // Link's body
-    CpuFastCopy(linkSpriteTiles + gUnknown_03002230.unkCC6 / 2, (void *)(VRAM + 0x10040), 0x40);
-    CpuFastCopy(linkSpriteTiles + gUnknown_03002230.unkCC8 / 2, (void *)(VRAM + 0x10440), 0x40);
+    CpuFastCopy(linkSpriteTiles + gRam.unkCC6 / 2, (void *)(VRAM + 0x10040), 0x40);
+    CpuFastCopy(linkSpriteTiles + gRam.unkCC8 / 2, (void *)(VRAM + 0x10440), 0x40);
 
     // Link's shoes? Not really sure what this is
-    CpuFastCopy(linkSpriteTiles + gUnknown_03002230.unkCCA / 2, (void *)(VRAM + 0x10080), 0x20);
-    CpuFastCopy(linkSpriteTiles + gUnknown_03002230.unkCCC / 2, (void *)(VRAM + 0x10480), 0x20);
+    CpuFastCopy(linkSpriteTiles + gRam.unkCCA / 2, (void *)(VRAM + 0x10080), 0x20);
+    CpuFastCopy(linkSpriteTiles + gRam.unkCCC / 2, (void *)(VRAM + 0x10480), 0x20);
 
     // sword
-    CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unkCB6), (void *)(VRAM + 0x100A0), 0x40);
-    CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unkCB8), (void *)(VRAM + 0x104A0), 0x40);
+    CpuFastCopy((void *)(0x2000000 + gRam.unkCB6), (void *)(VRAM + 0x100A0), 0x40);
+    CpuFastCopy((void *)(0x2000000 + gRam.unkCB8), (void *)(VRAM + 0x104A0), 0x40);
 
     // sheild
-    CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unkCBA), (void *)(VRAM + 0x100E0), 0x40);
-    CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unkCBC), (void *)(VRAM + 0x104E0), 0x40);
+    CpuFastCopy((void *)(0x2000000 + gRam.unkCBA), (void *)(VRAM + 0x100E0), 0x40);
+    CpuFastCopy((void *)(0x2000000 + gRam.unkCBC), (void *)(VRAM + 0x104E0), 0x40);
 
     // hookshot head
-    CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unkCBE), (void *)(VRAM + 0x10120), 0x40);
-    CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unkCC0), (void *)(VRAM + 0x10520), 0x40);
+    CpuFastCopy((void *)(0x2000000 + gRam.unkCBE), (void *)(VRAM + 0x10120), 0x40);
+    CpuFastCopy((void *)(0x2000000 + gRam.unkCC0), (void *)(VRAM + 0x10520), 0x40);
 
     // rupee
-    CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unkCD6), (void *)(VRAM + 0x10160), 0x20);
-    CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unkCD8), (void *)(VRAM + 0x10560), 0x20);
+    CpuFastCopy((void *)(0x2000000 + gRam.unkCD6), (void *)(VRAM + 0x10160), 0x20);
+    CpuFastCopy((void *)(0x2000000 + gRam.unkCD8), (void *)(VRAM + 0x10560), 0x20);
 
     // don't know what this is
-    CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unkCEC), (void *)(VRAM + 0x10180), 0x40);
-    CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unkCEE), (void *)(VRAM + 0x10580), 0x40);
+    CpuFastCopy((void *)(0x2000000 + gRam.unkCEC), (void *)(VRAM + 0x10180), 0x40);
+    CpuFastCopy((void *)(0x2000000 + gRam.unkCEE), (void *)(VRAM + 0x10580), 0x40);
 
     // puzzle block
-    CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unkCCE), (void *)(VRAM + 0x101C0), 0x40);
-    CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unkCD0), (void *)(VRAM + 0x105C0), 0x40);
+    CpuFastCopy((void *)(0x2000000 + gRam.unkCCE), (void *)(VRAM + 0x101C0), 0x40);
+    CpuFastCopy((void *)(0x2000000 + gRam.unkCD0), (void *)(VRAM + 0x105C0), 0x40);
 
     // received item
     CpuFastCopy((void *)0x0200B0C0, (void *)(VRAM + 0x10880), 0x40);
     CpuFastCopy((void *)0x0200B100, (void *)(VRAM + 0x10C80), 0x40);
 
     // Zelda's head
-    CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unkCE2), (void *)(VRAM + 0x10800), 0x40);
-    CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unkCE4), (void *)(VRAM + 0x10C00), 0x40);
+    CpuFastCopy((void *)(0x2000000 + gRam.unkCE2), (void *)(VRAM + 0x10800), 0x40);
+    CpuFastCopy((void *)(0x2000000 + gRam.unkCE4), (void *)(VRAM + 0x10C00), 0x40);
 
     // Zelda's body
-    CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unkCE6), (void *)(VRAM + 0x10840), 0x40);
-    CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unkCE8), (void *)(VRAM + 0x10C40), 0x40);
+    CpuFastCopy((void *)(0x2000000 + gRam.unkCE6), (void *)(VRAM + 0x10840), 0x40);
+    CpuFastCopy((void *)(0x2000000 + gRam.unkCE8), (void *)(VRAM + 0x10C40), 0x40);
 
-    if (gUnknown_03002230.unk1898 != 0)
+    if (gRam.unk1898 != 0)
     {
         // enemies, maybe?
 
-        CpuFastCopy(linkSpriteTiles + gUnknown_03002230.unk18A2 / 2, (void *)(VRAM + 0x12000), 0x40);
-        CpuFastCopy(linkSpriteTiles + (gUnknown_03002230.unk18A2 + 0x200) / 2, (void *)(VRAM + 0x12400), 0x40);
-        CpuFastCopy(linkSpriteTiles + gUnknown_03002230.unk18A4 / 2, (void *)(VRAM + 0x12040), 0x40);
-        CpuFastCopy(linkSpriteTiles + (gUnknown_03002230.unk18A4 + 0x200) / 2, (void *)(VRAM + 0x12440), 0x40);
+        CpuFastCopy(linkSpriteTiles + gRam.unk18A2 / 2, (void *)(VRAM + 0x12000), 0x40);
+        CpuFastCopy(linkSpriteTiles + (gRam.unk18A2 + 0x200) / 2, (void *)(VRAM + 0x12400), 0x40);
+        CpuFastCopy(linkSpriteTiles + gRam.unk18A4 / 2, (void *)(VRAM + 0x12040), 0x40);
+        CpuFastCopy(linkSpriteTiles + (gRam.unk18A4 + 0x200) / 2, (void *)(VRAM + 0x12440), 0x40);
 
-        CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unk18AA), (void *)(VRAM + 0x120A0), 0x40);
-        CpuFastCopy((void *)(0x2000180 + gUnknown_03002230.unk18AA), (void *)(VRAM + 0x124A0), 0x40);
-        CpuFastCopy((void *)(0x2000000 + gUnknown_03002230.unk18AC), (void *)(VRAM + 0x120E0), 0x40);
-        CpuFastCopy((void *)(0x20000C0 + gUnknown_03002230.unk18AC), (void *)(VRAM + 0x124E0), 0x40);
+        CpuFastCopy((void *)(0x2000000 + gRam.unk18AA), (void *)(VRAM + 0x120A0), 0x40);
+        CpuFastCopy((void *)(0x2000180 + gRam.unk18AA), (void *)(VRAM + 0x124A0), 0x40);
+        CpuFastCopy((void *)(0x2000000 + gRam.unk18AC), (void *)(VRAM + 0x120E0), 0x40);
+        CpuFastCopy((void *)(0x20000C0 + gRam.unk18AC), (void *)(VRAM + 0x124E0), 0x40);
     }
 }
 
 void sub_080A6EC4(void)
 {
-    if (gUnknown_03002230.unk1B16 != 0)
+    if (gRam.unk1B16 != 0)
     {
-        if (gUnknown_03002230.unk1B0C == 0)
+        if (gRam.unk1B0C == 0)
         {
             CpuFastCopy((void *)0x0200F330, (void *)(VRAM + 0xB000), 0x100);
             CpuFastCopy((void *)0x0200F430, (void *)(VRAM + 0xB200), 0x100);
@@ -251,13 +251,13 @@ void sub_080A6EC4(void)
             CpuFastCopy((void *)0x0200F930, (void *)(VRAM + 0x13900), 0x100);
             CpuFastCopy((void *)0x0200FA30, (void *)(VRAM + 0x13D00), 0x100);
         }
-        gUnknown_03002230.unk1B16 = 0;
+        gRam.unk1B16 = 0;
     }
 }
 
 void sub_080A7020(void)
 {
-    if (gUnknown_03002230.unkC90 == 0)
+    if (gRam.unkC90 == 0)
     {
         rom3a_copy_sprite_tiles();
         sub_080A7048();
@@ -268,21 +268,21 @@ void sub_080A7020(void)
 
 void sub_080A7048(void)
 {
-    CpuFastCopy((void *)(0x02009A00 + gUnknown_03002230.unkCD2), (void *)(VRAM + gUnknown_03002230.unkA3A), 0x400);
+    CpuFastCopy((void *)(0x02009A00 + gRam.unkCD2), (void *)(VRAM + gRam.unkA3A), 0x400);
 }
 
 void sub_080A7080(void)
 {
-    if (gUnknown_03002230.unk9AE != 0)
+    if (gRam.unk9AE != 0)
     {
-        gUnknown_03002230.unk9AE = 0;
-        CpuFastCopy((void *)0x0200B180, (void *)(VRAM + 0x8000 + gUnknown_03002230.unkA68), 0x180);
+        gRam.unk9AE = 0;
+        CpuFastCopy((void *)0x0200B180, (void *)(VRAM + 0x8000 + gRam.unkA68), 0x180);
     }
 }
 
 void sub_080A70BC(void)
 {
-    gUnknown_0816B524[gUnknown_03002230.unk9AF]();
+    gUnknown_0816B524[gRam.unk9AF]();
 }
 
 void sub_080A70E4(void)
@@ -363,7 +363,7 @@ void sub_080A71AC(void)
 {
     CpuFastCopy((void *)0x02032000, (void *)(VRAM + 0x3000), 0x800);
     CpuFastCopy((void *)0x02034000, (void *)(VRAM + 0x3800), 0x800);
-    CpuFastCopy((void *)(0x02009A00 + gUnknown_03002230.unkCD2), (void *)(VRAM + gUnknown_03002230.unkA3A), 0x400);
+    CpuFastCopy((void *)(0x02009A00 + gRam.unkCD2), (void *)(VRAM + gRam.unkA3A), 0x400);
 }
 
 void sub_080A720C(void)
@@ -408,7 +408,7 @@ void sub_080A7228(void)
         {
             gUnknown_02002353--;
             gUnknown_0200234E++;
-            if (!(gUnknown_03002230.unk996 & 3))
+            if (!(gRam.unk996 & 3))
                 sub_0812A324(38, 0);
         }
         else
@@ -422,7 +422,7 @@ void sub_080A7228(void)
     b = gUnknown_02002340;
     if (a == b)
     {
-        gUnknown_03002230.unkECF = 0;
+        gRam.unkECF = 0;
     }
     //_080A72A8
     else
@@ -449,7 +449,7 @@ void sub_080A7228(void)
         }
         gUnknown_02002342 = a;
         //_080A72D4
-        if (!(gUnknown_03002230.unkECF++ & 7))
+        if (!(gRam.unkECF++ & 7))
             sub_0812A324(115, 0);
     }
     //_080A72F4
@@ -472,22 +472,22 @@ void sub_080A7228(void)
         sub_080A9E38();
         sub_080AA920();
         sub_080AA874();
-        gUnknown_03002230.unkA4C = 0;
+        gRam.unkA4C = 0;
     }
     //_080A7362
-    if (gUnknown_03002230.unk1770 == 0 && gUnknown_02002352 == 0 && gUnknown_0200234D < gUnknown_0816B645[gUnknown_0200234C][0])
+    if (gRam.unk1770 == 0 && gUnknown_02002352 == 0 && gUnknown_0200234D < gUnknown_0816B645[gUnknown_0200234C][0])
     {
-        if (gUnknown_03002230.unkB72 == 0)
+        if (gRam.unkB72 == 0)
         {
-            gUnknown_03002230.unkB72 = 32;
+            gRam.unkB72 = 32;
             sub_0812A324(80, 0);
         }
-        gUnknown_03002230.unkB72--;
+        gRam.unkB72--;
     }
     //_080A73A8
     r8 = 0;
-    r0 = gUnknown_03002230.unkA56;  // maybe?
-    if (gUnknown_03002230.unkA56 == 0)
+    r0 = gRam.unkA56;  // maybe?
+    if (gRam.unkA56 == 0)
     {
         if (gUnknown_02002352 == 0)
         {
@@ -503,8 +503,8 @@ void sub_080A7228(void)
                 if (gUnknown_0200234D >= gUnknown_0200234C)
                     gUnknown_0200234D = gUnknown_0200234C;
                 gUnknown_02002352 -= 8;
-                gUnknown_03002230.unkA56++;
-                gUnknown_03002230.unkA54 = 7;
+                gRam.unkA56++;
+                gRam.unkA54 = 7;
             }
             //_080A7458
             else
@@ -521,16 +521,16 @@ void sub_080A7228(void)
     //_080A7468
     if (r0 != 0)  // dunno
     {
-        //gUnknown_03002230.unk97C = 0xFFFF;
+        //gRam.unk97C = 0xFFFF;
         sub_080A75FC();
         sub_080A797C();
-        gUnknown_03002230.unk9AE++;
+        gRam.unk9AE++;
     }
     if (r8 != 0)
     {
-        //gUnknown_03002230.unk97C = 0xFFFF;
+        //gRam.unk97C = 0xFFFF;
         sub_080A7588();
-        gUnknown_03002230.unk9AE++;
+        gRam.unk9AE++;
     }
 }
 #else
@@ -555,7 +555,7 @@ void sub_080A7228(void)
 	strb r0, [r4]\n\
 	add r0, r3, #1\n\
 	strb r0, [r1]\n\
-	ldr r0, _080A7270  @ =gUnknown_03002230\n\
+	ldr r0, _080A7270  @ =gRam\n\
 	ldr r1, _080A7274  @ =0x00000996\n\
 	add r0, r0, r1\n\
 	ldrb r1, [r0]\n\
@@ -574,7 +574,7 @@ _080A7268:\n\
 _080A726C:\n\
 	.4byte gUnknown_0200234E\n\
 _080A7270:\n\
-	.4byte gUnknown_03002230\n\
+	.4byte gRam\n\
 _080A7274:\n\
 	.4byte 0x00000996\n\
 _080A7278:\n\
@@ -589,7 +589,7 @@ _080A7280:\n\
 	ldrh r0, [r2]\n\
 	cmp r1, r0\n\
 	bne _080A72A8\n\
-	ldr r0, _080A72A0  @ =gUnknown_03002230\n\
+	ldr r0, _080A72A0  @ =gRam\n\
 	ldr r2, _080A72A4  @ =0x00000ECF\n\
 	add r0, r0, r2\n\
 	mov r1, #0\n\
@@ -600,7 +600,7 @@ _080A7298:\n\
 _080A729C:\n\
 	.4byte gUnknown_02002340\n\
 _080A72A0:\n\
-	.4byte gUnknown_03002230\n\
+	.4byte gRam\n\
 _080A72A4:\n\
 	.4byte 0x00000ECF\n\
 _080A72A8:\n\
@@ -631,7 +631,7 @@ _080A72C4:\n\
 _080A72D4:\n\
 	ldr r0, _080A73C4  @ =gUnknown_02002342\n\
 	strh r1, [r0]\n\
-	ldr r0, _080A73C8  @ =gUnknown_03002230\n\
+	ldr r0, _080A73C8  @ =gRam\n\
 	ldr r1, _080A73CC  @ =0x00000ECF\n\
 	add r0, r0, r1\n\
 	ldrb r1, [r0]\n\
@@ -694,13 +694,13 @@ _080A7338:\n\
 	bl sub_080A9E38\n\
 	bl sub_080AA920\n\
 	bl sub_080AA874\n\
-	ldr r0, _080A73C8  @ =gUnknown_03002230\n\
+	ldr r0, _080A73C8  @ =gRam\n\
 	ldr r2, _080A73F4  @ =0x00000A4C\n\
 	add r0, r0, r2\n\
 	mov r1, #0\n\
 	strh r1, [r0]\n\
 _080A7362:\n\
-	ldr r0, _080A73C8  @ =gUnknown_03002230\n\
+	ldr r0, _080A73C8  @ =gRam\n\
 	ldr r2, _080A73F8  @ =0x00001770\n\
 	add r1, r0, r2\n\
 	ldrb r1, [r1]\n\
@@ -753,7 +753,7 @@ _080A73A8:\n\
 _080A73C4:\n\
 	.4byte gUnknown_02002342\n\
 _080A73C8:\n\
-	.4byte gUnknown_03002230\n\
+	.4byte gRam\n\
 _080A73CC:\n\
 	.4byte 0x00000ECF\n\
 _080A73D0:\n\
@@ -851,7 +851,7 @@ _080A7482:\n\
 	mov r1, r8\n\
 	cmp r1, #0\n\
 	beq _080A74A0\n\
-	ldr r4, _080A74B8  @ =gUnknown_03002230\n\
+	ldr r4, _080A74B8  @ =gRam\n\
 	ldr r2, _080A74AC  @ =0x0000097C\n\
 	add r1, r4, r2\n\
 	ldr r0, _080A74B0  @ =0x0000FFFF\n\
@@ -876,7 +876,7 @@ _080A74B0:\n\
 _080A74B4:\n\
 	.4byte 0x000009AE\n\
 _080A74B8:\n\
-	.4byte gUnknown_03002230");
+	.4byte gRam");
 }
 #endif
 
@@ -901,7 +901,7 @@ void sub_080A74BC(void)
         gUnknown_02002320 = r1;
     }
     //_080A7500
-    r2 = gUnknown_03002230.unkA4E + gUnknown_03002230.unkA4F;
+    r2 = gRam.unkA4E + gRam.unkA4F;
     if (r2 != 0)
     {
         u16 *ptr;
@@ -957,7 +957,7 @@ _080A74FC:\n\
 	ldr r0, _080A756C  @ =gUnknown_02002320\n\
 	strb r1, [r0]\n\
 _080A7500:\n\
-	ldr r0, _080A7570  @ =gUnknown_03002230\n\
+	ldr r0, _080A7570  @ =gRam\n\
 	ldr r2, _080A7574  @ =0x00000A4E\n\
 	add r1, r0, r2\n\
 	ldrb r1, [r1]\n\
@@ -1017,7 +1017,7 @@ _080A7568:\n\
 _080A756C:\n\
 	.4byte gUnknown_02002320\n\
 _080A7570:\n\
-	.4byte gUnknown_03002230\n\
+	.4byte gRam\n\
 _080A7574:\n\
 	.4byte 0x00000A4E\n\
 _080A7578:\n\
