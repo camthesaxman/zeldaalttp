@@ -111,7 +111,7 @@ void Sprite3_Move(u8 r0)
 
 u8 Sprite3_MoveHoriz(u8 r0)
 {
-    Sprite3_MoveVert(((r0 << 0x18) + 0x10000000U) >> 0x18);
+    Sprite3_MoveVert(r0 + 0x10);
     return gRam.unk15DC;
 }
 
@@ -122,7 +122,7 @@ void sub_080C35A4(u8 r0)
 
 void sub_080C35C0(u8 r0)
 {
-    sub_080C35E0(((r0 << 0x18) + 0x10000000U) >> 0x18);
+    sub_080C35E0(r0 + 0x10);
     sub_080C35E0(r0);
 }
 

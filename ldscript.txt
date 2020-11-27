@@ -23,6 +23,10 @@ SECTIONS
 		asm/rom3a.o(.text);
 		src/lttp/sprite.o(.text);
 		asm/rom3b.o(.text);
+		src/lttp/sprite2.o(.text);
+		src/lttp/sprite_unused.o(.text);
+		src/lttp/sprite_HeartRefill.o(.text);
+		asm/rom3c.o(.text);
 		asm/rom4.o(.text);
         src/hud.o(.text);
         asm/hud.o(.text);

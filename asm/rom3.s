@@ -82552,7 +82552,7 @@ _0808453A:
 	lsl r0, r0, #1
 	cmp r1, r0
 	bne _080845F8
-	bl sub_080CEFE0
+	bl GetRandomInt
 	mov r7, #15
 	and r7, r7, r0
 	ldr r0, _080845F4  @ =gUnknown_081534FE
@@ -82596,7 +82596,7 @@ _080845F8:
 	lsl r0, r0, #1
 	cmp r1, r0
 	bne _08084614
-	bl sub_080CEFE0
+	bl GetRandomInt
 	mov r1, #15
 	and r1, r1, r0
 	add r7, r1, #0
@@ -82606,7 +82606,7 @@ _080845F8:
 _08084610:
 	.4byte gUnknown_081534FE
 _08084614:
-	bl sub_080CEFE0
+	bl GetRandomInt
 	mov r1, #7
 	add r7, r1, #0
 	and r7, r7, r0
@@ -146956,7 +146956,7 @@ sub_080A262C: @ 0x080A262C
 	ldr r0, _080A2664  @ =0x00000B17
 	cmp r1, r0
 	bhi _080A26C2
-	bl sub_080CEFE0
+	bl GetRandomInt
 	mov r2, #7
 	and r2, r2, r0
 	cmp r2, #7
@@ -146999,7 +146999,7 @@ _080A269C:
 	ldrb r0, [r4]
 	cmp r0, #0
 	bne _080A26C2
-	bl sub_080CEFE0
+	bl GetRandomInt
 	mov r1, #3
 	and r1, r1, r0
 	cmp r1, #0
@@ -147300,7 +147300,7 @@ _080A28E4:
 _080A28F4:
 	.4byte 0x00001894
 _080A28F8:
-	bl sub_080CEFE0
+	bl GetRandomInt
 	mov r1, #31
 	and r1, r1, r0
 	cmp r1, #5

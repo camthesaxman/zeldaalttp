@@ -64,7 +64,6 @@ src/math.o:         CC1FLAGS += -fprologue-bugfix
 src/main.o:         CC1FLAGS += -fprologue-bugfix
 src/file_select.o:  CC1FLAGS += -fprologue-bugfix
 src/rom2.o:         CC1FLAGS += -fprologue-bugfix
-src/lttp/sprite.o:  CC1FLAGS += -fprologue-bugfix
 #src/interface.o: CC1FLAGS += -fprologue-bugfix
 
 #### Main Targets ####
