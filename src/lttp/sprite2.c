@@ -9,12 +9,14 @@ void Sprite_LoadPalette(u8 r0)
     gRam.unk1122[r0] = temp2 & 0xf;
 }
 
-void GetRandomInt(void)
+u8 GetRandomInt(void)
 {
     u8 temp = REG_VCOUNT;
     temp += (u8)gRam.unk996;
     temp += (u8)gRam.unk15DE;
     gRam.unk15DE = temp;
+
+	return temp;
 }
 
 __attribute__((naked))

@@ -656,7 +656,7 @@ extern const u16 gUnknown_0818097C[];
 
 void sub_08129C58(void)
 {
-    u16 var = gRam.unk16C0 + (gRam.unk16C1 << 8) - gRam.unk958;
+    u16 var = gRam.unk16C0.b.lo + (gRam.unk16C0.b.hi << 8) - gRam.unk958;
 
     if (var > 91)
         gRam.unk1ACA = gUnknown_0818097C[0];

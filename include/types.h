@@ -95,6 +95,14 @@ struct UnknownStruct8
     u8 unk5;
 };
 
+typedef union {
+    u16 half;
+    struct {
+        u8 lo;
+        s8 hi;
+    } __attribute__((packed)) b;
+} __attribute__((packed)) SplitHalf;
+
 struct UnknownStruct7
 {
     u8 filler0[0x544];
@@ -129,7 +137,11 @@ struct UnknownStruct7
     u8 unk9AD;
     u8 unk9AE;
     u8 unk9AF;
-    u8 filler9B0[0x8A];
+    u8 filler9B0[0x2];
+    s8 unk9B2;
+    u8 filler9B3[0x5D];
+    u8 unkA10;
+    u8 fillerA11[0x29];
     u16 unkA3A;
     u8 fillerA3C[0x10];
     u16 unkA4C;
@@ -174,7 +186,8 @@ struct UnknownStruct7
     u16 unkCEE;
     u8 fillerCF0[0xCF8-0xCF0];
     u16 unkCF8;
-    u8 unkCFA[0xE50-0xCFA];
+    u8 unkCFA[0x9A];
+    u8 unkD94[0xBC];
     u8 fillerE50[0x25];
     u8 unkE75[0x5A];
     u8 unkECF;
@@ -185,7 +198,8 @@ struct UnknownStruct7
     u8 unkF02[0x10];
     u8 unkF12[0x10];
     u8 unkF22[0x30];
-    u8 unkF52[0x40];
+    u8 unkF52[0x10];
+    u8 unkF62[0x30];
     u8 unkF92[0x10];
     u8 unkFA2[0x10];
     u8 unkFB2[0x10];
@@ -196,7 +210,8 @@ struct UnknownStruct7
     u8 unk1042[0x40];
     u8 unk1082[0x40];
     u8 unk10C2[0x10];
-    u8 unk10D2[0x20];
+    u8 unk10D2[0x10];
+    u8 unk10E2[0x10];
     u8 unk10F2[0x30];
     u8 unk1122[0x20];
     s8 unk1142[0x10];
@@ -223,11 +238,9 @@ struct UnknownStruct7
     u8 unk1605;
     u8 filler1606[0x24];
     u16 unk162A[0x4B];
-    u8 unk16C0;
-    s8 unk16C1;
-    u8 filler16C2[2];
-    u8 unk16C4;
-    s8 unk16C5;
+    SplitHalf unk16C0;
+    SplitHalf unk16C2;
+    SplitHalf unk16C4;
     u8 filler16C6[0x5D];
     u8 unk1723;
     u8 unk1724;
@@ -441,4 +454,12 @@ struct Struct0200B250
     u8 filler4[0x25-0x4];
     u8 unk25;
     u8 filler26[0x40-0x26];
+};
+
+// Used for collision, messaging in LTTP?
+struct Sprite {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
 };

@@ -26,6 +26,7 @@ SECTIONS
 		src/lttp/sprite2.o(.text);
 		src/lttp/sprite_unused.o(.text);
 		src/lttp/sprite_HeartRefill.o(.text);
+		src/lttp/sprite_Faerie.o(.text);
 		asm/rom3c.o(.text);
 		asm/rom4.o(.text);
         src/hud.o(.text);
