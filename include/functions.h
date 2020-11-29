@@ -4660,7 +4660,7 @@ extern void sub_080C35E0(u8 r0);
 //sub_080C43DC();
 //sub_080C444C();
 //sub_080C44FC();
-//sub_080C4574();
+extern void sub_080C4574(u8 r0);
 //sub_080C466C();
 //sub_080C46EC();
 //sub_080C4948();

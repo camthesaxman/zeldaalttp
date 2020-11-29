@@ -115,12 +115,12 @@ void sub_080CFAA8(u8 r0)
             gRam.unk960 = temp2 + gRam.unkF62[r0];
         }
 
-        gRam.unk964 = gRam.unkF12[r0];
+        gRam.unk964.half = gRam.unkF12[r0];
         if ((gRam.unkF12[r0] << 0x18) > 0)
         {
-            gRam.unk964 = temp2 + gRam.unkF12[r0];
+            gRam.unk964.half = temp2 + gRam.unkF12[r0];
         }
-        gRam.unkF12[r0] = (*(s16 *)&gRam.unk964 + *(s16 *)&gRam.unk960) >> 1;
+        gRam.unkF12[r0] = (*(s16 *)&gRam.unk964.half + *(s16 *)&gRam.unk960) >> 1;
 
         gRam.unk960 = gRam.unkFB2[r0];
         if ((gRam.unkFB2[r0] << 0x18) > 0)
@@ -128,12 +128,12 @@ void sub_080CFAA8(u8 r0)
             gRam.unk960 = temp2 + gRam.unkFB2[r0];
         }
 
-        gRam.unk964 = gRam.unkF22[r0];
+        gRam.unk964.half = gRam.unkF22[r0];
         if ((gRam.unkF22[r0] << 0x18) > 0)
         {
-            gRam.unk964 += temp2;
+            gRam.unk964.half += temp2;
         }
-        gRam.unkF22[r0] = (*(s16 *)&gRam.unk960 + *(s16 *)&gRam.unk964) >> 1;
+        gRam.unkF22[r0] = (*(s16 *)&gRam.unk960 + *(s16 *)&gRam.unk964.half) >> 1;
     }
 
     sub_080C2C4C(r0);

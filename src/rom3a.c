@@ -13,7 +13,7 @@ void sub_080A6754(void)
     s16 r9;
     u16 r6;
     
-    gRam.unk97C = gUnknown_081697A0[gRam.unk964];
+    gRam.unk97C = gUnknown_081697A0[gRam.unk964.half];
     gRam.unk189A = gRam.unk97C * 2;
     r2 = gRam.unk97C * 3;
     
@@ -67,15 +67,15 @@ void sub_080A69FC(u8 a)
     u16 r4 = gUnknown_02010990;
     u8 r6 = gRam.unkF92[a];
     
-    gRam.unk964 = r6;
+    gRam.unk964.half = r6;
     gRam.unk961 = gRam.unkED2[a] + gRam.unk1142[a] - gRam.unk958 - 4;
     gRam.unk960 = gRam.unkEE2[a] - gRam.unk952;
     gRam.unk1734 = gUnknown_08169CDA[gRam.unkFB2[a] / 2];
     gRam.unk968 = gUnknown_0816B258[gRam.unkFB2[a] / 2];
     r4 = r4 * 2;
     r4 += gRam.unk968;
-    gRam.unk964 = gUnknown_0816B118[r4 / 2] + r6;
-    gRam.unk968 = gUnknown_0816AF12[gRam.unk964];
+    gRam.unk964.half = gUnknown_0816B118[r4 / 2] + r6;
+    gRam.unk968 = gUnknown_0816AF12[gRam.unk964.half];
     gUnknown_03003E68 = 0;
     sub_080A61D8();
     sub_080A64F8();

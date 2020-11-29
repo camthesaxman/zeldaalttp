@@ -96,7 +96,7 @@ struct UnknownStruct8
 };
 
 typedef union {
-    u16 half;
+    s16 half;
     struct {
         u8 lo;
         s8 hi;
@@ -120,12 +120,15 @@ struct UnknownStruct7
     u8 unk960;
     u8 unk961;
     u8 filler962[2];
-    s16 unk964;
+    SplitHalf unk964;
     u8 filler966[2];
     s16 unk968;
     u8 filler96A[2];
-    u16 unk96C;
-    u8 filler96E[0xE];
+    SplitHalf unk96C;
+    u8 filler96E[0x2];
+    u8 unk970;
+    u8 unk971;
+    u8 filler970[0xA];
     u8 unk97C;
     s8 unk97D;
     u8 unk97E[0x10];
@@ -188,7 +191,8 @@ struct UnknownStruct7
     u16 unkCEE;
     u8 fillerCF0[0xCF8-0xCF0];
     u16 unkCF8;
-    u8 unkCFA[0x9A];
+    u8 unkCFA[0x7A];
+    u8 unkD74[0x20];
     u8 unkD94[0x23];
     u8 unkDB7;
     u8 fillerDB8[0x98];
@@ -212,7 +216,8 @@ struct UnknownStruct7
     u8 unkFF2[0x10];
     u8 unk1002[0x30];
     u8 unk1032[0x10];
-    u8 unk1042[0x40];
+    u8 unk1042[0x20];
+    s8 unk1062[0x20];
     u8 unk1082[0x40];
     u8 unk10C2[0x10];
     u8 unk10D2[0x10];
@@ -242,7 +247,9 @@ struct UnknownStruct7
     u8 filler15F9[0xC];
     u8 unk1605;
     u8 filler1606[0x24];
-    u16 unk162A[0x4B];
+    u16 unk162A[0x1C];
+    u8 unk1662;
+    u8 filler1663[0x5D];
     SplitHalf unk16C0;
     u8 filler16C2[2];
     SplitHalf unk16C4;

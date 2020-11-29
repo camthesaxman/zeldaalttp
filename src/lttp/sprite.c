@@ -152,7 +152,7 @@ u16 sub_080C368C(u8 r0)
 {
     s16 temp;
 
-    temp = gRam.unk96C - (gRam.unkED2[r0] + gRam.unkEF2[r0] * 0x100);
+    temp = gRam.unk96C.half - (gRam.unkED2[r0] + gRam.unkEF2[r0] * 0x100);
 
     gRam.unk97C = temp;
     return temp < 0;
