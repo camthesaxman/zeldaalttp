@@ -37,6 +37,8 @@ LDSCRIPT := ldscript.txt
 
 SUBDIRS := \
         src \
+		src/lttp \
+		asm/lttp \
         asm \
         data
 
