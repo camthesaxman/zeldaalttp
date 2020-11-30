@@ -30,6 +30,7 @@ SECTIONS
 		src/lttp/sprite_pickup.o(.text);
 		asm/lttp/sprite_bee.o(.text);
 		src/lttp/sprite_bottle_vendor.o(.text);
+		src/lttp/sprite_witch.o(.text);
 		asm/rom3c.o(.text);
 		asm/rom4.o(.text);
         src/hud.o(.text);

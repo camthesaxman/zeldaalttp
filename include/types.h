@@ -107,7 +107,7 @@ struct UnknownStruct7
 {
     u8 filler0[0x544];
     u8 unk544;
-    u8 filler545[1];
+    u8 unk545;
     u8 unk546;
     u8 unk547;
     u8 filler548[0x550-0x548];
@@ -162,7 +162,9 @@ struct UnknownStruct7
     u16 unkB72;
     u8 fillerB74[0x11C];
     u16 unkC90;
-    u8 fillerC92[0x24];
+    u8 fillerC92[0x22];
+    u8 unkCB4;
+    u8 unkCB5;
     u16 unkCB6;
     u16 unkCB8;
     u16 unkCBA;
@@ -223,7 +225,8 @@ struct UnknownStruct7
     u8 unk10D2[0x10];
     u8 unk10E2[0x10];
     u8 unk10F2[0x30];
-    u8 unk1122[0x20];
+    u8 unk1122[0x10];
+    u8 unk1132[0x10];
     s8 unk1142[0x10];
     u8 unk1152[0x20];
     u8 unk1172[0x20];
@@ -253,7 +256,9 @@ struct UnknownStruct7
     SplitHalf unk16C0;
     u8 filler16C2[2];
     SplitHalf unk16C4;
-    u8 filler16C6[0x5D];
+    u8 filler16C6[0x53];
+    u8 unk1719;
+    u8 filler171A[0x9];
     u8 unk1723;
     u8 unk1724;
     u8 filler1725[0xF];
