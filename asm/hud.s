@@ -47,7 +47,7 @@ _08127E9C:
 	ldr r4, _08127ED8  @ =0x00001AD2
 	add r3, r2, r4
 	ldrh r1, [r3]
-	ldr r5, _08127EDC  @ =gUnknown_02005480
+	ldr r5, _08127EDC  @ =gTextPointer
 	add r0, r1, r5
 	ldrb r2, [r0]
 	cmp r2, #31
@@ -77,7 +77,7 @@ _08127ED4:
 _08127ED8:
 	.4byte 0x00001AD2
 _08127EDC:
-	.4byte gUnknown_02005480
+	.4byte gTextPointer
 _08127EE0:
 	cmp r2, #127
 	bhi _08127F00
@@ -382,7 +382,7 @@ _08128110:
 	ldr r6, _081281D8  @ =gUnknown_02005481
 	add r1, r0, r6
 	ldrb r3, [r1]
-	ldr r7, _081281DC  @ =gUnknown_02005480
+	ldr r7, _081281DC  @ =gTextPointer
 	add r0, r0, r7
 	ldrb r1, [r0]
 	ldr r0, _081281CC  @ =0x00001AF4
@@ -480,7 +480,7 @@ _081281D4:
 _081281D8:
 	.4byte gUnknown_02005481
 _081281DC:
-	.4byte gUnknown_02005480
+	.4byte gTextPointer
 _081281E0:
 	.4byte gUnknown_02010471
 _081281E4:
@@ -1235,7 +1235,7 @@ sub_08128748: @ 0x08128748
 	add r1, r1, #1
 	strh r1, [r3]
 	ldrh r0, [r3]
-	ldr r4, _08128778  @ =gUnknown_02005480
+	ldr r4, _08128778  @ =gTextPointer
 	add r0, r0, r4
 	ldrb r0, [r0]
 	ldr r4, _0812877C  @ =0x00001AE4
@@ -1252,7 +1252,7 @@ _08128770:
 _08128774:
 	.4byte 0x00001AD2
 _08128778:
-	.4byte gUnknown_02005480
+	.4byte gTextPointer
 _0812877C:
 	.4byte 0x00001AE4
 	THUMB_FUNC_END sub_08128748
@@ -2188,7 +2188,7 @@ sub_08128E58: @ 0x08128E58
 	ldr r3, _08128E88  @ =0x00001AD2
 	add r0, r4, r3
 	ldrh r0, [r0]
-	ldr r1, _08128E8C  @ =gUnknown_02005480
+	ldr r1, _08128E8C  @ =gTextPointer
 	add r0, r0, r1
 	ldrb r0, [r0]
 	add r1, r0, #0
@@ -2203,12 +2203,12 @@ _08128E84:
 _08128E88:
 	.4byte 0x00001AD2
 _08128E8C:
-	.4byte gUnknown_02005480
+	.4byte gTextPointer
 _08128E90:
 	ldr r2, _08128EE4  @ =0x00001AD2
 	add r0, r4, r2
 	ldrh r0, [r0]
-	ldr r3, _08128EE8  @ =gUnknown_02005480
+	ldr r3, _08128EE8  @ =gTextPointer
 	add r0, r0, r3
 	ldrb r0, [r0]
 	add r1, r0, #0
@@ -2252,7 +2252,7 @@ _08128EA0:
 _08128EE4:
 	.4byte 0x00001AD2
 _08128EE8:
-	.4byte gUnknown_02005480
+	.4byte gTextPointer
 _08128EEC:
 	.4byte gUnknown_08180C88
 _08128EF0:
@@ -2281,7 +2281,7 @@ sub_08128F00: @ 0x08128F00
 	add r0, r0, #1
 	strh r0, [r4]
 	ldrh r0, [r4]
-	ldr r1, _08128F60  @ =gUnknown_02005480
+	ldr r1, _08128F60  @ =gTextPointer
 	add r0, r0, r1
 	ldrb r0, [r0]
 	mov r1, #15
@@ -2316,7 +2316,7 @@ _08128F58:
 _08128F5C:
 	.4byte 0x00001AD2
 _08128F60:
-	.4byte gUnknown_02005480
+	.4byte gTextPointer
 _08128F64:
 	.4byte 0x00001ADC
 	THUMB_FUNC_END sub_08128F00
@@ -2331,7 +2331,7 @@ sub_08128F68: @ 0x08128F68
 	add r0, r0, #1
 	strh r0, [r1]
 	ldrh r0, [r1]
-	ldr r1, _08128F94  @ =gUnknown_02005480
+	ldr r1, _08128F94  @ =gTextPointer
 	add r0, r0, r1
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -2345,7 +2345,7 @@ _08128F8C:
 _08128F90:
 	.4byte 0x00001AD2
 _08128F94:
-	.4byte gUnknown_02005480
+	.4byte gTextPointer
 _08128F98:
 	mov r0, #71
 	mov r1, #0
@@ -2385,7 +2385,7 @@ sub_08128FBC: @ 0x08128FBC
 	ldrb r0, [r4]
 	strb r0, [r3]
 	ldrh r0, [r1]
-	ldr r1, _08128FF4  @ =gUnknown_02005480
+	ldr r1, _08128FF4  @ =gTextPointer
 	add r0, r0, r1
 	ldrb r1, [r0]
 	cmp r1, #255
@@ -2399,7 +2399,7 @@ _08128FEC:
 _08128FF0:
 	.4byte 0x00001ACD
 _08128FF4:
-	.4byte gUnknown_02005480
+	.4byte gTextPointer
 _08128FF8:
 	strb r1, [r4]
 	mov r0, #192
