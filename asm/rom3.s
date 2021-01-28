@@ -98685,7 +98685,7 @@ sub_0808BED8: @ 0x0808BED8
 	and r1, r1, r6
 	lsl r1, r1, #3
 	orr r5, r5, r1
-	ldr r0, _0808C018  @ =gUnknown_030038F4
+	ldr r0, _0808C018  @ =gPlayerYPosition
 	ldrh r0, [r0]
 	mov r12, r0
 	ldr r1, _0808C01C  @ =gUnknown_03002EBC
@@ -98798,7 +98798,7 @@ _0808C010:
 _0808C014:
 	.4byte gUnknown_03002EBA
 _0808C018:
-	.4byte gUnknown_030038F4
+	.4byte gPlayerYPosition
 _0808C01C:
 	.4byte gUnknown_03002EBC
 _0808C020:
@@ -98838,7 +98838,7 @@ _0808C044:
 	cmp r2, r0
 	beq _0808C0F0
 	mov r1, #240
-	ldr r0, _0808C0CC  @ =gUnknown_030038F4
+	ldr r0, _0808C0CC  @ =gPlayerYPosition
 	mov r2, #0
 	ldrsh r0, [r0, r2]
 	str r0, [sp, #4]
@@ -98889,7 +98889,7 @@ _0808C0C4:
 _0808C0C8:
 	.4byte 0x00000149
 _0808C0CC:
-	.4byte gUnknown_030038F4
+	.4byte gPlayerYPosition
 _0808C0D0:
 	.4byte gUnknown_03002EBC
 _0808C0D4:
@@ -115606,7 +115606,7 @@ _08093EC8:
 	bne _08093ED6
 	b _08094050
 _08093ED6:
-	ldr r3, _08093FB0  @ =gUnknown_030038F0
+	ldr r3, _08093FB0  @ =gPlayerXPosition
 	ldrb r0, [r3]
 	ldr r1, _08093FB4  @ =gUnknown_03003998
 	strb r0, [r1]
@@ -115692,7 +115692,7 @@ _08093F3C:
 	ldr r2, _08093FCC  @ =0x0000172D
 	add r0, r4, r2
 	strb r1, [r0]
-	ldr r3, _08093FB0  @ =gUnknown_030038F0
+	ldr r3, _08093FB0  @ =gPlayerXPosition
 	ldrh r0, [r3]
 	ldr r2, _08093FB4  @ =gUnknown_03003998
 	ldrh r1, [r2]
@@ -115715,7 +115715,7 @@ _08093FA8:
 _08093FAC:
 	.4byte 0x000016D7
 _08093FB0:
-	.4byte gUnknown_030038F0
+	.4byte gPlayerXPosition
 _08093FB4:
 	.4byte gUnknown_03003998
 _08093FB8:
@@ -140129,7 +140129,7 @@ sub_0809F4F8: @ 0x0809F4F8
 	mov r0, #0
 	strb r0, [r1]
 	bl sub_0809E970
-	ldr r1, _0809F5EC  @ =gUnknown_03003905
+	ldr r1, _0809F5EC  @ =gPlayerFacing
 	ldrb r2, [r1]
 	mov r3, #182
 	lsl r3, r3, #5
@@ -140238,7 +140238,7 @@ _0809F5E4:
 _0809F5E8:
 	.4byte 0x00001714
 _0809F5EC:
-	.4byte gUnknown_03003905
+	.4byte gPlayerFacing
 _0809F5F0:
 	.4byte gUnknown_08168258
 _0809F5F4:
@@ -140271,7 +140271,7 @@ _0809F620:
 	and r0, r0, r1
 	cmp r0, #0
 	beq _0809F6A6
-	ldr r5, _0809F648  @ =gUnknown_03003905
+	ldr r5, _0809F648  @ =gPlayerFacing
 	ldrb r0, [r5]
 	cmp r0, #0
 	bne _0809F6A6
@@ -140286,7 +140286,7 @@ _0809F640:
 _0809F644:
 	.4byte 0x000017F8
 _0809F648:
-	.4byte gUnknown_03003905
+	.4byte gPlayerFacing
 _0809F64C:
 	.4byte 0x000017FC
 _0809F650:
@@ -140297,7 +140297,7 @@ _0809F650:
 	and r0, r0, r1
 	cmp r0, #0
 	beq _0809F6A6
-	ldr r3, _0809F6C0  @ =gUnknown_03003905
+	ldr r3, _0809F6C0  @ =gPlayerFacing
 	ldrb r0, [r3]
 	cmp r0, #0
 	bne _0809F670
@@ -140350,7 +140350,7 @@ _0809F6A6:
 _0809F6BC:
 	.4byte 0x000017F8
 _0809F6C0:
-	.4byte gUnknown_03003905
+	.4byte gPlayerFacing
 _0809F6C4:
 	.4byte 0x000017FC
 _0809F6C8:
@@ -140457,7 +140457,7 @@ _0809F75C:
 	lsr r4, r4, #25
 	lsl r4, r4, #1
 	add r0, r4, r0
-	ldr r1, _0809F88C  @ =gUnknown_030038F0
+	ldr r1, _0809F88C  @ =gPlayerXPosition
 	ldrh r2, [r1]
 	ldrh r0, [r0]
 	add r0, r2, r0
@@ -140574,7 +140574,7 @@ _0809F856:
 	and r0, r0, r1
 	cmp r0, #0
 	beq _0809F8C0
-	ldr r6, _0809F88C  @ =gUnknown_030038F0
+	ldr r6, _0809F88C  @ =gPlayerXPosition
 	ldrh r0, [r6]
 	mov r1, r9
 	ldrh r1, [r1]
@@ -140592,7 +140592,7 @@ _0809F884:
 _0809F888:
 	.4byte gUnknown_08168276
 _0809F88C:
-	.4byte gUnknown_030038F0
+	.4byte gPlayerXPosition
 _0809F890:
 	.4byte 0x00000A0E
 _0809F894:

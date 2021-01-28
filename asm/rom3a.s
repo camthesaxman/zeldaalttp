@@ -43547,7 +43547,7 @@ _080BB976:
 	lsl r0, r1, #3
 	sub r0, r0, r1
 	asr r0, r0, #5
-	ldr r3, _080BB9E8  @ =gUnknown_030038F4
+	ldr r3, _080BB9E8  @ =gPlayerYPosition
 	ldrh r1, [r3]
 	sub r1, r1, r0
 	mov r0, #150
@@ -43576,7 +43576,7 @@ _080BB9E0:
 _080BB9E4:
 	.4byte gUnknown_08173F38
 _080BB9E8:
-	.4byte gUnknown_030038F4
+	.4byte gPlayerYPosition
 _080BB9EC:
 	ldr r2, _080BBA34  @ =gUnknown_08173F38
 	lsl r0, r3, #1
@@ -43585,7 +43585,7 @@ _080BB9EC:
 	lsl r0, r1, #3
 	sub r0, r0, r1
 	asr r0, r0, #5
-	ldr r1, _080BBA38  @ =gUnknown_030038F4
+	ldr r1, _080BBA38  @ =gPlayerYPosition
 	ldrh r1, [r1]
 	add r0, r0, r1
 	mov r1, #150
@@ -43609,7 +43609,7 @@ _080BBA08:
 	lsl r1, r0, #3
 	sub r1, r1, r0
 	asr r1, r1, #5
-	ldr r2, _080BBA3C  @ =gUnknown_030038F0
+	ldr r2, _080BBA3C  @ =gPlayerXPosition
 	ldrh r0, [r2]
 	sub r0, r0, r1
 	ldr r3, _080BBA40  @ =gUnknown_03002B94
@@ -43618,9 +43618,9 @@ _080BBA08:
 _080BBA34:
 	.4byte gUnknown_08173F38
 _080BBA38:
-	.4byte gUnknown_030038F4
+	.4byte gPlayerYPosition
 _080BBA3C:
-	.4byte gUnknown_030038F0
+	.4byte gPlayerXPosition
 _080BBA40:
 	.4byte gUnknown_03002B94
 _080BBA44:
@@ -43630,7 +43630,7 @@ _080BBA44:
 	lsl r0, r1, #3
 	sub r0, r0, r1
 	asr r0, r0, #5
-	ldr r1, _080BBB30  @ =gUnknown_030038F0
+	ldr r1, _080BBB30  @ =gPlayerXPosition
 	ldrh r1, [r1]
 	add r0, r0, r1
 	ldr r2, _080BBB34  @ =gUnknown_03002B94
@@ -43745,7 +43745,7 @@ _080BBB0A:
 	.byte 0x00
 	.byte 0x00
 _080BBB30:
-	.4byte gUnknown_030038F0
+	.4byte gPlayerXPosition
 _080BBB34:
 	.4byte gUnknown_03002B94
 _080BBB38:
