@@ -77321,7 +77321,7 @@ _080CB07E:
 	cmp r1, #0
 	bge _080CB07E
 	mov r1, #7
-	ldr r4, _080CB0E8  @ =gUnknown_03002FDC
+	ldr r4, _080CB0E8  @ =gRoomEnterId
 	mov r3, #255
 _080CB092:
 	lsl r0, r1, #16
@@ -77369,7 +77369,7 @@ _080CB0E0:
 _080CB0E4:
 	.4byte gUnknown_02007B80
 _080CB0E8:
-	.4byte gUnknown_03002FDC
+	.4byte gRoomEnterId
 	THUMB_FUNC_END sub_080CB01C
 
 	THUMB_FUNC_START sub_080CB0EC

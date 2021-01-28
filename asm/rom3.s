@@ -41087,7 +41087,7 @@ _08071DB8:
 	mov r1, r8
 	add r0, r2, r1
 	ldrh r0, [r0]
-	ldr r3, _08071E48  @ =gUnknown_03002C0A
+	ldr r3, _08071E48  @ =gRoomIds
 	strh r0, [r3]
 	ldr r7, _08071E4C  @ =gUnknown_0814CECC
 	add r2, r2, r7
@@ -41147,7 +41147,7 @@ _08071E40:
 _08071E44:
 	.4byte 0x00001727
 _08071E48:
-	.4byte gUnknown_03002C0A
+	.4byte gRoomIds
 _08071E4C:
 	.4byte gUnknown_0814CECC
 _08071E50:
@@ -75700,7 +75700,7 @@ _08081198:
 	ldrh r0, [r0]
 	and r0, r0, r1
 	strh r0, [r6]
-	ldr r1, _0808124C  @ =gUnknown_03002C0A
+	ldr r1, _0808124C  @ =gRoomIds
 	ldrh r0, [r1]
 	cmp r0, #205
 	beq _080811E0
@@ -75770,7 +75770,7 @@ _08081244:
 _08081248:
 	.4byte gUnknown_081676D2
 _0808124C:
-	.4byte gUnknown_03002C0A
+	.4byte gRoomIds
 _08081250:
 	.4byte 0x000009E6
 _08081254:
