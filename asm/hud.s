@@ -1026,7 +1026,7 @@ _081285DA:
 	mov r1, #31
 	strb r1, [r4]
 _081285EA:
-	ldr r2, _08128614  @ =gUnknown_02002320
+	ldr r2, _08128614  @ =gBow
 	add r0, r1, r2
 	ldrb r2, [r0]
 	add r0, r6, #0
@@ -1048,7 +1048,7 @@ _081285FC:
 _08128610:
 	.4byte gUnknown_03003D12
 _08128614:
-	.4byte gUnknown_02002320
+	.4byte gBow
 _08128618:
 	.4byte gUnknown_02002341
 _0812861C:
@@ -1079,7 +1079,7 @@ _08128638:
 	strb r5, [r4]
 _08128642:
 	ldrb r1, [r4]
-	ldr r2, _08128664  @ =gUnknown_02002320
+	ldr r2, _08128664  @ =gBow
 	add r0, r1, r2
 	ldrb r2, [r0]
 	mov r0, #128
@@ -1097,7 +1097,7 @@ _08128656:
 _08128660:
 	.4byte gUnknown_03003D12
 _08128664:
-	.4byte gUnknown_02002320
+	.4byte gBow
 _08128668:
 	ldr r0, _08128678  @ =gUnknown_02002341
 	ldrb r0, [r0]
@@ -1134,7 +1134,7 @@ sub_08128694: @ 0x08128694
 	lsl r0, r2, #2
 	add r0, r0, r1
 	ldr r4, [r0]
-	ldr r1, _081286F8  @ =gUnknown_02002320
+	ldr r1, _081286F8  @ =gBow
 	add r0, r2, r1
 	ldrb r3, [r0]
 	cmp r2, #32
@@ -1181,7 +1181,7 @@ _081286B2:
 _081286F4:
 	.4byte gUnknown_0816B5A8
 _081286F8:
-	.4byte gUnknown_02002320
+	.4byte gBow
 _081286FC:
 	.4byte gUnknown_03002230
 _08128700:

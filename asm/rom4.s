@@ -8351,7 +8351,7 @@ _08103ACE:
 	add r0, r4, r0
 	mov r1, #2
 	strb r1, [r0]
-	ldr r0, _08103BB0  @ =gUnknown_0200233E
+	ldr r0, _08103BB0  @ =gShield
 	ldrb r0, [r0]
 	cmp r0, #3
 	beq _08103BB8
@@ -8391,7 +8391,7 @@ _08103BA8:
 _08103BAC:
 	.4byte 0x00001122
 _08103BB0:
-	.4byte gUnknown_0200233E
+	.4byte gShield
 _08103BB4:
 	.4byte 0x000011B2
 _08103BB8:
@@ -9476,7 +9476,7 @@ sub_081042B4: @ 0x081042B4
 	add r0, r6, r1
 	add r0, r5, r0
 	strb r2, [r0]
-	ldr r0, _08104414  @ =gUnknown_0200233E
+	ldr r0, _08104414  @ =gShield
 	ldrb r0, [r0]
 	cmp r0, #3
 	bne _081043AC
@@ -9539,7 +9539,7 @@ _0810440C:
 _08104410:
 	.4byte 0x00000FC2
 _08104414:
-	.4byte gUnknown_0200233E
+	.4byte gShield
 _08104418:
 	.4byte 0x000011B2
 	THUMB_FUNC_END sub_081042B4
@@ -31807,7 +31807,7 @@ _0810E8C0:
 _0810E8C4:
 	.4byte 0x00001132
 _0810E8C8:
-	ldr r0, _0810E8D8  @ =gUnknown_0200233E
+	ldr r0, _0810E8D8  @ =gShield
 	ldrb r6, [r0]
 	cmp r6, #0
 	beq _0810E8DC
@@ -31815,7 +31815,7 @@ _0810E8C8:
 	bl sub_0810F0BC
 	b _0810E924
 _0810E8D8:
-	.4byte gUnknown_0200233E
+	.4byte gShield
 _0810E8DC:
 	bl sub_080AA868
 	sub r0, r0, #50
@@ -31925,7 +31925,7 @@ _0810E9A8:
 _0810E9AC:
 	.4byte 0x00001132
 _0810E9B0:
-	ldr r0, _0810E9C0  @ =gUnknown_0200233E
+	ldr r0, _0810E9C0  @ =gShield
 	ldrb r0, [r0]
 	cmp r0, #1
 	bls _0810E9C8
@@ -31935,7 +31935,7 @@ _0810E9B0:
 	.byte 0x00
 	.byte 0x00
 _0810E9C0:
-	.4byte gUnknown_0200233E
+	.4byte gShield
 _0810E9C4:
 	.4byte 0x00000169
 _0810E9C8:
@@ -32071,7 +32071,7 @@ _0810EAC4:
 _0810EAC8:
 	.4byte 0x00001132
 _0810EACC:
-	ldr r0, _0810EADC  @ =gUnknown_0200233E
+	ldr r0, _0810EADC  @ =gShield
 	ldrb r0, [r0]
 	cmp r0, #2
 	bls _0810EAE4
@@ -32081,7 +32081,7 @@ _0810EACC:
 	.byte 0x00
 	.byte 0x00
 _0810EADC:
-	.4byte gUnknown_0200233E
+	.4byte gShield
 _0810EAE0:
 	.4byte 0x00000169
 _0810EAE4:
@@ -32393,7 +32393,7 @@ _0810ED32:
 	ldr r0, _0810ED58  @ =gBombUpgrades
 	ldrb r0, [r0]
 	add r0, r0, r1
-	ldr r1, _0810ED5C  @ =gUnknown_02002323
+	ldr r1, _0810ED5C  @ =gBombs
 	ldrb r0, [r0]
 	ldrb r1, [r1]
 	cmp r0, r1
@@ -32408,7 +32408,7 @@ _0810ED54:
 _0810ED58:
 	.4byte gBombUpgrades
 _0810ED5C:
-	.4byte gUnknown_02002323
+	.4byte gBombs
 _0810ED60:
 	.4byte 0x00000171
 _0810ED64:
@@ -33998,19 +33998,19 @@ _0810F8A0:
 	mov r1, #1
 	and r0, r0, r1
 	strb r0, [r2]
-	ldr r0, _0810F8FC  @ =gUnknown_02002325
+	ldr r0, _0810F8FC  @ =gBottle1
 	ldrb r0, [r0]
 	cmp r0, #1
 	bhi _0810F8DE
-	ldr r0, _0810F900  @ =gUnknown_0200232B
+	ldr r0, _0810F900  @ =gBottle2
 	ldrb r0, [r0]
 	cmp r0, #1
 	bhi _0810F8DE
-	ldr r0, _0810F904  @ =gUnknown_02002331
+	ldr r0, _0810F904  @ =gBottle3
 	ldrb r0, [r0]
 	cmp r0, #1
 	bhi _0810F8DE
-	ldr r0, _0810F908  @ =gUnknown_02002337
+	ldr r0, _0810F908  @ =gBottle4
 	ldrb r0, [r0]
 	cmp r0, #1
 	bhi _0810F8DE
@@ -34037,13 +34037,13 @@ _0810F8F4:
 _0810F8F8:
 	.4byte 0x00000996
 _0810F8FC:
-	.4byte gUnknown_02002325
+	.4byte gBottle1
 _0810F900:
-	.4byte gUnknown_0200232B
+	.4byte gBottle2
 _0810F904:
-	.4byte gUnknown_02002331
+	.4byte gBottle3
 _0810F908:
-	.4byte gUnknown_02002337
+	.4byte gBottle4
 _0810F90C:
 	.4byte 0x00000CB4
 _0810F910:
@@ -34216,7 +34216,7 @@ sub_0810FA38: @ 0x0810FA38
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _0810FA7C
-	ldr r0, _0810FA8C  @ =gUnknown_02002324
+	ldr r0, _0810FA8C  @ =gMagicPowder
 	ldrb r0, [r0]
 	cmp r0, #2
 	beq _0810FA7C
@@ -34251,7 +34251,7 @@ _0810FA84:
 _0810FA88:
 	.4byte 0x00000CB4
 _0810FA8C:
-	.4byte gUnknown_02002324
+	.4byte gMagicPowder
 _0810FA90:
 	.4byte gUnknown_02002212
 	THUMB_FUNC_END sub_0810FA38
@@ -34329,15 +34329,15 @@ _0810FB18:
 sub_0810FB20: @ 0x0810FB20
 	push {lr}
 	mov r2, #0
-	ldr r0, _0810FB48  @ =gUnknown_02002325
-	ldr r1, _0810FB4C  @ =gUnknown_0200232B
+	ldr r0, _0810FB48  @ =gBottle1
+	ldr r1, _0810FB4C  @ =gBottle2
 	ldrb r0, [r0]
 	ldrb r1, [r1]
 	orr r0, r0, r1
-	ldr r1, _0810FB50  @ =gUnknown_02002331
+	ldr r1, _0810FB50  @ =gBottle3
 	ldrb r1, [r1]
 	orr r0, r0, r1
-	ldr r1, _0810FB54  @ =gUnknown_02002337
+	ldr r1, _0810FB54  @ =gBottle4
 	ldrb r1, [r1]
 	orr r0, r0, r1
 	cmp r0, #1
@@ -34350,13 +34350,13 @@ _0810FB40:
 	.byte 0x00
 	.byte 0x00
 _0810FB48:
-	.4byte gUnknown_02002325
+	.4byte gBottle1
 _0810FB4C:
-	.4byte gUnknown_0200232B
+	.4byte gBottle2
 _0810FB50:
-	.4byte gUnknown_02002331
+	.4byte gBottle3
 _0810FB54:
-	.4byte gUnknown_02002337
+	.4byte gBottle4
 	THUMB_FUNC_END sub_0810FB20
 
 	THUMB_FUNC_START sub_0810FB58
@@ -38958,7 +38958,7 @@ sub_08111CC4: @ 0x08111CC4
 	strb r6, [r0]
 	add r0, r0, #1
 	strb r3, [r0]
-	ldr r5, _08111D44  @ =gUnknown_0200233D
+	ldr r5, _08111D44  @ =gSword
 	ldrb r0, [r5]
 	cmp r0, #255
 	bne _08111D1A
@@ -38990,7 +38990,7 @@ _08111D3C:
 _08111D40:
 	.4byte gUnknown_02010992
 _08111D44:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 	THUMB_FUNC_END sub_08111CC4
 
 	THUMB_FUNC_START sub_08111D48
@@ -39010,7 +39010,7 @@ sub_08111D48: @ 0x08111D48
 	mov r10, r0
 	ldrb r4, [r0]
 	str r4, [sp]
-	ldr r2, _08111E34  @ =gUnknown_0200233E
+	ldr r2, _08111E34  @ =gShield
 	ldrb r2, [r2]
 	str r2, [sp, #4]
 	lsr r0, r4, #1
@@ -39019,7 +39019,7 @@ sub_08111D48: @ 0x08111D48
 	eor r0, r0, r1
 	mov r3, r10
 	strb r0, [r3]
-	ldr r0, _08111E34  @ =gUnknown_0200233E
+	ldr r0, _08111E34  @ =gShield
 	strb r2, [r0]
 	add r0, r7, #0
 	bl sub_080EC688
@@ -39099,7 +39099,7 @@ _08111E0C:
 	strb r1, [r0]
 	mov r2, sp
 	ldrb r3, [r2, #4]
-	ldr r2, _08111E34  @ =gUnknown_0200233E
+	ldr r2, _08111E34  @ =gShield
 	strb r3, [r2]
 	add sp, sp, #16
 	pop {r3-r5}
@@ -39114,7 +39114,7 @@ _08111E2C:
 _08111E30:
 	.4byte 0x00000FB2
 _08111E34:
-	.4byte gUnknown_0200233E
+	.4byte gShield
 _08111E38:
 	.4byte gUnknown_03003112
 _08111E3C:
@@ -39373,7 +39373,7 @@ _08112028:
 _0811202C:
 	.4byte gUnknown_02010995
 _08112030:
-	ldr r0, _0811207C  @ =gUnknown_0200233D
+	ldr r0, _0811207C  @ =gSword
 	ldrb r0, [r0]
 	cmp r0, #255
 	beq _0811205C
@@ -39411,7 +39411,7 @@ _08112070:
 	pop {r0}
 	bx r0
 _0811207C:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _08112080:
 	.4byte 0x44AB2000
 _08112084:
@@ -42970,7 +42970,7 @@ sub_08113AFC: @ 0x08113AFC
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08113B38
-	ldr r0, _08113BC8  @ =gUnknown_0200233E
+	ldr r0, _08113BC8  @ =gShield
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _08113B38
@@ -43059,7 +43059,7 @@ _08113BC0:
 _08113BC4:
 	.4byte 0x00001770
 _08113BC8:
-	.4byte gUnknown_0200233E
+	.4byte gShield
 _08113BCC:
 	.4byte 0x00000FD2
 _08113BD0:
@@ -43441,7 +43441,7 @@ sub_08113EA4: @ 0x08113EA4
 	lsr r5, r0, #24
 	cmp r1, #0
 	beq _08113F10
-	ldr r3, _08113EF8  @ =gUnknown_0200233E
+	ldr r3, _08113EF8  @ =gShield
 	ldrb r0, [r3]
 	cmp r0, #0
 	beq _08113F10
@@ -43479,7 +43479,7 @@ sub_08113EA4: @ 0x08113EA4
 	.byte 0x00
 	.byte 0x00
 _08113EF8:
-	.4byte gUnknown_0200233E
+	.4byte gShield
 _08113EFC:
 	.4byte gUnknown_03002230
 _08113F00:
@@ -43749,7 +43749,7 @@ _081140E0:
 _081140E4:
 	.4byte 0x00000F52
 _081140E8:
-	ldr r0, _08114108  @ =gUnknown_0200232F
+	ldr r0, _08114108  @ =gBugCatchingNet
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _081140FE
@@ -43767,7 +43767,7 @@ _081140FE:
 	mov r1, #0
 	b _08114178
 _08114108:
-	.4byte gUnknown_0200232F
+	.4byte gBugCatchingNet
 _0811410C:
 	.4byte 0x00000F52
 _08114110:
@@ -44428,7 +44428,7 @@ sub_08114584: @ 0x08114584
 	add r0, r0, r1
 	mov r1, #0
 	strb r1, [r0]
-	ldr r0, _081145B0  @ =gUnknown_0200233D
+	ldr r0, _081145B0  @ =gSword
 	ldrb r1, [r0]
 	add r0, r1, #0
 	cmp r0, #255
@@ -44443,7 +44443,7 @@ _081145A8:
 _081145AC:
 	.4byte 0x00001776
 _081145B0:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _081145B4:
 	add r0, r1, #0
 	add r0, r0, #83
@@ -55528,7 +55528,7 @@ _081197A2:
 	bl sub_080BF774
 	add r0, r7, #0
 	bl sub_080C1768
-	ldr r0, _081198D4  @ =gUnknown_02002320
+	ldr r0, _081198D4  @ =gBow
 	ldrb r0, [r0]
 	cmp r0, #2
 	bls _081197CC
@@ -55574,7 +55574,7 @@ _081197CC:
 	bl sub_080A0534
 	cmp r0, #0
 	beq _08119820
-	ldr r0, _081198D4  @ =gUnknown_02002320
+	ldr r0, _081198D4  @ =gBow
 	ldrb r0, [r0]
 	cmp r0, #2
 	bhi _08119820
@@ -55675,7 +55675,7 @@ _0811984E:
 	.byte 0x00
 	.byte 0x00
 _081198D4:
-	.4byte gUnknown_02002320
+	.4byte gBow
 _081198D8:
 	.4byte gUnknown_03002230
 _081198DC:
@@ -56339,7 +56339,7 @@ _08119DBC:
 	lsl r0, r3, #26
 	lsr r6, r0, #24
 	mov r3, #2
-	ldr r0, _08119EC0  @ =gUnknown_02002320
+	ldr r0, _08119EC0  @ =gBow
 	ldrb r0, [r0]
 	cmp r0, #2
 	bhi _08119DCC
@@ -56472,7 +56472,7 @@ _08119EAE:
 	.byte 0x00
 	.byte 0x00
 _08119EC0:
-	.4byte gUnknown_02002320
+	.4byte gBow
 _08119EC4:
 	.4byte 0x00001734
 _08119EC8:
@@ -58186,7 +58186,7 @@ _0811AA2A:
 	cmp r0, #0
 	bne _0811AB96
 	ldr r1, _0811AC18  @ =gUnknown_0817F590
-	ldr r0, _0811AC1C  @ =gUnknown_0200233F
+	ldr r0, _0811AC1C  @ =gArmor
 	ldrb r0, [r0]
 	add r0, r0, r1
 	ldrb r1, [r0]
@@ -58263,7 +58263,7 @@ _0811AC14:
 _0811AC18:
 	.4byte gUnknown_0817F590
 _0811AC1C:
-	.4byte gUnknown_0200233F
+	.4byte gArmor
 _0811AC20:
 	.4byte 0x00001805
 	THUMB_FUNC_END sub_0811A980
@@ -76973,7 +76973,7 @@ _08123798:
 	ldr r0, _081238B4  @ =0x000009AD
 	add r0, r0, r10
 	strb r1, [r0]
-	ldr r1, _081238B8  @ =gUnknown_0200232E
+	ldr r1, _081238B8  @ =gFlute
 	mov r0, #3
 	strb r0, [r1]
 _08123854:
@@ -77028,7 +77028,7 @@ _081238B0:
 _081238B4:
 	.4byte 0x000009AD
 _081238B8:
-	.4byte gUnknown_0200232E
+	.4byte gFlute
 	THUMB_FUNC_END sub_081234B0
 
 	THUMB_FUNC_START sub_081238BC
