@@ -2245,7 +2245,7 @@ sub_0800D200: @ 0x0800D200
 	strb r0, [r1, #4]
 	strh r2, [r1]
 	ldr r4, _0800D240  @ =gUnknown_083C3A3C
-	ldr r3, _0800D244  @ =gUnknown_083C3BBC
+	ldr r3, _0800D244  @ =gSongTable
 	ldrh r0, [r1, #2]
 	lsl r0, r0, #3
 	add r0, r0, r3
@@ -2267,7 +2267,7 @@ _0800D23C:
 _0800D240:
 	.4byte gUnknown_083C3A3C
 _0800D244:
-	.4byte gUnknown_083C3BBC
+	.4byte gSongTable
 _0800D248:
 	.4byte 0x0000FFFF
 	THUMB_FUNC_END sub_0800D200
@@ -2421,7 +2421,7 @@ _0800D338:
 	mov r3, #4
 _0800D342:
 	ldr r2, _0800D364  @ =gUnknown_083C3A3C
-	ldr r1, _0800D368  @ =gUnknown_083C3BBC
+	ldr r1, _0800D368  @ =gSongTable
 	ldr r0, _0800D36C  @ =gUnknown_0201EDA8
 	ldrh r0, [r0, #2]
 	lsl r0, r0, #3
@@ -2440,7 +2440,7 @@ _0800D342:
 _0800D364:
 	.4byte gUnknown_083C3A3C
 _0800D368:
-	.4byte gUnknown_083C3BBC
+	.4byte gSongTable
 _0800D36C:
 	.4byte gUnknown_0201EDA8
 _0800D370:
@@ -2451,7 +2451,7 @@ _0800D370:
 	mov r3, #4
 _0800D37A:
 	ldr r2, _0800D39C  @ =gUnknown_083C3A3C
-	ldr r1, _0800D3A0  @ =gUnknown_083C3BBC
+	ldr r1, _0800D3A0  @ =gSongTable
 	ldr r0, _0800D3A4  @ =gUnknown_0201EDA8
 	ldrh r0, [r0, #2]
 	lsl r0, r0, #3
@@ -2470,12 +2470,12 @@ _0800D37A:
 _0800D39C:
 	.4byte gUnknown_083C3A3C
 _0800D3A0:
-	.4byte gUnknown_083C3BBC
+	.4byte gSongTable
 _0800D3A4:
 	.4byte gUnknown_0201EDA8
 _0800D3A8:
 	ldr r2, _0800D3CC  @ =gUnknown_083C3A3C
-	ldr r1, _0800D3D0  @ =gUnknown_083C3BBC
+	ldr r1, _0800D3D0  @ =gSongTable
 	ldr r0, _0800D3D4  @ =gUnknown_0201EDA8
 	ldrh r0, [r0, #2]
 	lsl r0, r0, #3
@@ -2495,7 +2495,7 @@ _0800D3A8:
 _0800D3CC:
 	.4byte gUnknown_083C3A3C
 _0800D3D0:
-	.4byte gUnknown_083C3BBC
+	.4byte gSongTable
 _0800D3D4:
 	.4byte gUnknown_0201EDA8
 _0800D3D8:
@@ -2537,7 +2537,7 @@ _0800D418:
 	bl sub_08134780
 _0800D422:
 	ldr r6, _0800D474  @ =gUnknown_083C3A3C
-	ldr r5, _0800D478  @ =gUnknown_083C3BBC
+	ldr r5, _0800D478  @ =gSongTable
 	ldrh r0, [r4, #2]
 	lsl r0, r0, #3
 	add r0, r0, r5
@@ -2577,7 +2577,7 @@ _0800D470:
 _0800D474:
 	.4byte gUnknown_083C3A3C
 _0800D478:
-	.4byte gUnknown_083C3BBC
+	.4byte gSongTable
 _0800D47C:
 	.4byte 0x0000FFFF
 _0800D480:
@@ -2609,7 +2609,7 @@ _0800D4A4:
 	cmp r0, #0
 	beq _0800D4D8
 	ldr r2, _0800D4E4  @ =gUnknown_083C3A3C
-	ldr r1, _0800D4E8  @ =gUnknown_083C3BBC
+	ldr r1, _0800D4E8  @ =gSongTable
 	lsl r0, r5, #3
 	add r0, r0, r1
 	ldrh r1, [r0, #4]
@@ -2635,7 +2635,7 @@ _0800D4E0:
 _0800D4E4:
 	.4byte gUnknown_083C3A3C
 _0800D4E8:
-	.4byte gUnknown_083C3BBC
+	.4byte gSongTable
 _0800D4EC:
 	.4byte 0x0000FFFF
 	THUMB_FUNC_END play_sound

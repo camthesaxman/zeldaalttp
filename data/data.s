@@ -17403,8 +17403,8 @@ gUnknown_083C28FC:
 gUnknown_083C3A3C:
 	.INCBIN "baserom.gba", 0x3C3A3C, 0x3C3BBC-0x3C3A3C
 
-	.GLOBAL gUnknown_083C3BBC
-gUnknown_083C3BBC:
+	.GLOBAL gSongTable
+gSongTable:
 	.INCBIN "baserom.gba", 0x3C3BBC, 0x4272A4-0x3C3BBC
 
 	.GLOBAL gUnknown_084272A4
