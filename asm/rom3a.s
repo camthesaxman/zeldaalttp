@@ -86668,7 +86668,7 @@ sub_080CF4BC: @ 0x080CF4BC
 	mov r1, #0
 	strb r1, [r0]
 	mov r0, #50
-	bl sub_080A1588
+	bl ItemGive
 	add r0, r4, #0
 	bl sub_080CF504
 	pop {r4}
@@ -91227,7 +91227,7 @@ sub_080D15D0: @ 0x080D15D0
 	mov r6, #0
 	strb r6, [r0]
 	mov r0, #22
-	bl sub_080A1588
+	bl ItemGive
 	ldr r0, _080D1614  @ =0x00001662
 	add r2, r5, r0
 	ldrb r1, [r2]
@@ -91871,7 +91871,7 @@ sub_080D1A9C: @ 0x080D1A9C
 	add r2, r2, r0
 	strb r1, [r2]
 	mov r0, #24
-	bl sub_080A1588
+	bl ItemGive
 	pop {r0}
 	bx r0
 	.byte 0x00
@@ -93956,7 +93956,7 @@ sub_080D2984: @ 0x080D2984
 	mov r6, #0
 	strb r6, [r0]
 	mov r0, #19
-	bl sub_080A1588
+	bl ItemGive
 	ldr r0, _080D29B4  @ =0x00000F52
 	add r5, r5, r0
 	add r4, r4, r5
@@ -96074,7 +96074,7 @@ sub_080D390C: @ 0x080D390C
 	add r0, r4, r1
 	strb r2, [r0]
 	mov r0, #2
-	bl sub_080A1588
+	bl ItemGive
 	ldr r5, _080D3958  @ =0x00001662
 	add r4, r4, r5
 	ldrb r1, [r4]
@@ -98185,7 +98185,7 @@ sub_080D4828: @ 0x080D4828
 	add r0, r5, r1
 	strb r4, [r0]
 	mov r0, #1
-	bl sub_080A1588
+	bl ItemGive
 	mov r0, #179
 	lsl r0, r0, #5
 	add r1, r5, r0
@@ -99361,7 +99361,7 @@ sub_080D5084: @ 0x080D5084
 	add r0, r0, #76
 	lsl r0, r0, #24
 	lsr r0, r0, #24
-	bl sub_080A1588
+	bl ItemGive
 	ldr r1, _080D5180  @ =0x00000FA2
 	add r0, r6, r1
 	add r0, r7, r0
@@ -105204,7 +105204,7 @@ sub_080D7BFC: @ 0x080D7BFC
 	mov r6, #0
 	strb r6, [r0]
 	mov r0, #29
-	bl sub_080A1588
+	bl ItemGive
 	ldr r0, _080D7C30  @ =0x00000FA2
 	add r5, r5, r0
 	add r4, r4, r5
@@ -114766,7 +114766,7 @@ sub_080DC304: @ 0x080DC304
 	mov r6, #0
 	strb r6, [r0]
 	mov r0, #33
-	bl sub_080A1588
+	bl ItemGive
 	ldr r1, _080DC33C  @ =0x00000F52
 	add r0, r5, r1
 	add r4, r4, r0
@@ -116322,7 +116322,7 @@ sub_080DCE7C: @ 0x080DCE7C
 	add r0, r5, r1
 	strb r2, [r0]
 	mov r0, #26
-	bl sub_080A1588
+	bl ItemGive
 	mov r0, #1
 	bl sub_080BE9A0
 	add r0, r4, #0
@@ -117308,7 +117308,7 @@ sub_080DD59C: @ 0x080DD59C
 	add r0, r4, r1
 	strb r3, [r0]
 	mov r0, #22
-	bl sub_080A1588
+	bl ItemGive
 	ldr r2, _080DD604  @ =0x00001662
 	add r4, r4, r2
 	ldrb r0, [r4]
@@ -119608,7 +119608,7 @@ sub_080DE670: @ 0x080DE670
 	mov r0, #0
 	strb r0, [r1]
 	mov r0, #75
-	bl sub_080A1588
+	bl ItemGive
 	ldr r1, _080DE6AC  @ =0x00000F52
 	add r0, r5, r1
 	add r4, r4, r0
@@ -123663,7 +123663,7 @@ sub_080E0478: @ 0x080E0478
 	mov r1, #2
 	strb r1, [r0]
 	ldrb r0, [r2]
-	bl sub_080A1588
+	bl ItemGive
 _080E04A4:
 	ldr r1, _080E04CC  @ =0x00000F52
 	add r0, r5, r1
@@ -123854,7 +123854,7 @@ sub_080E05C8: @ 0x080E05C8
 	add r5, r5, r0
 	add r4, r4, r5
 	ldrb r0, [r4]
-	bl sub_080A1588
+	bl ItemGive
 	pop {r4,r5}
 	pop {r0}
 	bx r0
@@ -161183,7 +161183,7 @@ _080F19B4:
 	add r0, r5, r1
 	strb r4, [r0]
 	mov r0, #22
-	bl sub_080A1588
+	bl ItemGive
 	ldr r0, _080F19F4  @ =0x00001662
 	add r2, r5, r0
 	ldrb r1, [r2]
@@ -163062,7 +163062,7 @@ _080F27A4:
 	add r0, r7, r1
 	strb r5, [r0]
 	mov r0, #38
-	bl sub_080A1588
+	bl ItemGive
 _080F27B4:
 	ldr r2, _080F27D8  @ =gUnknown_03002230
 	ldr r1, _080F27DC  @ =0x00000FA2
@@ -163251,7 +163251,7 @@ _080F28EA:
 	mov r0, #2
 	strb r0, [r1]
 	mov r0, #62
-	bl sub_080A1588
+	bl ItemGive
 	ldr r0, _080F2968  @ =0x00000AA8
 	add r2, r6, r0
 	ldrh r1, [r2]
@@ -163295,7 +163295,7 @@ _080F296C:
 	add r0, r6, r1
 	strb r4, [r0]
 	mov r0, #38
-	bl sub_080A1588
+	bl ItemGive
 	ldr r2, _080F2998  @ =0x000009B2
 	add r0, r6, r2
 	ldrb r0, [r0]
@@ -164481,7 +164481,7 @@ sub_080F320C: @ 0x080F320C
 	add r1, r5, r0
 	mov r0, #0
 	strb r0, [r1]
-	bl sub_080A1588
+	bl ItemGive
 	ldr r0, _080F326C  @ =0x00000F52
 	add r1, r5, r0
 	add r1, r4, r1
@@ -169417,7 +169417,7 @@ _080F5608:
 	add r1, r1, r0
 	strb r4, [r1]
 	mov r0, #41
-	bl sub_080A1588
+	bl ItemGive
 _080F561E:
 	pop {r4-r6}
 	pop {r0}
@@ -173717,7 +173717,7 @@ _080F75B8:
 	add r0, r6, r2
 	strb r5, [r0]
 	ldrb r0, [r7]
-	bl sub_080A1588
+	bl ItemGive
 _080F75F4:
 	ldr r0, _080F76B8  @ =gUnknown_03002230
 	mov r8, r0
