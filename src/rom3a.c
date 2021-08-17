@@ -402,24 +402,24 @@ void sub_080A7228(void)
     u32 r0;
     s16 a, b;
 
-    if (gUnknown_02002353 != 0)
+    if (gMagicMeterFiller != 0)
     {
-        if (gUnknown_0200234E >= 0)
+        if (gMagicMeter >= 0)
         {
-            gUnknown_02002353--;
-            gUnknown_0200234E++;
+            gMagicMeterFiller--;
+            gMagicMeter++;
             if (!(gUnknown_03002230.unk996 & 3))
                 sub_0812A324(38, 0);
         }
         else
         {
-            *(u8 *)&gUnknown_0200234E = 128;  // out of range?
-            gUnknown_02002353 = 0;
+            *(u8 *)&gMagicMeter = 128;  // out of range?
+            gMagicMeterFiller = 0;
         }
     }
     //_080A7280
-    a = gUnknown_02002342;
-    b = gUnknown_02002340;
+    a = gRupeesCounter;
+    b = gRupeesCount;
     if (a == b)
     {
         gUnknown_03002230.unkECF = 0;
@@ -432,7 +432,7 @@ void sub_080A7228(void)
             a++;
             if (a > 0x3E7)
             {
-                gUnknown_02002340 = 0x3E7;
+                gRupeesCount = 0x3E7;
                 a = 0x3E7;
             }
         }
@@ -441,41 +441,41 @@ void sub_080A7228(void)
         {
             a--;
             if (a < 0)
-            //if (gUnknown_02002342 < 1)
+            //if (gRupeesCounter < 1)
             {
-                gUnknown_02002340 = 0;
+                gRupeesCount = 0;
                 a = 0;
             }
         }
-        gUnknown_02002342 = a;
+        gRupeesCounter = a;
         //_080A72D4
         if (!(gUnknown_03002230.unkECF++ & 7))
             sub_0812A324(115, 0);
     }
     //_080A72F4
-    if (gUnknown_02002355 != 0)
+    if (gBombFiller != 0)
     {
-        gUnknown_02002355--;
-        if (gUnknown_02002323 != gUnknown_0816B588[gUnknown_02002350])
-            gUnknown_02002323++;
+        gBombFiller--;
+        if (gBombs != gUnknown_0816B588[gBombUpgrades])
+            gBombs++;
     }
-    if (gUnknown_02002356 != 0)
+    if (gArrowFiller != 0)
     {
-        gUnknown_02002356--;
-        if (gUnknown_02002357 != gUnknown_0816B598[gUnknown_02002351])
-            gUnknown_02002357++;
+        gArrowFiller--;
+        if (gArrowCount != gUnknown_0816B598[gArrowUpgrades])
+            gArrowCount++;
     }
     //_080A7338
-    if (gUnknown_02002320 != 0 && (gUnknown_02002320 & 1))
+    if (gBow != 0 && (gBow & 1))
     {
-        gUnknown_02002320++;
+        gBow++;
         sub_080A9E38();
         sub_080AA920();
         sub_080AA874();
         gUnknown_03002230.unkA4C = 0;
     }
     //_080A7362
-    if (gUnknown_03002230.unk1770 == 0 && gUnknown_02002352 == 0 && gUnknown_0200234D < gUnknown_0816B645[gUnknown_0200234C][0])
+    if (gUnknown_03002230.unk1770 == 0 && gHeartsFiller == 0 && gMaxHealth < gUnknown_0816B645[gCurrentHealth][0])
     {
         if (gUnknown_03002230.unkB72 == 0)
         {
@@ -489,28 +489,28 @@ void sub_080A7228(void)
     r0 = gUnknown_03002230.unkA56;  // maybe?
     if (gUnknown_03002230.unkA56 == 0)
     {
-        if (gUnknown_02002352 == 0)
+        if (gHeartsFiller == 0)
         {
             r8 = 1;
         }
         else
         //_080A7414
         {
-            if (gUnknown_0200234D < gUnknown_0200234C)
+            if (gMaxHealth < gCurrentHealth)
             {
-                gUnknown_0200234D += 8;
+                gMaxHealth += 8;
                 sub_0812A324(111, 0);
-                if (gUnknown_0200234D >= gUnknown_0200234C)
-                    gUnknown_0200234D = gUnknown_0200234C;
-                gUnknown_02002352 -= 8;
+                if (gMaxHealth >= gCurrentHealth)
+                    gMaxHealth = gCurrentHealth;
+                gHeartsFiller -= 8;
                 gUnknown_03002230.unkA56++;
                 gUnknown_03002230.unkA54 = 7;
             }
             //_080A7458
             else
             {
-                gUnknown_0200234D = gUnknown_0200234C;
-                gUnknown_02002352 = 0; //r8;
+                gMaxHealth = gCurrentHealth;
+                gHeartsFiller = 0; //r8;
                 r8 = 1;
             }
         }
@@ -541,11 +541,11 @@ void sub_080A7228(void)
 	mov r7, r9\n\
 	mov r6, r8\n\
 	push {r6,r7}\n\
-	ldr r4, _080A7268  @ =gUnknown_02002353\n\
+	ldr r4, _080A7268  @ =gMagicMeterFiller\n\
 	ldrb r2, [r4]\n\
 	cmp r2, #0\n\
 	beq _080A7280\n\
-	ldr r1, _080A726C  @ =gUnknown_0200234E\n\
+	ldr r1, _080A726C  @ =gMagicMeter\n\
 	ldrb r3, [r1]\n\
 	mov r0, #0\n\
 	ldrsb r0, [r1, r0]\n\
@@ -570,9 +570,9 @@ void sub_080A7228(void)
 	.byte 0x00\n\
 	.byte 0x00\n\
 _080A7268:\n\
-	.4byte gUnknown_02002353\n\
+	.4byte gMagicMeterFiller\n\
 _080A726C:\n\
-	.4byte gUnknown_0200234E\n\
+	.4byte gMagicMeter\n\
 _080A7270:\n\
 	.4byte gUnknown_03002230\n\
 _080A7274:\n\
@@ -583,9 +583,9 @@ _080A7278:\n\
 	mov r0, #0\n\
 	strb r0, [r4]\n\
 _080A7280:\n\
-	ldr r0, _080A7298  @ =gUnknown_02002342\n\
+	ldr r0, _080A7298  @ =gRupeesCounter\n\
 	ldrh r1, [r0]\n\
-	ldr r2, _080A729C  @ =gUnknown_02002340\n\
+	ldr r2, _080A729C  @ =gRupeesCount\n\
 	ldrh r0, [r2]\n\
 	cmp r1, r0\n\
 	bne _080A72A8\n\
@@ -596,9 +596,9 @@ _080A7280:\n\
 	strb r1, [r0]\n\
 	b _080A72F4\n\
 _080A7298:\n\
-	.4byte gUnknown_02002342\n\
+	.4byte gRupeesCounter\n\
 _080A729C:\n\
-	.4byte gUnknown_02002340\n\
+	.4byte gRupeesCount\n\
 _080A72A0:\n\
 	.4byte gUnknown_03002230\n\
 _080A72A4:\n\
@@ -629,7 +629,7 @@ _080A72C4:\n\
 	strh r0, [r2]\n\
 	mov r1, #0\n\
 _080A72D4:\n\
-	ldr r0, _080A73C4  @ =gUnknown_02002342\n\
+	ldr r0, _080A73C4  @ =gRupeesCounter\n\
 	strh r1, [r0]\n\
 	ldr r0, _080A73C8  @ =gUnknown_03002230\n\
 	ldr r1, _080A73CC  @ =0x00000ECF\n\
@@ -645,15 +645,15 @@ _080A72D4:\n\
 	mov r1, #0\n\
 	bl sub_0812A324\n\
 _080A72F4:\n\
-	ldr r1, _080A73D0  @ =gUnknown_02002355\n\
+	ldr r1, _080A73D0  @ =gBombFiller\n\
 	ldrb r0, [r1]\n\
 	cmp r0, #0\n\
 	beq _080A7316\n\
 	sub r0, r0, #1\n\
 	strb r0, [r1]\n\
-	ldr r2, _080A73D4  @ =gUnknown_02002323\n\
+	ldr r2, _080A73D4  @ =gBombs\n\
 	ldr r1, _080A73D8  @ =gUnknown_0816B588\n\
-	ldr r0, _080A73DC  @ =gUnknown_02002350\n\
+	ldr r0, _080A73DC  @ =gBombUpgrades\n\
 	ldrb r0, [r0]\n\
 	add r0, r0, r1\n\
 	ldrb r1, [r2]\n\
@@ -663,15 +663,15 @@ _080A72F4:\n\
 	add r0, r1, #1\n\
 	strb r0, [r2]\n\
 _080A7316:\n\
-	ldr r1, _080A73E0  @ =gUnknown_02002356\n\
+	ldr r1, _080A73E0  @ =gArrowFiller\n\
 	ldrb r0, [r1]\n\
 	cmp r0, #0\n\
 	beq _080A7338\n\
 	sub r0, r0, #1\n\
 	strb r0, [r1]\n\
-	ldr r2, _080A73E4  @ =gUnknown_02002357\n\
+	ldr r2, _080A73E4  @ =gArrowCount\n\
 	ldr r1, _080A73E8  @ =gUnknown_0816B598\n\
-	ldr r0, _080A73EC  @ =gUnknown_02002351\n\
+	ldr r0, _080A73EC  @ =gArrowUpgrades\n\
 	ldrb r0, [r0]\n\
 	add r0, r0, r1\n\
 	ldrb r1, [r2]\n\
@@ -681,7 +681,7 @@ _080A7316:\n\
 	add r0, r1, #1\n\
 	strb r0, [r2]\n\
 _080A7338:\n\
-	ldr r2, _080A73F0  @ =gUnknown_02002320\n\
+	ldr r2, _080A73F0  @ =gBow\n\
 	ldrb r1, [r2]\n\
 	cmp r1, #0\n\
 	beq _080A7362\n\
@@ -707,13 +707,13 @@ _080A7362:\n\
 	mov r9, r0\n\
 	cmp r1, #0\n\
 	bne _080A73A8\n\
-	ldr r0, _080A73FC  @ =gUnknown_02002352\n\
+	ldr r0, _080A73FC  @ =gHeartsFiller\n\
 	ldrb r0, [r0]\n\
 	cmp r0, #0\n\
 	bne _080A73A8\n\
-	ldr r2, _080A7400  @ =gUnknown_0200234D\n\
+	ldr r2, _080A7400  @ =gMaxHealth\n\
 	ldr r1, _080A7404  @ =gUnknown_0816B645\n\
-	ldr r0, _080A7408  @ =gUnknown_0200234C\n\
+	ldr r0, _080A7408  @ =gCurrentHealth\n\
 	ldrb r0, [r0]\n\
 	lsr r0, r0, #3\n\
 	add r0, r0, r1\n\
@@ -743,7 +743,7 @@ _080A73A8:\n\
 	ldrb r0, [r6]\n\
 	cmp r0, #0\n\
 	bne _080A7468\n\
-	ldr r5, _080A73FC  @ =gUnknown_02002352\n\
+	ldr r5, _080A73FC  @ =gHeartsFiller\n\
 	ldrb r0, [r5]\n\
 	cmp r0, #0\n\
 	bne _080A7414\n\
@@ -751,48 +751,48 @@ _080A73A8:\n\
 	mov r8, r1\n\
 	b _080A7462\n\
 _080A73C4:\n\
-	.4byte gUnknown_02002342\n\
+	.4byte gRupeesCounter\n\
 _080A73C8:\n\
 	.4byte gUnknown_03002230\n\
 _080A73CC:\n\
 	.4byte 0x00000ECF\n\
 _080A73D0:\n\
-	.4byte gUnknown_02002355\n\
+	.4byte gBombFiller\n\
 _080A73D4:\n\
-	.4byte gUnknown_02002323\n\
+	.4byte gBombs\n\
 _080A73D8:\n\
 	.4byte gUnknown_0816B588\n\
 _080A73DC:\n\
-	.4byte gUnknown_02002350\n\
+	.4byte gBombUpgrades\n\
 _080A73E0:\n\
-	.4byte gUnknown_02002356\n\
+	.4byte gArrowFiller\n\
 _080A73E4:\n\
-	.4byte gUnknown_02002357\n\
+	.4byte gArrowCount\n\
 _080A73E8:\n\
 	.4byte gUnknown_0816B598\n\
 _080A73EC:\n\
-	.4byte gUnknown_02002351\n\
+	.4byte gArrowUpgrades\n\
 _080A73F0:\n\
-	.4byte gUnknown_02002320\n\
+	.4byte gBow\n\
 _080A73F4:\n\
 	.4byte 0x00000A4C\n\
 _080A73F8:\n\
 	.4byte 0x00001770\n\
 _080A73FC:\n\
-	.4byte gUnknown_02002352\n\
+	.4byte gHeartsFiller\n\
 _080A7400:\n\
-	.4byte gUnknown_0200234D\n\
+	.4byte gMaxHealth\n\
 _080A7404:\n\
 	.4byte gUnknown_0816B645\n\
 _080A7408:\n\
-	.4byte gUnknown_0200234C\n\
+	.4byte gCurrentHealth\n\
 _080A740C:\n\
 	.4byte 0x00000B72\n\
 _080A7410:\n\
 	.4byte 0x00000A56\n\
 _080A7414:\n\
-	ldr r4, _080A744C  @ =gUnknown_0200234D\n\
-	ldr r7, _080A7450  @ =gUnknown_0200234C\n\
+	ldr r4, _080A744C  @ =gMaxHealth\n\
+	ldr r7, _080A7450  @ =gCurrentHealth\n\
 	ldrb r0, [r4]\n\
 	ldrb r1, [r7]\n\
 	cmp r0, r1\n\
@@ -820,9 +820,9 @@ _080A7436:\n\
 	strb r0, [r1]\n\
 	b _080A7468\n\
 _080A744C:\n\
-	.4byte gUnknown_0200234D\n\
+	.4byte gMaxHealth\n\
 _080A7450:\n\
-	.4byte gUnknown_0200234C\n\
+	.4byte gCurrentHealth\n\
 _080A7454:\n\
 	.4byte 0x00000A54\n\
 _080A7458:\n\
@@ -885,20 +885,20 @@ void sub_080A74BC(void)
 {
     u16 r2;
 
-    if (gUnknown_02002320 != 0)
+    if (gBow != 0)
     {
         u32 r1;
-        if (gUnknown_02002320 == 1 || gUnknown_02002320 == 2)
+        if (gBow == 1 || gBow == 2)
         {
-            r1 = (gUnknown_02002357 == 0) ? 1 : 2;
+            r1 = (gArrowCount == 0) ? 1 : 2;
         }
         else
         {
             *(u16 *)0x0200B198 = 0x8086;
             *(u16 *)0x0200B19A = 0x8087;
-            r1 = (gUnknown_02002357 == 0) ? 3 : 4;
+            r1 = (gArrowCount == 0) ? 3 : 4;
         }
-        gUnknown_02002320 = r1;
+        gBow = r1;
     }
     //_080A7500
     r2 = gUnknown_03002230.unkA4E + gUnknown_03002230.unkA4F;
@@ -921,23 +921,23 @@ __attribute__((naked))
 void sub_080A74BC(void)
 {
     asm("push {lr}\n\
-	ldr r0, _080A74D8  @ =gUnknown_02002320\n\
+	ldr r0, _080A74D8  @ =gBow\n\
 	ldrb r0, [r0]\n\
 	cmp r0, #0\n\
 	beq _080A7500\n\
 	cmp r0, #2\n\
 	bhi _080A74E0\n\
 	mov r1, #2\n\
-	ldr r0, _080A74DC  @ =gUnknown_02002357\n\
+	ldr r0, _080A74DC  @ =gArrowCount\n\
 	ldrb r0, [r0]\n\
 	cmp r0, #0\n\
 	bne _080A74FC\n\
 	mov r1, #1\n\
 	b _080A74FC\n\
 _080A74D8:\n\
-	.4byte gUnknown_02002320\n\
+	.4byte gBow\n\
 _080A74DC:\n\
-	.4byte gUnknown_02002357\n\
+	.4byte gArrowCount\n\
 _080A74E0:\n\
 	ldr r1, _080A755C  @ =gUnknown_0200B198\n\
 	ldr r2, _080A7560  @ =0x00008086\n\
@@ -948,13 +948,13 @@ _080A74E0:\n\
 	add r0, r3, #0\n\
 	strh r0, [r1]\n\
 	mov r1, #4\n\
-	ldr r0, _080A7568  @ =gUnknown_02002357\n\
+	ldr r0, _080A7568  @ =gArrowCount\n\
 	ldrb r0, [r0]\n\
 	cmp r0, #0\n\
 	bne _080A74FC\n\
 	mov r1, #3\n\
 _080A74FC:\n\
-	ldr r0, _080A756C  @ =gUnknown_02002320\n\
+	ldr r0, _080A756C  @ =gBow\n\
 	strb r1, [r0]\n\
 _080A7500:\n\
 	ldr r0, _080A7570  @ =gUnknown_03002230\n\
@@ -1013,9 +1013,9 @@ _080A7560:\n\
 _080A7564:\n\
 	.4byte 0x00008087\n\
 _080A7568:\n\
-	.4byte gUnknown_02002357\n\
+	.4byte gArrowCount\n\
 _080A756C:\n\
-	.4byte gUnknown_02002320\n\
+	.4byte gBow\n\
 _080A7570:\n\
 	.4byte gUnknown_03002230\n\
 _080A7574:\n\
