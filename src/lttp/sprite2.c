@@ -570,7 +570,7 @@ _080CF47C: \n\
 #ifdef NONMATCHING
 void sub_080CF480(u8 r0)
 {
-    gUnknown_0200233E = gRam.unk1002[r0];
+    gShield = gRam.unk1002[r0];
 
     if (gRam.unk1002[r0] == 3)
     {
@@ -587,7 +587,7 @@ __attribute__((naked)) void sub_080CF480(u8 r0)
 	push {lr} \n\
 	lsl r0, r0, #24 \n\
 	lsr r0, r0, #24 \n\
-	ldr r2, _080CF4AC  @ =gUnknown_0200233E \n\
+	ldr r2, _080CF4AC  @ =gShield \n\
 	ldr r1, _080CF4B0  @ =gRam \n\
 	ldr r3, _080CF4B4  @ =0x00001002 \n\
 	add r1, r1, r3 \n\
@@ -609,7 +609,7 @@ _080CF4A6: \n\
 	.byte 0x00 \n\
 	.byte 0x00 \n\
 _080CF4AC: \n\
-	.4byte gUnknown_0200233E \n\
+	.4byte gShield \n\
 _080CF4B0: \n\
 	.4byte gRam \n\
 _080CF4B4: \n\
@@ -629,7 +629,7 @@ void sub_080CF4BC(u8 r0)
 
 void sub_080CF4E8(u8 r0)
 {
-    gUnknown_0200234F++;
+    gKeyCount++;
     sub_080CF504(r0);
 }
 
@@ -697,7 +697,7 @@ void sub_080CF57C()
 
 void sub_080CF588(u8 r0)
 {
-    gUnknown_02002352 += r0;
+    gHeartsFiller += r0;
 }
 
 void sub_080CF59C(u8 r0)
@@ -707,12 +707,12 @@ void sub_080CF59C(u8 r0)
 
 void sub_080CF5C8(u8 r0)
 {
-    gUnknown_02002355 += gUnknown_08173083[gRam.unkFF2[r0] - 0xDC];
+    gBombFiller += gUnknown_08173083[gRam.unkFF2[r0] - 0xDC];
 }
 
 void sub_080CF600(void)
 {
-    sub_080CF624((gUnknown_02002353 + 0x10));
+    sub_080CF624((gMagicMeterFiller + 0x10));
 }
 
 void sub_080CF618(void)
@@ -722,7 +722,7 @@ void sub_080CF618(void)
 
 void sub_080CF624(u8 r0)
 {
-    gUnknown_02002353 = r0;
+    gMagicMeterFiller = r0;
 }
 
 void sub_080CF630(u8 r0)
@@ -746,7 +746,7 @@ void sub_080CF660(void)
 
 void sub_080CF66C(u8 r0)
 {
-    gUnknown_02002356 += r0;
+    gArrowFiller += r0;
 }
 
 // missing push {lr}

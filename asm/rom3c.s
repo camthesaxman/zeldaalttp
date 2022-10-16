@@ -744,7 +744,7 @@ sub_080D2020: @ 0x080D2020
 	lsl r0, r0, #24
 	lsr r1, r0, #24
 	add r2, r1, #0
-	ldr r0, _080D2048  @ =gUnknown_0200232E
+	ldr r0, _080D2048  @ =gFlute
 	ldrb r0, [r0]
 	cmp r0, #1
 	bls _080D203C
@@ -762,7 +762,7 @@ _080D203C:
 	.byte 0x00
 	.byte 0x00
 _080D2048:
-	.4byte gUnknown_0200232E
+	.4byte gFlute
 _080D204C:
 	.4byte gRam
 _080D2050:
@@ -863,7 +863,7 @@ sub_080D20D4: @ 0x080D20D4
 	lsr r1, r0, #24
 	cmp r1, #0
 	bne _080D2134
-	ldr r0, _080D2120  @ =gUnknown_0200232E
+	ldr r0, _080D2120  @ =gFlute
 	ldrb r0, [r0]
 	cmp r0, #1
 	bhi _080D2124
@@ -879,7 +879,7 @@ _080D2118:
 _080D211C:
 	.4byte 0x0000165C
 _080D2120:
-	.4byte gUnknown_0200232E
+	.4byte gFlute
 _080D2124:
 	ldr r3, _080D2130  @ =0x00000FA2
 	add r0, r2, r3
@@ -899,7 +899,7 @@ _080D2134:
 	and r0, r0, r1
 	cmp r0, #0
 	bne _080D216E
-	ldr r0, _080D2160  @ =gUnknown_0200232E
+	ldr r0, _080D2160  @ =gFlute
 	ldrb r0, [r0]
 	cmp r0, #1
 	bls _080D216A
@@ -914,7 +914,7 @@ _080D2134:
 _080D215C:
 	.4byte 0x00001662
 _080D2160:
-	.4byte gUnknown_0200232E
+	.4byte gFlute
 _080D2164:
 	.4byte 0x00000F92
 _080D2168:
@@ -1076,7 +1076,7 @@ sub_080D2284: @ 0x080D2284
 	lsl r0, r0, #24
 	lsr r4, r0, #24
 	mov r5, #1
-	ldr r0, _080D22F8  @ =gUnknown_0200232E
+	ldr r0, _080D22F8  @ =gFlute
 	ldrb r0, [r0]
 	cmp r0, #1
 	bhi _080D22A2
@@ -1132,7 +1132,7 @@ _080D22F2:
 	pop {r0}
 	bx r0
 _080D22F8:
-	.4byte gUnknown_0200232E
+	.4byte gFlute
 _080D22FC:
 	.4byte gRam
 _080D2300:
@@ -1874,11 +1874,11 @@ sub_080D2840: @ 0x080D2840
 	push {lr}
 	lsl r0, r0, #24
 	lsr r2, r0, #24
-	ldr r0, _080D286C  @ =gUnknown_02002332
+	ldr r0, _080D286C  @ =gShovel
 	ldrb r0, [r0]
 	mov r1, #1
 	and r1, r1, r0
-	ldr r0, _080D2870  @ =gUnknown_0200232E
+	ldr r0, _080D2870  @ =gFlute
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080D285A
@@ -1894,9 +1894,9 @@ _080D285A:
 	pop {r0}
 	bx r0
 _080D286C:
-	.4byte gUnknown_02002332
+	.4byte gShovel
 _080D2870:
-	.4byte gUnknown_0200232E
+	.4byte gFlute
 _080D2874:
 	.4byte gUnknown_08174C34
 	THUMB_FUNC_END sub_080D2840
@@ -3277,7 +3277,7 @@ _080D3280:
 _080D3284:
 	.4byte 0x00000F52
 _080D3288:
-	ldr r0, _080D32A4  @ =gUnknown_0200233D
+	ldr r0, _080D32A4  @ =gSword
 	ldrb r0, [r0]
 	cmp r0, #2
 	bls _080D32AC
@@ -3291,7 +3291,7 @@ _080D3288:
 	strb r5, [r0]
 	b _080D32C2
 _080D32A4:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _080D32A8:
 	.4byte 0x00000F52
 _080D32AC:
@@ -3352,7 +3352,7 @@ sub_080D32D0: @ 0x080D32D0
 	ldr r1, _080D3340  @ =0x00000CB4
 	add r0, r5, r1
 	strb r6, [r0]
-	ldr r1, _080D3344  @ =gUnknown_0200233D
+	ldr r1, _080D3344  @ =gSword
 	mov r0, #255
 	strb r0, [r1]
 	ldr r0, _080D3348  @ =0x00001662
@@ -3375,7 +3375,7 @@ _080D333C:
 _080D3340:
 	.4byte 0x00000CB4
 _080D3344:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _080D3348:
 	.4byte 0x00001662
 _080D334C:
@@ -4496,7 +4496,7 @@ _080D3B3C:
 _080D3B40:
 	.4byte 0x00000965
 _080D3B44:
-	ldr r0, _080D3C6C  @ =gUnknown_02002330
+	ldr r0, _080D3C6C  @ =gBookOfMudora
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080D3B56
@@ -4505,7 +4505,7 @@ _080D3B44:
 	cmp r0, #0
 	bne _080D3C50
 _080D3B56:
-	ldr r0, _080D3C70  @ =gUnknown_02002354
+	ldr r0, _080D3C70  @ =gPendantCount
 	ldrb r1, [r0]
 	mov r0, #2
 	and r0, r0, r1
@@ -4516,7 +4516,7 @@ _080D3B56:
 	cmp r0, #0
 	bne _080D3C50
 _080D3B6C:
-	ldr r0, _080D3C74  @ =gUnknown_02002324
+	ldr r0, _080D3C74  @ =gMagicPowder
 	ldrb r0, [r0]
 	cmp r0, #1
 	bhi _080D3B7E
@@ -4525,7 +4525,7 @@ _080D3B6C:
 	cmp r0, #0
 	bne _080D3C50
 _080D3B7E:
-	ldr r0, _080D3C78  @ =gUnknown_0200233A
+	ldr r0, _080D3C78  @ =gFlippers
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080D3B90
@@ -4534,7 +4534,7 @@ _080D3B7E:
 	cmp r0, #0
 	bne _080D3C50
 _080D3B90:
-	ldr r0, _080D3C7C  @ =gUnknown_0200233B
+	ldr r0, _080D3C7C  @ =gMoonPearl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080D3BA2
@@ -4553,7 +4553,7 @@ _080D3BA2:
 	cmp r0, #0
 	bne _080D3C50
 _080D3BB6:
-	ldr r0, _080D3C84  @ =gUnknown_0200235B
+	ldr r0, _080D3C84  @ =gMagicUsage
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080D3BC8
@@ -4562,7 +4562,7 @@ _080D3BB6:
 	cmp r0, #0
 	bne _080D3C50
 _080D3BC8:
-	ldr r0, _080D3C88  @ =gUnknown_02002328
+	ldr r0, _080D3C88  @ =gBombosMedallion
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080D3BDA
@@ -4593,7 +4593,7 @@ _080D3BF2:
 	cmp r0, #0
 	bne _080D3C50
 _080D3C06:
-	ldr r0, _080D3C90  @ =gUnknown_02002335
+	ldr r0, _080D3C90  @ =gMagicCape
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080D3C18
@@ -4613,7 +4613,7 @@ _080D3C18:
 	cmp r0, #0
 	bne _080D3C50
 _080D3C2E:
-	ldr r0, _080D3C98  @ =gUnknown_0200233D
+	ldr r0, _080D3C98  @ =gSword
 	ldrb r0, [r0]
 	cmp r0, #3
 	bhi _080D3C40
@@ -4644,29 +4644,29 @@ _080D3C50:
 	ldr r2, _080D3CA8  @ =0x00000961
 	b _080D3CB2
 _080D3C6C:
-	.4byte gUnknown_02002330
+	.4byte gBookOfMudora
 _080D3C70:
-	.4byte gUnknown_02002354
+	.4byte gPendantCount
 _080D3C74:
-	.4byte gUnknown_02002324
+	.4byte gMagicPowder
 _080D3C78:
-	.4byte gUnknown_0200233A
+	.4byte gFlippers
 _080D3C7C:
-	.4byte gUnknown_0200233B
+	.4byte gMoonPearl
 _080D3C80:
 	.4byte 0x0000165E
 _080D3C84:
-	.4byte gUnknown_0200235B
+	.4byte gMagicUsage
 _080D3C88:
-	.4byte gUnknown_02002328
+	.4byte gBombosMedallion
 _080D3C8C:
 	.4byte 0x00001662
 _080D3C90:
-	.4byte gUnknown_02002335
+	.4byte gMagicCape
 _080D3C94:
 	.4byte gUnknown_020022DB
 _080D3C98:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _080D3C9C:
 	.4byte gRam
 _080D3CA0:
@@ -5333,7 +5333,7 @@ sub_080D4138: @ 0x080D4138
 	add r0, r0, #1
 	mov r2, #0
 	strb r0, [r4]
-	ldr r1, _080D418C  @ =gUnknown_02002352
+	ldr r1, _080D418C  @ =gHeartsFiller
 	mov r0, #160
 	strb r0, [r1]
 	ldr r0, _080D4190  @ =0x00001770
@@ -5353,7 +5353,7 @@ _080D4184:
 _080D4188:
 	.4byte 0x00000F52
 _080D418C:
-	.4byte gUnknown_02002352
+	.4byte gHeartsFiller
 _080D4190:
 	.4byte 0x00001770
 	THUMB_FUNC_END sub_080D4138
@@ -5518,7 +5518,7 @@ sub_080D427C: @ 0x080D427C
 	add r0, r0, #1
 	mov r2, #0
 	strb r0, [r4]
-	ldr r1, _080D42D0  @ =gUnknown_02002352
+	ldr r1, _080D42D0  @ =gHeartsFiller
 	mov r0, #160
 	strb r0, [r1]
 	ldr r0, _080D42D4  @ =0x00001770
@@ -5538,7 +5538,7 @@ _080D42C8:
 _080D42CC:
 	.4byte 0x00000F52
 _080D42D0:
-	.4byte gUnknown_02002352
+	.4byte gHeartsFiller
 _080D42D4:
 	.4byte 0x00001770
 	THUMB_FUNC_END sub_080D427C
@@ -6061,7 +6061,7 @@ sub_080D4660: @ 0x080D4660
 	ldrb r0, [r0]
 	cmp r0, #2
 	bne _080D46F8
-	ldr r0, _080D4708  @ =gUnknown_02002354
+	ldr r0, _080D4708  @ =gPendantCount
 	ldrb r1, [r0]
 	mov r0, #7
 	and r0, r0, r1
@@ -6119,7 +6119,7 @@ _080D4700:
 _080D4704:
 	.4byte 0x000016D5
 _080D4708:
-	.4byte gUnknown_02002354
+	.4byte gPendantCount
 _080D470C:
 	.4byte gUnknown_03003E70
 _080D4710:
@@ -8736,7 +8736,7 @@ sub_080D5A18: @ 0x080D5A18
 	bne _080D5A76
 	mov r0, #16
 	strb r0, [r1]
-	ldr r4, _080D5A70  @ =gUnknown_0200234E
+	ldr r4, _080D5A70  @ =gMagicMeter
 	ldrb r0, [r4]
 	cmp r0, #7
 	bls _080D5A74
@@ -8754,7 +8754,7 @@ _080D5A68:
 _080D5A6C:
 	.4byte 0x00000FC2
 _080D5A70:
-	.4byte gUnknown_0200234E
+	.4byte gMagicMeter
 _080D5A74:
 	strb r2, [r4]
 _080D5A76:
@@ -9163,7 +9163,7 @@ _080D5D52:
 	lsr r2, r0, #24
 	cmp r2, #0
 	bne _080D5E02
-	ldr r0, _080D5DC8  @ =gUnknown_0200233D
+	ldr r0, _080D5DC8  @ =gSword
 	ldrb r0, [r0]
 	cmp r0, #2
 	bhi _080D5DD4
@@ -9200,7 +9200,7 @@ _080D5DC0:
 _080D5DC4:
 	.4byte 0x00000F52
 _080D5DC8:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _080D5DCC:
 	.4byte 0x000010C2
 _080D5DD0:
@@ -12201,7 +12201,7 @@ _080D73B8:
 _080D73BC:
 	.4byte 0x00001032
 _080D73C0:
-	ldr r0, _080D73D0  @ =gUnknown_02002330
+	ldr r0, _080D73D0  @ =gBookOfMudora
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080D73D4
@@ -12209,7 +12209,7 @@ _080D73C0:
 	bl sub_0812FBC4
 	b _080D73DC
 _080D73D0:
-	.4byte gUnknown_02002330
+	.4byte gBookOfMudora
 _080D73D4:
 	ldr r1, _080D73E4  @ =0x00000FA2
 	add r0, r5, r1
@@ -13199,7 +13199,7 @@ sub_080D7B30: @ 0x080D7B30
 	push {r4,lr}
 	lsl r0, r0, #24
 	lsr r0, r0, #24
-	ldr r2, _080D7B70  @ =gUnknown_0200234F
+	ldr r2, _080D7B70  @ =gKeyCount
 	ldrb r1, [r2]
 	add r1, r1, #1
 	strb r1, [r2]
@@ -13228,7 +13228,7 @@ sub_080D7B30: @ 0x080D7B30
 	pop {r0}
 	bx r0
 _080D7B70:
-	.4byte gUnknown_0200234F
+	.4byte gKeyCount
 _080D7B74:
 	.4byte gRam
 _080D7B78:
@@ -22310,7 +22310,7 @@ _080DBEF0:
 _080DBEF4:
 	.4byte 0x00000F52
 _080DBEF8:
-	ldr r0, _080DBF34  @ =gUnknown_0200232E
+	ldr r0, _080DBF34  @ =gFlute
 	ldrb r0, [r0]
 	cmp r0, #1
 	bls _080DBF5E
@@ -22340,7 +22340,7 @@ _080DBF28:
 	bl sub_080C9164
 	b _080DBF68
 _080DBF34:
-	.4byte gUnknown_0200232E
+	.4byte gFlute
 _080DBF38:
 	.4byte 0x00000A4E
 _080DBF3C:
@@ -22607,7 +22607,7 @@ sub_080DC100: @ 0x080DC100
 	add r0, r4, #0
 	bl sub_080C5080
 	ldr r1, _080DC13C  @ =gUnknown_08175FDC
-	ldr r0, _080DC140  @ =gUnknown_0200233A
+	ldr r0, _080DC140  @ =gFlippers
 	ldrb r0, [r0]
 	lsl r0, r0, #1
 	add r0, r0, r1
@@ -22623,7 +22623,7 @@ _080DC134:
 _080DC13C:
 	.4byte gUnknown_08175FDC
 _080DC140:
-	.4byte gUnknown_0200233A
+	.4byte gFlippers
 	THUMB_FUNC_END sub_080DC100
 
 	THUMB_FUNC_START sub_080DC144
@@ -22670,15 +22670,15 @@ sub_080DC178: @ 0x080DC178
 	lsl r0, r0, #24
 	cmp r0, #0
 	beq _080DC1E8
-	ldr r0, _080DC1BC  @ =gUnknown_02002325
-	ldr r1, _080DC1C0  @ =gUnknown_0200232B
+	ldr r0, _080DC1BC  @ =gBottle1
+	ldr r1, _080DC1C0  @ =gBottle2
 	ldrb r0, [r0]
 	ldrb r1, [r1]
 	orr r0, r0, r1
-	ldr r1, _080DC1C4  @ =gUnknown_02002331
+	ldr r1, _080DC1C4  @ =gBottle3
 	ldrb r1, [r1]
 	orr r0, r0, r1
-	ldr r1, _080DC1C8  @ =gUnknown_02002337
+	ldr r1, _080DC1C8  @ =gBottle4
 	ldrb r1, [r1]
 	orr r0, r0, r1
 	cmp r0, #1
@@ -22689,13 +22689,13 @@ sub_080DC178: @ 0x080DC178
 	bl sub_080C9164
 	b _080DC1E8
 _080DC1BC:
-	.4byte gUnknown_02002325
+	.4byte gBottle1
 _080DC1C0:
-	.4byte gUnknown_0200232B
+	.4byte gBottle2
 _080DC1C4:
-	.4byte gUnknown_02002331
+	.4byte gBottle3
 _080DC1C8:
-	.4byte gUnknown_02002337
+	.4byte gBottle4
 _080DC1CC:
 	.4byte 0x00000107
 _080DC1D0:
@@ -22801,7 +22801,7 @@ sub_080DC280: @ 0x080DC280
 	lsl r0, r0, #24
 	lsr r1, r0, #24
 	add r3, r1, #0
-	ldr r0, _080DC2B0  @ =gUnknown_0200232F
+	ldr r0, _080DC2B0  @ =gBugCatchingNet
 	ldrb r0, [r0]
 	ldr r2, _080DC2B4  @ =gRam
 	cmp r0, #0
@@ -22824,7 +22824,7 @@ _080DC29C:
 	.byte 0x00
 	.byte 0x00
 _080DC2B0:
-	.4byte gUnknown_0200232F
+	.4byte gBugCatchingNet
 _080DC2B4:
 	.4byte gRam
 _080DC2B8:
@@ -23711,7 +23711,7 @@ sub_080DC938: @ 0x080DC938
 	push {r6,r7}
 	lsl r0, r0, #24
 	lsr r4, r0, #24
-	ldr r0, _080DC9B0  @ =gUnknown_0200235B
+	ldr r0, _080DC9B0  @ =gMagicUsage
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080DC9D6
@@ -23764,7 +23764,7 @@ _080DC974:
 	strb r0, [r7]
 	b _080DC9D6
 _080DC9B0:
-	.4byte gUnknown_0200235B
+	.4byte gMagicUsage
 _080DC9B4:
 	.4byte gRam
 _080DC9B8:
@@ -24040,7 +24040,7 @@ _080DCB8C:
 	ldrb r0, [r1]
 	add r0, r0, #1
 	strb r0, [r1]
-	ldr r0, _080DCBC8  @ =gUnknown_0200235B
+	ldr r0, _080DCBC8  @ =gMagicUsage
 	strb r2, [r0]
 	bl sub_080AA724
 _080DCBB8:
@@ -24053,7 +24053,7 @@ _080DCBC0:
 _080DCBC4:
 	.4byte 0x00000F52
 _080DCBC8:
-	.4byte gUnknown_0200235B
+	.4byte gMagicUsage
 	THUMB_FUNC_END sub_080DCB5C
 
 	THUMB_FUNC_START sub_080DCBCC
@@ -24331,7 +24331,7 @@ _080DCDD0:
 _080DCDD4:
 	.4byte 0x00000FA2
 _080DCDD8:
-	ldr r0, _080DCDEC  @ =gUnknown_02002336
+	ldr r0, _080DCDEC  @ =gMagicMirror
 	ldrb r0, [r0]
 	cmp r0, #2
 	beq _080DCDF0
@@ -24341,7 +24341,7 @@ _080DCDD8:
 	strb r4, [r5]
 	b _080DCE0A
 _080DCDEC:
-	.4byte gUnknown_02002336
+	.4byte gMagicMirror
 _080DCDF0:
 	ldr r1, _080DCDFC  @ =0x00000FA2
 	add r0, r3, r1
@@ -24691,7 +24691,7 @@ sub_080DD06C: @ 0x080DD06C
 	ldrb r0, [r4]
 	cmp r0, #0
 	beq _080DD092
-	ldr r0, _080DD0D0  @ =gUnknown_02002352
+	ldr r0, _080DD0D0  @ =gHeartsFiller
 	mov r1, #160
 	strb r1, [r0]
 	mov r0, #0
@@ -24703,7 +24703,7 @@ _080DD092:
 	ldrb r0, [r0]
 	cmp r0, #2
 	bhi _080DD0A2
-	ldr r0, _080DD0D8  @ =gUnknown_0200233B
+	ldr r0, _080DD0D8  @ =gMoonPearl
 	ldrb r2, [r0]
 _080DD0A2:
 	ldr r1, _080DD0DC  @ =gUnknown_08176178
@@ -24731,11 +24731,11 @@ _080DD0C8:
 _080DD0CC:
 	.4byte 0x00000F52
 _080DD0D0:
-	.4byte gUnknown_02002352
+	.4byte gHeartsFiller
 _080DD0D4:
 	.4byte 0x0000165E
 _080DD0D8:
-	.4byte gUnknown_0200233B
+	.4byte gMoonPearl
 _080DD0DC:
 	.4byte gUnknown_08176178
 	THUMB_FUNC_END sub_080DD06C
@@ -26290,7 +26290,7 @@ sub_080DDBE4: @ 0x080DDBE4
 	lsr r0, r0, #16
 	cmp r0, #5
 	bhi _080DDC64
-	ldr r1, _080DDC80  @ =gUnknown_02002352
+	ldr r1, _080DDC80  @ =gHeartsFiller
 	ldrb r0, [r1]
 	add r0, r0, #160
 	strb r0, [r1]
@@ -26317,7 +26317,7 @@ _080DDC78:
 _080DDC7C:
 	.4byte 0x00001624
 _080DDC80:
-	.4byte gUnknown_02002352
+	.4byte gHeartsFiller
 _080DDC84:
 	.4byte 0x00000F52
 	THUMB_FUNC_END sub_080DDBE4
@@ -26591,8 +26591,8 @@ sub_080DDE84: @ 0x080DDE84
 	push {lr}
 	lsl r0, r0, #24
 	lsr r3, r0, #24
-	ldr r0, _080DDEB0  @ =gUnknown_0200234D
-	ldr r1, _080DDEB4  @ =gUnknown_0200234C
+	ldr r0, _080DDEB0  @ =gMaxHealth
+	ldr r1, _080DDEB4  @ =gCurrentHealth
 	ldrb r0, [r0]
 	ldrb r1, [r1]
 	cmp r0, r1
@@ -26612,9 +26612,9 @@ _080DDEAC:
 	pop {r0}
 	bx r0
 _080DDEB0:
-	.4byte gUnknown_0200234D
+	.4byte gMaxHealth
 _080DDEB4:
-	.4byte gUnknown_0200234C
+	.4byte gCurrentHealth
 _080DDEB8:
 	.4byte gRam
 _080DDEBC:
@@ -27105,7 +27105,7 @@ _080DE21C:
 sub_080DE220: @ 0x080DE220
 	lsl r0, r0, #24
 	lsr r0, r0, #24
-	ldr r2, _080DE238  @ =gUnknown_02002352
+	ldr r2, _080DE238  @ =gHeartsFiller
 	mov r1, #160
 	strb r1, [r2]
 	ldr r1, _080DE23C  @ =gRam
@@ -27116,7 +27116,7 @@ sub_080DE220: @ 0x080DE220
 	strb r1, [r0]
 	bx lr
 _080DE238:
-	.4byte gUnknown_02002352
+	.4byte gHeartsFiller
 _080DE23C:
 	.4byte gRam
 _080DE240:
@@ -27400,11 +27400,11 @@ sub_080DE420: @ 0x080DE420
 	and r0, r0, r1
 	cmp r0, #0
 	beq _080DE45E
-	ldr r0, _080DE47C  @ =gUnknown_0200233D
+	ldr r0, _080DE47C  @ =gSword
 	ldrb r0, [r0]
 	cmp r0, #1
 	bhi _080DE4A4
-	ldr r0, _080DE480  @ =gUnknown_02002354
+	ldr r0, _080DE480  @ =gPendantCount
 	ldrb r0, [r0]
 	mov r1, #7
 	and r1, r1, r0
@@ -27414,7 +27414,7 @@ sub_080DE420: @ 0x080DE420
 	and r1, r1, r0
 	cmp r1, #0
 	bne _080DE48E
-	ldr r0, _080DE484  @ =gUnknown_02002330
+	ldr r0, _080DE484  @ =gBookOfMudora
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080DE488
@@ -27435,11 +27435,11 @@ _080DE474:
 _080DE478:
 	.4byte 0x0000165F
 _080DE47C:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _080DE480:
-	.4byte gUnknown_02002354
+	.4byte gPendantCount
 _080DE484:
-	.4byte gUnknown_02002330
+	.4byte gBookOfMudora
 _080DE488:
 	mov r1, #149
 	lsl r1, r1, #1
@@ -27479,17 +27479,17 @@ sub_080DE4C0: @ 0x080DE4C0
 	sub sp, sp, #4
 	lsl r0, r0, #24
 	lsr r4, r0, #24
-	ldr r0, _080DE4FC  @ =gUnknown_02002354
+	ldr r0, _080DE4FC  @ =gPendantCount
 	ldrb r1, [r0]
 	mov r0, #4
 	and r0, r0, r1
 	cmp r0, #0
 	beq _080DE564
-	ldr r0, _080DE500  @ =gUnknown_02002339
+	ldr r0, _080DE500  @ =gBoots
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080DE524
-	ldr r0, _080DE504  @ =gUnknown_02002327
+	ldr r0, _080DE504  @ =gIceRod
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080DE518
@@ -27497,7 +27497,7 @@ sub_080DE4C0: @ 0x080DE4C0
 	and r0, r0, r1
 	cmp r0, #7
 	bne _080DE512
-	ldr r0, _080DE508  @ =gUnknown_0200233D
+	ldr r0, _080DE508  @ =gSword
 	ldrb r0, [r0]
 	cmp r0, #1
 	bls _080DE50C
@@ -27507,13 +27507,13 @@ sub_080DE4C0: @ 0x080DE4C0
 	.byte 0x00
 	.byte 0x00
 _080DE4FC:
-	.4byte gUnknown_02002354
+	.4byte gPendantCount
 _080DE500:
-	.4byte gUnknown_02002339
+	.4byte gBoots
 _080DE504:
-	.4byte gUnknown_02002327
+	.4byte gIceRod
 _080DE508:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _080DE50C:
 	add r0, r4, #0
 	mov r1, #51
@@ -27873,7 +27873,7 @@ sub_080DE724: @ 0x080DE724
 	add r0, r2, r6
 	strb r1, [r0]
 _080DE79C:
-	ldr r0, _080DE848  @ =gUnknown_0200235A
+	ldr r0, _080DE848  @ =gCrystalCount
 	ldrb r1, [r0]
 	mov r0, #5
 	and r0, r0, r1
@@ -27961,7 +27961,7 @@ _080DE840:
 _080DE844:
 	.4byte 0x00001052
 _080DE848:
-	.4byte gUnknown_0200235A
+	.4byte gCrystalCount
 _080DE84C:
 	.4byte 0x00001662
 	THUMB_FUNC_END sub_080DE724
@@ -28031,7 +28031,7 @@ _080DE8C4:
 	bl sub_080DEA74
 _080DE8D2:
 	mov r2, #0
-	ldr r0, _080DE914  @ =gUnknown_0200235A
+	ldr r0, _080DE914  @ =gCrystalCount
 	ldrb r1, [r0]
 	mov r0, #5
 	and r0, r0, r1
@@ -28065,7 +28065,7 @@ _080DE90A:
 	.byte 0x00
 	.byte 0x00
 _080DE914:
-	.4byte gUnknown_0200235A
+	.4byte gCrystalCount
 _080DE918:
 	.4byte gRam
 _080DE91C:
@@ -28096,10 +28096,10 @@ sub_080DE924: @ 0x080DE924
 	cmp r0, #0
 	beq _080DE9BE
 	ldr r1, _080DE978  @ =gUnknown_0816B588
-	ldr r0, _080DE97C  @ =gUnknown_02002350
+	ldr r0, _080DE97C  @ =gBombUpgrades
 	ldrb r0, [r0]
 	add r0, r0, r1
-	ldr r1, _080DE980  @ =gUnknown_02002323
+	ldr r1, _080DE980  @ =gBombs
 	ldrb r0, [r0]
 	ldrb r1, [r1]
 	cmp r0, r1
@@ -28115,9 +28115,9 @@ sub_080DE924: @ 0x080DE924
 _080DE978:
 	.4byte gUnknown_0816B588
 _080DE97C:
-	.4byte gUnknown_02002350
+	.4byte gBombUpgrades
 _080DE980:
-	.4byte gUnknown_02002323
+	.4byte gBombs
 _080DE984:
 	.4byte 0x00000171
 _080DE988:
@@ -28129,7 +28129,7 @@ _080DE988:
 	bl sub_0810F000
 	b _080DE9BE
 _080DE99A:
-	ldr r1, _080DE9C8  @ =gUnknown_02002355
+	ldr r1, _080DE9C8  @ =gBombFiller
 	mov r0, #27
 	strb r0, [r1]
 	ldr r0, _080DE9CC  @ =gRam
@@ -28153,7 +28153,7 @@ _080DE9BE:
 	.byte 0x00
 	.byte 0x00
 _080DE9C8:
-	.4byte gUnknown_02002355
+	.4byte gBombFiller
 _080DE9CC:
 	.4byte gRam
 _080DE9D0:
@@ -29236,7 +29236,7 @@ sub_080DF1D0: @ 0x080DF1D0
 	cmp r0, #26
 	beq _080DF23E
 	ldr r2, _080DF254  @ =gUnknown_08176500
-	ldr r0, _080DF258  @ =gUnknown_0200233B
+	ldr r0, _080DF258  @ =gMoonPearl
 	ldrb r1, [r0]
 	mov r0, #1
 	and r0, r0, r1
@@ -29289,7 +29289,7 @@ _080DF250:
 _080DF254:
 	.4byte gUnknown_08176500
 _080DF258:
-	.4byte gUnknown_0200233B
+	.4byte gMoonPearl
 _080DF25C:
 	.4byte 0x00000F22
 _080DF260:
@@ -29317,7 +29317,7 @@ sub_080DF268: @ 0x080DF268
 	cmp r0, #26
 	beq _080DF2C2
 	ldr r2, _080DF2D8  @ =gUnknown_08176504
-	ldr r0, _080DF2DC  @ =gUnknown_0200233B
+	ldr r0, _080DF2DC  @ =gMoonPearl
 	ldrb r1, [r0]
 	mov r0, #1
 	and r0, r0, r1
@@ -29360,7 +29360,7 @@ _080DF2D4:
 _080DF2D8:
 	.4byte gUnknown_08176504
 _080DF2DC:
-	.4byte gUnknown_0200233B
+	.4byte gMoonPearl
 _080DF2E0:
 	.4byte 0x00000F22
 _080DF2E4:
@@ -30072,8 +30072,8 @@ _080DF80C:
 _080DF810:
 	.4byte 0x00001AE2
 _080DF814:
-	ldr r0, _080DF86C  @ =gUnknown_02002350
-	ldr r1, _080DF870  @ =gUnknown_02002351
+	ldr r0, _080DF86C  @ =gBombUpgrades
+	ldr r1, _080DF870  @ =gArrowUpgrades
 	ldrb r2, [r0]
 	ldrb r0, [r1]
 	add r3, r0, #0
@@ -30118,9 +30118,9 @@ _080DF864:
 	pop {r0}
 	bx r0
 _080DF86C:
-	.4byte gUnknown_02002350
+	.4byte gBombUpgrades
 _080DF870:
-	.4byte gUnknown_02002351
+	.4byte gArrowUpgrades
 _080DF874:
 	.4byte 0x00000F92
 _080DF878:
@@ -30259,7 +30259,7 @@ sub_080DF94C: @ 0x080DF94C
 	ldrsh r0, [r4, r3]
 	neg r0, r0
 	bl sub_080AA83C
-	ldr r5, _080DF9E4  @ =gUnknown_0200234A
+	ldr r5, _080DF9E4  @ =gWishingPondRupeeCount
 	ldrb r0, [r4]
 	ldrb r1, [r5]
 	add r0, r0, r1
@@ -30315,7 +30315,7 @@ _080DF9DC:
 _080DF9E0:
 	.4byte 0x00000FB2
 _080DF9E4:
-	.4byte gUnknown_0200234A
+	.4byte gWishingPondRupeeCount
 _080DF9E8:
 	.4byte 0x00001082
 _080DF9EC:
@@ -30532,7 +30532,7 @@ sub_080DFB6C: @ 0x080DFB6C
 	ldrb r0, [r1]
 	add r0, r0, #1
 	strb r0, [r1]
-	ldr r3, _080DFBA4  @ =gUnknown_02002350
+	ldr r3, _080DFBA4  @ =gBombUpgrades
 	ldrb r0, [r3]
 	cmp r0, #7
 	bne _080DFBA8
@@ -30548,7 +30548,7 @@ _080DFB9C:
 _080DFBA0:
 	.4byte 0x00000F52
 _080DFBA4:
-	.4byte gUnknown_02002350
+	.4byte gBombUpgrades
 _080DFBA8:
 	add r0, r0, #1
 	strb r0, [r3]
@@ -30559,7 +30559,7 @@ _080DFBA8:
 	ldr r6, _080DFBE4  @ =0x00001AEC
 	add r0, r5, r6
 	strb r1, [r0]
-	ldr r1, _080DFBE8  @ =gUnknown_02002355
+	ldr r1, _080DFBE8  @ =gBombFiller
 	ldrb r0, [r3]
 	add r0, r0, r2
 	ldrb r0, [r0]
@@ -30583,7 +30583,7 @@ _080DFBE0:
 _080DFBE4:
 	.4byte 0x00001AEC
 _080DFBE8:
-	.4byte gUnknown_02002355
+	.4byte gBombFiller
 _080DFBEC:
 	.4byte 0x00001052
 	THUMB_FUNC_END sub_080DFB6C
@@ -30722,7 +30722,7 @@ sub_080DFCD0: @ 0x080DFCD0
 	add r0, r4, r0
 	mov r1, #9
 	strb r1, [r0]
-	ldr r3, _080DFD08  @ =gUnknown_02002351
+	ldr r3, _080DFD08  @ =gArrowUpgrades
 	ldrb r0, [r3]
 	cmp r0, #7
 	bne _080DFD0C
@@ -30740,7 +30740,7 @@ _080DFD00:
 _080DFD04:
 	.4byte 0x00000F52
 _080DFD08:
-	.4byte gUnknown_02002351
+	.4byte gArrowUpgrades
 _080DFD0C:
 	add r0, r0, #1
 	strb r0, [r3]
@@ -30751,7 +30751,7 @@ _080DFD0C:
 	ldr r6, _080DFD48  @ =0x00001AEC
 	add r0, r5, r6
 	strb r1, [r0]
-	ldr r1, _080DFD4C  @ =gUnknown_02002356
+	ldr r1, _080DFD4C  @ =gArrowFiller
 	ldrb r0, [r3]
 	add r0, r0, r2
 	ldrb r0, [r0]
@@ -30775,7 +30775,7 @@ _080DFD44:
 _080DFD48:
 	.4byte 0x00001AEC
 _080DFD4C:
-	.4byte gUnknown_02002356
+	.4byte gArrowFiller
 _080DFD50:
 	.4byte 0x00001052
 	THUMB_FUNC_END sub_080DFCD0
@@ -30935,7 +30935,7 @@ sub_080DFE48: @ 0x080DFE48
 	lsl r0, r1, #2
 	add r0, r0, r2
 	ldr r4, [r0]
-	ldr r2, _080DFEE0  @ =gUnknown_02002320
+	ldr r2, _080DFEE0  @ =gBow
 	add r0, r1, r2
 	ldrb r7, [r0]
 	add r2, r7, #0
@@ -30951,7 +30951,7 @@ _080DFE88:
 	add r0, r6, r1
 	add r0, r5, r0
 	ldrb r0, [r0]
-	ldr r1, _080DFEE0  @ =gUnknown_02002320
+	ldr r1, _080DFEE0  @ =gBow
 	add r0, r0, r1
 	mov r1, #0
 	strb r1, [r0]
@@ -30990,7 +30990,7 @@ _080DFED8:
 _080DFEDC:
 	.4byte gUnknown_0817653C
 _080DFEE0:
-	.4byte gUnknown_02002320
+	.4byte gBow
 _080DFEE4:
 	.4byte 0x00000F92
 _080DFEE8:
@@ -31333,7 +31333,7 @@ sub_080E014C: @ 0x080E014C
 	ldrb r0, [r1]
 	cmp r0, #3
 	bne _080E0170
-	ldr r5, _080E01C8  @ =gUnknown_02002320
+	ldr r5, _080E01C8  @ =gBow
 	add r0, r0, r5
 	ldr r5, _080E01CC  @ =0x00000FB2
 	add r1, r4, r5
@@ -31386,7 +31386,7 @@ _080E01C0:
 _080E01C4:
 	.4byte 0x00000F82
 _080E01C8:
-	.4byte gUnknown_02002320
+	.4byte gBow
 _080E01CC:
 	.4byte 0x00000FB2
 _080E01D0:
@@ -32251,7 +32251,7 @@ _080E0732:
 	add r0, r7, #0
 	add r0, r0, #16
 	add r0, r6, r0
-	ldr r1, _080E0868  @ =gUnknown_02002357
+	ldr r1, _080E0868  @ =gArrowCount
 	ldrb r1, [r1]
 	strb r1, [r0]
 	pop {r3}
@@ -32304,7 +32304,7 @@ _080E0860:
 _080E0864:
 	.4byte 0x000010F2
 _080E0868:
-	.4byte gUnknown_02002357
+	.4byte gArrowCount
 	THUMB_FUNC_END sub_080E0708
 
 	THUMB_FUNC_START sub_080E086C
@@ -33324,7 +33324,7 @@ sub_080E1014: @ 0x080E1014
 	push {r4,lr}
 	lsl r0, r0, #24
 	lsr r0, r0, #24
-	ldr r3, _080E1044  @ =gUnknown_02002357
+	ldr r3, _080E1044  @ =gArrowCount
 	ldr r2, _080E1048  @ =gRam
 	ldr r4, _080E104C  @ =0x00001002
 	add r1, r2, r4
@@ -33346,7 +33346,7 @@ sub_080E1014: @ 0x080E1014
 	.byte 0x00
 	.byte 0x00
 _080E1044:
-	.4byte gUnknown_02002357
+	.4byte gArrowCount
 _080E1048:
 	.4byte gRam
 _080E104C:
@@ -39226,7 +39226,7 @@ _080E3B74:
 	strb r1, [r0]
 	cmp r1, #0
 	beq _080E3B96
-	ldr r0, _080E3BE8  @ =gUnknown_0200233E
+	ldr r0, _080E3BE8  @ =gShield
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080E3B96
@@ -39280,7 +39280,7 @@ _080E3BE0:
 _080E3BE4:
 	.4byte 0x00000F62
 _080E3BE8:
-	.4byte gUnknown_0200233E
+	.4byte gShield
 _080E3BEC:
 	.4byte 0x000011B2
 	THUMB_FUNC_END sub_080E3A94
@@ -45058,12 +45058,12 @@ _080E6694:
 _080E6698:
 	.4byte 0x000015FA
 _080E669C:
-	ldr r0, _080E66A0  @ =gUnknown_02002357
+	ldr r0, _080E66A0  @ =gArrowCount
 	b _080E66A6
 _080E66A0:
-	.4byte gUnknown_02002357
+	.4byte gArrowCount
 _080E66A4:
-	ldr r0, _080E676C  @ =gUnknown_02002323
+	ldr r0, _080E676C  @ =gBombs
 _080E66A6:
 	ldrb r0, [r0]
 _080E66A8:
@@ -45166,7 +45166,7 @@ _080E66CC:
 	bl sub_080AA83C
 	b _080E67CE
 _080E676C:
-	.4byte gUnknown_02002323
+	.4byte gBombs
 _080E6770:
 	.4byte gUnknown_0817767C
 _080E6774:
@@ -45202,12 +45202,12 @@ _080E67AC:
 _080E67B0:
 	.4byte 0x000009AC
 _080E67B4:
-	ldr r1, _080E67B8  @ =gUnknown_02002357
+	ldr r1, _080E67B8  @ =gArrowCount
 	b _080E67BE
 _080E67B8:
-	.4byte gUnknown_02002357
+	.4byte gArrowCount
 _080E67BC:
-	ldr r1, _080E67C8  @ =gUnknown_02002323
+	ldr r1, _080E67C8  @ =gBombs
 _080E67BE:
 	ldrb r0, [r1]
 	sub r0, r0, #1
@@ -45216,7 +45216,7 @@ _080E67BE:
 	.byte 0x00
 	.byte 0x00
 _080E67C8:
-	.4byte gUnknown_02002323
+	.4byte gBombs
 _080E67CC:
 	strb r7, [r2]
 _080E67CE:
@@ -49044,7 +49044,7 @@ _080E83E8:
 	bge _080E83F8
 	b _080E85C8
 _080E83F8:
-	ldr r0, _080E84F4  @ =gUnknown_0200233E
+	ldr r0, _080E84F4  @ =gShield
 	ldrb r0, [r0]
 	cmp r0, #1
 	bhi _080E8402
@@ -49171,7 +49171,7 @@ _080E84EC:
 _080E84F0:
 	.4byte 0x00001791
 _080E84F4:
-	.4byte gUnknown_0200233E
+	.4byte gShield
 _080E84F8:
 	.4byte 0x000010F2
 _080E84FC:
@@ -51948,7 +51948,7 @@ sub_080E9998: @ 0x080E9998
 	push {lr}
 	lsl r0, r0, #24
 	lsr r1, r0, #24
-	ldr r0, _080E99B0  @ =gUnknown_0200233A
+	ldr r0, _080E99B0  @ =gFlippers
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080E99B4
@@ -51958,7 +51958,7 @@ sub_080E9998: @ 0x080E9998
 	.byte 0x00
 	.byte 0x00
 _080E99B0:
-	.4byte gUnknown_0200233A
+	.4byte gFlippers
 _080E99B4:
 	ldr r0, _080E99C4  @ =gRam
 	ldr r2, _080E99C8  @ =0x00000FA2
@@ -58141,7 +58141,7 @@ _080EC6AA:
 	strb r1, [r0]
 	mov r0, #1
 	strb r0, [r2]
-	ldr r0, _080EC80C  @ =gUnknown_0200233E
+	ldr r0, _080EC80C  @ =gShield
 	ldrb r0, [r0]
 	cmp r0, #2
 	bls _080EC7B0
@@ -58199,7 +58199,7 @@ _080EC804:
 _080EC808:
 	.4byte 0x00000EA5
 _080EC80C:
-	.4byte gUnknown_0200233E
+	.4byte gShield
 	THUMB_FUNC_END sub_080EC688
 
 	THUMB_FUNC_START sub_080EC810
@@ -65618,7 +65618,7 @@ _080EFEAE:
 	ldrb r0, [r0]
 	cmp r0, #62
 	bne _080EFF00
-	ldr r0, _080EFEFC  @ =gUnknown_02002338
+	ldr r0, _080EFEFC  @ =gGloves
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080EFF06
@@ -65650,7 +65650,7 @@ _080EFEF4:
 _080EFEF8:
 	.4byte 0x00000FF2
 _080EFEFC:
-	.4byte gUnknown_02002338
+	.4byte gGloves
 _080EFF00:
 	add r0, r4, #0
 	bl sub_080C3138
@@ -67878,7 +67878,7 @@ sub_080F0F58: @ 0x080F0F58
 	sub sp, sp, #4
 	lsl r0, r0, #24
 	lsr r4, r0, #24
-	ldr r0, _080F0F74  @ =gUnknown_0200233D
+	ldr r0, _080F0F74  @ =gSword
 	ldrb r0, [r0]
 	cmp r0, #1
 	bls _080F0F78
@@ -67888,7 +67888,7 @@ sub_080F0F58: @ 0x080F0F58
 	bl sub_080C9164
 	b _080F0F96
 _080F0F74:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _080F0F78:
 	add r0, r4, #0
 	mov r1, #46
@@ -70340,7 +70340,7 @@ _080F2124:
 	ldr r6, _080F21D0  @ =0x00000961
 	add r1, r2, r6
 	strb r4, [r1]
-	ldr r0, _080F21D4  @ =gUnknown_0200233D
+	ldr r0, _080F21D4  @ =gSword
 	ldrb r0, [r0]
 	cmp r0, #1
 	bls _080F2180
@@ -70391,7 +70391,7 @@ _080F21CC:
 _080F21D0:
 	.4byte 0x00000961
 _080F21D4:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _080F21D8:
 	.4byte gUnknown_081790B4
 _080F21DC:
@@ -71129,7 +71129,7 @@ _080F2730:
 	lsl r0, r0, #24
 	cmp r0, #0
 	beq _080F27EA
-	ldr r6, _080F279C  @ =gUnknown_0200234B
+	ldr r6, _080F279C  @ =gHeartPieces
 	ldrb r0, [r6]
 	add r0, r0, #1
 	mov r1, #3
@@ -71169,7 +71169,7 @@ _080F2794:
 _080F2798:
 	.4byte 0x000010E2
 _080F279C:
-	.4byte gUnknown_0200234B
+	.4byte gHeartPieces
 _080F27A0:
 	.4byte gUnknown_0817925C
 _080F27A4:
@@ -72147,7 +72147,7 @@ _080F2EBC:
 	mov r1, #2
 	orr r0, r0, r1
 	strb r0, [r2]
-	ldr r0, _080F2F24  @ =gUnknown_0200233D
+	ldr r0, _080F2F24  @ =gSword
 	ldrb r0, [r0]
 	cmp r0, #1
 	bhi _080F2F58
@@ -72185,7 +72185,7 @@ _080F2F1C:
 _080F2F20:
 	.4byte 0x00001012
 _080F2F24:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _080F2F28:
 	.4byte 0x00001082
 _080F2F2C:
@@ -72916,7 +72916,7 @@ sub_080F3460: @ 0x080F3460
 	eor r0, r0, r2
 	strb r0, [r1]
 	mov r2, #0
-	ldr r0, _080F34A4  @ =gUnknown_02002354
+	ldr r0, _080F34A4  @ =gPendantCount
 	ldrb r1, [r0]
 	mov r0, #7
 	and r0, r0, r1
@@ -72937,7 +72937,7 @@ _080F349C:
 _080F34A0:
 	.4byte 0x00001082
 _080F34A4:
-	.4byte gUnknown_02002354
+	.4byte gPendantCount
 _080F34A8:
 	mov r2, #2
 _080F34AA:
@@ -72963,7 +72963,7 @@ _080F34AA:
 	mov r0, sp
 	ldrb r0, [r0]
 	strb r0, [r2]
-	ldr r1, _080F34F8  @ =gUnknown_02002352
+	ldr r1, _080F34F8  @ =gHeartsFiller
 	mov r0, #160
 	strb r0, [r1]
 _080F34DE:
@@ -72982,7 +72982,7 @@ _080F34F0:
 _080F34F4:
 	.4byte 0x00001082
 _080F34F8:
-	.4byte gUnknown_02002352
+	.4byte gHeartsFiller
 	THUMB_FUNC_END sub_080F3460
 
 	THUMB_FUNC_START sub_080F34FC
@@ -74096,7 +74096,7 @@ sub_080F3CD8: @ 0x080F3CD8
 	lsl r0, r0, #24
 	lsr r5, r0, #24
 	mov r9, r5
-	ldr r0, _080F3CFC  @ =gUnknown_0200233D
+	ldr r0, _080F3CFC  @ =gSword
 	ldrb r0, [r0]
 	cmp r0, #1
 	bls _080F3D08
@@ -74109,7 +74109,7 @@ sub_080F3CD8: @ 0x080F3CD8
 	.byte 0x00
 	.byte 0x00
 _080F3CFC:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _080F3D00:
 	.4byte gRam
 _080F3D04:
@@ -74554,7 +74554,7 @@ sub_080F4024: @ 0x080F4024
 	eor r0, r0, r2
 	strb r0, [r1]
 	mov r2, #0
-	ldr r0, _080F4068  @ =gUnknown_02002354
+	ldr r0, _080F4068  @ =gPendantCount
 	ldrb r1, [r0]
 	mov r0, #7
 	and r0, r0, r1
@@ -74575,7 +74575,7 @@ _080F4060:
 _080F4064:
 	.4byte 0x00001082
 _080F4068:
-	.4byte gUnknown_02002354
+	.4byte gPendantCount
 _080F406C:
 	mov r2, #2
 _080F406E:
@@ -74601,7 +74601,7 @@ _080F406E:
 	mov r0, sp
 	ldrb r0, [r0]
 	strb r0, [r2]
-	ldr r1, _080F40BC  @ =gUnknown_02002352
+	ldr r1, _080F40BC  @ =gHeartsFiller
 	mov r0, #160
 	strb r0, [r1]
 _080F40A2:
@@ -74620,7 +74620,7 @@ _080F40B4:
 _080F40B8:
 	.4byte 0x00001082
 _080F40BC:
-	.4byte gUnknown_02002352
+	.4byte gHeartsFiller
 	THUMB_FUNC_END sub_080F4024
 
 	THUMB_FUNC_START sub_080F40C0
@@ -76126,7 +76126,7 @@ sub_080F4BA8: @ 0x080F4BA8
 	ldrh r5, [r0]
 	cmp r5, #3
 	bne _080F4BFC
-	ldr r0, _080F4BF0  @ =gUnknown_02002329
+	ldr r0, _080F4BF0  @ =gEtherMedallion
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080F4C24
@@ -76147,7 +76147,7 @@ _080F4BE8:
 _080F4BEC:
 	.4byte 0x000009C6
 _080F4BF0:
-	.4byte gUnknown_02002329
+	.4byte gEtherMedallion
 _080F4BF4:
 	.4byte 0x00000F92
 _080F4BF8:
@@ -76159,7 +76159,7 @@ _080F4BFC:
 	ldrb r0, [r1]
 	add r0, r0, #8
 	strb r0, [r1]
-	ldr r0, _080F4C30  @ =gUnknown_02002328
+	ldr r0, _080F4C30  @ =gBombosMedallion
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080F4C24
@@ -76182,7 +76182,7 @@ _080F4C24:
 _080F4C2C:
 	.4byte 0x00000EE2
 _080F4C30:
-	.4byte gUnknown_02002328
+	.4byte gBombosMedallion
 _080F4C34:
 	.4byte 0x00000F92
 _080F4C38:
@@ -76440,7 +76440,7 @@ _080F4E0A:
 	and r0, r0, r1
 	cmp r0, #0
 	beq _080F4E22
-	ldr r0, _080F4ED8  @ =gUnknown_0200233D
+	ldr r0, _080F4ED8  @ =gSword
 	ldrb r0, [r0]
 	cmp r0, #2
 	bne _080F4E22
@@ -76493,7 +76493,7 @@ _080F4E64:
 	add r1, r4, r3
 	mov r0, #32
 	strb r0, [r1]
-	ldr r0, _080F4ED8  @ =gUnknown_0200233D
+	ldr r0, _080F4ED8  @ =gSword
 	ldrb r1, [r0]
 	mov r0, #128
 	and r0, r0, r1
@@ -76541,7 +76541,7 @@ _080F4ED0:
 _080F4ED4:
 	.4byte 0x00000547
 _080F4ED8:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _080F4EDC:
 	.4byte gUnknown_03003E70
 _080F4EE0:
@@ -76601,7 +76601,7 @@ _080F4EFC:
 	and r0, r0, r1
 	cmp r0, #0
 	beq _080F4F5A
-	ldr r0, _080F5010  @ =gUnknown_0200233D
+	ldr r0, _080F5010  @ =gSword
 	ldrb r0, [r0]
 	cmp r0, #2
 	beq _080F4FF8
@@ -76651,7 +76651,7 @@ _080F4F96:
 	add r1, r4, r3
 	mov r0, #32
 	strb r0, [r1]
-	ldr r0, _080F5010  @ =gUnknown_0200233D
+	ldr r0, _080F5010  @ =gSword
 	ldrb r1, [r0]
 	mov r0, #128
 	and r0, r0, r1
@@ -76700,7 +76700,7 @@ _080F5008:
 _080F500C:
 	.4byte 0x00000547
 _080F5010:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _080F5014:
 	.4byte gUnknown_03003E70
 _080F5018:
@@ -76958,7 +76958,7 @@ sub_080F519C: @ 0x080F519C
 	mov r8, r0
 	cmp r0, #1
 	bne _080F5252
-	ldr r0, _080F5264  @ =gUnknown_0200232C
+	ldr r0, _080F5264  @ =gLamp
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080F5252
@@ -77027,7 +77027,7 @@ _080F525C:
 _080F5260:
 	.4byte 0x00001663
 _080F5264:
-	.4byte gUnknown_0200232C
+	.4byte gLamp
 _080F5268:
 	.4byte 0x00001804
 _080F526C:
@@ -77383,7 +77383,7 @@ sub_080F54D4: @ 0x080F54D4
 	ldrh r0, [r0]
 	cmp r0, #24
 	beq _080F5530
-	ldr r0, _080F5528  @ =gUnknown_0200232E
+	ldr r0, _080F5528  @ =gFlute
 	ldrb r1, [r0]
 	mov r0, #2
 	and r0, r0, r1
@@ -77400,11 +77400,11 @@ _080F5520:
 _080F5524:
 	.4byte 0x000009C6
 _080F5528:
-	.4byte gUnknown_0200232E
+	.4byte gFlute
 _080F552C:
 	.4byte 0x00000FA2
 _080F5530:
-	ldr r0, _080F5548  @ =gUnknown_0200232E
+	ldr r0, _080F5548  @ =gFlute
 	ldrb r0, [r0]
 	cmp r0, #3
 	bne _080F5540
@@ -77419,7 +77419,7 @@ _080F5540:
 	pop {r0}
 	bx r0
 _080F5548:
-	.4byte gUnknown_0200232E
+	.4byte gFlute
 _080F554C:
 	.4byte 0x00000FA2
 	THUMB_FUNC_END sub_080F54D4
@@ -77429,7 +77429,7 @@ sub_080F5550: @ 0x080F5550
 	push {r4,lr}
 	lsl r0, r0, #24
 	lsr r4, r0, #24
-	ldr r0, _080F5588  @ =gUnknown_02002324
+	ldr r0, _080F5588  @ =gMagicPowder
 	ldrb r0, [r0]
 	cmp r0, #1
 	bhi _080F559C
@@ -77456,7 +77456,7 @@ sub_080F5550: @ 0x080F5550
 	.byte 0x00
 	.byte 0x00
 _080F5588:
-	.4byte gUnknown_02002324
+	.4byte gMagicPowder
 _080F558C:
 	.4byte gRam
 _080F5590:
@@ -77625,7 +77625,7 @@ _080F56AC:
 	add r0, r5, #0
 	mov r1, #112
 	bl sub_080CF140
-	ldr r0, _080F56DC  @ =gUnknown_02002352
+	ldr r0, _080F56DC  @ =gHeartsFiller
 	ldrb r1, [r0]
 	add r1, r1, #8
 	strb r1, [r0]
@@ -77638,7 +77638,7 @@ _080F56D4:
 	.byte 0x00
 	.byte 0x00
 _080F56DC:
-	.4byte gUnknown_02002352
+	.4byte gHeartsFiller
 _080F56E0:
 	.4byte 0x00000FA2
 _080F56E4:
@@ -82318,7 +82318,7 @@ _080F7986:
 	beq _080F79EC
 	cmp r0, #80
 	bne _080F79BE
-	ldr r0, _080F79A0  @ =gUnknown_0200232A
+	ldr r0, _080F79A0  @ =gQuakeMedallion
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080F79A4
@@ -82326,7 +82326,7 @@ _080F7986:
 	bl sub_080F7A28
 	b _080F79BE
 _080F79A0:
-	.4byte gUnknown_0200232A
+	.4byte gQuakeMedallion
 _080F79A4:
 	bl GetRandomInt
 	mov r1, #1
@@ -82370,7 +82370,7 @@ _080F79EC:
 	add r1, r6, r0
 	mov r0, #0
 	strb r0, [r1]
-	ldr r0, _080F7A10  @ =gUnknown_0200232A
+	ldr r0, _080F7A10  @ =gQuakeMedallion
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080F7A00
@@ -82384,7 +82384,7 @@ _080F7A08:
 _080F7A0C:
 	.4byte 0x00001770
 _080F7A10:
-	.4byte gUnknown_0200232A
+	.4byte gQuakeMedallion
 _080F7A14:
 	ldr r1, _080F7A24  @ =0x00000FA2
 	add r0, r6, r1
@@ -83220,7 +83220,7 @@ _080F8038:
 _080F803C:
 	.4byte 0x000016B3
 _080F8040:
-	ldr r0, _080F80E0  @ =gUnknown_0200233D
+	ldr r0, _080F80E0  @ =gSword
 	ldrb r0, [r0]
 	cmp r0, #1
 	bhi _080F804E
@@ -83301,7 +83301,7 @@ _080F80D8:
 	pop {r0}
 	bx r0
 _080F80E0:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _080F80E4:
 	.4byte gRam
 _080F80E8:
@@ -84758,7 +84758,7 @@ _080F8B52:
 	ldr r0, _080F8BB4  @ =0x00001002
 	add r1, r2, r0
 	add r1, r4, r1
-	ldr r2, _080F8BB8  @ =gUnknown_0200233E
+	ldr r2, _080F8BB8  @ =gShield
 	ldrb r0, [r2]
 	strb r0, [r1]
 	lsl r0, r0, #24
@@ -84783,7 +84783,7 @@ _080F8BB0:
 _080F8BB4:
 	.4byte 0x00001002
 _080F8BB8:
-	.4byte gUnknown_0200233E
+	.4byte gShield
 _080F8BBC:
 	strb r3, [r2]
 	b _080F8C00
@@ -84799,7 +84799,7 @@ _080F8BCC:
 	bl sub_080AA83C
 	b _080F8C00
 _080F8BD6:
-	ldr r2, _080F8BE4  @ =gUnknown_02002357
+	ldr r2, _080F8BE4  @ =gArrowCount
 	ldrb r0, [r2]
 	add r1, r0, #0
 	cmp r1, #0
@@ -84808,9 +84808,9 @@ _080F8BD6:
 	.byte 0x00
 	.byte 0x00
 _080F8BE4:
-	.4byte gUnknown_02002357
+	.4byte gArrowCount
 _080F8BE8:
-	ldr r2, _080F8BF8  @ =gUnknown_02002323
+	ldr r2, _080F8BF8  @ =gBombs
 	ldrb r0, [r2]
 	add r1, r0, #0
 	cmp r1, #0
@@ -84821,7 +84821,7 @@ _080F8BF2:
 	.byte 0x00
 	.byte 0x00
 _080F8BF8:
-	.4byte gUnknown_02002323
+	.4byte gBombs
 _080F8BFC:
 	sub r0, r0, #1
 	strb r0, [r2]
@@ -87735,7 +87735,7 @@ sub_080FA148: @ 0x080FA148
 	add r1, r0, #0
 	cmp r1, #0
 	blt _080FA17E
-	ldr r0, _080FA1A8  @ =gUnknown_0200233E
+	ldr r0, _080FA1A8  @ =gShield
 	ldrb r0, [r0]
 	cmp r0, #3
 	beq _080FA17E
@@ -87767,7 +87767,7 @@ _080FA1A0:
 _080FA1A4:
 	.4byte 0x00000FC2
 _080FA1A8:
-	.4byte gUnknown_0200233E
+	.4byte gShield
 _080FA1AC:
 	.4byte 0x000011B2
 _080FA1B0:
@@ -95225,7 +95225,7 @@ sub_080FD888: @ 0x080FD888
 _080FD8B2:
 	cmp r2, #14
 	bne _080FD8C4
-	ldr r0, _080FD90C  @ =gUnknown_0200235A
+	ldr r0, _080FD90C  @ =gCrystalCount
 	ldrb r1, [r0]
 	mov r0, #127
 	and r0, r0, r1
@@ -95248,7 +95248,7 @@ _080FD8C4:
 	ldrb r0, [r1]
 	add r0, r0, #1
 	strb r0, [r1]
-	ldr r0, _080FD90C  @ =gUnknown_0200235A
+	ldr r0, _080FD90C  @ =gCrystalCount
 	ldrb r1, [r0]
 	mov r0, #127
 	and r0, r0, r1
@@ -95271,7 +95271,7 @@ _080FD904:
 _080FD908:
 	.4byte 0x00000AB2
 _080FD90C:
-	.4byte gUnknown_0200235A
+	.4byte gCrystalCount
 _080FD910:
 	.4byte gUnknown_0817A9EC
 _080FD914:

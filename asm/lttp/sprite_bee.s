@@ -1472,15 +1472,15 @@ sub_080D0BA4: @ 0x080D0BA4
 	lsl r0, r0, #24
 	lsr r3, r0, #24
 	add r4, r3, #0
-	ldr r0, _080D0BF4  @ =gUnknown_02002325
-	ldr r1, _080D0BF8  @ =gUnknown_0200232B
+	ldr r0, _080D0BF4  @ =gBottle1
+	ldr r1, _080D0BF8  @ =gBottle2
 	ldrb r0, [r0]
 	ldrb r1, [r1]
 	orr r0, r0, r1
-	ldr r1, _080D0BFC  @ =gUnknown_02002331
+	ldr r1, _080D0BFC  @ =gBottle3
 	ldrb r1, [r1]
 	orr r0, r0, r1
-	ldr r1, _080D0C00  @ =gUnknown_02002337
+	ldr r1, _080D0C00  @ =gBottle4
 	ldrb r1, [r1]
 	orr r0, r0, r1
 	lsr r0, r0, #3
@@ -1510,13 +1510,13 @@ _080D0BD6:
 	pop {r0}
 	bx r0
 _080D0BF4:
-	.4byte gUnknown_02002325
+	.4byte gBottle1
 _080D0BF8:
-	.4byte gUnknown_0200232B
+	.4byte gBottle2
 _080D0BFC:
-	.4byte gUnknown_02002331
+	.4byte gBottle3
 _080D0C00:
-	.4byte gUnknown_02002337
+	.4byte gBottle4
 _080D0C04:
 	.4byte gRam
 _080D0C08:
@@ -2091,15 +2091,15 @@ _080D104C:
 
 	THUMB_FUNC_START sub_080D1050
 sub_080D1050: @ 0x080D1050
-	ldr r0, _080D1070  @ =gUnknown_02002325
-	ldr r2, _080D1074  @ =gUnknown_0200232B
+	ldr r0, _080D1070  @ =gBottle1
+	ldr r2, _080D1074  @ =gBottle2
 	ldrb r1, [r0]
 	ldrb r0, [r2]
 	orr r1, r1, r0
-	ldr r0, _080D1078  @ =gUnknown_02002331
+	ldr r0, _080D1078  @ =gBottle3
 	ldrb r0, [r0]
 	orr r1, r1, r0
-	ldr r0, _080D107C  @ =gUnknown_02002337
+	ldr r0, _080D107C  @ =gBottle4
 	ldrb r0, [r0]
 	orr r1, r1, r0
 	lsr r1, r1, #3
@@ -2109,13 +2109,13 @@ sub_080D1050: @ 0x080D1050
 	.byte 0x00
 	.byte 0x00
 _080D1070:
-	.4byte gUnknown_02002325
+	.4byte gBottle1
 _080D1074:
-	.4byte gUnknown_0200232B
+	.4byte gBottle2
 _080D1078:
-	.4byte gUnknown_02002331
+	.4byte gBottle3
 _080D107C:
-	.4byte gUnknown_02002337
+	.4byte gBottle4
 	THUMB_FUNC_END sub_080D1050
 
 	THUMB_FUNC_START sub_080D1080
@@ -2134,15 +2134,15 @@ sub_080D1080: @ 0x080D1080
 	add r0, r2, r4
 	add r0, r3, r0
 	strb r1, [r0]
-	ldr r0, _080D10D4  @ =gUnknown_02002325
-	ldr r2, _080D10D8  @ =gUnknown_0200232B
+	ldr r0, _080D10D4  @ =gBottle1
+	ldr r2, _080D10D8  @ =gBottle2
 	ldrb r1, [r0]
 	ldrb r0, [r2]
 	orr r1, r1, r0
-	ldr r0, _080D10DC  @ =gUnknown_02002331
+	ldr r0, _080D10DC  @ =gBottle3
 	ldrb r0, [r0]
 	orr r1, r1, r0
-	ldr r0, _080D10E0  @ =gUnknown_02002337
+	ldr r0, _080D10E0  @ =gBottle4
 	ldrb r0, [r0]
 	orr r1, r1, r0
 	lsr r1, r1, #3
@@ -2163,11 +2163,11 @@ _080D10CC:
 _080D10D0:
 	.4byte 0x00000FA2
 _080D10D4:
-	.4byte gUnknown_02002325
+	.4byte gBottle1
 _080D10D8:
-	.4byte gUnknown_0200232B
+	.4byte gBottle2
 _080D10DC:
-	.4byte gUnknown_02002331
+	.4byte gBottle3
 _080D10E0:
-	.4byte gUnknown_02002337
+	.4byte gBottle4
 	THUMB_FUNC_END sub_080D1080

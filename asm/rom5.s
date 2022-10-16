@@ -3997,7 +3997,7 @@ _0812F24C:
 sub_0812F250: @ 0x0812F250
 	push {r4,r5,lr}
 	mov r1, #3
-	ldr r2, _0812F28C  @ =gUnknown_0200233D
+	ldr r2, _0812F28C  @ =gSword
 	ldrb r0, [r2]
 	cmp r0, #255
 	beq _0812F25E
@@ -4025,7 +4025,7 @@ _0812F25E:
 	.byte 0x00
 	.byte 0x00
 _0812F28C:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _0812F290:
 	.4byte gUnknown_0822BA48
 _0812F294:
@@ -5336,7 +5336,7 @@ sub_0812FC80: @ 0x0812FC80
 sub_0812FC84: @ 0x0812FC84
 	push {r4,r5,lr}
 	ldr r1, _0812FCC0  @ =gUnknown_0822BA52
-	ldr r0, _0812FCC4  @ =gUnknown_0200233E
+	ldr r0, _0812FCC4  @ =gShield
 	ldrb r0, [r0]
 	lsl r0, r0, #1
 	add r0, r0, r1
@@ -5365,7 +5365,7 @@ sub_0812FC84: @ 0x0812FC84
 _0812FCC0:
 	.4byte gUnknown_0822BA52
 _0812FCC4:
-	.4byte gUnknown_0200233E
+	.4byte gShield
 _0812FCC8:
 	.4byte gUnknown_0825460C
 _0812FCCC:
@@ -6231,7 +6231,7 @@ _081302DC:
 sub_081302F0: @ 0x081302F0
 	push {r4,lr}
 	ldr r1, _08130358  @ =gUnknown_0822BB64
-	ldr r0, _0813035C  @ =gUnknown_0200233F
+	ldr r0, _0813035C  @ =gArmor
 	ldrb r0, [r0]
 	lsl r0, r0, #1
 	add r0, r0, r1
@@ -6253,7 +6253,7 @@ _0813030A:
 	sub r4, r4, #1
 	cmp r4, #0
 	bge _0813030A
-	ldr r1, _0813036C  @ =gUnknown_02002338
+	ldr r1, _0813036C  @ =gGloves
 	ldrb r0, [r1]
 	cmp r0, #0
 	beq _08130344
@@ -6285,7 +6285,7 @@ _08130344:
 _08130358:
 	.4byte gUnknown_0822BB64
 _0813035C:
-	.4byte gUnknown_0200233F
+	.4byte gArmor
 _08130360:
 	.4byte gUnknown_02030160
 _08130364:
@@ -6293,7 +6293,7 @@ _08130364:
 _08130368:
 	.4byte gUnknown_02000AE0
 _0813036C:
-	.4byte gUnknown_02002338
+	.4byte gGloves
 _08130370:
 	.4byte gUnknown_0822BC08
 _08130374:
@@ -12577,7 +12577,7 @@ _081330E8:
 sub_081330EC: @ 0x081330EC
 	push {r4,r5,lr}
 	ldr r1, _0813312C  @ =gUnknown_0822BBF4
-	ldr r0, _08133130  @ =gUnknown_0200233D
+	ldr r0, _08133130  @ =gSword
 	ldrb r0, [r0]
 	lsl r0, r0, #1
 	add r0, r0, r1
@@ -12612,7 +12612,7 @@ _08133108:
 _0813312C:
 	.4byte gUnknown_0822BBF4
 _08133130:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _08133134:
 	.4byte gUnknown_02030600
 _08133138:
@@ -12629,7 +12629,7 @@ _08133144:
 sub_08133148: @ 0x08133148
 	push {r4,r5,lr}
 	ldr r1, _08133188  @ =gUnknown_0822BBFE
-	ldr r0, _0813318C  @ =gUnknown_0200233E
+	ldr r0, _0813318C  @ =gShield
 	ldrb r0, [r0]
 	lsl r0, r0, #1
 	add r0, r0, r1
@@ -12664,7 +12664,7 @@ _08133164:
 _08133188:
 	.4byte gUnknown_0822BBFE
 _0813318C:
-	.4byte gUnknown_0200233E
+	.4byte gShield
 _08133190:
 	.4byte gUnknown_02030600
 _08133194:
@@ -12832,7 +12832,7 @@ _081332A8:
 	THUMB_FUNC_START sub_081332B0
 sub_081332B0: @ 0x081332B0
 	push {r4,lr}
-	ldr r1, _081332EC  @ =gUnknown_02002338
+	ldr r1, _081332EC  @ =gGloves
 	ldrb r0, [r1]
 	cmp r0, #0
 	beq _081332D8
@@ -12862,7 +12862,7 @@ _081332D8:
 	.byte 0x00
 	.byte 0x00
 _081332EC:
-	.4byte gUnknown_02002338
+	.4byte gGloves
 _081332F0:
 	.4byte gUnknown_0822BC08
 _081332F4:
@@ -13375,11 +13375,11 @@ _08133640:
 	THUMB_FUNC_START sub_08133644
 sub_08133644: @ 0x08133644
 	push {lr}
-	ldr r0, _0813365C  @ =gUnknown_0200233D
+	ldr r0, _0813365C  @ =gSword
 	ldrb r0, [r0]
-	ldr r1, _08133660  @ =gUnknown_0200233E
+	ldr r1, _08133660  @ =gShield
 	ldrb r1, [r1]
-	ldr r2, _08133664  @ =gUnknown_0200233F
+	ldr r2, _08133664  @ =gArmor
 	ldrb r2, [r2]
 	bl sub_0813249C
 	pop {r0}
@@ -13387,11 +13387,11 @@ sub_08133644: @ 0x08133644
 	.byte 0x00
 	.byte 0x00
 _0813365C:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _08133660:
-	.4byte gUnknown_0200233E
+	.4byte gShield
 _08133664:
-	.4byte gUnknown_0200233F
+	.4byte gArmor
 	THUMB_FUNC_END sub_08133644
 
 	THUMB_FUNC_START sub_08133668
@@ -13408,18 +13408,18 @@ sub_08133668: @ 0x08133668
 	THUMB_FUNC_START sub_08133678
 sub_08133678: @ 0x08133678
 	push {lr}
-	ldr r0, _0813368C  @ =gUnknown_0200233D
+	ldr r0, _0813368C  @ =gSword
 	ldrb r0, [r0]
-	ldr r1, _08133690  @ =gUnknown_0200233E
+	ldr r1, _08133690  @ =gShield
 	ldrb r1, [r1]
 	mov r2, #3
 	bl sub_0813249C
 	pop {r0}
 	bx r0
 _0813368C:
-	.4byte gUnknown_0200233D
+	.4byte gSword
 _08133690:
-	.4byte gUnknown_0200233E
+	.4byte gShield
 	THUMB_FUNC_END sub_08133678
 
 	THUMB_FUNC_START sub_08133694
@@ -14943,7 +14943,7 @@ sub_08134708: @ 0x08134708
 	push {lr}
 	lsl r0, r0, #16
 	ldr r2, _0813472C  @ =gUnknown_083C3A3C
-	ldr r1, _08134730  @ =gUnknown_083C3BBC
+	ldr r1, _08134730  @ =gSongTable
 	lsr r0, r0, #13
 	add r0, r0, r1
 	ldrh r3, [r0, #4]
@@ -14960,7 +14960,7 @@ sub_08134708: @ 0x08134708
 _0813472C:
 	.4byte gUnknown_083C3A3C
 _08134730:
-	.4byte gUnknown_083C3BBC
+	.4byte gSongTable
 	THUMB_FUNC_END sub_08134708
 
 	THUMB_FUNC_START sub_08134734
@@ -14968,7 +14968,7 @@ sub_08134734: @ 0x08134734
 	push {lr}
 	lsl r0, r0, #16
 	ldr r2, _08134760  @ =gUnknown_083C3A3C
-	ldr r1, _08134764  @ =gUnknown_083C3BBC
+	ldr r1, _08134764  @ =gSongTable
 	lsr r0, r0, #13
 	add r0, r0, r1
 	ldrh r3, [r0, #4]
@@ -14990,7 +14990,7 @@ sub_08134734: @ 0x08134734
 _08134760:
 	.4byte gUnknown_083C3A3C
 _08134764:
-	.4byte gUnknown_083C3BBC
+	.4byte gSongTable
 _08134768:
 	ldr r2, [r1, #4]
 	ldrh r0, [r1, #4]
@@ -15012,7 +15012,7 @@ sub_08134780: @ 0x08134780
 	push {lr}
 	lsl r0, r0, #16
 	ldr r2, _081347AC  @ =gUnknown_083C3A3C
-	ldr r1, _081347B0  @ =gUnknown_083C3BBC
+	ldr r1, _081347B0  @ =gSongTable
 	lsr r0, r0, #13
 	add r0, r0, r1
 	ldrh r3, [r0, #4]
@@ -15034,7 +15034,7 @@ sub_08134780: @ 0x08134780
 _081347AC:
 	.4byte gUnknown_083C3A3C
 _081347B0:
-	.4byte gUnknown_083C3BBC
+	.4byte gSongTable
 _081347B4:
 	ldr r2, [r1, #4]
 	ldrh r0, [r1, #4]
@@ -15059,7 +15059,7 @@ sub_081347D4: @ 0x081347D4
 	push {lr}
 	lsl r0, r0, #16
 	ldr r2, _08134800  @ =gUnknown_083C3A3C
-	ldr r1, _08134804  @ =gUnknown_083C3BBC
+	ldr r1, _08134804  @ =gSongTable
 	lsr r0, r0, #13
 	add r0, r0, r1
 	ldrh r3, [r0, #4]
@@ -15082,7 +15082,7 @@ _081347FA:
 _08134800:
 	.4byte gUnknown_083C3A3C
 _08134804:
-	.4byte gUnknown_083C3BBC
+	.4byte gSongTable
 	THUMB_FUNC_END sub_081347D4
 
 	THUMB_FUNC_START sub_08134808
@@ -15090,7 +15090,7 @@ sub_08134808: @ 0x08134808
 	push {lr}
 	lsl r0, r0, #16
 	ldr r2, _08134834  @ =gUnknown_083C3A3C
-	ldr r1, _08134838  @ =gUnknown_083C3BBC
+	ldr r1, _08134838  @ =gSongTable
 	lsr r0, r0, #13
 	add r0, r0, r1
 	ldrh r3, [r0, #4]
@@ -15113,7 +15113,7 @@ _0813482E:
 _08134834:
 	.4byte gUnknown_083C3A3C
 _08134838:
-	.4byte gUnknown_083C3BBC
+	.4byte gSongTable
 	THUMB_FUNC_END sub_08134808
 
 	THUMB_FUNC_START sub_0813483C

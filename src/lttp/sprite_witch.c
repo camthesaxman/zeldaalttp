@@ -45,16 +45,16 @@ void sub_080D1754(u8 r0)
     struct Sprite sp;
     u8 temp;
 
-    if ((((gRam.unk545 & 0x40) == 0) || (gRam.unkA4E != 5)) || (gUnknown_02002324 != 1))
+    if ((((gRam.unk545 & 0x40) == 0) || (gRam.unkA4E != 5)) || (gMagicPowder != 1))
     {
         sub_080C9164(r0, 0x4f, &sp);
     }
     else
     {
         temp = sub_080C500C(r0);
-        if ((temp != 0) && (gRam.unkA4E == 5) && (gUnknown_02002324 == 1))
+        if ((temp != 0) && (gRam.unkA4E == 5) && (gMagicPowder == 1))
         {
-            gUnknown_02002324 = 0;
+            gMagicPowder = 0;
             gUnknown_02002212 |= 0x80;
             sub_080AA724();
             sub_080C9564(r0, 0x4e, &sp);
@@ -351,7 +351,7 @@ void sub_080D1A28(u8 r0)
     u8 temp;
 
     temp = 0;
-    if (gUnknown_02002324 == 1)
+    if (gMagicPowder == 1)
     {
         temp = 1;
     }
@@ -362,7 +362,7 @@ void sub_080D1A54(u8 r0)
 {
     struct Sprite sp;
 
-    if (gUnknown_02002324 != 2)
+    if (gMagicPowder != 2)
     {
         if ((s8)gUnknown_02002212 >= 0)
         {
