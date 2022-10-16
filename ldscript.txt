@@ -21,6 +21,17 @@ SECTIONS
 		asm/rom3.o(.text);
 		src/rom3a.o(.text);
 		asm/rom3a.o(.text);
+		src/lttp/sprite.o(.text);
+		asm/rom3b.o(.text);
+		src/lttp/sprite2.o(.text);
+		src/lttp/sprite_unused.o(.text);
+		src/lttp/sprite_heart_refill.o(.text);
+		src/lttp/sprite_faerie.o(.text);
+		src/lttp/sprite_pickup.o(.text);
+		asm/lttp/sprite_bee.o(.text);
+		src/lttp/sprite_bottle_vendor.o(.text);
+		src/lttp/sprite_witch.o(.text);
+		asm/rom3c.o(.text);
 		asm/rom4.o(.text);
         src/hud.o(.text);
         asm/hud.o(.text);

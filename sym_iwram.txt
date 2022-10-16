@@ -106,7 +106,7 @@ tools/agbcc/lib/libgcc.a:fp-bit.o(.bss);
 . = 0x1A30;	gUnknown_03001A30 = .;
 . = 0x1AA8;	gUnknown_03001AA8 = .;
 . = 0x1C88;	gUnknown_03001C88 = .;
-. = 0x2230;	gUnknown_03002230 = .;
+. = 0x2230;	gRam = .;
 . = 0x2734;	gUnknown_03002734 = .;
 . = 0x2762;	gUnknown_03002762 = .;
 . = 0x276A;	gUnknown_0300276A = .;

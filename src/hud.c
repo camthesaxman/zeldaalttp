@@ -24,39 +24,39 @@ void sub_08127E4C(void)
     int i;
     u32 r3;
 
-    if (gUnknown_03002230.unk1AF0 != 0)
+    if (gRam.unk1AF0 != 0)
     {
-        u16 r0 = gUnknown_03002230.unk1AF2 / 2;
-        gUnknown_03002230.unk1AF6 = r0[gUnknown_08180BCC];
+        u16 r0 = gRam.unk1AF2 / 2;
+        gRam.unk1AF6 = r0[gUnknown_08180BCC];
         //asm(""::"r"(r0 * 2));
-        gUnknown_03002230.unk1AF4 = r0[gUnknown_08180BD2];
-        gUnknown_03002230.unk1AF0 = 0;
-        gUnknown_02010470[gUnknown_03002230.unk1AF4] = 0;
+        gRam.unk1AF4 = r0[gUnknown_08180BD2];
+        gRam.unk1AF0 = 0;
+        gUnknown_02010470[gRam.unk1AF4] = 0;
     }
     //_08127E9C
-    if (gUnknown_02005480[gUnknown_03002230.unk1AD2] == 31)
+    if (gUnknown_02005480[gRam.unk1AD2] == 31)
     {
-        gUnknown_03002230.unk1AD2++;
-        r2 = gUnknown_02005480[gUnknown_03002230.unk1AD2];
+        gRam.unk1AD2++;
+        r2 = gUnknown_02005480[gRam.unk1AD2];
         // to _08127F00
     }
     //_08127EE0
-    else if (gUnknown_02005480[gUnknown_03002230.unk1AD2] < 128
-     && gUnknown_03002230.unk98E <= 1)
+    else if (gUnknown_02005480[gRam.unk1AD2] < 128
+     && gRam.unk98E <= 1)
     {
-        r2 = gUnknown_02005480[gUnknown_03002230.unk1AD2] + 0x100;
+        r2 = gUnknown_02005480[gRam.unk1AD2] + 0x100;
     }
     //_08127F00
     r5 = gUnknown_08195D98[r2];
     r6 = &gUnknown_083B5758[((r2 & (248 * 2)) * 2 + (r2 & 0xF)) * 8];
 
-    gUnknown_02010470[1 + gUnknown_03002230.unk1AF4] = r5 + gUnknown_02010470[gUnknown_03002230.unk1AF4];
-    gUnknown_03002230.unk1AF4++;
+    gUnknown_02010470[1 + gRam.unk1AF4] = r5 + gUnknown_02010470[gRam.unk1AF4];
+    gRam.unk1AF4++;
 
-    r3 = gUnknown_0201046F[gUnknown_03002230.unk1AF4] & 7;
+    r3 = gUnknown_0201046F[gRam.unk1AF4] & 7;
     if (r3 == 0)
     {
-        r1 = &gUnknown_02003080[gUnknown_0201046F[gUnknown_03002230.unk1AF4] + gUnknown_03002230.unk1AF6 / 2];
+        r1 = &gUnknown_02003080[gUnknown_0201046F[gRam.unk1AF4] + gRam.unk1AF6 / 2];
         for (i = 0; i < 16; i++)
         {
             *r1 = *r6;
@@ -72,7 +72,7 @@ void sub_08127E4C(void)
     //_08127FA4
     else
     {
-        u32 *r4 = &gUnknown_02003080[(gUnknown_0201046F[gUnknown_03002230.unk1AF4] & 248) + gUnknown_03002230.unk1AF6 / 2];
+        u32 *r4 = &gUnknown_02003080[(gUnknown_0201046F[gRam.unk1AF4] & 248) + gRam.unk1AF6 / 2];
         u32 r12 = r3 << 2;
         //r1 =
         // hmm
@@ -113,6 +113,6 @@ void sub_08127E4C(void)
         }
     }
     //_08128092
-    gUnknown_03002230.unk1AD2++;
+    gRam.unk1AD2++;
 }
 */
